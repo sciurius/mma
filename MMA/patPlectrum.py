@@ -122,7 +122,7 @@ class Plectrum(PC):
         
         if not l or len(l)==1 and ( l[0].upper()=='OFF' or l[0].upper()=='NONE'):
             self.fretNoise = None
-            if gbl.debug or 1:
+            if gbl.debug:
                 print("%s FretNoise Off" % self.name)
             return
 
@@ -205,7 +205,7 @@ class Plectrum(PC):
             # Adjust to fit tuning
             o.strings=o.strings[0:scount]
                 
-        if gbl.debug or 1:
+        if gbl.debug:
             print(self.getFretNoiseOptions())
         
 

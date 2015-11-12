@@ -310,6 +310,8 @@ def reportFutureVols():
 
     volerrs = []
     for n in gbl.tnames.values():
+        if n.vtype in ("SOLO", "ARIA"):  # not saved in grooves
+            continue
         if len(n.futureVols) > 1:
             volerrs.append(n.name)
         n.futureVols = []     # don't want leftover future vols a track level!

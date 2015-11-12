@@ -28,21 +28,21 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY  bgcolor="#ffffff">
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html711"
+<A NAME="tex2html712"
   HREF="node18.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html709"
+<A NAME="tex2html710"
   HREF="mma.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html703"
+<A NAME="tex2html704"
   HREF="node16.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
 <BR>
-<B> Next:</B> <A NAME="tex2html712"
+<B> Next:</B> <A NAME="tex2html713"
   HREF="node18.html">Swing</A>
-<B> Up:</B> <A NAME="tex2html710"
+<B> Up:</B> <A NAME="tex2html711"
   HREF="mma.html">Reference Manual</A>
-<B> Previous:</B> <A NAME="tex2html704"
+<B> Previous:</B> <A NAME="tex2html705"
   HREF="node16.html">Ornament</A>
 <BR>
 <BR></DIV>
@@ -51,19 +51,19 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
 <UL CLASS="ChildLinks">
-<LI><A NAME="tex2html713"
-  HREF="node17.html#SECTION001710000000000000000">Tempo</A>
 <LI><A NAME="tex2html714"
-  HREF="node17.html#SECTION001720000000000000000">Time</A>
+  HREF="node17.html#SECTION001710000000000000000">Tempo</A>
 <LI><A NAME="tex2html715"
-  HREF="node17.html#SECTION001730000000000000000">TimeSig</A>
+  HREF="node17.html#SECTION001720000000000000000">Time</A>
 <LI><A NAME="tex2html716"
-  HREF="node17.html#SECTION001740000000000000000">Truncate</A>
+  HREF="node17.html#SECTION001730000000000000000">TimeSig</A>
 <LI><A NAME="tex2html717"
-  HREF="node17.html#SECTION001750000000000000000">BeatAdjust</A>
+  HREF="node17.html#SECTION001740000000000000000">Truncate</A>
 <LI><A NAME="tex2html718"
-  HREF="node17.html#SECTION001760000000000000000">Fermata</A>
+  HREF="node17.html#SECTION001750000000000000000">BeatAdjust</A>
 <LI><A NAME="tex2html719"
+  HREF="node17.html#SECTION001760000000000000000">Fermata</A>
+<LI><A NAME="tex2html720"
   HREF="node17.html#SECTION001770000000000000000">Cut</A>
 </UL>
 <!--End of Table of Child-Links-->
@@ -182,7 +182,7 @@ and to return:
 
       <Table Hspace="40%" CellSpacing=0 CellPadding=10 BGColor="OldLace" Border=3>
         <tr><td>
-    <B>Temp *.5  </B> 
+    <B>Tempo *.5  </B> 
    
 	    </td></tr>
       </Table>
@@ -316,9 +316,10 @@ to set up for a waltz:
       </Table>
 
 <P>
-This will set the beats per quarter to 3, the time signature meta
+This will set the beats per bar to 3, the time signature meta
 event to ``3/4'' and the chord tabs to 1,2,3. The following table
-shows the known time signatures, etc.
+shows the known time signatures, etc.<A NAME="tex2html71"
+  HREF="#foot9120"><SUP><SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>.
 
 <P>
 <DIV ALIGN="CENTER">
@@ -330,136 +331,67 @@ shows the known time signatures, etc.
 <TD ALIGN="CENTER"><SPAN  CLASS="textit">Beats/Bar</SPAN></TD>
 <TD ALIGN="LEFT"><SPAN  CLASS="textit">Tabs</SPAN></TD>
 </TR>
-<TR><TD ALIGN="CENTER"><B><!-- MATH
- $\frac{2}{2}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="15" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img4.png"
- ALT="$ {\frac{{2}}{{2}}}$"></SPAN> </B></TD>
+<TR><TD ALIGN="LEFT" COLSPAN=3><SPAN><B>Duple</B></SPAN></TD>
+</TR>
+<TR><TH ALIGN="CENTER"><B><SPAN  CLASS="textbf">2/2</SPAN> </B></TH>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="LEFT">1, 3</TD>
+</TR>
+<TR><TH ALIGN="CENTER"><B><SPAN  CLASS="textbf">2/4</SPAN> </B></TH>
 <TD ALIGN="CENTER">2</TD>
 <TD ALIGN="LEFT">1, 2</TD>
 </TR>
-<TR><TD ALIGN="CENTER"><B><!-- MATH
- $\frac{3}{2}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="15" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img5.png"
- ALT="$ {\frac{{3}}{{2}}}$"></SPAN> </B></TD>
+<TR><TH ALIGN="CENTER"><B><SPAN  CLASS="textbf">6/4</SPAN> </B></TH>
+<TD ALIGN="CENTER">6</TD>
+<TD ALIGN="LEFT">1, 4</TD>
+</TR>
+<TR><TH ALIGN="CENTER"><B><SPAN  CLASS="textbf">6/8</SPAN> </B></TH>
+<TD ALIGN="CENTER">3</TD>
+<TD ALIGN="LEFT">1, 2.5</TD>
+</TR>
+<TR><TD ALIGN="LEFT" COLSPAN=3><SPAN><B>Triple</B></SPAN></TD>
+</TR>
+<TR><TH ALIGN="CENTER"><B><SPAN  CLASS="textbf">3/2</SPAN> </B></TH>
+<TD ALIGN="CENTER">6</TD>
+<TD ALIGN="LEFT">1, 3, 5</TD>
+</TR>
+<TR><TH ALIGN="CENTER"><B><SPAN  CLASS="textbf">3/4</SPAN> </B></TH>
 <TD ALIGN="CENTER">3</TD>
 <TD ALIGN="LEFT">1, 2, 3</TD>
 </TR>
-<TR><TD ALIGN="CENTER"><B><!-- MATH
- $\frac{2}{4}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="15" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img6.png"
- ALT="$ {\frac{{2}}{{4}}}$"></SPAN> </B></TD>
-<TD ALIGN="CENTER">2</TD>
-<TD ALIGN="LEFT">1, 2</TD>
+<TR><TH ALIGN="CENTER"><B><SPAN  CLASS="textbf">3/8</SPAN> </B></TH>
+<TD ALIGN="CENTER">1.5</TD>
+<TD ALIGN="LEFT">1, 1.5, 2</TD>
 </TR>
-<TR><TD ALIGN="CENTER"><B><!-- MATH
- $\frac{3}{4}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="15" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img7.png"
- ALT="$ {\frac{{3}}{{4}}}$"></SPAN> </B></TD>
-<TD ALIGN="CENTER">3</TD>
-<TD ALIGN="LEFT">1, 2, 3</TD>
+<TR><TH ALIGN="CENTER"><B><SPAN  CLASS="textbf">9/8</SPAN> </B></TH>
+<TD ALIGN="CENTER">4.5</TD>
+<TD ALIGN="LEFT">1, 2.25, 4</TD>
 </TR>
-<TR><TD ALIGN="CENTER"><B><!-- MATH
- $\frac{4}{4}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="15" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img8.png"
- ALT="$ {\frac{{4}}{{4}}}$"></SPAN> </B></TD>
+<TR><TD ALIGN="LEFT" COLSPAN=3><SPAN><B>Quadruple</B></SPAN></TD>
+</TR>
+<TR><TH ALIGN="CENTER"><B><SPAN  CLASS="textbf">4/4</SPAN> </B></TH>
 <TD ALIGN="CENTER">4</TD>
 <TD ALIGN="LEFT">1, 2, 3, 4</TD>
 </TR>
-<TR><TD ALIGN="CENTER"><B><!-- MATH
- $\frac{3}{8}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="15" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img9.png"
- ALT="$ {\frac{{3}}{{8}}}$"></SPAN> </B></TD>
-<TD ALIGN="CENTER">1.5</TD>
-<TD ALIGN="LEFT">1, 1.25, 1.75</TD>
-</TR>
-<TR><TD ALIGN="CENTER"><B><!-- MATH
- $\frac{6}{8}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="15" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img10.png"
- ALT="$ {\frac{{6}}{{8}}}$"></SPAN> </B></TD>
-<TD ALIGN="CENTER">3</TD>
-<TD ALIGN="LEFT">1, 1.25, 1.75, 2.25, 2.5, 2.75</TD>
-</TR>
-<TR><TD ALIGN="CENTER"><B><!-- MATH
- $\frac{9}{8}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="15" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img11.png"
- ALT="$ {\frac{{9}}{{8}}}$"></SPAN> </B></TD>
-<TD ALIGN="CENTER">4.5</TD>
-<TD ALIGN="LEFT">1, 1.25, 1.75, 2.25, 2.5, 2.75, 3.25, 3.75, 4.25</TD>
-</TR>
-<TR><TD ALIGN="CENTER"><B><!-- MATH
- $\frac{12}{8}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="22" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img12.png"
- ALT="$ {\frac{{12}}{{8}}}$"></SPAN> </B></TD>
+<TR><TH ALIGN="CENTER"><B><SPAN  CLASS="textbf">12/8</SPAN> </B></TH>
 <TD ALIGN="CENTER">6</TD>
-<TD ALIGN="LEFT">1, 1.25, 1.75, 2.25, 2.5, 2.75, 3.25, 3.75, 4.25, 5.25,
-      5.75, 6.25</TD>
+<TD ALIGN="LEFT">1, 2.5, 4, 5.5</TD>
 </TR>
-<TR><TD ALIGN="CENTER"><B><!-- MATH
- $\frac{5}{4}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="15" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img13.png"
- ALT="$ {\frac{{5}}{{4}}}$"></SPAN> </B></TD>
+<TR><TD ALIGN="LEFT" COLSPAN=3><SPAN><B>Quintuple</B></SPAN></TD>
+</TR>
+<TR><TH ALIGN="CENTER"><B><SPAN  CLASS="textbf">5/4</SPAN> </B></TH>
 <TD ALIGN="CENTER">5</TD>
 <TD ALIGN="LEFT">1, 2, 3, 4, 5</TD>
 </TR>
-<TR><TD ALIGN="CENTER"><B><!-- MATH
- $\frac{7}{4}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="15" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img14.png"
- ALT="$ {\frac{{7}}{{4}}}$"></SPAN> </B></TD>
+<TR><TH ALIGN="CENTER"><B><SPAN  CLASS="textbf">5/8</SPAN> </B></TH>
+<TD ALIGN="CENTER">2.5</TD>
+<TD ALIGN="LEFT">1, 1.5, 2, 2.5, 3</TD>
+</TR>
+<TR><TD ALIGN="LEFT" COLSPAN=3><SPAN><B>Septuple</B></SPAN></TD>
+</TR>
+<TR><TH ALIGN="CENTER"><B><SPAN  CLASS="textbf">7/4</SPAN> </B></TH>
 <TD ALIGN="CENTER">7</TD>
 <TD ALIGN="LEFT">1, 2, 3, 4, 5, 6, 7</TD>
-</TR>
-<TR><TD ALIGN="CENTER"><B><!-- MATH
- $\frac{1}{4}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="15" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img15.png"
- ALT="$ {\frac{{1}}{{4}}}$"></SPAN> </B></TD>
-<TD ALIGN="CENTER">11</TD>
-<TD ALIGN="LEFT">1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11</TD>
-</TR>
-<TR><TD ALIGN="CENTER"><B><!-- MATH
- $\frac{5}{8}$
- -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="15" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
- SRC="img16.png"
- ALT="$ {\frac{{5}}{{8}}}$"></SPAN> </B></TD>
-<TD ALIGN="CENTER">2.5</TD>
-<TD ALIGN="LEFT">1, 1.25, 1.75, 2, 2.25, 2.5</TD>
 </TR>
 </TABLE> 
 	
@@ -467,6 +399,12 @@ shows the known time signatures, etc.
         </Table>
  
 </DIV>
+
+<P>
+Many time signatures can have different meters. For example, in
+<SPAN  CLASS="textbf">6/8</SPAN> you could have 6 or 2 beats/measure. In these cases we
+leave it to you to set the T<SMALL>ABS</SMALL> to the correct values for your
+piece.
 
 <P>
 In addition to the above values, 
@@ -1030,7 +968,7 @@ In standard music notation it is represented by a
  -->
 <IMG
  WIDTH="15" HEIGHT="4" ALIGN="BOTTOM" BORDER="0"
- SRC="img17.png"
+ SRC="img4.png"
  ALT="\rotatebox{270}{\textbf{(\raisebox{.5ex}{.}}}">''
 above a note.
 
@@ -1241,8 +1179,8 @@ thought. The symbol is also referred to as ``railroad tracks''.
 
 <P>
 The idea is to stop the music on all tracks, pause briefly, and
-resume.<A NAME="tex2html71"
-  HREF="#foot9085"><SUP><SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>
+resume.<A NAME="tex2html72"
+  HREF="#foot9137"><SUP><SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A>
 <P>
 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  provides the C<SMALL>UT</SMALL> command to help deal with this
@@ -1453,9 +1391,17 @@ If the offset is omitted, the current bar position will be used. This
 the same as using an offset value of 0.
 <BR><HR><H4>Footnotes</H4>
 <DL>
-<DT><A NAME="foot9085">...
-resume.</A><A
+<DT><A NAME="foot9120">... etc.</A><A
  HREF="node17.html#tex2html71"><SUP><SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A></DT>
+<DD>These are known to 
+<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT> .
+  There are many more valid time signatures. Gardner Read lists over
+  100 of them in  <SPAN  CLASS="textit">Music Notation</SPAN>.
+
+</DD>
+<DT><A NAME="foot9137">...
+resume.</A><A
+ HREF="node17.html#tex2html72"><SUP><SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A></DT>
 <DD>The answer to the music theory question of whether
   the ``pause'' takes time <SPAN  CLASS="textit">from</SPAN> the current beat or is treated
   as a ``fermata'' is not clear--but as far as 
@@ -1466,26 +1412,26 @@ resume.</A><A
 </DL>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html711"
+<A NAME="tex2html712"
   HREF="node18.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html709"
+<A NAME="tex2html710"
   HREF="mma.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html703"
+<A NAME="tex2html704"
   HREF="node16.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
 <BR>
-<B> Next:</B> <A NAME="tex2html712"
+<B> Next:</B> <A NAME="tex2html713"
   HREF="node18.html">Swing</A>
-<B> Up:</B> <A NAME="tex2html710"
+<B> Up:</B> <A NAME="tex2html711"
   HREF="mma.html">Reference Manual</A>
-<B> Previous:</B> <A NAME="tex2html704"
+<B> Previous:</B> <A NAME="tex2html705"
   HREF="node16.html">Ornament</A></DIV>
 <!--End of Navigation Panel-->
 <ADDRESS>
 Bob van der Poel
-2015-10-19
+2015-11-12
 </ADDRESS>
 </BODY>
 </HTML>

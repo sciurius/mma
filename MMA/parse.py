@@ -164,22 +164,25 @@ def parse(inpath):
             3. It's really a chord action
         """
 
-        if not action in gbl.tnames:
-            trackAlloc(action, 0)    # ensure that track is allocated
+        if not action in gbl.tnames:  # no track allocated?
+            trackAlloc(action, 0)     # Try to create. Always returns.
 
         if action in gbl.tnames:     # BASS/DRUM/APEGGIO/CHORD
-
             name = action
             if len(l) < 2:
                 error("Expecting argument after '%s'" % name)
             action = l[1].upper()
 
-            if action in trackFuncs:
+            # Got trackname and action
+            if action in trackFuncs:  # perfect, execute
                 trackFuncs[action](name, l[2:])
-            else:
-                error("Don't know '%s'" % curline)
+                continue
 
-            continue
+            elif action in simpleFuncs:  # opps, not track func
+                error("%s is not a track function. Use global form." % action)
+            else:  # opps, not any kind of func
+                error("%s is not a %s track function." % (action, name))
+
 
         ### Gotta be a chord data line!
 

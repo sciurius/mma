@@ -33,6 +33,7 @@ import MMA.translate
 import MMA.volume
 import MMA.grooves
 import MMA.parse
+import MMA.parseCL
 import MMA.player
 import MMA.seqrnd
 import MMA.midinote
@@ -47,7 +48,6 @@ from MMA.timesig import timeSig
 from MMA.lyric import lyric
 from MMA.common import *
 from MMA.safe_eval import safe_eval
-
 
 def sliceVariable(p, sl):
     """ Slice a variable. Used by macro expand. """
@@ -94,6 +94,9 @@ class Macros:
 
         elif s == 'TIME':
             return str(gbl.QperBar)
+
+        elif s == 'CTABS':
+            return ','.join([ str((float(x) / gbl.BperQ) + 1) for x in MMA.parseCL.chordTabs])
 
         elif s == 'TIMESIG':
             return timeSig.getAscii()
@@ -190,6 +193,7 @@ class Macros:
 
         elif s == 'AUTOLIBPATH':
             return ' '.join(MMA.paths.libDirs)
+
         elif s == 'LIBPATH':
             return ' '.join(MMA.paths.libPath)
 

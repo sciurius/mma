@@ -73,7 +73,7 @@ if gbl.infile:
 
 
 m.addTempo(0, gbl.tempo)      # most user files will override this
-MMA.tempo.setTime(['4/4'])    # and this
+MMA.tempo.setTime(['4/4'])    # and this. IMPORTANT! Sets default chordTabs[]
    
 # Read RC files
 MMA.paths.readRC()

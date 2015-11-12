@@ -51,7 +51,7 @@ class CTable:
 
 lastChord = None   # tracks last chord for "/ /" data lines.
 
-chordTabs = []
+chordTabs = []  # initialized by MMA.main call to setTime()
 
 def setChordTabs(l):
     """ Set the tab positions for chord parsing.
@@ -63,11 +63,7 @@ def setChordTabs(l):
 
     global chordTabs
 
-    chordTabs = [ int((x-1) * gbl.BperQ) for x in l ]
-
-# This is needed to initialize chordTabs[] for 
-# instances where TIME has NOT been set.
-setChordTabs([1,2,3,4])
+    chordTabs = tuple(( int((x-1) * gbl.BperQ) for x in l ))
 
 def parseChordLine(l):
     """ Parse a line of chord symbols and determine start/end points. """

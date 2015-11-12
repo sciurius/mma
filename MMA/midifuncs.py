@@ -616,32 +616,40 @@ def trackWheel(name, ln):
             (name, startValue, endValue, startOffset, endOffset, rset))
 
 
+# Lookup table constants for MIDI PAN values.
+panNames = {'LEFT': 0,       'LEFT100': 0,   'LEFT90': 6,
+            'LEFT80': 13,    'LEFT70': 19,   'LEFT60': 25,
+            'LEFT50': 31,    'LEFT40': 39,   'LEFT30': 44,
+            'LEFT20': 50,    'LEFT10': 57,   'CENTER': 64,
+            'RIGHT10': 70,   'RIGHT20': 77,  'RIGHT30': 83,
+            'RIGHT40': 88,   'RIGHT50': 96,  'RIGHT60': 102,
+            'RIGHT70': 108,  'RIGHT80': 114, 'RIGHT90': 121,
+            'RIGHT100': 127, 'RIGHT': 127 }
+
 def trackPan(name, ln):
     """ Set the Midi Pan value for a track."""
 
     def getv(v):
-        v = v.upper()
-        for n, i in (('LEFT100', 0),   ('LEFT90', 6),    ('LEFT80', 13),
-                    ('LEFT70', 19),   ('LEFT60', 25),   ('LEFT50', 31),
-                    ('LEFT40', 39),   ('LEFT30', 44),   ('LEFT20', 50),
-                    ('LEFT10', 57),   ('CENTER', 64),   ('RIGHT10', 70),
-                    ('RIGHT20', 77),   ('RIGHT30', 83),  ('RIGHT40', 88),
-                    ('RIGHT50', 96),  ('RIGHT60', 102), ('RIGHT70', 108),
-                    ('RIGHT80', 114), ('RIGHT90', 121), ('RIGHT100', 127)):
-            if v == n:
-                return i
-        return stoi(v, "Expecting integer value 0..127")
+        try:
+            return panNames[v.upper()]
+        except:
+            return stoi(v, "Expecting integer value 0..127 or mnemonic (Left*, Center, Right*).")
+
 
     tdata = gbl.tnames[name]
 
     if len(ln) not in (1, 3):
-        error("MidiPan %s: needs 1 arg [Value] OR 3 [Initvalue DestValue Beats]." % name)
+        error("MidiPan %s: needs 1 arg [Value] OR 3 [Initvalue DestValue Beats/Measures]." % name)
 
 
     if len(ln) == 3:
-        beats = stof(ln[2])
+        if ln[2].upper().endswith('M'):
+            beats = int(stof(ln[2][:-1]) * gbl.QperBar)
+        else:
+            beats = stof(ln[2])
         if beats < 1:
-            error("MidiPan %s: Beat value must be positive count, not '%s'." % (name,beats))
+            error("MidiPan %s: Beat/Measure value must be positive count, "
+                  "not '%s'." % (name,beats))
         initPan = getv(ln[0])
         newPan = getv(ln[1])
     else:

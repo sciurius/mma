@@ -34,23 +34,30 @@ import MMA.midi
 ######################################
 # Tempo/timing
 
-timeTable = { # simple
-              '2/2': [2,    [1, 2] ],
-              '3/2': [3,    [1, 2, 3] ],
-              '2/4': [2,    [1, 2] ],
-              '3/4': [3,    [1, 2, 3] ],
-              '4/4': [4,    [1, 2, 3, 4] ],
-              '3/8': [1.5,  [1, 1.25, 1.75] ],
-              '6/8': [3,    [1, 1.25, 1.75, 2.25, 2.5, 2.75] ],
-              '9/8': [4.5,  [1, 1.25, 1.75, 2.25, 2.5, 2.75, 3.25, 3.75, 4.25] ],
-              '12/8':[6,    [1, 1.25, 1.75, 2.25, 2.5, 2.75, 3.25, \
-                              3.75, 4.25, 5.25, 5.75, 6.25] ],
-              # Complex
-              '5/4': [5,    [1, 2, 3, 4, 5] ],
-              '7/4': [7,    [1, 2, 3, 4, 5, 6, 7] ],
-              '11/4': [11,   [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] ],
-              '5/8': [2.5,  [1,1.25,1.75,2,2.25,2.5 ] ]
-            }
+timeTable = { 
+    # duple times
+    '2/2': (4,    (1, 3)), 
+    '2/4': (2,    (1, 2)),
+    '6/4': (6,    (1, 4)),
+    '6/8': (3,    (1, 2.5)),
+
+    # triple
+    '3/2': (6,    (1, 3, 5)),
+    '3/4': (3,    (1, 2, 3)),
+    '3/8': (1.5,  (1, 1.5, 2)),
+    '9/8': (4.5,  (1, 2.5, 4)),
+    
+    # quadruple
+    '4/4': (4,    (1, 2, 3, 4) ),
+    '12/8':(6,    (1, 2.5, 4, 5.5)),
+
+    # quintuple
+    '5/4': (5,    (1, 2, 3, 4, 5) ),
+    '5/8': (2.5,  (1, 1.5, 2, 2.5, 3 ) ), 
+
+    # septuple
+    '7/4': (7,    (1, 2, 3, 4, 5, 6, 7) )
+ }
 
 def setTime(ln):
     """ Set the 'time' value. This is NOT a time sig, it
@@ -62,7 +69,7 @@ def setTime(ln):
     """
 
     tabList = []
-    defaultTabs = [1,2,3,4,5,6,7,8,9,10,11,12]
+    defaultTabs = (1,2,3,4,5,6,7,8,9,10,11,12)
     sigSet = False
 
     ln, options = opt2pair(ln, 1)
@@ -116,17 +123,18 @@ def setTime(ln):
 
         for a in gbl.tnames.values():
             if a.riff:
-                warning("Time: Change from %s to %s deleting %s riffs." % (origTime, n, a.name))
+                warning("Time: Change from %s to %s deleting %s riffs." %
+                        (origTime, n, a.name))
                 a.riff = []
             a.clearSequence()
 
     if not tabList:
-        tabList = [1,2,3,4,5,6,7,8,9,10,11,12][:int(gbl.QperBar)]
+        tabList = (1,2,3,4,5,6,7,8,9,10,11,12)[:int(gbl.QperBar)]
 
     # need to do this after setting time.
-    if tabList[-1] > gbl.QperBar:
-        error("Time: Last tab must be <= %s, not %s." % 
-              ( gbl.QperBar, tabList[-1]))
+    if (tabList[-1]-1) * gbl.BperQ >= gbl.barLen:
+        error("Time: Last tab must be < %s, not '%s'." % 
+              (float(gbl.barLen/gbl.BperQ)+1, tabList[-1]))
 
     setChordTabs(tabList)
 
