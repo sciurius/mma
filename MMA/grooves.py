@@ -357,7 +357,7 @@ def nextGroove():
         If there is more than 1 entry in the groove list,
         advance (circle). We don't have to qualify grooves
         since they were verified when this list was created.
-        groovesList==None if there is only one groove (or none).
+        groovesList is None if there is only one groove (or none).
     """
 
     global lastGroove, currentGroove, groovesCount

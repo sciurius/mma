@@ -668,7 +668,7 @@ class Melody(PC):
                     n.pitch = None
 
             # The chord might have no notes, have more than one, or be all grace
-            if pitch == None or count != 1:
+            if pitch is None or count != 1:
                 continue
 
             tb = self.getChordInPos(offset, ctable)

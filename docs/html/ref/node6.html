@@ -376,7 +376,7 @@ list which changes the G<SMALL>ROOVE</SMALL> after each bar the sequence
 number is reset after each bar ... with one exception: if the same
 G<SMALL>ROOVE</SMALL> is being used for two or more bars the sequence will not
 be reset.<A NAME="tex2html36"
-  HREF="#foot3113"><SUP><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A>
+  HREF="#foot3120"><SUP><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A>
 <P>
 Another way to select G<SMALL>ROOVE</SMALL>s is to use a list of grooves with
 a leading value. This lets you select the G<SMALL>ROOVE</SMALL> to use based
@@ -443,6 +443,16 @@ Extended groove names, in just about all cases, eliminate the need for
 the U<SMALL>SE</SMALL> command. For a complete understanding you should also
 read the PATHS section, <A HREF="node30.html#lib-files">here</A>,
 of this manual.
+
+<P>
+<SPAN  CLASS="textit">Important</SPAN>: The filename to the left of the ``:'' is a system
+pathname, not a 
+<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  variable. As such it <SPAN  CLASS="textit">must match the case</SPAN>
+for the filename/path on your system. If, for example, you have a file
+<TT><SPAN  CLASS="textbf">casio/poprock1.mma</SPAN></TT> and attempt to access it with G<SMALL>ROOVE</SMALL>
+<TT><SPAN  CLASS="textbf">Casio/Poprock1:PopRock1End</SPAN></TT> it will not work. You must use the
+form G<SMALL>ROOVE</SMALL> <TT><SPAN  CLASS="textbf">casio/poprock1:PopRock1End</SPAN></TT>. The case of the
+data to the right of the ``:'' is not important.
 
 <P>
 When using an extended name, you (probably) only need to use the full
@@ -1112,7 +1122,7 @@ This issue in covered in more detail <A HREF="node30.html#library-maint">here in
   in extended names.
 
 </DD>
-<DT><A NAME="foot3113">... reset.</A><A
+<DT><A NAME="foot3120">... reset.</A><A
  HREF="node6.html#tex2html36"><SUP><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A></DT>
 <DD>Actually, 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  checks to see the next
@@ -1142,7 +1152,7 @@ This issue in covered in more detail <A HREF="node30.html#library-maint">here in
 <!--End of Navigation Panel-->
 <ADDRESS>
 Bob van der Poel
-2015-11-12
+2015-12-15
 </ADDRESS>
 </BODY>
 </HTML>

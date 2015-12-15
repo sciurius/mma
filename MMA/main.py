@@ -52,9 +52,8 @@ MMA.paths.init()   # initialize the lib/include paths
 
 MMA.options.opts()
 
-#  LibPath and IncPath are set before option parsing ... Debug setting
-#  wasn't set so check it now.
-
+#  LibPath and IncPath are set before option parsing, but
+#  debug setting wasn't. So we need to do the debug for this now
 if gbl.debug:
     print("Initialization has set LibPath set to %s" % MMA.paths.libPath)
     print("Initialization has set IncPath set to %s" % MMA.paths.incPath)

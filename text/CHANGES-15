@@ -120,14 +120,14 @@ Note durations can be specified as tuplet ratios. An 8th note triplet
 Added new macro $_NoteLen(note). Returns the duration
   of the note in MIDI ticks.
 
-October 10, 2016
+October 10, 2015
 Released 15-09a
 
 ------------------------------------------------------------
 
 MidiPan: Added a 'm' option to the beat count. 
 
-WHen grooves are restored (via a GROOVE command) a check is made
+When grooves are restored (via a GROOVE command) a check is made
  for any unprocessed (DE)CRESC stacks. This means that you can
  force a gradual change over a Groove change ... this makes sense
  since a Groove will have it's own volume. However, SOLO and ARIA
@@ -143,3 +143,21 @@ Added "Add" option to transpose so we can change the current value.
 
 A large number of library files were missing (the docs were there,
  but the porch light wasn't on). The entire library should now be there!
+
+November 12, 2015
+Released 15-09b
+
+----------------------------------------------------------------------
+
+If you create a database with Python3 and then attempt to read it with Python2
+ an error is reported. Seems py3 has pickle protocols which py2 doesn't know.
+ This is now trapped and the user is advised to run mma -G as root.
+
+Fretnoise: Trapped bug to check for lack of a bass track being set; trapped 
+ non-existent track error, fixed voice change in slave track
+
+Cleaned up docs for ornament. Hopefully this is more readable now.
+
+December 15, 2015
+Release 15-12
+

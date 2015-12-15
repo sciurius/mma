@@ -221,6 +221,11 @@ def loadDB(d):
         f.close()
     except IOError:
         g = {}
+    except ValueError:
+        error("Incompatible database found. Probably a result"
+              "  of using different versions of python to"
+              "  create and read. Please recreate database"
+              "  by using 'mma -G' as root.")
 
     # If we can't find the directory, advise user to recreate the DB
     # Note, not an error ... should it be? Note, the compile will probably
