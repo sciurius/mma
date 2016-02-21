@@ -572,7 +572,7 @@ class PC:
 
     def setTone(self, ln):
         """ Set Tone. Error trap, only drum tracks have tone. """
-
+        
         error("Tone command not supported for %s track" % self.name)
 
     def setOn(self):
@@ -961,22 +961,21 @@ class PC:
         or a single '-' to disable.
         """
 
-        """ lnExpand() works here! The midi data has been converted to
-        pseudo-macros already in the parser. """
-
+        # lnExpand() works here! The midi data has been converted to
+        # pseudo-macros already in the parser. 
         ln = lnExpand(ln, '%s MIDIVoice' % self.name)
 
         seq = []
         for a in ln:
-            if a in 'zZ':
+            if a in 'zZ':  # some bars in seq might not want midi stuff
                 seq.append(None)
             else:
                 seq.append(MMA.mdefine.mdef.get(a.upper()))
 
-        if seq.count(None) == len(seq):
-            self.midiVoice = []
+        if seq.count(None) == len(seq):  # see if all bars in seq are None
+            self.midiVoice = []          # yes, kill the whole voice thing
         else:
-            self.midiVoice = seqBump(seq)
+            self.midiVoice = seqBump(seq)  # set voice for all bars in seq
  
         if gbl.debug:
             print("%s MIDIVoice: %s" %

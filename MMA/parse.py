@@ -61,6 +61,7 @@ import MMA.tempo
 import MMA.tweaks
 import MMA.options
 import MMA.rpitch
+import MMA.regplug
 
 from MMA.timesig import timeSig
 from MMA.parseCL import parseChordLine
@@ -1343,6 +1344,7 @@ simpleFuncs = {'ADJUSTVOLUME': MMA.volume.adjvolume,
                'MSETEND': endmset,
                'NEWSET': macros.newsetvar,
                'PATCH': MMA.patch.patch,
+               'PLUGIN': MMA.regplug.plugin,
                'PRINT': lnPrint,
                'PRINTACTIVE': printActive,
                'PRINTCHORD': MMA.chords.printChord,
