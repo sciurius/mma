@@ -1,10 +1,3 @@
-# StrumPattern MMA plugin 
-#
-# written by Ignazio Di Napoli
-# <neclepsio@gmail.com> 
-
-### This does NOT work with python3. Sorry :)
-
 """
 This module is an integeral part of the program
 MMA - Musical Midi Accompaniment.
@@ -27,45 +20,56 @@ Bob van der Poel <bob@mellowood.ca>
 
 """
 
+# ###################################
+# # StrumPattern 1.0 MMA plugin     #
+# #                                 #
+# # written by Ignazio Di Napoli    #
+# # <neclepsio@gmail.com>           #
+# ###################################
 
-# This import will access the global variables in MMA.
-# You can BUT SHOULD NOT change things. 
-
-import MMA.gbl as gbl
-
-# other imports
-
-from MMA.common import error, warning
-
+# We import the plugin utilities
+from MMA import pluginUtils as pu
 
 
 # ###################################
-# # Plugin configuration            #
+# # Documentation and arguments     #
 # ###################################
 
-# The name of the plugin
-NAME = "StrumPattern"
+# We add plugin parameters and documentation here.
+# The documentation will be printed either calling printUsage() or
+# executing "python mma.py -I pluginname". 
+# I suggest to see the output for this plugin to understand how code
+# of this section will be formatted when printed.
 
-# Track types to which the plugin applies; None for non-track plugins.
-TRACKTYPES = ["Plectrum"]
+# Minimum MMA required version.
+pu.setMinMMAVersion(15, 12)
 
-# A list of arguments for the plugin; each is specified with [name, default, doc]. 
-# If no default is provided, use None to trigger an error if the user not specifies it.
-ARGUMENTS = [
-    ["Pattern",     None,  "see main documents"],
-    ["Strum",       "5",   "strm value to use in sequence (see Plectrum docs)"],
-    ["Volume",      "80",  "volume for strums, can be specified for each string (see Plectrum docs)"],
-    ["VolumeMuted", "60",  "volume for mute, can be specified for each string (see Plectrum docs)"],
-    ["VolumeEmph",  "100", "volume for emphatized strums, can be specified for each string (see Plectrum docs)"],
-    ["VolumePick",  "90",  "volume for single string pick"],
-]
+# A short plugin description.
+pu.setDescription("Sets a strum pattern for Plectrum tracks.")
 
-# Simple documentation
-DOC="""
-Sets a pattern for Plectrum tracks.
+# A short author line.
+pu.setAuthor("Written by Ignazio Di Napoli <neclepsio@gmail.com>.")
 
-The pattern is specified as a string of comma-separed values, that are
-equally spaced into the bar.
+# Since this is a track plugin, we set the track types for which it can
+# be used. You can specify more than one. To allow for all track types,
+# call setTrackType with no arguments.
+# For non-tracks plugin, don't call setTrackType at all.
+# Whether the plugin is track or non-track is decided by the entry point,
+# but help will use this information.
+pu.setTrackType("Plectrum")
+
+# We add the arguments for the command, each with name, default value and a
+# small description. A default value of None requires specifying the argument.
+pu.addArgument("Pattern",     None,  "see after")
+pu.addArgument("Strum",       "5",   "strum value to use in sequence (see Plectrum docs)")
+pu.addArgument("Volume",      "80",  "volume for strums, can be specified for each string (see Plectrum docs)")
+pu.addArgument("VolumeMuted", "60",  "volume for mute, can be specified for each string (see Plectrum docs)")
+pu.addArgument("VolumeEmph",  "100", "volume for emphatized strums, can be specified for each string (see Plectrum docs)")
+pu.addArgument("VolumePick",  "90",  "volume for single string pick")
+
+# We add a small doc. %NAME% is replaced by plugin name.
+pu.setPluginDoc("""
+The pattern is specified as a string of dot-separed values, that are equally spaced into the bar.
 Values can be:
     d   downward strum
     u   upward strum
@@ -75,186 +79,124 @@ Values can be:
     um  upward strum with muted strings
     x   chunk
     -   do nothing (used to skip to next time division)
-If only one-character codes are used, you can avoid commas.
+If only one-character codes are used, you can avoid dots.
+You can specify more bars separed by semicolons (;).
     
-Each time it's used, it creates a clone track of the provided one using the 
-voice MutedGuitar for chucks and muted strums.
-Its name is the name of the main track with an appended "-Muted", if you need 
-to change it you must do so every time after using @StrumPattern.
-"""
+Examples:
+    Plectrum %NAME% dudududu
+    Plectrum %NAME% dm.um.dm.um.dm.um.dm.um
+    Plectrum %NAME% dudududu;12345654
+    Plectrum %NAME% dudududu, Strum=10
+    Plectrum %NAME% dudududu, 5, 70, 60, 90, 80
+    Plectrum %NAME% dudududu, 7, VolumeEmph=90
+    
+Each time it's used, %NAME% creates a clone track of the provided one using the voice MutedGuitar for chucks and muted strums.
+Its name is the name of the main track with an appended "-Muted", if you need to change it you must do so every time after using %NAME%.
 
-
+This plugin has been written by Ignazio Di Napoli <neclepsio@gmail.com>. 
+Version 1.0.
+""")
+  
+    
 
 # ###################################
-# # Utility functions               #
+# # Entry points                    #
 # ###################################
 
-# If you don't send all the commands together the result is commands 
-# are reversed since each is pushed as the very next command to be executed.
-# So we save all the commands (with addCommand) and send them at the end
-# (with sendCommands).
-
-_commands = []
-def addCommand(strings):
-    if isinstance(strings, (str, unicode)):
-        strings = [strings]
-    _commands.extend(strings)
-
-def sendCommands():
-    # All values have to be lists of words. Not a string per line!
-    ret = [l.split() for l in _commands]
-
-    # The next line does the input stream push. Note that we are using
-    # the current line number of the file for each line.
-    gbl.inpath.push(ret, [gbl.lineno] * len(ret))
-
-    
-def parseCommandLine(line):
-    s = " ".join(line)
-    while " =" in s:
-        s = s.replace(" =", "=")
-    while "= " in s:
-        s = s.replace("= ", "=")
-    while "  " in s:
-        s = s.replace("  ", " ")
-    
-    res = {name:default for name, default, _ in ARGUMENTS}
-    positional = True
-    for name, default, _ in ARGUMENTS:
-        res[name] = default
-        
-    for i, value in enumerate(s.split(" ")):
-        if "=" in value:
-            n, _, v = value.partition("=")
-            positional = False
-        elif positional:
-            n, _, _ = ARGUMENTS[i]
-            v = value
-        else:
-            error("Plugin {}: positional argument after named argument is not allowed.".format(NAME))
-        res[n] = v
-    
-    for k, v in res.items():
-        if v is None:
-            printUsage()
-            error("Plugin {}: no value for argument {}.".format(NAME, k))
-    
-    return res
-    
-
+# This prints help when MMA is called with -I switch.
+# Cannot import plugin_utils directly because it wouldn't recognize which
+# plugin is executing it.
 def printUsage():
-    s = "Plugin {} usage:\n".format(plugInName['name'])
-    if TRACKTYPES is not None:
-        s += "Track "
-    s += "@" + NAME + " "
-        
-    for name, _, _ in ARGUMENTS:
-        s += name + " " 
-    
-    s += "\n"
+    pu.printUsage()
 
-    if TRACKTYPES is not None:
-        if len(TRACKTYPES) == 1:
-            s += "Track type must be {}.\n".format(TRACKTYPES[0])
-        else:
-            s += "Track type must be one of {}.\n".format(", ".join(TRACKTYPES[:-1]) + " or " + TRACKTYPES[-1])
-
-    for name, default, doc in ARGUMENTS:
-        s += "    {}:\t{}\n".format(name, doc + (" (default: "+default+")" if default is not None else ""))
-    s += "\n"
-    
-    s += DOC.strip()
-    
-    print(s)
-    
-    
-def checkTrackType(name):
-    for t in TRACKTYPES:
-        if name.upper() == t.upper() or name.upper().startswith(t.upper() + "-"):
-            return
-    
-    if len(TRACKTYPES) == 1:
-        error("Plugin {}: track type must be {}.".format(NAME, TRACKTYPES[0]))
-    else:
-        error("Plugin {}: track type must be one of {}.".format(NAME, ", ".join(TRACKTYPES[:-1]) + " or " + TRACKTYPES[-1]))
-    
-    
-
-# ###################################
-# # Entry point                     #
-# ###################################
-
+# This is a track plugin, so we define track_run(trackname, line).
+# For non-track plugins we use run(line).
+# When using this library, only one of the two can be used.
 def trackRun(trackname, line):
-    checkTrackType(trackname)
-    args = parseCommandLine(line)
+    # We check if track type is correct.
+    pu.checkTrackType(trackname)
+    # We parse the arguments. Errors are thrown if something is wrong,
+    # printing the correct usage on screen. Default are used if needed.
+    # parseCommandLine also takes an optional boolean argument to allow
+    # using of arguments not declared with pu.addArgument, default is False.
+    args = pu.parseCommandLine(line)
     
+    # This is how we access arguments.
     pattern = args["Pattern"]
     strum   = args["Strum"]
     volumeN = args["Volume"]
     volumeM = args["VolumeMuted"]
     volumeE = args["VolumeEmph"]
     volumeP = args["VolumePick"]
-        
-    res_normal = []
-    res_muted = []
     
-    if "," in pattern:
-        pattern = pattern.lower().split(",")
-    else:
-        #  you can avoid commas when not using ue, ux, de, dx
-        pattern = pattern.lower()
+    # This is the logic for the plugin.
+    all_normal = ""
+    all_muted = ""
     
-    step = float(gbl.QperBar)/len(pattern)
-    
-    for i, c in enumerate(pattern):
-        t = 1+step*i
-    
-        if c == "u":
-            res_normal.append("{:0.2} +{} {}".format(t, strum, volumeN))
-        elif c == "ue":
-            res_normal.append("{:0.2} +{} {}".format(t, strum, volumeE))
-        elif c == "um":
-            res_normal.append("{:0.2} 0 0".format(t))
-            res_muted.append("{:0.2} +{} {}".format(t, strum, volumeM))
-            
-        elif c == "d":
-            res_normal.append("{:0.2} -{} {}".format(t, strum, volumeN))
-        elif c == "de":
-            res_normal.append("{:0.2} -{} {}".format(t, strum, volumeE))
-        elif c == "dm":
-            res_normal.append("{:0.2} 0 0".format(t))
-            res_muted.append("{:0.2} -{} {}".format(t, strum, volumeM))
-            
-        elif c == "x":
-            res_normal.append("{:0.2} 0 0".format(t))
-            res_muted.append("{:0.2} 0 {}".format(t, volumeM))
-            
-        elif c == "0":
-            res_normal.append("{:0.2} 0 0".format(t))
-            
-        elif c.lstrip("0").isdigit():
-            res_normal.append("{:0.2} 0 {}:{}".format(t, c, volumeP))
-
-        elif c == "-":
-            pass
-            
+    for bar_pattern in pattern.split(";"):
+        if "." in bar_pattern:
+            bar_pattern = bar_pattern.lower().split(".")
         else:
-            printUsage()
-            error("{}: unrecognized command in strum pattern: '{}'.".format(NAME, c))    
+            # you can avoid commas when not using ue, ux, de, dx
+            bar_pattern = bar_pattern.lower()
+
+        strums_normal = []
+        strums_muted = []
+        
+        step = float(pu.getSysVar("TIME"))/len(bar_pattern)
+        for i, c in enumerate(bar_pattern):
+            t = 1+step*i
+        
+            if c == "u":
+                strums_normal.append("{:0.4} -{} {}".format(t, strum, volumeN))
+            elif c == "ue":
+                strums_normal.append("{:0.4} -{} {}".format(t, strum, volumeE))
+            elif c == "um":
+                strums_normal.append("{:0.4} 0 0".format(t))
+                strums_muted.append("{:0.4} -{} {}".format(t, strum, volumeM))
+                
+            elif c == "d":
+                strums_normal.append("{:0.4} +{} {}".format(t, strum, volumeN))
+            elif c == "de":
+                strums_normal.append("{:0.4} +{} {}".format(t, strum, volumeE))
+            elif c == "dm":
+                strums_normal.append("{:0.4} 0 0".format(t))
+                strums_muted.append("{:0.4} +{} {}".format(t, strum, volumeM))
+                
+            elif c == "x":
+                strums_normal.append("{:0.4} 0 0".format(t))
+                strums_muted.append("{:0.4} 0 {}".format(t, volumeM))
+                
+            elif c == "0":
+                strums_normal.append("{:0.4} 0 0".format(t))
+                
+            elif c.lstrip("0").isdigit():
+                for s in c:
+                    strums_normal.append("{:0.4} 0 {}:{}".format(t, s, volumeP))
+
+            elif c == "-":
+                pass
+                
+            else:
+                #printUsage()
+                pu.error("{}: unrecognized command in strum pattern: '{}'.".format(pu.getName(), c))    
      
-    res_normal = "{" + "; ".join(res_normal) + ";}"
-    addCommand("{} Sequence {}".format(trackname, res_normal))
-    addCommand("{}-Muted SeqClear".format(trackname))
-    
-    if len(res_muted) > 0:
-        res_muted = "{" + "; ".join(res_muted) + ";}"
-        addCommand("{}-Muted Copy {}".format(trackname, trackname))
-        addCommand("{}-Muted Voice MutedGuitar".format(trackname))
-        addCommand("{}-Muted Sequence {}".format(trackname, res_muted))
-    
+        bar_normal = ("{" + "; ".join(strums_normal) + ";}") if len(strums_normal) > 0 else "z"
+        bar_muted  = ("{" + "; ".join(strums_muted)  + ";}") if len(strums_muted)  > 0 else "z"
+        
+        all_normal += bar_normal + " "
+        all_muted  += bar_muted + " "
+        
+
     # If you don't send all the commands together the result is commands 
     # are reversed since each is pushed as the very next command to be executed.
     # So we save all the commands (with addCommand) and send them at the end
     # (with sendCommands).
-    sendCommands()
+    
+    pu.addCommand("{} Sequence {}".format(trackname, all_normal))
+    pu.addCommand("{}-Muted SeqClear".format(trackname))
+    pu.addCommand("{}-Muted Copy {}".format(trackname, trackname))
+    pu.addCommand("{}-Muted Voice MutedGuitar".format(trackname))
+    pu.addCommand("{}-Muted Sequence {}".format(trackname, all_muted))
+    pu.sendCommands()
 

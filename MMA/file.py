@@ -103,6 +103,7 @@ class ReadFile:
 
         self.que = []     # que for pushed lines (mainly for REPEAT)
         self.qnums = []
+        #self.atEOFlines = []
 
         dataStore = self.FileData  # shortcut to avoid '.'s
 
@@ -285,6 +286,10 @@ class ReadFile:
                 return
 
         error("Label '%s' has not be set" % l)
+
+    def pushEOFline(self, ln):
+        self.fdata.append(self.FileData(gbl.lineno, ln, ''))
+        self.lastline+=1
 
     def push(self, q, nums):
         """ Push a list of lines back into the input stream.

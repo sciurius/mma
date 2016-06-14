@@ -186,3 +186,33 @@ The ChordAdjust code has been fixed up and has a RESET option. You
 Version numbering: a minor change. We're still using YY.MM for
  the major releases. For minor (developer) releases we now
  use YY.MM.[a-z]. 
+
+February 21, 2016
+Release 15.2.a
+
+-------------------------------------------------------------
+
+DUPRIFF: Addition of the FROM keyword to reverse direction of copy.
+
+Added the pluginUtils module for your plugins to access. Added
+ Ignazio's documentation and updated his strumPattern plugin.
+
+April 14, 2016
+Release 15.2.b
+
+-------------------------------------------------------------
+
+
+Added AFTER command
+
+-------------------------------------------------------------
+
+May 22, 2016
+Release 15.2.c
+
+Added EOF event to After.
+
+Wrote quarter tone riff module. It's not perfection, but works.
+
+June 11, 2016
+Release 16.06

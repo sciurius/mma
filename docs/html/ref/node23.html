@@ -28,21 +28,21 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY  bgcolor="#ffffff">
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html825"
+<A NAME="tex2html827"
   HREF="node24.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html823"
+<A NAME="tex2html825"
   HREF="mma.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html817"
+<A NAME="tex2html819"
   HREF="node22.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
 <BR>
-<B> Next:</B> <A NAME="tex2html826"
+<B> Next:</B> <A NAME="tex2html828"
   HREF="node24.html">Low Level MIDI Commands</A>
-<B> Up:</B> <A NAME="tex2html824"
+<B> Up:</B> <A NAME="tex2html826"
   HREF="mma.html">Reference Manual</A>
-<B> Previous:</B> <A NAME="tex2html818"
+<B> Previous:</B> <A NAME="tex2html820"
   HREF="node22.html">Subroutines</A>
 <BR>
 <BR></DIV>
@@ -52,15 +52,15 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <UL CLASS="ChildLinks">
 <LI><UL>
-<LI><A NAME="tex2html827"
-  HREF="node23.html#SECTION002301000000000000000">Naming and Locating</A>
-<LI><A NAME="tex2html828"
-  HREF="node23.html#SECTION002302000000000000000">Distribution</A>
 <LI><A NAME="tex2html829"
-  HREF="node23.html#SECTION002303000000000000000">Enabling</A>
+  HREF="node23.html#SECTION002301000000000000000">Naming and Locating</A>
 <LI><A NAME="tex2html830"
-  HREF="node23.html#SECTION002304000000000000000">Disabling</A>
+  HREF="node23.html#SECTION002302000000000000000">Distribution</A>
 <LI><A NAME="tex2html831"
+  HREF="node23.html#SECTION002303000000000000000">Enabling</A>
+<LI><A NAME="tex2html832"
+  HREF="node23.html#SECTION002304000000000000000">Disabling</A>
+<LI><A NAME="tex2html833"
   HREF="node23.html#SECTION002305000000000000000">Security</A>
 </UL></UL>
 <!--End of Table of Child-Links-->
@@ -138,7 +138,7 @@ added to
 call existing 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  functions, and even add their own plugins, and call other
 programs.<A NAME="tex2html88"
-  HREF="#foot12877"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>
+  HREF="#foot12913"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>
 <P>
 Each plugin must have a containing directory with the same name as the
 plugin. So, the plugin ``hello'' would live in the <TT><SPAN  CLASS="textbf">hello</SPAN></TT>
@@ -184,7 +184,7 @@ called <TT><SPAN  CLASS="textbf">__init__.py</SPAN></TT>. This file is necessary
 facility to operate. 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  checks for this file and will generate an
 error if not found or not empty.<A NAME="tex2html89"
-  HREF="#foot12891"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A>
+  HREF="#foot12927"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A>
 <P>
 Hoping that a few lines of example code will compensate for the lack
 of pages of reference, we suggest that you look at the module
@@ -201,7 +201,7 @@ version! If you have both a ``hello'' and ``HELLO'' directory a
 warning message will be printed; one of the two modules will be
 loaded, but which is indeterminate (the first found will be
 used).<A NAME="tex2html90"
-  HREF="#foot12894"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A>
+  HREF="#foot12930"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A>
 <P>
 
 <H2><A NAME="SECTION002302000000000000000">
@@ -416,7 +416,7 @@ If any changes are made to the plugin code, you'll be asked again.
 Permissions are stored in a file <TT><SPAN  CLASS="textbf">plugins.list</SPAN></TT>. Depending on
 your system this will be located in a ``standard''
 location.<A NAME="tex2html91"
-  HREF="#foot12935"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A>
+  HREF="#foot12971"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A>
 <P>
 If you are confident that no harm will come to your system by loading
 plugins (which is probably true most of the time) you can skip all this
@@ -426,7 +426,7 @@ security by starting
 <P>
 <BR><HR><H4>Footnotes</H4>
 <DL>
-<DT><A NAME="foot12877">...
+<DT><A NAME="foot12913">...
 programs.</A><A
  HREF="node23.html#tex2html88"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A></DT>
 <DD>The reason we're so free with this stuff is that
@@ -434,53 +434,53 @@ programs.</A><A
   other language) program can do. Again, <B>Be Careful.</B>
 
 </DD>
-<DT><A NAME="foot12891">... empty.</A><A
+<DT><A NAME="foot12927">... empty.</A><A
  HREF="node23.html#tex2html89"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A></DT>
 <DD>Python doesn't restrict the
   __init__.py module to be empty. It can actually contain code. For
   security reasons we force it to be empty.
 
 </DD>
-<DT><A NAME="foot12894">...
+<DT><A NAME="foot12930">...
 used).</A><A
  HREF="node23.html#tex2html90"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A></DT>
 <DD>This would only be possible on computers with a
   case-sensitive filename structure, like Linux.
 
 </DD>
-<DT><A NAME="foot12935">...
+<DT><A NAME="foot12971">...
 location.</A><A
  HREF="node23.html#tex2html91"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A></DT>
 <DD>
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  uses the Python module appdirs.py (included in
   this distribution) to determine the ``best'' location to store
-  configuration files. For more information <TT><A NAME="tex2html92"
+  configuration files. For more information see <TT><A NAME="tex2html92"
   HREF="http://github.com/ActiveState/appdirs">http://github.com/ActiveState/appdirs</A></TT>.
 
 </DD>
 </DL>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html825"
+<A NAME="tex2html827"
   HREF="node24.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html823"
+<A NAME="tex2html825"
   HREF="mma.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html817"
+<A NAME="tex2html819"
   HREF="node22.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
 <BR>
-<B> Next:</B> <A NAME="tex2html826"
+<B> Next:</B> <A NAME="tex2html828"
   HREF="node24.html">Low Level MIDI Commands</A>
-<B> Up:</B> <A NAME="tex2html824"
+<B> Up:</B> <A NAME="tex2html826"
   HREF="mma.html">Reference Manual</A>
-<B> Previous:</B> <A NAME="tex2html818"
+<B> Previous:</B> <A NAME="tex2html820"
   HREF="node22.html">Subroutines</A></DIV>
 <!--End of Navigation Panel-->
 <ADDRESS>
 Bob van der Poel
-2016-02-16
+2016-06-11
 </ADDRESS>
 </BODY>
 </HTML>

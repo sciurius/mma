@@ -127,7 +127,7 @@ def defCall(l):
     
     funcList[fname] = Funcs(params, body, defaults, gbl.inpath.fname, lineN)
     
-    if gbl.debug or 1: 
+    if gbl.debug: 
         t = [ a[1:] for a in params]
         print("DefCall: Created function '%s': %s" % (fname, ', '.join(t)))
 

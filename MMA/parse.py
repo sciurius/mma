@@ -62,6 +62,7 @@ import MMA.tweaks
 import MMA.options
 import MMA.rpitch
 import MMA.regplug
+import MMA.after
 
 from MMA.timesig import timeSig
 from MMA.parseCL import parseChordLine
@@ -92,6 +93,8 @@ def parseFile(n):
         print("File '%s' closed." % n)
 
 
+    
+                
 def parse(inpath):
     """ Process a mma input file. """
 
@@ -102,8 +105,9 @@ def parse(inpath):
     curline = None
 
     while 1:
+        MMA.after.check()
+        
         curline = inpath.read()
-
         if curline is None:   # eof, exit parser
             break
 
@@ -151,8 +155,6 @@ def parse(inpath):
 
         if gbl.showExpand and action != 'REPEAT':
             print(l)
-
-        # If the command is in the simple function table, jump & loop.
 
         if action in simpleFuncs:
             simpleFuncs[action](l[1:])
@@ -1285,6 +1287,7 @@ def trackUnify(name, ln):
 """
 
 simpleFuncs = {'ADJUSTVOLUME': MMA.volume.adjvolume,
+               'AFTER': MMA.after.set,
                'ALLGROOVES': MMA.grooves.allgrooves,
                'ALLTRACKS': allTracks,
                'AUTHOR': MMA.docs.docAuthor,
