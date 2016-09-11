@@ -417,8 +417,14 @@ class Macros:
             return MMA.trigger.getTriggerOptions(t)
 
         elif func == 'TONE':
-            if t.vtype != "DRUM":
-                error("Only DRUM tracks have TONE")
+            if t.vtype in ('MELODY', 'SOLO'):
+                if not t.drumType:
+                    error("Melody/Solo tracks must be DRUMTYPE for tone.")
+                return str(MMA.midiC.valueToDrum(t.drumTone))
+
+            elif t.vtype != 'DRUM':
+                error("Tracktype %s doesn't have TONE" % t.vtype)
+
             return ' '.join([MMA.midiC.valueToDrum(a) for a in t.toneList])
 
         elif func == 'UNIFY':

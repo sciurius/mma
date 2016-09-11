@@ -1008,8 +1008,8 @@ class PC:
 
         for i, n in enumerate(ln):
             a = MMA.volume.calcVolume(n, self.volume[i])
-
-            if self.vtype == 'DRUM':
+            if self.vtype == 'DRUM' or \
+                    (self.vtype in ('MELODY', 'SOLO') and self.drumType):
                 a = MMA.translate.drumVolTable.get(self.toneList[i], a)
             else:
                 a = MMA.translate.voiceVolTable.get(self.voice[i], a)

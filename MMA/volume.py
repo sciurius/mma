@@ -57,7 +57,7 @@ def adjvolume(ln):
     if not ln:
         error("Use: AdjustVolume DYN=RATIO [..]")
 
-    notopt, ln = opt2pair(ln, 1)
+    notopt, ln = opt2pair(ln, toupper=True)
 
     if notopt:
         error("ADJUSTVOLUME: Expecting DYNAMIC=RATIO pairs")

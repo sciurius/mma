@@ -79,7 +79,7 @@ class Chord(PC):
     def setVoicing(self, ln):
         """ set the Voicing Mode options.  Only valid for CHORDS. """
 
-        notopt, ln = opt2pair(ln, toupper=1)
+        notopt, ln = opt2pair(ln, toupper=True)
 
         if notopt:
             error("Voicing: Each Voicing option must be a OPT=VALUE pair.")

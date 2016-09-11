@@ -80,11 +80,11 @@ bewildering variety of sounds. Many consumer units priced well under
 $1000.00 contain several hundred or more unique voices. But, ``out of
 the box'' 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  supports the 128 ``General MIDI''<A NAME="tex2html108"
-  HREF="#foot15566"><SUP><SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A> preset voices as well as ``extended'' voices (see
+  HREF="#foot15589"><SUP><SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A> preset voices as well as ``extended'' voices (see
 below). These voices are assigned the values 0 to 127. We refer to the
 various voices as ``tones'', ``instruments'', or
 ``patches''.<A NAME="tex2html109"
-  HREF="#foot15567"><SUP><SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A>
+  HREF="#foot15590"><SUP><SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A>
 <P>
 
 <H1><A NAME="SECTION002510000000000000000"></A>  <A NAME="set-voice"></A>
@@ -116,6 +116,14 @@ You can create interesting effects by varying the voice used with drum
 tracks. By default ``Voice 0'' is used. However, you can change the
 drum voices. The supplied library files do not change the voices since
 this is highly dependent on the MIDI synth you are using.
+
+<P>
+All D<SMALL>RUM</SMALL> tracks share a common MIDI channel. This, for all
+practical purposes, means that all D<SMALL>RUM</SMALL> tracks will have the
+same V<SMALL>OICE</SMALL> or ``drum kit''. In most cases, it is recommended
+that you use the V<SMALL>OICE</SMALL> command <SPAN  CLASS="textit">only</SPAN> in the generic track
+``Drum''. At this point, 
+<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  doesn't enforce this recommendation.
 
 <P>
 You can specify a different V<SMALL>OICE</SMALL> for each bar in a sequence.
@@ -335,7 +343,7 @@ command:
       <Table Hspace="40%" CellSpacing=0 CellPadding=10 BGColor="OldLace" Border=3>
         <tr><td>
     <B>include casio-wk300<A NAME="tex2html110"
-  HREF="#foot15715"><SUP><SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A></B> 
+  HREF="#foot15751"><SUP><SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A></B> 
    
 	    </td></tr>
       </Table>
@@ -617,14 +625,14 @@ the various voices will be changed.
 <P>
 <BR><HR><H4>Footnotes</H4>
 <DL>
-<DT><A NAME="foot15566">... MIDI''</A><A
+<DT><A NAME="foot15589">... MIDI''</A><A
  HREF="node25.html#tex2html108"><SUP><SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A></DT>
 <DD>The General
   MIDI or GM standard was developed by the MIDI Manufactures
   Association.
 
 </DD>
-<DT><A NAME="foot15567">...
+<DT><A NAME="foot15590">...
 ``patches''.</A><A
  HREF="node25.html#tex2html109"><SUP><SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A></DT>
 <DD>``Patch'' a bit of a historical term dating back
@@ -632,7 +640,7 @@ the various voices will be changed.
   wire and cable to ``patch'' different oscillators, filters, etc.   together.
 
 </DD>
-<DT><A NAME="foot15715">... casio-wk300</A><A
+<DT><A NAME="foot15751">... casio-wk300</A><A
  HREF="node25.html#tex2html110"><SUP><SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A></DT>
 <DD>Refer to I<SMALL>NCLUDE</SMALL> <A HREF="node32.html#sec-include">(here)</A> for details on file placement.
 
@@ -659,7 +667,7 @@ the various voices will be changed.
 <!--End of Navigation Panel-->
 <ADDRESS>
 Bob van der Poel
-2016-06-11
+2016-09-07
 </ADDRESS>
 </BODY>
 </HTML>

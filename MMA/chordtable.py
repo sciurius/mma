@@ -135,6 +135,10 @@ chordlist = {
              (C, Ds, Eb, F, G, Ab, Bb),
              "Minor 7th with added sharp 9th."),
 
+    'mb9': ((C,    Eb,    G,    Db+12),
+             (C, D, Eb, F, G, A, Db+12),
+             "Minor chord plus flat 9th (no 7th.)"),
+
     '7':    ((C,    E,      G,    Bb ),
              (C, D, E, F, G, A, Bb),
              "7th."),
@@ -491,7 +495,7 @@ aliases = (
     ('+7#9',     'aug7#9',   ''),
     ('+7b9',     'aug7b9',   ''),
     ('7(omit3)', '7omit3',   ''),
-    ('#5',       'aug',      ''),
+    ('(#5)',     'aug',      ''),
     ('7#5b9',    'aug7b9',   ''),
     ('7-9',      '7b9',      ''),
     ('7+9',      '7#9',      ''),

@@ -61,7 +61,7 @@ def swingMode(ln):
     if not ln:
         error(emsg)
 
-    ln, opts = opt2pair(ln, toupper=1)
+    ln, opts = opt2pair(ln, toupper=True)
 
     for v in ln:
         if v in ("ON", "1"):

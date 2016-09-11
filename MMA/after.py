@@ -46,7 +46,7 @@ def set(ln):
     dat = AfterData()
     selected = []
 
-    ln, opts = opt2pair(ln, toupper=False)
+    ln, opts = opt2pair(ln, toupper=False, notoptstop=True)
 
     for cmd, opt in opts:
         cmd = cmd.upper()

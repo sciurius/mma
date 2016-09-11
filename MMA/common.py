@@ -213,14 +213,16 @@ def lnExpand(ln, msg):
     return ln
 
 
-def opt2pair(ln, toupper=0):
+def opt2pair(ln, toupper=False, notoptstop=False):
     """ Parse a list of options. Separate out "=" option pairs.
 
         Returns:
            newln - original list stripped of opts
            opts  - list of options. Each option is a tuple(opt, value)
 
-       Note: default is to leave case alone, setting toupper converts everything to upper.
+       Note: default is to leave case alone. Setting toupper converts everything to upper.
+             default is to parse entire line. Setting notoptstop stops parse at first
+                     word which is not a xx=yy pair.
     """
 
     opts = []
@@ -243,13 +245,16 @@ def opt2pair(ln, toupper=0):
     ln = ln.replace(' ,', ',')
     ln = ln.split()
 
-    for a in ln:
+    for v, a in enumerate(ln):
         if toupper:
             a = a.upper()
         try:
             o, v = a.split('=', 1)
             opts.append((o, v))
-        except ValueError:   # this means no '='
+        except ValueError:   # this means no '=', split() failed
             newln.append(a)
+            if notoptstop:
+                newln.extend(ln[v+1:])
+                break
 
     return newln, opts

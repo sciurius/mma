@@ -72,7 +72,7 @@ def setTime(ln):
     defaultTabs = (1,2,3,4,5,6,7,8,9,10,11,12)
     sigSet = False
 
-    ln, options = opt2pair(ln, 1)
+    ln, options = opt2pair(ln, toupper=True)
 
     for cmd, opt in options:
         if cmd == 'TABS':

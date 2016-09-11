@@ -197,7 +197,7 @@ def doMidiTrackCresc(ln, dir, func):
     global masterMidiVolume
     step = 10
 
-    ln, opts = opt2pair(ln, True)
+    ln, opts = opt2pair(ln, toupper=True)
     for o, v in opts:
         if o == 'STEP':
             step = stoi(v)
@@ -463,7 +463,7 @@ def trackWheel(name, ln):
     cycle = False
     rate = None
 
-    ln, opts = opt2pair(ln, True)
+    ln, opts = opt2pair(ln, toupper=True)
 
     if ln:
         if len(ln) == 1 and ln[0] == 'RESET':

@@ -59,7 +59,7 @@ class Vtable:
                 print("Voice Translation table reset.")
             return
 
-        ln, opts = opt2pair(ln, toupper=1)
+        ln, opts = opt2pair(ln, toupper=True)
 
         if ln:
             error("VOICETR: Each translation pair must be in the format Alias=Voice.")
@@ -112,7 +112,7 @@ class Dtable:
 
             return
 
-        ln, opts = opt2pair(ln, 1)
+        ln, opts = opt2pair(ln, toupper=True)
 
         if ln:
             error("TONETR: Each translation pair must be in the format Tone=NewTone.")
@@ -235,7 +235,7 @@ class DrumVolTable:
 
             return
 
-        ln, opt = opt2pair(ln, 1)
+        ln, opt = opt2pair(ln, toupper=True)
 
         if ln:
             error("DRUMVOLTR: Each option must be in the format TONE=AJUSTMENT.")

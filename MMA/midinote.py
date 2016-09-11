@@ -44,7 +44,7 @@ def parse(name, ln):
 
     # parse out the cmd=value options pairs
 
-    ln, opts = opt2pair(ln, toupper=0)
+    ln, opts = opt2pair(ln)
 
     for o, v in opts:
         o = o.upper()

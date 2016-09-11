@@ -75,9 +75,9 @@ Fine Tuning (Translations)
 A program such as 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  which is intended to be run of various
 computers and synthesizers (both hardware keyboards and software
-versions) suffers from a minor deficiency of the MIDI standards: mainly
-that the standard says nothing about what a certain instrument should
-sound like, or the relative volumes between instruments. The GM
+versions) suffers from a minor deficiency of the MIDI standards:
+mainly that the standard says nothing about what a certain instrument
+should sound like, or the relative volumes between instruments. The GM
 extension helps a bit, but only a bit, by saying that certain
 instruments should be assigned certain program change values. This
 means that all GM synths will play a "Piano" if instrument 000 is
@@ -91,7 +91,7 @@ created to sound good on the author's setup: A Casio WK-3000 keyboard.
 
 <P>
 But, what if your hardware is different? Well, there are solutions!
-Later in this chapter  commands are shown which will change the
+Later in this chapter commands are shown which will change the
 preselected voice and tone commands and the default volumes. At this
 time there are no example files supplied with 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT> , but your
@@ -117,18 +117,19 @@ ToneTr SnareDrum2=SnareDrum1
 <BR>
 VoiceVolTr Piano2=120 BottleBlow=80 
 <BR>
-DrumVolTr  RideBell=90 Tambourine=120   </B> 
+DrumVolTr RideBell=90 Tambourine=120   </B> 
    
 	    </td></tr>
       </Table>
 
 <P>
-Place this file in the directory <TT><SPAN  CLASS="textbf">/usr/local/share/mma/includes</SPAN></TT>.
+Place this file in the directory
+  <TT><SPAN  CLASS="textbf">/usr/local/share/mma/includes</SPAN></TT>.
 
 <P>
 </LI>
-<LI>Include this file in your ~<TT><SPAN  CLASS="textbf">/.mmarc</SPAN></TT> file. Following the
-  above example, you would have a line:
+<LI>Include this file in your ~<TT><SPAN  CLASS="textbf">/.mmarc</SPAN></TT> file.
+  Following the above example, you would have a line:
 
 <P>
 
@@ -149,8 +150,8 @@ That's it! Now, whenever you compile a
 will be done.
 
 <P>
-All of the following translation settings follow a similar logic as to ``when''
-they take effect, and that is at the time the V<SMALL>OICE</SMALL>,
+All of the following translation settings follow a similar logic as to
+``when'' they take effect, and that is at the time the V<SMALL>OICE</SMALL>,
 V<SMALL>OLUME</SMALL>, etc. command is issued. This may confuse the unwary if
 G<SMALL>ROOVES</SMALL> are being used. But, the following sequence:
 
@@ -168,8 +169,7 @@ G<SMALL>ROOVES</SMALL> are being used. But, the following sequence:
 <LI>You activate the previously defined G<SMALL>ROOVE</SMALL>.
 </LI>
 </OL></TD></TR>
-</TABLE>
-
+</TABLE> 
 <TABLE  WIDTH="30%">
 <TR><TD><BIG CLASS="XHUGE">Wrong!</BIG></TD></TR>
 </TABLE>
@@ -182,15 +182,15 @@ translations to work the V<SMALL>OICE</SMALL> (or whatever) command must come
 
 <P>
 
-<H1><A NAME="SECTION002810000000000000000"></A>  <A NAME="set-voicetr"></A>
+<H1><A NAME="SECTION002810000000000000000"></A> <A NAME="set-voicetr"></A>
 <BR>
 VoiceTr
-</H1>
+</H1> 
 
 <P>
-In previous section you saw how to set a voice for a track by using its
-standard MIDI name. The V<SMALL>OICE</SMALL>T<SMALL>R</SMALL> command sets up a translation
-table that can be used in two different situations:
+In previous section you saw how to set a voice for a track by using
+its standard MIDI name. The V<SMALL>OICE</SMALL>T<SMALL>R</SMALL> command sets up a
+translation table that can be used in two different situations:
 
 <P>
 
@@ -278,7 +278,8 @@ resulting files will not play properly on a synth conforming to the
 GM-MIDI specification.
 
 <P>
-Following is an abbreviated and untested example for using an obsolete and unnamed synth:
+Following is an abbreviated and untested example for using an obsolete
+and unnamed synth:
 
 <P>
 
@@ -303,40 +304,39 @@ done when the table is created. The table contains one-to-one
 substitutions, much like macros.
 
 <P>
-For translating drum tone values, see 
-<A HREF="#set-drumtr">D<SMALL>RUM</SMALL>TR</A>.
+For translating drum tone values, see <A HREF="#set-drumtr">D<SMALL>RUM</SMALL>TR</A>.
 
 <P>
 
 <H1><A NAME="SECTION002820000000000000000"></A> <A NAME="set-drumtr"></A>
 <BR>
 ToneTr
-</H1>
+</H1> 
 
 <P>
 It is possible to create a translation table which will substitute one
-Drum Tone for another. This can be useful in a variety of
-situations, but consider:
+Drum Tone for another. This can be useful in a variety of situations,
+but consider:
 
 <P>
 
 <UL>
 <LI>Your synth lacks certain drum tones--in this case you may want
-    to set certain D<SMALL>RUM</SMALL>TR commands in a <SMALL>MMA</SMALL>RC file.
+  to set certain D<SMALL>RUM</SMALL>TR commands in a <SMALL>MMA</SMALL>RC file.
 
 <P>
 </LI>
 <LI>You are using an existing G<SMALL>ROOVE</SMALL> in a song, but don't
-    like one or more of the Drum Tones selected. Rather than
-    editing the library file you can set a translation right in the
-    song. Note, do this <SPAN  CLASS="textit">before any</SPAN> G<SMALL>ROOVE</SMALL> commands.
+  like one or more of the Drum Tones selected. Rather than editing the
+  library file you can set a translation right in the song. Note, do
+  this <SPAN  CLASS="textit">before any</SPAN> G<SMALL>ROOVE</SMALL> commands.
 </LI>
 </UL>
 
 <P>
 To set a translation (or set of translations) just use a list of
-drumtone values or symbolic names with each pair separated by
-white space. For example:
+drumtone values or symbolic names with each pair separated by white
+space. For example:
 
 <P>
 
@@ -369,10 +369,10 @@ The syntax and usage of D<SMALL>RUM</SMALL>TR is quite similar to
 
 <P>
 
-<H1><A NAME="SECTION002830000000000000000"></A>  <A NAME="set-voicevoltr"></A>
+<H1><A NAME="SECTION002830000000000000000"></A> <A NAME="set-voicevoltr"></A>
 <BR>
 VoiceVolTr
-</H1>
+</H1> 
 
 <P>
 If you find that a particular voice, i.e., Piano2, is too loud or soft
@@ -386,15 +386,15 @@ created in a similar manner to the V<SMALL>OICE</SMALL>T<SMALL>R</SMALL> command
 
       <Table Hspace="40%" CellSpacing=0 CellPadding=10 BGColor="OldLace" Border=3>
         <tr><td>
-    <B>VoiceVolTr Piano2=120  105=75  </B> 
+    <B>VoiceVolTr Piano2=120 105=75  </B> 
    
 	    </td></tr>
       </Table>
 
 <P>
-Each voice pair must contain a valid MIDI voice (or numeric value),
-an ``='' and a volume adjustment factor. The factor is a percentage
-value which is applied to the normal volume. In the above example two
+Each voice pair must contain a valid MIDI voice (or numeric value), an
+``='' and a volume adjustment factor. The factor is a percentage value
+which is applied to the normal volume. In the above example two
 adjustments are created:
 
 <P>
@@ -439,21 +439,24 @@ the following adjustments are made:
 
 <P>
 </LI>
-<LI>the adjustment of 120% is applied to the 85%, changing that to 102%.
+<LI>the adjustment of 120% is applied to the 85%, changing that to
+  102%.
 
 <P>
 </LI>
 <LI>Assuming that no other volume adjustments are being made
   (probably there will be a global volume and, perhaps, a
   R<SMALL>VOLUME</SMALL>) the MIDI velocity in the sequence will be changed
-  from 90 to 91. Without the translation the 90 would have been changed to 76.
+  from 90 to 91. Without the translation the 90 would have been
+  changed to 76.
 
 <P>
 </LI>
 </OL>
 
 <P>
-This is best illustrated by a short example. Assume the following in an input file:
+This is best illustrated by a short example. Assume the following in
+an input file:
 
 <P>
 
@@ -498,7 +501,7 @@ To disable all volume translations:
 
       <Table Hspace="40%" CellSpacing=0 CellPadding=10 BGColor="OldLace" Border=3>
         <tr><td>
-    <B>VoiceVolTr  // Empty table  </B> 
+    <B>VoiceVolTr // Empty table  </B> 
    
 	    </td></tr>
       </Table>
@@ -508,7 +511,7 @@ To disable all volume translations:
 <H1><A NAME="SECTION002840000000000000000"></A> <A NAME="set-drumvoltr"></A>
 <BR>
 DrumVolTr
-</H1>
+</H1> 
 
 <P>
 You can change the volumes of individual drum tones with the
@@ -549,7 +552,7 @@ All drum tone translations can be disabled with:
 
       <Table Hspace="40%" CellSpacing=0 CellPadding=10 BGColor="OldLace" Border=3>
         <tr><td>
-    <B>DrumVolTr  // Empty table  </B> 
+    <B>DrumVolTr // Empty table  </B> 
    
 	    </td></tr>
       </Table>
@@ -559,7 +562,7 @@ All drum tone translations can be disabled with:
 <H1><A NAME="SECTION002850000000000000000"></A> <A NAME="tweaks"></A>
 <BR>
 Tweaks
-</H1>
+</H1> 
 
 <P>
 Some minor values can be adjusted via the T<SMALL>WEAKS</SMALL> command. Each
@@ -570,9 +573,9 @@ valid:
 <DL>
 <DT><STRONG>DefaultDrum</STRONG></DT>
 <DD>Sets the default (initial) voice to use in
-  D<SMALL>RUM</SMALL> tracks. You can use a numeric value, a mnemonic name, or
-  even an extended voice name (see <A HREF="node25.html#extended-patch">here</A>).
-  Examples:
+  D<SMALL>RUM</SMALL>, S<SMALL>OLO</SMALL> and M<SMALL>ELODY</SMALL> tracks. You can use a
+  numeric value, a mnemonic name, or even an extended voice name (see
+  <A HREF="node25.html#extended-patch">here</A>). Examples:
 
 <P>
 
@@ -582,9 +585,7 @@ valid:
    
 	    </td></tr>
       </Table>
-
-or
-  
+ or 
       <Table Hspace="40%" CellSpacing=0 CellPadding=10 BGColor="OldLace" Border=3>
         <tr><td>
     <B>Tweaks DefaultDrum=8.9.22  </B> 
@@ -593,8 +594,8 @@ or
       </Table>
 
 <P>
-and, assuming you have set up a P<SMALL>ATCH </SMALL>S<SMALL>ET</SMALL>
-  (see <A HREF="node25.html#patch-set">here</A>):
+and, assuming you have set up a P<SMALL>ATCH </SMALL>S<SMALL>ET</SMALL> (see
+  <A HREF="node25.html#patch-set">here</A>):
 
 <P>
 
@@ -604,6 +605,12 @@ and, assuming you have set up a P<SMALL>ATCH </SMALL>S<SMALL>ET</SMALL>
    
 	    </td></tr>
       </Table>
+
+<P>
+<SPAN  CLASS="textbf">Be careful</SPAN> when using this option with Solo/Melody tracks
+  set to D<SMALL>RUM</SMALL>T<SMALL>YPE</SMALL>. If you set a V<SMALL>OICE</SMALL> (to use a
+  different drum set) before setting a S<SMALL>OLO</SMALL> or M<SMALL>ELODY</SMALL>
+  track as D<SMALL>RUM</SMALL>T<SMALL>YPE</SMALL> this option will overwrite your changes.
 
 <P>
 </DD>
@@ -620,12 +627,11 @@ and, assuming you have set up a P<SMALL>ATCH </SMALL>S<SMALL>ET</SMALL>
    
 	    </td></tr>
       </Table>
-
- or
-  
+ or 
       <Table Hspace="40%" CellSpacing=0 CellPadding=10 BGColor="OldLace" Border=3>
         <tr><td>
-    <B>Tweaks DefaultVoice=MyFunkyPiano  </B> 
+    <B>Tweaks
+    DefaultVoice=MyFunkyPiano  </B> 
    
 	    </td></tr>
       </Table>
@@ -641,16 +647,14 @@ and, assuming you have set up a P<SMALL>ATCH </SMALL>S<SMALL>ET</SMALL>
 
       <Table Hspace="40%" CellSpacing=0 CellPadding=10 BGColor="OldLace" Border=3>
         <tr><td>
-    <B>Tweaks  Dim=3  </B> 
+    <B>Tweaks Dim=3  </B> 
    
 	    </td></tr>
       </Table>
-
-  or
-  
+ or 
       <Table Hspace="40%" CellSpacing=0 CellPadding=10 BGColor="OldLace" Border=3>
         <tr><td>
-    <B>Tweaks  Dim=7  </B> 
+    <B>Tweaks Dim=7  </B> 
    
 	    </td></tr>
       </Table>
@@ -690,7 +694,7 @@ your <TT><SPAN  CLASS="textbf">mmarc</SPAN></TT> file.
 <!--End of Navigation Panel-->
 <ADDRESS>
 Bob van der Poel
-2016-06-11
+2016-09-07
 </ADDRESS>
 </BODY>
 </HTML>

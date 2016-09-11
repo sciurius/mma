@@ -196,7 +196,7 @@ def setTrigger(name, ln):
         ln = ln.split()
         sequence = sequence[0]
 
-    ln, opts = opt2pair(ln, toupper=False)
+    ln, opts = opt2pair(ln)
 
     ##########################
     # do opts with args

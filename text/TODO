@@ -1,6 +1,8 @@
-Add $$ to delay expansion of macros.
 
-Add "After" to set something to do after # bars.
+Do we need to specify a chord with zXX? Now we need EmzB to turn off
+   the bass ... why not zB to do the same if the Em is already set?
+
+Add $$ to delay expansion of macros.
 
 Add a "Output On/Off" so that generation can be toggled inside a
    script. Gotta be careful in doing this so that key info is skipped,

@@ -11,4 +11,19 @@ There was an import error in regpluy.py which showed only when using python 3.x.
 
 June 14, 2016: Reposted 16.06 packages. Silent fix (but posted message).
 
+Fixed AFTER option parser. You can now have option pairs in the command to execute.
 
+At some point I added a '5' option as a chord for so-called "power chords".
+ This chordtype dropped the 3rd and duplicated in a 2nd 5th. Worked just fine.
+ Then I added in '#5' as an alternate spelling for '+' or 'alt'. Now we have problems!
+ I actually needed a '#5' (to accomodate a decending bass line) and used 'F#5'. Opps,
+ it used a power-chord F# (and left the 5 alone). So, it's now changed ... for a
+ explicit '#5' use the notation '(#5)'. Or, easier, just use 'alt' or '+'.
+
+DefaultDrum now also works with Solo/Melody tracks when the drumtype option is
+ set. Please read the cautions in the manual when you play with the
+ "Tweaks DefaultDrum" option.
+
+September 10, 2916: Released 11.06.a
+
+ 
