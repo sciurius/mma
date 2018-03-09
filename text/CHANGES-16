@@ -24,6 +24,21 @@ DefaultDrum now also works with Solo/Melody tracks when the drumtype option is
  set. Please read the cautions in the manual when you play with the
  "Tweaks DefaultDrum" option.
 
-September 10, 2916: Released 11.06.a
+September 10, 2016: Released 11.06.a
 
- 
+Added Min:Sec to report string (in addition to Min.ddd). Hope it's useful to someone.
+
+Fixed bug in HTML doc generator. It was crashing with plectrum mute patterns.
+
+The descriptions of a defined groove (for the docs) will always end in a '.'.
+
+Fixed docs for the 'r' Direction setting in Aria. 'r*' was confusing.
+
+Fixed error in the COPY command. Using extended groove/track notation was not working.
+
+Enhanced the COPY command to support copying from to to a different track.
+
+Added interval harmonies: Sxxx. See the fine manual.
+
+Fixed bug in solo/melody tracks: the note middle C was never being
+ harmonized (note: there really is a difference between the value 0 and None!)

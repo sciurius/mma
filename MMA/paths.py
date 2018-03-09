@@ -31,6 +31,7 @@ from MMA.common import *
 import MMA.auto
 import MMA.grooves
 import MMA.exits
+import MMA.debug
 
 outfile = ''
 
@@ -71,7 +72,7 @@ def mmastart(ln):
     for a in ln:
         gbl.mmaStart.append(MMA.file.fixfname(a))
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("MMAstart set to: %s" % gbl.mmaStart)
 
 def mmaend(ln):
@@ -83,7 +84,7 @@ def mmaend(ln):
     for a in ln:
         gbl.mmaEnd.append(MMA.file.fixfname(a))
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("MMAend set to: %s" % gbl.mmaEnd)
 
 def setRC(f):
@@ -111,7 +112,7 @@ def readRC():
     for i in rcfiles:
         f = MMA.file.locFile(i, None)
         if f:
-            if gbl.showrun:
+            if MMA.debug.showrun:
                 print("Reading RC file '%s'" % f)
             MMA.parse.parseFile(f)
             readDone = 1
@@ -120,7 +121,7 @@ def readRC():
             if mmaRC:
                 error("Specified init file '%s' not found" % mmaRC)
 
-    if not readDone and gbl.debug:
+    if not readDone and MMA.debug.debug:
         gbl.lineno = -1
         warning("No RC file was found or processed")
 
@@ -200,7 +201,7 @@ def setLibPath(ln, user=1):
 
     expandLib(user)
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("LibPath set: %s" % ' '.join(libPath))
 
 
@@ -233,7 +234,7 @@ def expandLib(user=0):
 
     MMA.auto.grooveDB = []
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("LibPath expansion set to:", ' '.join(libDirs))
 
 
@@ -247,7 +248,7 @@ def setIncPath(ln):
         f = MMA.file.fixfname(l)
         incPath.append(f)
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("IncPath set: %s" % ' '.join(incPath))
 
 ###########################################
@@ -266,7 +267,7 @@ def setOutPath(ln):
     else:
         gbl.outPath = MMA.file.fixfname(ln[0])
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("OutPath set to '%s'" % gbl.outPath)
 
 

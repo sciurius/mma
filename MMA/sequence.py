@@ -25,7 +25,7 @@ Bob van der Poel <bob@mellowood.ca>
 
 from . import gbl
 from MMA.common import *
-
+import MMA.debug
 from MMA.notelen import noteLenTable
 
 from MMA.alloc import trackAlloc
@@ -165,7 +165,7 @@ def trackSequence(name, ln):
 
     self.sequence = seqBump(tmp)
 
-    if gbl.seqshow:
+    if MMA.debug.seqshow:
         msg = ["%s sequence set:" % self.name]
         for a in ln:
             if a in "Zz-":
@@ -202,7 +202,7 @@ def seqsize(ln):
 
         MMA.seqrnd.seqRndWeight = seqBump(MMA.seqrnd.seqRndWeight)
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("Set SeqSize to %s" % n)
 
 
@@ -273,7 +273,7 @@ def trackSeqClear(name, ln):
 
     for n in gbl.tnames:
         if n.find(name) == 0:
-            if gbl.debug:
+            if MMA.debug.debug:
                 print("SeqClear: Track %s cleared." % n)
             gbl.tnames[n].clearSequence()
 
@@ -296,7 +296,7 @@ def trackSeqRnd(name, ln):
     else:
         error("SeqRnd: '%s' is not a valid option" % arg)
 
-    if gbl.debug:
+    if MMA.debug.debug:
         if self.seqRnd:
             a = "On"
         else:
@@ -324,7 +324,7 @@ def trackSeqRndWeight(name, ln):
 
     self.seqRndWeight = seqBump(tmp)
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("Set %s SeqRndWeight: %s" % 
               (self.name, ' '.join([str(a) for a in self.seqRndWeight])))
 

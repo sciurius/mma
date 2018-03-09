@@ -25,7 +25,7 @@ Bob van der Poel <bob@mellowood.ca>
 
 from . import gbl
 from MMA.common import *
-
+import MMA.debug
 from MMA.notelen import noteLenTable
 
 mode = 0      # defaults to 0, set to 1 for swing mode
@@ -119,7 +119,7 @@ def swingMode(ln):
         else:
             error(emsg)
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("SwingMode: Status=%s; Accent=%s,%s; Delay=%s,%s; Skew Note lengths: " 
             "%s and %s ticks. Notes=%s" % 
             (mode, int(accent1 * 100), int(accent2 * 100), delay1, delay2,

@@ -26,6 +26,7 @@ import sys
 import os
 from . import gbl
 from   MMA.common import *
+import MMA.debug
 
 PY3 = sys.version_info[0] == 3
 
@@ -118,7 +119,7 @@ class ReadFile:
             except IOError:
                 error("Unable to open '%s' for input" % fname)
  
-        if gbl.debug or gbl.showFilenames:
+        if MMA.debug.debug or MMA.debug.showFilenames:
             print("Opening file '%s'." % fname)
 
         self.fname = fname
@@ -285,7 +286,7 @@ class ReadFile:
                 self.lineptr = i
                 return
 
-        error("Label '%s' has not be set" % l)
+        error("Label '%s' has not been set" % l)
 
     def pushEOFline(self, ln):
         self.fdata.append(self.FileData(gbl.lineno, ln, ''))

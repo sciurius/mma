@@ -25,7 +25,7 @@ Bob van der Poel <bob@mellowood.ca>
 from . import gbl
 from   MMA.common import *
 import MMA.paths
-
+import MMA.debug
 
 class Lyric:
     textev = None    # set if TEXT EVENTS (not recommended)
@@ -109,7 +109,7 @@ class Lyric:
 
                 elif v == 'LYRIC':
                     self.textev = None
-                    if gbl.debug:
+                    if MMA.debug.debug:
                         print("Lyric: lyrics set as LYRIC events.")
 
                 else:
@@ -118,12 +118,12 @@ class Lyric:
             elif o == 'SPLIT':
                 if v == 'BAR':
                     self.barsplit = 1
-                    if gbl.debug:
+                    if MMA.debug.debug:
                         print("Lyric: lyrics distributed thoughout bar.")
 
                 elif v == 'NORMAL':
                     self.barsplit = None
-                    if gbl.debug:
+                    if MMA.debug.debug:
                         print("Lyric: lyrics appear as one per bar.")
 
                 else:
@@ -145,18 +145,18 @@ class Lyric:
                 if self.versenum < 1:
                     error("Lyric: Attempt to set Verse to %s. Values must be > 0" % self.versenum)
 
-                if gbl.debug:
+                if MMA.debug.debug:
                     print("Lyric: Verse number set to %s" % self.versenum)
 
             elif o == 'CHORDS':
                 if v in ('1', 'ON'):
                     self.dupchords = 1
-                    if gbl.debug:
+                    if MMA.debug.debug:
                         print("Lyric: Chords are duplicated as lyrics.")
 
                 elif v in ('0', 'OFF'):
                     self.dupchords = 0
-                    if gbl.debug:
+                    if MMA.debug.debug:
                         print("Lyric: Chords are NOT duplicated as lyrics.")
 
                 else:
@@ -175,13 +175,13 @@ class Lyric:
                 else:
                     self.transpose = v
 
-                if gbl.debug:
+                if MMA.debug.debug:
                     print("Lyric: Chord names transposed %s steps." % self.transpose)
 
             elif o == 'ADDTRANSPOSE':
                 self.transpose += MMA.keysig.getTranspose([v], "Lyric AddTranspose")
 
-                if gbl.debug:
+                if MMA.debug.debug:
                     print("Lyric: Chord names transposed %s steps." % self.transpose)
 
             elif o == 'CNAMES':
@@ -194,7 +194,7 @@ class Lyric:
                 else:
                     error("Lyric CNames: expecting 'Sharp' or 'Flat', not '%s'" % v )
 
-                if gbl.debug:
+                if MMA.debug.debug:
                     msg = "Lyric: Chord names favor "
                     if self.transKey:
                         msg += "#."
@@ -232,7 +232,7 @@ class Lyric:
                 else:
                     error("Lyric Kar: expecting On, 1, Off or 0, not '%s'." % v)
 
-                if gbl.debug:
+                if MMA.debug.debug:
                     msg = "Lyric: Karmode",
                     if self.karmode:
                         msg += "enabled."

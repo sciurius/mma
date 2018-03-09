@@ -25,6 +25,7 @@ Bob van der Poel <bob@mellowood.ca>
 import random
 
 from MMA.common import *
+import MMA.debug
 
 """ SeqRnd variable is a list. The first entry is a flag:(0, 1 or x):
       0 - not set
@@ -110,7 +111,7 @@ def setSeqRnd(ln):
                 error("SeqRnd: Duplicate track '%s' specified, %s" % (a, emsg))
             seqRnd.append(a)
 
-    if gbl.debug:
+    if MMA.debug.debug:
         msg = ["SeqRnd:"]
         if seqRnd[0] == 2:
             for a in seqRnd[1:]:
@@ -138,7 +139,7 @@ def getweights(ln, msg):
 
     tmp = seqBump(tmp)
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("%s: %s" % (msg, ' '.join([str(x) for x in tmp])))
 
     return tmp

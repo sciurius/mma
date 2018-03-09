@@ -24,6 +24,7 @@ Bob van der Poel <bob@mellowood.ca>
 """
 
 from MMA.common import *
+import MMA.debug
 
 length = None
 count = None
@@ -86,7 +87,7 @@ def setTruncate(ln):
         else:
             error("Truncate: '%s' is an unknown option." % cmd)
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("Truncate: Next %s bar(s) are %g beats, "
               "using pattern from beats %g to %g."
             % (count, beats, float(side) / gbl.BperQ, (float(side) + length) / gbl.BperQ))

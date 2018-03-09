@@ -29,7 +29,7 @@ import MMA.notelen
 from . import gbl
 from MMA.common import *
 from MMA.pat import PC, Pgroup
-
+import MMA.debug 
 import copy
 
 class PlecStruct:
@@ -122,7 +122,7 @@ class Plectrum(PC):
         
         if not l or len(l)==1 and ( l[0].upper()=='OFF' or l[0].upper()=='NONE'):
             self.fretNoise = None
-            if gbl.debug:
+            if MMA.debug.debug:
                 print("%s FretNoise Off" % self.name)
             return
 
@@ -208,7 +208,7 @@ class Plectrum(PC):
         if not o.track:
             error("%s Fretnoise: No track was set. Use 'Track=some-bass-track' option." % self.name)
 
-        if gbl.debug:
+        if MMA.debug.debug:
             print(self.getFretNoiseOptions())
         
 
@@ -560,7 +560,7 @@ class Plectrum(PC):
 
             chordBarreFretNo += ct.chord.barre
 
-            if gbl.debug or gbl.plecShow:
+            if MMA.debug.debug or MMA.debug.plecShow:
                 self.printChordShape(ct, chordBarreFretNo)
 
             plectrumNoteOnList = []  # for debugging only
@@ -612,7 +612,7 @@ class Plectrum(PC):
                     note = notes[stringNo].pitch
 
                     if notes[stringNo].duplicate:
-                        if gbl.debug:
+                        if MMA.debug.debug:
                             print("%s: Ignoring duplicate note %d." % (self.name, note))
                         continue
 
@@ -641,7 +641,7 @@ class Plectrum(PC):
 
                 self.lastChord = ct.name
 
-            if gbl.debug:
+            if MMA.debug.debug:
                 print("%s: channel=%s offset=%s chordList=%s NoteOn=%s." % 
                     (self.name, self.channel, p.offset + gbl.tickOffset,
                         chordList, plectrumNoteOnList))

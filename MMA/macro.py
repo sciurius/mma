@@ -41,14 +41,16 @@ import MMA.swing
 import MMA.ornament
 import MMA.rpitch
 import MMA.chords
+import MMA.debug
 
 from . import gbl
-from MMA.notelen import getNoteLen
-from MMA.keysig import keySig
-from MMA.timesig import timeSig
-from MMA.lyric import lyric
-from MMA.common import *
-from MMA.safe_eval import safe_eval
+
+from   MMA.notelen import getNoteLen
+from   MMA.keysig import keySig
+from   MMA.timesig import timeSig
+from   MMA.lyric import lyric
+from   MMA.common import *
+from   MMA.safe_eval import safe_eval
 
 def sliceVariable(p, sl):
     """ Slice a variable. Used by macro expand. """
@@ -79,7 +81,7 @@ class Macros:
         if ln:
             error("VarClear does not take an argument.")
         self.vars = {}
-        if gbl.debug:
+        if MMA.debug.debug:
             print("All variable definitions cleared.")
 
     def stackValue(self, s):
@@ -165,21 +167,11 @@ class Macros:
             return self.pushstack.pop()
 
         elif s == 'DEBUG':
-            return "Debug=%s  Filenames=%s Patterns=%s " \
-                "Sequence=%s Runtime=%s Warnings=%s Expand=%s " \
-                "Roman=%s Plectrum=%s Groove=%s" % \
-                (gbl.debug, gbl.showFilenames, gbl.pshow, gbl.seqshow,
-                 gbl.showrun,  int(not gbl.noWarn), gbl.showExpand,
-                 gbl.rmShow, gbl.plecShow, gbl.gvShow)
-
+            return MMA.debug.getFlags()
+        
         elif s == 'LASTDEBUG':
-            return "Debug=%s  Filenames=%s Patterns=%s " \
-                "Sequence=%s Runtime=%s Warnings=%s Expand=%s " \
-                "Roman=%s Plectrum=%s Groove=%s" % \
-                (gbl.Ldebug, gbl.LshowFilenames, gbl.Lpshow, gbl.Lseqshow,
-                 gbl.Lshowrun,  int(not gbl.LnoWarn), gbl.LshowExpand,
-                 gbl.LrmShow, gbl.LplecShow, gbl.LgvShow)
-
+            return MMA.debug.getLFlags()
+            
         elif s == 'VEXPAND':
             if self.expandMode:
                 return "On"
@@ -629,7 +621,7 @@ class Macros:
 
         self.vars[v] = random.choice(ln[1:])
 
-        if gbl.debug:
+        if MMA.debug.debug:
             print("Variable $%s randomly set to '%s'" % (v, self.vars[v]))
 
     def newsetvar(self, ln):
@@ -673,7 +665,7 @@ class Macros:
 
         self.vars[v] = t
 
-        if gbl.debug:
+        if MMA.debug.debug:
             print("Variable $%s == '%s'" % (v, self.vars[v]))
 
     def msetvar(self, ln):
@@ -712,7 +704,7 @@ class Macros:
         if v in self.vars:
             del(macros.vars[v])
 
-            if gbl.debug:
+            if MMA.debug.debug:
                 print("Variable '%s' UNSET" % v)
         else:
             warning("Attempt to UNSET nonexistent variable '%s'" % v)
@@ -726,12 +718,12 @@ class Macros:
 
         if cmd == 'ON':
             self.expandMode = 1
-            if gbl.debug:
+            if MMA.debug.debug:
                 print("Variable expansion ON")
 
         elif cmd == 'OFF':
             self.expandMode = 0
-            if gbl.debug:
+            if MMA.debug.debug:
                 print("Variable expansion OFF")
 
         else:
@@ -766,7 +758,7 @@ class Macros:
 
         self.vars[v] = str(vl)
 
-        if gbl.debug:
+        if MMA.debug.debug:
             print("Variable '%s' INC to %s" % (v, self.vars[v]))
 
     def vardec(self, ln):
@@ -797,7 +789,7 @@ class Macros:
 
         self.vars[v] = str(vl)
 
-        if gbl.debug:
+        if MMA.debug.debug:
             print("Variable '%s' DEC to %s" % (v, self.vars[v]))
 
     def varIF(self, ln):

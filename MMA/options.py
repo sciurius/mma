@@ -33,6 +33,7 @@ import MMA.alloc
 import MMA.volume
 import MMA.exits
 import MMA.regplug
+import MMA.debug
 
 from . import gbl
 from MMA.common import *
@@ -75,36 +76,12 @@ def opts(l=None):
             setBarRange(a)
             gbl.barRange.append("ABS")
 
-        elif o == '-d':
-            gbl.debug = gbl.Ldebug = 1
-
-        elif o == '-o':
-            gbl.showFilenames = gbl.LshowFilenames = 1
-
-        elif o == '-p':
-            gbl.pshow = gbl.Lpshow = 1
-
-        elif o == '-s':
-            gbl.seqshow = gbl.Lseqshow = 1
-
+        elif o in ('-d', '-o', '-p', '-s', '-r', '-e', '-c'):
+            MMA.debug.cmdLineDebug(o[-1])
+        
         elif o == '-S':
             ln = a.split('=', 1)
             macros.setvar(ln)
-
-        elif o == '-r':
-            gbl.showrun = gbl.Lshowrun = 1
-
-        elif o == '-w':
-            gbl.noWarn = gbl.LnoWarn = 1
-
-        elif o == '-n':
-            gbl.noOutput = gbl.LnoOutput = 1
-
-        elif o == '-e':
-            gbl.showExpand = gbl.LshowExpand = 1
-
-        elif o == '-c':
-            gbl.chshow = gbl.Lchshow = 1
 
         elif o == '-L':
             gbl.printProcessed = True

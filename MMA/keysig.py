@@ -28,6 +28,7 @@ other module.
 
 from . import gbl
 from   MMA.common import *
+import MMA.debug
 
 majKy = { "C" :  0, "G" :  1, "D" :  2,
           "A" :  3, "E" :  4, "B" :  5,
@@ -153,7 +154,7 @@ class KeySig:
             if gbl.tnames[t].vtype == 'ARIA':
                 gbl.tnames[t].restart()
 
-        if gbl.debug:
+        if MMA.debug.debug:
             print("KeySig:", self.getKeysig())
 
     def getKeysig(self):
@@ -303,5 +304,5 @@ def transpose(ln):
     else:
         gbl.transpose = getTranspose(ln, "Transpose")
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("Set Transpose to %s" % gbl.transpose)

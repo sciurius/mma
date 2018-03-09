@@ -31,6 +31,7 @@ from . import gbl
 import MMA.file
 from MMA.macro import macros
 from MMA.common import *
+import MMA.debug
 
 # Storage for our functions 
 class Funcs:
@@ -127,7 +128,7 @@ def defCall(l):
     
     funcList[fname] = Funcs(params, body, defaults, gbl.inpath.fname, lineN)
     
-    if gbl.debug: 
+    if MMA.debug.debug: 
         t = [ a[1:] for a in params]
         print("DefCall: Created function '%s': %s" % (fname, ', '.join(t)))
 
@@ -220,7 +221,7 @@ def callFunction(l):
     #print body
     #print "=" * 80
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print ("Call: function '%s' expanded." % fname)
 
 

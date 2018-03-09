@@ -22,12 +22,12 @@ Bob van der Poel <bob@mellowood.ca>
 """
 
 
-from MMA.midiM import intToWord, intTo3Byte, intToLong, intToVarNumber, intTo14, packBytes
+from   MMA.midiM import intToWord, intTo3Byte, intToLong, intToVarNumber, intTo14, packBytes
 import MMA.midiC
-
+import MMA.debug 
 from . import gbl
-from MMA.common import *
-from MMA.miditables import NONETONE
+from   MMA.common import *
+from   MMA.miditables import NONETONE
 
 splitChannels = []
 
@@ -67,7 +67,7 @@ def setSyncTone(ln):
         else:
             error(emsg)
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("SetSyncTone: Tone=%s, Velocity=%s" % tuple(syncTone))
 
 def setSplitChannels(ln):
@@ -97,7 +97,7 @@ def setSplitChannels(ln):
         if ch not in splitChannels:
             splitChannels.append(ch)
 
-    if gbl.debug:
+    if MMA.debug.debug:
         msg = ["SplitChannels: "]
         for a in splitChannels:
             msg.append(str(a))
@@ -188,7 +188,7 @@ def writeSplitTrack(channel, out):
             else:
                 notes[n].miditrk[offset] = [ev]
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print(" Data has been split into %s tracks." % len(notes))
 
     # Insert a channel name in all the new tracks.
@@ -470,7 +470,7 @@ class Mtrk:
             self.addToTrack(0, packBytes((0x90 | self.channel, t, v)))
             self.addToTrack(1, packBytes((0x90 | self.channel, t, 0)))
 
-        if gbl.debug:
+        if MMA.debug.debug:
             ttl = 0
             lg = 1
             for t in tr:

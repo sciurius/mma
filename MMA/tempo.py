@@ -28,7 +28,7 @@ from MMA.midiM import packBytes, byte3ToInt
 from MMA.timesig import timeSig
 from struct import unpack
 from MMA.parseCL import setChordTabs
-
+import MMA.debug
 import MMA.midi
 
 ######################################
@@ -39,7 +39,7 @@ timeTable = {
     '2/2': (4,    (1, 3)), 
     '2/4': (2,    (1, 2)),
     '6/4': (6,    (1, 4)),
-    '6/8': (3,    (1, 2.5)),
+    '6/8': (6,    (1, 4)),   # need this way to keep compatible with 'stdpats68'
 
     # triple
     '3/2': (6,    (1, 3, 5)),
@@ -138,7 +138,7 @@ def setTime(ln):
 
     setChordTabs(tabList)
 
-    if gbl.debug:
+    if MMA.debug.debug:
         if sigSet:
             sig =  "TimeSig %s " % timeSig.getAscii()
         else:
@@ -180,7 +180,7 @@ def tempo(ln):
 
         gbl.mtrks[0].addTempo(gbl.tickOffset, gbl.tempo)
 
-        if gbl.debug:
+        if MMA.debug.debug:
             print("Tempo: Set to %s" % gbl.tempo)
 
     else:              # Do a tempo change over bar count
@@ -210,7 +210,7 @@ def tempo(ln):
 
         gbl.tempo = int(v)
 
-        if gbl.debug:
+        if MMA.debug.debug:
             print("Tempo: Set future value to %s over %s beats" % 
                 (int(tempo), numbeats))
 
@@ -234,7 +234,7 @@ def beatAdjust(ln):
 
     gbl.totTime += adj / gbl.tempo   # adjust total time
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("BeatAdjust: inserted %s at bar %s." % (adj, gbl.barNum + 1))
 
 
@@ -290,7 +290,7 @@ def trackCut(name, ln):
     if m and len(gbl.mtrks[m].miditrk) > 1:
         gbl.mtrks[m].addNoteOff(moff)
 
-        if gbl.debug:
+        if MMA.debug.debug:
             print("Cut %s: Beat %s, Bar %s" % (name, offset, gbl.barNum + 1))
 
 
@@ -419,7 +419,7 @@ def fermata(ln):
                 else:
                     trk[mend] = endEvents
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("Fermata: Beat %s, Duration %s, Change %s, Bar %s" % 
               (offset, dur, adj, gbl.barNum + 1))
         if offset < 0:

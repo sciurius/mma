@@ -38,6 +38,7 @@ import MMA.parse
 import MMA.parseCL
 import MMA.seqrnd
 import MMA.docs
+import MMA.debug
 
 from MMA.timesig import timeSig
 from . import gbl
@@ -110,12 +111,12 @@ def grooveDefine(ln):
         error("Can't define groove name %s, already defined as an alias for %s." \
                   % (slot, aliaslist[slot]))
 
-    if gbl.gvShow and slot in glist:
+    if MMA.debug.gvShow and slot in glist:
         print("Redefining groove %s, line %s." % (slot, gbl.lineno))
 
     grooveDefineDo(slot)
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("Groove settings saved to '%s'." % slot)
 
     if gbl.makeGrvDefs:   # doing a database update ...
@@ -192,17 +193,16 @@ def groove(ln):
         # convert alias to real groove name
         if not slot in glist and slot in aliaslist:
                 slot = aliaslist[slot]
-                
 
         if not slot in glist:
-            if gbl.debug:
+            if MMA.debug.debug:
                 print("Groove '%s' not defined. Trying auto-load from libraries" 
                       % slot)
 
             l, slot = MMA.auto.findGroove(slotOrig)    # name of the lib file with groove
-
+            
             if l:
-                if gbl.debug:
+                if MMA.debug.debug:
                     print("Attempting to load groove '%s' from '%s'." % (slot, l))
 
                 reportFutureVols()
@@ -245,7 +245,7 @@ def groove(ln):
     if lastGroove == '':
         lastGroove = slot
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("Groove settings restored from '%s'." % slot)
 
 
@@ -347,7 +347,7 @@ def grooveClear(ln):
     lastGroove = ''
     currentGroove = ''
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("All grooves deleted.")
 
 
@@ -374,7 +374,7 @@ def nextGroove():
             lastGroove = currentGroove
             currentGroove = slot
 
-            if gbl.debug:
+            if MMA.debug.debug:
                 print("Groove (list) setting restored from '%s'." % slot)
 
 
@@ -400,7 +400,7 @@ def trackGroove(name, ln):
     if g.sequence == [None] * len(g.sequence):
         warning("'%s' Track Groove has no sequence. Track name error?" % name)
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("%s Groove settings restored from '%s'." % (name, slot))
 
 
@@ -486,14 +486,33 @@ def allgrooves(ln):
         warning("No tracks affected with '%s'" % ' '.join(ln))
 
     else:
-        if gbl.debug:
+        if MMA.debug.debug:
             print("AllGrooves: %s tracks modified." % counter)
 
 
 ###################################################################
 
-
 def trackCopy(name, ln):
+    """ Copy/Duplicate all track data to/from existing track. """
+
+    if ln and ln[0].upper() == 'TO':    # arg flipper
+        src = name
+
+        for dest in ln[1:]:
+            dest = dest.upper()  # Destination is 1st arg
+            MMA.alloc.trackAlloc(dest, 1) # create dest if it doesn't exist
+            trackCopyDo(dest, [src])
+
+    elif ln and ln[0].upper() == 'FROM':   # optional 'from' keyword
+        ln = ln[1:]
+        if len(ln) != 1:
+            error("Copy FROM %s: Exactly one arg needed (track to copy)." % name)
+        trackCopyDo(name, ln)
+
+    else:
+        trackCopyDo(name, ln)
+        
+def trackCopyDo(name, ln):
     """ Copy/Duplicate all track data from existing track.  """
 
     if len(ln) != 1:
@@ -513,11 +532,11 @@ def trackCopy(name, ln):
     if gr:
         otime = gbl.QperBar
         stackGroove.push()
-        groove([gr])
+        groove([gr.split(':', 1)[0]])              
         if otime != gbl.QperBar:
             error("Copy %s: TIME mismatch, groove %s has time of %s, not %s." %
                   (name, gr, gbl.QperBar, otime))
-
+        
     if not cp in gbl.tnames:
         error("Copy %s: Track '%s' is not defined." % (name, cp))
 
@@ -554,5 +573,5 @@ def trackCopy(name, ln):
     else:
         self.restoreGroove(COPYGROOVE)
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("Copy: Settings duplicated from %s to %s" % (cp.name, self.name))

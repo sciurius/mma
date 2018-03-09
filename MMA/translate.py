@@ -29,7 +29,7 @@ import MMA.midiC
 
 from . import gbl
 from MMA.common import *
-
+import MMA.debug
 
 """ Translation table for VOICE. This is ONLY used when a voice is set
     from the VOICE command. If a translation exists the translation is
@@ -55,7 +55,7 @@ class Vtable:
 
         if not ln:
             self.table = {}
-            if gbl.debug:
+            if MMA.debug.debug:
                 print("Voice Translation table reset.")
             return
 
@@ -67,7 +67,7 @@ class Vtable:
         for v, a in opts:
             self.table[v] = a
 
-        if gbl.debug:
+        if MMA.debug.debug:
             print("Voice Translations: %s" % ' '.join(["%s=%s" % (v, a) for v, a in opts]))
 
     def get(self, name):
@@ -107,7 +107,7 @@ class Dtable:
 
         if not ln:
             self.table = {}
-            if gbl.debug:
+            if MMA.debug.debug:
                 print("DrumTone Translation table reset.")
 
             return
@@ -128,7 +128,7 @@ class Dtable:
 
             self.table[v1] = a1
 
-        if gbl.debug:
+        if MMA.debug.debug:
             print("TONETR Translations: %s" % 
                   ' '.join(["%s(%s)=%s" % (v, MMA.midiC.drumToValue(v), 
                                            MMA.midiC.drumToValue(a)) for v, a in opts]))
@@ -176,7 +176,7 @@ class VoiceVolTable:
 
         if not ln:
             self.table = {}
-            if gbl.debug:
+            if MMA.debug.debug:
                 print("Voice Volume Adjustment table reset.")
 
             return
@@ -198,7 +198,7 @@ class VoiceVolTable:
 
             self.table[val] = a / 100.
 
-        if gbl.debug:
+        if MMA.debug.debug:
             print("VOICEVOLTR: %s" % ' '.join(["%s=%s" % (v.upper(), a) for v, a in opts]))
 
     def get(self, v, vol):
@@ -230,7 +230,7 @@ class DrumVolTable:
 
         if not ln:
             self.table = {}
-            if gbl.debug:
+            if MMA.debug.debug:
                 print("DRUMVOLTR: Adjustment table reset.")
 
             return
@@ -252,7 +252,7 @@ class DrumVolTable:
 
             self.table[val] = a / 100.
 
-        if gbl.debug:
+        if MMA.debug.debug:
             print("DRUMVOLTR: %s" %
                   ' '.join(["%s=%s" % (MMA.midiC.valueToDrum(val), a) for v, a in opt]))
 

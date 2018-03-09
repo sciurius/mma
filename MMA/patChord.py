@@ -31,6 +31,7 @@ import MMA.ornament
 from . import gbl
 from MMA.common import *
 from MMA.pat import PC, Pgroup
+import MMA.debug
 
 import copy
 
@@ -151,7 +152,7 @@ class Chord(PC):
 
                 self.voicing.dir = val
 
-        if gbl.debug:
+        if MMA.debug.debug:
             v = self.voicing
             print("Set %s Voicing MODE=%s RANGE=%s CENTER=%s RMOVE=%s MOVE=%s DIR=%s " %
                   (self.name, v.mode, v.range, v.center, v.random, v.bcount, v.dir))
@@ -178,7 +179,7 @@ class Chord(PC):
 
         self.dupRoot = seqBump(tmp)
 
-        if gbl.debug:
+        if MMA.debug.debug:
             print("%s DupRoot set to: %s" % (self.name, self.getDupRootSetting()))
 
     def getDupRootSetting(self):

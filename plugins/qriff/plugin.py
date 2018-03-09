@@ -33,7 +33,7 @@ pu.addArgument("valid riff data",     None,  "")
 pu.setPluginDoc("""QRiff ... convert a solo line into quarter tones.
 
 This plugin will convert a solo riff line into 3 separate solo lines:
-   Solo - the orginal track. It can be custom name like "Solo-Foo".
+   Solo - the original track. It can be custom name like "Solo-Foo".
           Any quarter tone notes are replaced by rests.
    Solo-qFlat - the quarter tone flat notes.
    Solo-qSharp - the quarter tone sharp notes.

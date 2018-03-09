@@ -31,6 +31,7 @@ import sys
 import importlib
 import hashlib
 import json
+import MMA.debug
 
 from MMA.paths import plugPath 
 from MMA.common import *
@@ -307,13 +308,13 @@ def registerPlugin(p):
     if hasattr(e, 'run'):
         MMA.parse.simpleFuncs[cmdName] = e.run
         simplePlugs.append(cmdName)
-        if gbl.debug:
+        if MMA.debug.debug:
             print("Plugin: %s simple plugin RUN registered." % cmdName.title())
 
     if hasattr(e, 'trackRun'):
         MMA.parse.trackFuncs[cmdName] = e.trackRun
         trackPlugs.append(cmdName)
-        if gbl.debug:
+        if MMA.debug.debug:
             print("Plugin: %s track plugin TrackRun registered." % cmdName.title())
 
     if hasattr(e, 'printUsage'):
@@ -365,7 +366,7 @@ def plugin(ln):
                 else:
                     error("Plugin Disable: '%s' is an unknown or illegal option." % o)
 
-            if gbl.debug:
+            if MMA.debug.debug:
                 if plugsOff:
                     print("Plugin: loading disabled.")
                 else:

@@ -35,6 +35,7 @@ from . import gbl
 from MMA.common import *
 from MMA.pat import PC, Pgroup
 from MMA.keysig import keySig
+import MMA.debug
 
 import re
 import random
@@ -223,7 +224,7 @@ class Melody(PC):
                           % (self.name, opt, ', '.join(valid)))
                 self.arpDirection = opt
 
-        if gbl.debug:
+        if MMA.debug.debug:
             print("%s Arpeggiate: Rate=%s Decay=%s Direction=%s" % 
                   (self.name, self.arpRate, self.arpDecay, self.arpDirection))
 
@@ -679,7 +680,7 @@ class Melody(PC):
             pitch = None
             count = 0
             for n in nn:
-                if n.isgrace or not n.pitch:
+                if n.isgrace or n.pitch==None:
                     continue
                 pitch = n.pitch
                 duration = n.duration
@@ -883,7 +884,7 @@ def setAutoSolo(ln):
 
         autoSoloTracks.append(n)
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("AutoSolo track names: %s" % ' '.join([a for a in autoSoloTracks]))
 
 
@@ -939,7 +940,7 @@ def extractSolo(ln, rptcount):
                     and set(gbl.tnames[t].harmonyOnly) != {None}:
                 gbl.tnames[t].setRiff(firstSolo[:])
 
-                if gbl.debug:
+                if MMA.debug.debug:
                     print("%s duplicated to %s for HarmonyOnly." % (trk, t))
 
     return ln

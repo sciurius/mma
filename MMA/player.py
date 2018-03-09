@@ -29,6 +29,7 @@ import re
 from MMA.common import *
 from . import gbl
 import MMA.file
+import MMA.debug
 
 # Initialize the default midi player.
 if gbl.platform == 'Windows':
@@ -82,7 +83,7 @@ def setMidiPlayer(ln):
         n = ['']
     midiPlayer = n
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("MidiPlayer set to '%s' Background=%s Delay=%s." %
             (' '.join(midiPlayer), inBackGround, waitTime))
 

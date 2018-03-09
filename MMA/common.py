@@ -34,6 +34,7 @@ from random import randrange
 import sys
 from . import gbl
 from textwrap import wrap
+import MMA.debug
 
 # having the term width is nice for pretty print error/warning
 from MMA.termsize import getTerminalSize
@@ -78,7 +79,7 @@ def error(msg):
 def warning(msg):
     """ Print warning message and return. """
 
-    if not gbl.noWarn:
+    if not MMA.debug.noWarn:
         if gbl.lineno >= 0:
             linno = "<Line %d>" % gbl.lineno
         else:
@@ -220,9 +221,10 @@ def opt2pair(ln, toupper=False, notoptstop=False):
            newln - original list stripped of opts
            opts  - list of options. Each option is a tuple(opt, value)
 
-       Note: default is to leave case alone. Setting toupper converts everything to upper.
+       Note: default is to leave case alone. Setting toupper converts 
+                everything to upper.
              default is to parse entire line. Setting notoptstop stops parse at first
-                     word which is not a xx=yy pair.
+                word which is not a xx=yy pair.
     """
 
     opts = []

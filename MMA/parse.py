@@ -33,6 +33,7 @@ import random
 from . import gbl
 from MMA.common import *
 
+import MMA.debug
 import MMA.notelen
 import MMA.chords
 import MMA.file
@@ -89,7 +90,7 @@ def parseFile(n):
     parse(f)
     gbl.inpath = fp
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("File '%s' closed." % n)
 
 
@@ -153,7 +154,7 @@ def parse(inpath):
             l = beginData + l
             action = l[0].upper()
 
-        if gbl.showExpand and action != 'REPEAT':
+        if MMA.debug.showExpand and action != 'REPEAT':
             print(l)
 
         if action in simpleFuncs:
@@ -325,7 +326,7 @@ def parse(inpath):
 
             # Enabled with the -r command line option
 
-            if gbl.showrun:
+            if MMA.debug.showrun:
                 if lyrics:       # we print lyric as a list 
                     ly = lyrics  # with the []s
                 else:
@@ -647,97 +648,6 @@ def printActive(ln):
     print("\n")
 
 
-def setDebug(ln):
-    """ Set debugging options dynamically. """
-
-    msg = ("Debug: Use MODE=On/Off where MODE is one or more of "
-           "DEBUG, FILENAMES, PATTERNS, SEQUENCE, "
-           "RUNTIME, WARNINGS, EXPAND, ROMAN or PLECTRUM.")
-
-    if not len(ln):
-        error(msg)
-
-    # save current flags
-
-    gbl.Ldebug = gbl.debug
-    gbl.LshowFilenames = gbl.showFilenames
-    gbl.Lpshow = gbl.pshow
-    gbl.Lseqshow = gbl.seqshow
-    gbl.Lshowrun = gbl.showrun
-    gbl.LnoWarn = gbl.noWarn
-    gbl.LnoOutput = gbl.noOutput
-    gbl.LshowExpand = gbl.showExpand
-    gbl.Lchshow = gbl.chshow
-    gbl.LplecShow = gbl.plecShow
-    gbl.LrmShow = gbl.rmShow
-    gbl.LgvShow = gbl.gvShow
-
-    ln, opts = opt2pair(ln, 1)
-    if ln:
-        error("Each debug option must be a opt=value pair.")
-
-    for cmd, val in opts:
-        if val == 'ON' or val == '1':
-            val = 1
-        elif val == 'OFF' or val == '0':
-            val = 0
-        else:
-            error("Debug: %s needs ON, 1, OFF, or 0 arg." % cmd)
-
-        if cmd == 'DEBUG':
-            gbl.debug = val
-            if gbl.debug:
-                print("Debug=%s." % val)
-
-        elif cmd == 'FILENAMES':
-            gbl.showFilenames = val
-            if gbl.debug:
-                print("ShowFilenames=%s." % val)
-
-        elif cmd == 'PATTERNS':
-            gbl.pshow = val
-            if gbl.debug:
-                print("Pattern display=%s." % val)
-
-        elif cmd == 'SEQUENCE':
-            gbl.seqshow = val
-            if gbl.debug:
-                print("Sequence display=%s." % val)
-
-        elif cmd == 'RUNTIME':
-            gbl.showrun = val
-            if gbl.debug:
-                print("Runtime display=%s." % val)
-
-        elif cmd == 'WARNINGS':
-            gbl.noWarn = not(val)
-            if gbl.debug:
-                print("Warning display=%s" % val)
-
-        elif cmd == 'EXPAND':
-            gbl.showExpand = val
-            if gbl.debug:
-                print("Expand display=%s." % val)
-
-        elif cmd == 'ROMAN':
-            gbl.rmShow = val
-            if gbl.debug:
-                print("Roman numeral chords/slash display=%s" % val)
-
-        elif cmd == 'GROOVE':
-            gbl.gvShow = val
-            if gbl.debug:
-                print("Groove re-define display=%s" % val)
-
-        elif cmd == 'PLECTRUM':
-            gbl.plecShow = val
-            if gbl.debug:
-                print("Plectrum display=%s" % val)
-
-        else:
-            error(msg)
-
-
 ###########################################################
 ###########################################################
 ## Track specific commands
@@ -746,6 +656,7 @@ def setDebug(ln):
 #######################################
 # Pattern/Groove
 
+    
 def trackDefPattern(name, ln):
     """ Define a pattern for a track.
 
@@ -821,7 +732,7 @@ def deleteTrks(ln):
         if not name in gbl.deletedTracks:
             gbl.deletedTracks.append(name)
 
-        if gbl.debug:
+        if MMA.debug.debug:
             print("Track '%s' deleted" % name)
 
 #######################################
@@ -1300,7 +1211,7 @@ simpleFuncs = {'ADJUSTVOLUME': MMA.volume.adjvolume,
                'COMMENT': comment,
                'CRESC': MMA.volume.setCresc,
                'CUT': MMA.tempo.cut,
-               'DEBUG': setDebug,
+               'DEBUG': MMA.debug.setDebug,
                'DEC': macros.vardec,
                'DECRESC': MMA.volume.setDecresc,
                'DEFALIAS': MMA.grooves.grooveAlias,

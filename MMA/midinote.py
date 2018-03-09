@@ -27,11 +27,11 @@ This module does all the midinote stuff.
 
 import MMA.notelen
 import MMA.midiC
-from MMA.midiM import packBytes
-
+from   MMA.midiM import packBytes
+import MMA.debug
 from . import gbl
-from MMA.common import *
-from MMA.keysig import keySig
+from   MMA.common import *
+from   MMA.keysig import keySig
 
 
 def parse(name, ln):
@@ -129,7 +129,7 @@ def parse(name, ln):
         else:
             error("MidiNote: Unknown command '%s'." % a)
 
-    if gbl.debug:
+    if MMA.debug.debug:
         if opts:
             print("MIDINOTE: %s" % mopts(trk))
 
@@ -316,7 +316,7 @@ def insertNote(trk, ln):
         track.addToTrack(gbl.tickOffset + offset, onEvent)
         track.addToTrack(gbl.tickOffset + offset + duration, offEvent)
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("MidiNote Note %s: inserted note %s at offset %s." % (trk.name, notes, offset))
 
 
@@ -338,7 +338,7 @@ def insertPB(trk, ln):
     track = gbl.mtrks[channel]
     track.addToTrack(gbl.tickOffset + offset, packBytes((0xe0 | channel-1, v % 128, v // 128)))
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("MidiNote PB %s: inserted bend %s at offset %s." % (trk.name, v-8192, offset))
 
 
@@ -383,7 +383,7 @@ def insertPBrange(trk, ln):
         offset += tinc
         bend += vinc
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("MidiNote PBR %s: inserted bends %s to %s at offsets %s to %s." % 
             (trk.name, v1-8192, v2-8192, s1, s2))
 
@@ -415,7 +415,7 @@ def insertControl(trk, ln):
 
     track.addToTrack(gbl.tickOffset + offset, packBytes((0xb0 | channel-1, v, d)) )
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("MidiNote Ctrl %s: inserted Controller %s value %s at offset %s." % 
             (trk.name, v, d, offset))
 
@@ -438,7 +438,7 @@ def insertChTouch(trk, ln):
 
     track.addToTrack(gbl.tickOffset + offset, packBytes((0xd0 | channel-1, v)))
  
-    if gbl.debug:
+    if MMA.debug.debug:
         print("MidiNote ChAT %s: inserted channel aftertouch %s at offset %s." % 
             (trk.name, v, offset))
 
@@ -482,6 +482,6 @@ def insertChTouchRange(trk, ln):
         offset += tinc
         bend += vinc
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("MidiNote ChATR %s: inserted events %s to %s at offsets %s to %s." %
             (trk.name, v1, v2, s1, s2))

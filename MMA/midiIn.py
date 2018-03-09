@@ -22,13 +22,15 @@ Bob van der Poel <bob@mellowood.ca>
 
 """
 
-import MMA.file
-from MMA.midiM import packBytes
 from . import gbl
-from MMA.common import *
-from MMA.alloc import trackAlloc
-from MMA.readmidi import MidiData
+import MMA.file
+import MMA.debug
+from   MMA.common import *
 
+from   MMA.alloc import trackAlloc
+from   MMA.readmidi import MidiData
+
+from   MMA.midiM import packBytes
 
 ######################################################
 ## Main function, called from parser.
@@ -269,7 +271,7 @@ def midiinc(ln):
     if (istart >= iend) or (istart < 0) or (iend < 0):
         error("MidiInc: Range invalid, start=%s, end=%s" % (istart, iend))
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("MidiInc: file=%s, Volume=%s, Octave=%s, Transpose=%s, Lyric=%s, " 
             "Text=%s, Range=%s..%s StripSilence=%s Verbose=%s" 
             % (filename, velAdjust, octAdjust, transpose, doLyric, doText,
@@ -324,7 +326,7 @@ def midiinc(ln):
             else:
                 disc += 1
 
-        if gbl.debug:
+        if MMA.debug.debug:
             print("MidiInc text events: %s inserted, %s out of range." % (inst, disc))
 
     if doLyric:
@@ -339,7 +341,7 @@ def midiinc(ln):
                 inst += 1
             else:
                 disc += 1
-        if gbl.debug:
+        if MMA.debug.debug:
             print("MidiInc lyric events: %s inserted, %s out of range." % (inst, disc))
 
     for n, c, riffmode, printriff in channels:
@@ -454,7 +456,7 @@ def midiinc(ln):
                 else:
                     MMA.sequence.trackSequence(tr, txt)
 
-    if gbl.debug:
+    if MMA.debug.debug:
             print("MidiInc events: %s inserted, %s out of range." % (inst, disc))
 
 

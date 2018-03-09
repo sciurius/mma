@@ -25,6 +25,7 @@ All trigger functions.
 """
 
 from MMA.common import *
+import MMA.debug
 from . import gbl
 import MMA.truncate
 
@@ -290,7 +291,7 @@ def setTrigger(name, ln):
         else:
             error("%s Trigger '%s' is an unknown command." % (self.name, cmd))
 
-    if gbl.debug:
+    if MMA.debug.debug:
         MMA.debug.trackSet(self.name, "TRIGGER")
 
 def getTriggerOptions(self):

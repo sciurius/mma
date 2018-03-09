@@ -27,6 +27,7 @@ from MMA.common import *
 from MMA.chordtable import chordlist
 import MMA.roman
 from MMA.keysig import keySig  # needed for voicing mode keycenter()
+import MMA.debug
 
 import copy
 
@@ -83,7 +84,7 @@ def defChord(ln):
 
     chordlist[name] = (notes, scale, "User Defined")
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("ChordType '%s', %s" % (name, chordlist[name]))
 
 
@@ -251,7 +252,7 @@ class ChordNotes:
         """
 
         slash = None
-        wmessage = ''   # slash warning msg, builder needed for gbl.rmShow
+        wmessage = ''   # slash warning msg, builder needed for debug.rmShow
         octave = 0
         inversion = 0
         polychord = None
@@ -423,7 +424,7 @@ class ChordNotes:
                         wmessage += "\nChords with '%s': %s" % (slash, ' '.join(sorted(ll)))
 
                     slashPrinted.append(t)  # only print this chord/slash once
-                if not gbl.rmShow:
+                if not MMA.debug.rmShow:
                     warning(wmessage)
 
         if polychord:
@@ -439,7 +440,7 @@ class ChordNotes:
             self.noteListLen = len(self.noteList)
             self.bnoteList = tuple(self.noteList)
 
-        if gbl.rmShow:  # Display roman debug (Debug=Roman)
+        if MMA.debug.rmShow:  # Display roman debug (Debug=Roman)
             if slash:
                 a = '/' + slash
             else:

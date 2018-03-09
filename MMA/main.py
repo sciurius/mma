@@ -32,10 +32,12 @@ import MMA.options
 import MMA.auto
 import MMA.docs
 import MMA.tempo
+import MMA.debug
 
 from . import gbl
-from MMA.common import *
-from MMA.lyric import lyric
+from   MMA.common import *
+from   MMA.lyric import lyric
+
 import MMA.paths
 
 cmdSMF = None
@@ -55,7 +57,7 @@ MMA.options.opts()
 
 #  LibPath and IncPath are set before option parsing, but
 #  debug setting wasn't. So we need to do the debug for this now
-if gbl.debug:
+if MMA.debug.debug:
     print("Initialization has set LibPath set to %s" % MMA.paths.libPath)
     print("Initialization has set IncPath set to %s" % MMA.paths.incPath)
 
@@ -148,7 +150,7 @@ MMA.paths.dommaEnd()
 #################################################
 # Just display the channel assignments (-c) and exit...
 
-if gbl.chshow:
+if MMA.debug.chshow:
     msg = ["\nFile '%s' parsed, but no MIDI file produced!" % gbl.infile]
     msg.append("\nTracks allocated:\n")
     k = list(gbl.tnames.keys())
@@ -200,7 +202,7 @@ if gbl.chshow:
 ####################################
 # Dry run, no output
 
-if gbl.noOutput:
+if MMA.debug.noOutput:
     gbl.lineno = -1
     warning("Input file parsed successfully. No midi file generated")
     sys.exit(0)
@@ -285,8 +287,17 @@ if fileExist:
     msg = "Overwriting existing"
 else:
     msg = "Creating new"
-print("%s midi file (%s bars, %.2f min): '%s'" %
-    (msg, gbl.barNum, gbl.totTime, outfile))
+
+print("%s midi file (%s bars, %.2f min / %.0d:%02d m:s): '%s'" %
+    (msg, gbl.barNum, gbl.totTime, gbl.totTime, (gbl.totTime%1)*60, outfile))
+
+# Insert the estimated play time in seconds into a comment line.
+# A player program can search for this and display it. MMA uses
+# struct.pack() to create events placed into MIDI files, and these
+# seem to pack strings with a null termination. But, don't count on
+# it ... use a well known terminator "\n" at the end  of the event!
+
+gbl.mtrks[0].addText(0, "DURATION: %.0d\n" % (gbl.totTime*60) )
 
 try:
     out = open(outfile, 'wb')
@@ -300,5 +311,6 @@ if gbl.playFile:
     import MMA.player
     MMA.player.playMidi(outfile)
 
-if gbl.debug:
+if MMA.debug.debug:
     print("Completed processing file '%s'." % outfile)
+
