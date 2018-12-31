@@ -47,7 +47,7 @@ def cmdLineDebug(o):
     global debug, Ldebug, showFilenames, LshowFilenames, \
         pshow, Lpshow, seqshow, Lseqshow, showrun, Lshowrun, \
         noWarn, LnoWarn, noOutput, LnoOutput, showExpand, \
-        LshowExpand, Lchshow 
+        LshowExpand, chshow, Lchshow 
     
     if o == 'd':
         debug = Ldebug = 1
@@ -178,7 +178,7 @@ def setDebug(ln):
             
 def getFlags():
     """ Returns current values of debug flags in a string.
-        Used by macro.py. 
+        Used by macro.py to expand $_Debug. 
     """    
     
     return "Debug=%s  Filenames=%s Patterns=%s " \
@@ -189,7 +189,7 @@ def getFlags():
 
 def getLFlags():
     """ Returns last set values of debug flags in a string.
-        Used by macro.py. 
+        Used by macro.py to expand %_LastDebug. 
     """
     
     return "Debug=%s  Filenames=%s Patterns=%s " \

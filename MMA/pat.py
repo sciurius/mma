@@ -1831,22 +1831,28 @@ class PC:
 
         """ Special for TRUNCATE. If bar(s) are being truncated patterns
             need to be resized to fit the new size. (Note: SOLO patterns
-            are not touched since they are not yet compiled.) We use the
-            'side' and 'length' settings to figure out where to start/end
-            slicing the pattern.
+            are not touched since they are not yet compiled. They will error 
+            if they are too long!!)
+            We use the 'side' and 'length' settings to figure out where
+            to start/end slicing the pattern.
             NOTE: use a deepcopy of the pattern!
         """
 
         if MMA.truncate.length and self.vtype not in ("SOLO", "MELODY"):
+            new = []
             pstart = MMA.truncate.side
             pend = pstart + MMA.truncate.length
-            new = []
+
+            # Go though original pattern and duplicate events (with
+            # adjusted offsets) for the new beats. Note that the size/len
+            # of pattern is NOT related to the seqsize!
 
             for a in copy.deepcopy(pattern):
                 if a.offset >= pstart and a.offset < pend:
                     a.offset -= pstart
                     new.append(a)
-            pattern = new
+
+            pattern = new # replace existing pattern with newly created one.
 
         if pattern:
             self.trackBar(pattern, ctable)

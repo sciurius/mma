@@ -1,10 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
-<!--Converted with LaTeX2HTML 2008 (1.71)
-original version by:  Nikos Drakos, CBLU, University of Leeds
-* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
-* with significant contributions from:
-  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<!--Converted with LaTeX2HTML 2018.2 (Released May 16, 2018) -->
 <HTML>
 <HEAD>
 <TITLE>Volume and Dynamics</TITLE>
@@ -14,7 +10,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <META NAME="distribution" CONTENT="global">
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018.2">
 <META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
 
 <LINK REL="STYLESHEET" HREF="mma.css">
@@ -28,21 +24,21 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY  bgcolor="#ffffff">
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html768"
+<A NAME="tex2html770"
   HREF="node20.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html766"
+<A NAME="tex2html768"
   HREF="mma.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html760"
+<A NAME="tex2html762"
   HREF="node18.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
 <BR>
-<B> Next:</B> <A NAME="tex2html769"
+<B> Next:</B> <A NAME="tex2html771"
   HREF="node20.html">Repeats</A>
-<B> Up:</B> <A NAME="tex2html767"
+<B> Up:</B> <A NAME="tex2html769"
   HREF="mma.html">Reference Manual</A>
-<B> Previous:</B> <A NAME="tex2html761"
+<B> Previous:</B> <A NAME="tex2html763"
   HREF="node18.html">Swing</A>
 <BR>
 <BR></DIV>
@@ -51,26 +47,26 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
 <UL CLASS="ChildLinks">
-<LI><A NAME="tex2html770"
+<LI><A NAME="tex2html772"
   HREF="node19.html#SECTION001910000000000000000">Accent</A>
-<LI><A NAME="tex2html771"
+<LI><A NAME="tex2html773"
   HREF="node19.html#SECTION001920000000000000000">AdjustVolume</A>
 <UL>
-<LI><A NAME="tex2html772"
+<LI><A NAME="tex2html774"
   HREF="node19.html#SECTION001921000000000000000">Mnemonic Volume Ratios</A>
-<LI><A NAME="tex2html773"
+<LI><A NAME="tex2html775"
   HREF="node19.html#SECTION001922000000000000000">Master Volume Ratio</A>
 </UL>
 <BR>
-<LI><A NAME="tex2html774"
-  HREF="node19.html#SECTION001930000000000000000">Volume</A>
-<LI><A NAME="tex2html775"
-  HREF="node19.html#SECTION001940000000000000000">Cresc and Decresc</A>
 <LI><A NAME="tex2html776"
-  HREF="node19.html#SECTION001950000000000000000">Swell</A>
+  HREF="node19.html#SECTION001930000000000000000">Volume</A>
 <LI><A NAME="tex2html777"
-  HREF="node19.html#SECTION001960000000000000000">RVolume</A>
+  HREF="node19.html#SECTION001940000000000000000">Cresc and Decresc</A>
 <LI><A NAME="tex2html778"
+  HREF="node19.html#SECTION001950000000000000000">Swell</A>
+<LI><A NAME="tex2html779"
+  HREF="node19.html#SECTION001960000000000000000">RVolume</A>
+<LI><A NAME="tex2html780"
   HREF="node19.html#SECTION001970000000000000000">Saving and Restoring Volumes</A>
 </UL>
 <!--End of Table of Child-Links-->
@@ -94,8 +90,8 @@ to control how loud a sound is:
 <P>
 
 <UL>
-<LI>Whenever a ``note on'' event is sent to the device it has a
-  ``velocity'' byte. The velocity can be a value from 1 to 127 (in
+<LI>Whenever a &ldquo;note on&rdquo; event is sent to the device it has a
+  &ldquo;velocity&rdquo; byte. The velocity can be a value from 1 to 127 (in
   most cases the value 0 will turn off a note). You can think of these
   velocity values in the same way as you think of the difference in
   loudness of a piano key depending on the strength with which you
@@ -104,22 +100,22 @@ to control how loud a sound is:
 
 <P>
 </LI>
-<LI>MIDI devices have ``controllers'' which set the volume for a
-  given channel. For example, Controller 7 is the ``Channel Volume
-  MSB'' and Controller 39 is the ``Channel Volume LSB''. By sending
+<LI>MIDI devices have &ldquo;controllers&rdquo; which set the volume for a
+  given channel. For example, Controller 7 is the &ldquo;Channel Volume
+  MSB&rdquo; and Controller 39 is the &ldquo;Channel Volume LSB&rdquo;. By sending
   different values to these controllers the volume for the specified
   channel will be modified. These changes are relative to the
   velocities of notes.
 
 <P>
 </LI>
-<LI>MIDI devices have ``Master Volume'' setting. This is controlled
+<LI>MIDI devices have &ldquo;Master Volume&rdquo; setting. This is controlled
   by a SysEx setting. This setting is not present in all devices. It
   will effect all channels equally.
 
 <P>
 </LI>
-<LI>Finally, there are various ``external'' settings such as volume
+<LI>Finally, there are various &ldquo;external&rdquo; settings such as volume
   knobs, foot pedals and amplifier settings. We'll ignore these
   completely.
 
@@ -128,10 +124,10 @@ to control how loud a sound is:
 </UL>
 
 <P>
-An important difference between the ``velocity'' and ``controller''
+An important difference between the &ldquo;velocity&rdquo; and &ldquo;controller&rdquo;
 methods is that you cannot change the volume of a note once it has
-started using the ``velocity'' method. However, relying on the
-``controller'' method doesn't always overcome this limitation: some
+started using the &ldquo;velocity&rdquo; method. However, relying on the
+&ldquo;controller&rdquo; method doesn't always overcome this limitation: some
 synths or playback devices don't support channel volume controllers
 and having multiple notes with different volumes is impossible. So,
 you might need a combination of the two methods to achive your desired
@@ -141,11 +137,11 @@ results.
 In a 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  program there are a number ways to control the velocity of
 each note created.<A NAME="tex2html74"
-  HREF="#foot10666"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>
+  HREF="#foot10729"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>
 <P>
 The basic method used by 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  to affect volume is to change the
-velocity of a ``note on'' event. However, you might also be interested
+velocity of a &ldquo;note on&rdquo; event. However, you might also be interested
 in accessing your MIDI device more directly to set better mixes
 between channels. In that case you should read the discussion for
 MIDIV<SMALL>OLUME</SMALL> (<A HREF="node24.html#channelvol">here</A>).
@@ -163,12 +159,12 @@ though.
 <OL>
 <LI>The initial velocity is set in the pattern definition, see
   <A HREF="node4.html#sec-pats">patterns</A>,<A NAME="tex2html75"
-  HREF="#foot10471"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A>
+  HREF="#foot10534"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A>
 <P>
 </LI>
 <LI>the velocity is then adjusted by the master and track volume
   settings<A NAME="tex2html76"
-  HREF="#foot10667"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A> (see
+  HREF="#foot10730"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A> (see
   <A HREF="#volume-ratio">here</A> for the discussion
   of A<SMALL>DJUST</SMALL>V<SMALL>OLUME </SMALL>RATIO),
 
@@ -201,8 +197,7 @@ adjustment values.
 
 		<Table CellSpacing=0 Width="80%" Align="Center" CellPadding=10 BGColor="#dddddd" Border=3>
            <tr> <td>
-	       
-<TABLE CELLPADDING=3 BORDER="1">
+	       <TABLE CELLPADDING=3 BORDER="1">
 <TR><TD ALIGN="LEFT"><SPAN  CLASS="textit">Symbolic Name</SPAN></TD>
 <TD ALIGN="CENTER"><SPAN  CLASS="textit">Ratio (Percentage) Adjustment</SPAN></TD>
 </TR>
@@ -276,7 +271,7 @@ As stated before, the initial velocity of a note is set in the pattern
 definition (see <A HREF="node4.html#sec-pats">patterns</A>). The
 following commands set the master volume, track volume and random
 volume adjustments. And, again, please note that even though this
-manual calls the adjustments ``volume'', they all do the same thing:
+manual calls the adjustments &ldquo;volume&rdquo;, they all do the same thing:
 manipulate the initial note velocity.
 
 <P>
@@ -287,8 +282,8 @@ Accent
 </H1> 
 
 <P>
-``Real musicians'',<A NAME="tex2html77"
-  HREF="#foot10499"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A> in an almost
+&ldquo;Real musicians&rdquo;,<A NAME="tex2html77"
+  HREF="#foot10562"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A> in an almost
 automatic manner, emphasize notes on certain beats. In popular Western
 music written in <SPAN  CLASS="textbf">4/4</SPAN> time this is usually beats one and
 three. This emphasis sets the pulse or beat in a piece.
@@ -351,7 +346,7 @@ factors must be integers in the range -100 to 100.
 
 <P>
 The A<SMALL>CCENT</SMALL>s can apply to all bars in a track; as well, you can
-set different accents for different bars. Just use a ``{}'' pair to
+set different accents for different bars. Just use a &ldquo;{}&rdquo; pair to
 delimit each bar. For example:
 
 <P>
@@ -368,11 +363,11 @@ The above line will set an accent on beat 1 of bars 1, 2 and 3; in bar
 4 beats 1 and 3 will be accented.
 
 <P>
-You can use a ``/'' to repeat a setting. The ``/'' can be enclosed in
-a ``{}'' delimiter if you want.
+You can use a &ldquo;/&rdquo; to repeat a setting. The &ldquo;/&rdquo; can be enclosed in
+a &ldquo;{}&rdquo; delimiter if you want.
 
 <P>
-To reset to the ``no accenting'' default, just use an empty command:
+To reset to the &ldquo;no accenting&rdquo; default, just use an empty command:
 
 <P>
 
@@ -641,10 +636,10 @@ value for each bar in a sequence:
       </Table>
 
 <P>
-A ``/'' can be used to repeat values.
+A &ldquo;/&rdquo; can be used to repeat values.
 
 <P>
-In addition to the ``musical symbols'' like <SPAN  CLASS="textit">ff</SPAN> and
+In addition to the &ldquo;musical symbols&rdquo; like <SPAN  CLASS="textit">ff</SPAN> and
 <SPAN  CLASS="textit">mp</SPAN> you can also use numeric values to indicate a
 percentage. In this case you can use intermediate values to those
 specified in the table above. For example, to set the volume between
@@ -664,7 +659,7 @@ But, we don't recommend that you use this!
 
 <P>
 A better option is to increment or decrement an existing volume by a
-percentage. A numeric value prefaced by a ``+'' or ``-'' is
+percentage. A numeric value prefaced by a &ldquo;+&rdquo; or &ldquo;-&rdquo; is
 interpreted as a change. So:
 
 <P>
@@ -682,10 +677,10 @@ would decrement the existing volume of the D<SMALL>RUM-</SMALL>S<SMALL>NARE</SMA
 set to 0 and a warning message will be displayed.
 
 <P>
-And, finally, for fine tuning you can adjust a ``musical symbol''
-volume by a percentage. The volume ``mf-10'' will generate a volume
-10% less than the value of ``mf''; ``f+20'' will generate a volume
-20% greater than ``f''.
+And, finally, for fine tuning you can adjust a &ldquo;musical symbol&rdquo;
+volume by a percentage. The volume &ldquo;mf-10&rdquo; will generate a volume
+10% less than the value of &ldquo;mf&rdquo;; &ldquo;f+20&rdquo; will generate a volume
+20% greater than &ldquo;f&rdquo;.
 
 <P>
 
@@ -706,7 +701,7 @@ Cresc and Decresc
 <P>
 If you wish to adjust the volume over one or more bars use the
 C<SMALL>RESC</SMALL> or D<SMALL>ECRESC</SMALL><A NAME="tex2html78"
-  HREF="#foot10565"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">5</SPAN></SUP></A> commands. These
+  HREF="#foot10628"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">5</SPAN></SUP></A> commands. These
 commands work in both the master context and individual tracks.
 
 <P>
@@ -735,7 +730,7 @@ For example:
 
 <P>
 will gradually vary the master volume from its current setting to a
-``triple forte'' over the next 5 bars. Note that the very next bar
+&ldquo;triple forte&rdquo; over the next 5 bars. Note that the very next bar
 will be played at the current volume and the fifth bar at <SPAN  CLASS="textit">fff</SPAN>
 with the other three bars at increasing volumes.
 
@@ -752,7 +747,7 @@ Similarly:
       </Table>
 
 <P>
-will decrease the ``drum-snare'' volume to ``mezzo piano'' over the
+will decrease the &ldquo;drum-snare&rdquo; volume to &ldquo;mezzo piano&rdquo; over the
 next 2 bars.
 
 <P>
@@ -940,7 +935,7 @@ bars for which the volume is only set once.
 
 <P>
 Sometimes a C<SMALL>RESC</SMALL><A NAME="tex2html79"
-  HREF="#foot10670"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">6</SPAN></SUP></A> command will span a groove change. 
+  HREF="#foot10733"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">6</SPAN></SUP></A> command will span a groove change. 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT> 
 handles this in two different ways:
 
@@ -1016,8 +1011,8 @@ Swell</A>
 Often you want a crescendo to be followed by a decrescendo (or, less
 commonly, a decrescendo followed by a crescendo). Technically, this is
 a <SPAN  CLASS="textit">messa di voce</SPAN>.<A NAME="tex2html80"
-  HREF="#foot10671"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">7</SPAN></SUP></A> You'll see the notation in sheet music with
-opposed ``hairpins''.
+  HREF="#foot10734"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">7</SPAN></SUP></A> You'll see the notation in sheet music with
+opposed &ldquo;hairpins&rdquo;.
 
 <P>
 A S<SMALL>WELL</SMALL> is set with a command like:
@@ -1149,7 +1144,7 @@ Notes:
 
 <P>
 </LI>
-<LI>A ``/'' can be used to repeat values.
+<LI>A &ldquo;/&rdquo; can be used to repeat values.
 
 <P>
 </LI>
@@ -1176,7 +1171,7 @@ some time with the chapter on <A HREF="node28.html#finetuning">Fine Tuning</A>.
 <P>
 Remember that G<SMALL>ROOVE</SMALL>s save all the current volume settings.
 This includes the master setting as well as individual track settings.
-So, if you are using the mythical groove ``Wonderful'' and think that
+So, if you are using the mythical groove &ldquo;Wonderful&rdquo; and think that
 the <SPAN  CLASS="textit">Chord-Piano</SPAN> volume should be louder in a particular song
 it's easy to do something like:
 
@@ -1242,45 +1237,45 @@ Cresc f 5
 <P>
 <BR><HR><H4>Footnotes</H4>
 <DL>
-<DT><A NAME="foot10666">... created.</A><A
+<DT><A NAME="foot10729">... created.</A><A
  HREF="node19.html#tex2html74"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A></DT>
 <DD>We'll try to be consistent and refer to a
-  MIDI ``volume'' as a ``velocity'' and internal 
+  MIDI &ldquo;volume&rdquo; as a &ldquo;velocity&rdquo; and internal 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  adjustments to
   velocity as volumes.
 
 </DD>
-<DT><A NAME="foot10471">...sec-pats,</A><A
+<DT><A NAME="foot10534">...sec-pats,</A><A
  HREF="node19.html#tex2html75"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A></DT>
 <DD>Solo and
     Melody track notes use an initial velocity of 90.
 
 </DD>
-<DT><A NAME="foot10667">... settings</A><A
+<DT><A NAME="foot10730">... settings</A><A
  HREF="node19.html#tex2html76"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A></DT>
 <DD>Please don't confuse the concept of 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  master
     and track volumes with MIDI channel volumes.
 
 </DD>
-<DT><A NAME="foot10499">... musicians'',</A><A
+<DT><A NAME="foot10562">... musicians&rdquo;,</A><A
  HREF="node19.html#tex2html77"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A></DT>
 <DD>as opposed to mechanical.
 
 </DD>
-<DT><A NAME="foot10565">...D<SMALL>ECRESC</SMALL></A><A
+<DT><A NAME="foot10628">...D<SMALL>ECRESC</SMALL></A><A
  HREF="node19.html#tex2html78"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">5</SPAN></SUP></A></DT>
 <DD>We use the term
-  ``decrescendo'', others prefer ``diminuendo''.
+  &ldquo;decrescendo&rdquo;, others prefer &ldquo;diminuendo&rdquo;.
 
 </DD>
-<DT><A NAME="foot10670">...C<SMALL>RESC</SMALL></A><A
+<DT><A NAME="foot10733">...C<SMALL>RESC</SMALL></A><A
  HREF="node19.html#tex2html79"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">6</SPAN></SUP></A></DT>
 <DD>This applies to D<SMALL>ECRESC</SMALL> and
   S<SMALL>WELL</SMALL> as well.
 
 </DD>
-<DT><A NAME="foot10671">... voce.</A><A
+<DT><A NAME="foot10734">... voce.</A><A
  HREF="node19.html#tex2html80"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">7</SPAN></SUP></A></DT>
 <DD>Some references indicate that
   <SPAN  CLASS="textit">messa di voce</SPAN> applies to a single tone, and 
@@ -1291,26 +1286,23 @@ Cresc f 5
 </DL>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html768"
+<A NAME="tex2html770"
   HREF="node20.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html766"
+<A NAME="tex2html768"
   HREF="mma.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html760"
+<A NAME="tex2html762"
   HREF="node18.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
 <BR>
-<B> Next:</B> <A NAME="tex2html769"
+<B> Next:</B> <A NAME="tex2html771"
   HREF="node20.html">Repeats</A>
-<B> Up:</B> <A NAME="tex2html767"
+<B> Up:</B> <A NAME="tex2html769"
   HREF="mma.html">Reference Manual</A>
-<B> Previous:</B> <A NAME="tex2html761"
+<B> Previous:</B> <A NAME="tex2html763"
   HREF="node18.html">Swing</A></DIV>
 <!--End of Navigation Panel-->
-<ADDRESS>
-Bob
-2018-03-09
-</ADDRESS>
+
 </BODY>
 </HTML>

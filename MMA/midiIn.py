@@ -197,6 +197,7 @@ def midiinc(ln):
     # Note special riff value as well. Need to double adjust since
     # the riff import will do its own adjustment.
     # this needs to be done BEFORE reading the midi file
+
     if transpose is None:
         transpose = gbl.transpose
         riffTranspose = -gbl.transpose
@@ -204,6 +205,7 @@ def midiinc(ln):
         riffTranspose = 0
     octAdjust += transpose    # this takes care of octave and transpose
 
+    
     mf = MidiData()
     mf.octaveAdjust = octAdjust
     mf.velocityAdjust = velAdjust
@@ -388,7 +390,7 @@ def midiinc(ln):
 
         
         # If we're processing midi voice changes (ignorePC=off) and there
-        # are events BEFORE the first note, w eneed to insert
+        # are events BEFORE the first note, we need to insert
         # them before the notes. We put them all at the current midi offset.
         if ignorePC==0:
             for ev in mf.events[ch]:
@@ -424,7 +426,7 @@ def midiinc(ln):
                     x = ev[1] >> 4
                     if x == 0x09 and ev[3] and ev[2] not in onNotes:
                         onNotes.append(ev[2])  # append this pitch to onNotes
-                    if x == 0x09 and not ev[3] or x == 0x08 and ev[2] in onNotes:
+                    if (x == 0x09 and not ev[3] or x == 0x08) and (ev[2] in onNotes):
                         onNotes.remove(ev[2])  # remove this as being ON
                         
                 inst += 1

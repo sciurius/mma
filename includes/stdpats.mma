@@ -47,6 +47,10 @@ Begin Drum Define
 	4S       2S; 2S Shift .25
 	8S       4S; 4S Shift .125
 
+    // Useful for triplet patterns ... this gives 3 hits on beat 1. Shift to preference
+
+    3S       1 0 90; 1.33 0 80; 1.66 0 70
+    
 End
 
 // Define runs to use in scales. Whole notes to 32nds.

@@ -55,6 +55,7 @@ import MMA.paths
 import MMA.player
 import MMA.sequence
 import MMA.swing
+import MMA.sync
 import MMA.truncate
 import MMA.ornament
 import MMA.trigger
@@ -253,7 +254,7 @@ def parse(inpath):
 
         ctable = parseChordLine(l)   # parse the chord line
 
-         # Create MIDI data for the bar
+        # Create MIDI data for the bar
 
         for rpt in range(rptcount):   # for each bar in the repeat count ( Cm * 3)
 
@@ -455,9 +456,11 @@ def repeat(ln):
         if act in ('REPEATEND', 'ENDREPEAT'):
             if l:
                 l = macros.expand(l)
-                if len(l) == 2 and l[0].upper() == 'NOWARN':
-                    l = l[1:]
-                    warn = 0
+                if len(l) == 2:
+                    l = [x.upper() for x in l]
+                    if 'NOWARN' in l:
+                        l.remove('NOWARN')
+                        warn = 0
                 else:
                     warn = 1
 
@@ -497,9 +500,11 @@ def repeat(ln):
 
             if l:
                 l = macros.expand(l)
-                if len(l) == 2 and l[0].upper() == 'NOWARN':
-                    warn = 0
-                    l = l[1:]
+                if len(l) == 2:
+                    l = [x.upper() for x in l]
+                    if 'NOWARN' in l:
+                        l.remove('NOWARN')
+                        warn = 0
                 else:
                     warn = 1
 
@@ -594,21 +599,6 @@ def usefile(ln):
 
 #######################################
 # Misc
-
-def synchronize(ln):
-    """ Set synchronization in the MIDI. A file mode for -0 and -1. """
-
-    if not ln:
-        error("SYNCHRONIZE: requires args END and/or START.")
-
-    for a in ln:
-        if a.upper() == 'END':
-            gbl.endsync = 1
-        elif a.upper() == 'START':
-            gbl.synctick = 1
-        else:
-            error("SYNCHRONIZE: expecting END or START")
-
 
 def rndseed(ln):
     """ Reseed the random number generator. """
@@ -1278,12 +1268,12 @@ simpleFuncs = {'ADJUSTVOLUME': MMA.volume.adjvolume,
                'SETLIBPATH': MMA.paths.setLibPath,
                'SETMIDIPLAYER': MMA.player.setMidiPlayer,
                'SETOUTPATH': MMA.paths.setOutPath,
-               'SETSYNCTONE': MMA.midi.setSyncTone,
+               'SETSYNCTONE': MMA.sync.setSyncTone,
                'SHOWVARS': macros.showvars,
                'STACKVALUE': macros.stackValue,
                'SWELL': MMA.volume.setSwell,
                'SWINGMODE': MMA.swing.swingMode,
-               'SYNCHRONIZE': synchronize,
+               'SYNCHRONIZE': MMA.sync.synchronize,
                'TEMPO': MMA.tempo.tempo,
                'TIME': MMA.tempo.setTime,
                'TIMESIG': timeSig.setSig,

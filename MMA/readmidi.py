@@ -111,7 +111,7 @@ class MidiData:
         """ Return a string of count chars. """
 
         s = self.midifile[self.offset:self.offset+count]
-        s = s.decode(encoding="cp1252")
+        s = s.decode(encoding=gbl.encoding)
         self.offset += count
         return s
 

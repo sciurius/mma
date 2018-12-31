@@ -425,8 +425,16 @@ def allgrooves(ln):
 
     stackGroove.push()  # save the current groove into a temp slot
 
+    # Disable the warning messages ... use with caution.
+    if len(ln)>1 and ln[0].upper() == "NOWARN":
+        startNoWarn = MMA.debug.noWarn
+        MMA.debug.noWarn = 1
+        noWarn = True
+        ln = ln[1:]
+    else:
+        noWarn = False
+        
     action = ln[0].upper()   # either a command or a trackname
-
     if len(ln) > 1:
         trAction = ln[1].upper()
     else:
@@ -482,6 +490,9 @@ def allgrooves(ln):
 
     gbl.inAllGrooves = False
 
+    if noWarn:
+        MMA.debug.noWarn = startNoWarn
+        
     if not counter:
         warning("No tracks affected with '%s'" % ' '.join(ln))
 

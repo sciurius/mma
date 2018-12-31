@@ -102,35 +102,36 @@ def findPlugin(targ):
     def matchName(d):
         """ Find a directory entry in 'd' matching the plugin name """
 
-        if [b.upper() for b in os.listdir(d)].count(targ) > 1:
-            warning("Plugin may have duplicate entries in '%s' for '%s'. This "
-                    "is most likly due to the same name with different cases. You "
-                    "should check and delete/rename one!" % (d, targ))
+        if os.access(d, os.R_OK):  # skip non-exist dirs and ones we can't access
+            if [b.upper() for b in os.listdir(d)].count(targ) > 1:
+                warning("Plugin: there are duplicate entries of '%s' in '%s'. This "
+                   "is most likly due to the same name with different cases. You "
+                   "should check and delete/rename one!" % (targ, d))
 
-        for a in os.listdir(d):
-            if a.lower() == targ.lower():
-                for b in os.listdir(os.path.join(d, a)):
-                    if b.lower() == plugEntry.lower():
-                        # Create a module name based on the case of the files found
-                        mName = "%s.%s" % (a, b[0:-3])
-
-                        return os.path.join(a, b), mName
+            for a in os.listdir(d):
+                if a.lower() == targ.lower():
+                    for b in os.listdir(os.path.join(d, a)):
+                        if b.lower() == plugEntry.lower():
+                            # Create a module name based on the case of the files found
+                            mName = "%s.%s" % (a, b[0:-3])
+                            return os.path.join(a, b), mName
 
         return None, None
 
     # 1. Current dir. If found convert to complete path
     if tryDot:
-        mdir, modName = matchName('.')
-        if mdir:
-            return os.path.realpath('.'), mdir, modName
+        for dir in ('.', 'plugins'):
+            mdir, modName = matchName(dir)
+            if mdir:
+                return os.path.realpath(dir), mdir, modName
 
     # 2. Check for the plugin in the same directory as the current
-    #    file being processed. This may well be a library file
+    #    file being processed ... the current file could be a library file.
     if tryLocal:
         if gbl.inpath:
             n = gbl.inpath.fname
             path = os.path.dirname(gbl.inpath.fname)
-            # if path in None then we're in '.' and we've done that in (1)
+            # if path is None then we're in '.' and we've done that in (1)
             if path:
                 mdir, modName = matchName(path)
                 if mdir:
@@ -145,7 +146,7 @@ def findPlugin(targ):
     return None, None, None
 
 def hashfile(p):
-    """ Calculate a sha-1 hash value on a file. """
+    """ Calculate a sha-256 hash value on a file. """
 
     sha256 = hashlib.sha256(b'mmaIsWonderful')
 
@@ -174,10 +175,10 @@ def getPermission(path, name):
     # We need somewhere to store this registery. appdirs to the rescue!
     if not permFile:
         cachePath = errorName = MMA.appdirs.user_data_dir('mma', 'Mellowood')
-
+        
         # Can we access the directory? If not, we first try to create
-        # a mma directory (we're assuming that HOME/.config or MMA/lib already
-        # exists.
+        # a mma directory (we're assuming that HOME/.config, HOME/.local/config,
+        # or MMA/lib already exists.
         try:
             os.makedirs(cachePath)
         except OSError:
@@ -284,7 +285,10 @@ def registerPlugin(p):
     sys.path.insert(0, pdir)
 
     # load the module. 
-
+    if plugName in sys.modules.keys():
+        error("Plugin: the name of the '%s' is already is use by the system. "
+              "Most likely MMA has already imported a module by that name. "
+              "Please rename the package!" % plugName)
     try:
         e = importlib.import_module(modName, package=None)
     except ImportError as err:
@@ -294,16 +298,16 @@ def registerPlugin(p):
         
     # restore old sys.path.
     sys.path.pop(0)
-    
+
     # The module is now in memory.
     # Find and register the entry points.
 
     cmdName = prefix + p.upper()
 
     e.plugInName = {'name': plugName,
-                    'dir': pdir,
+                    'dir':  pdir,
                     'path': plugPath,
-                    'cmd': cmdName   }
+                    'cmd':  cmdName   }
 
     if hasattr(e, 'run'):
         MMA.parse.simpleFuncs[cmdName] = e.run

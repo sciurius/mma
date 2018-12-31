@@ -1,10 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
-<!--Converted with LaTeX2HTML 2008 (1.71)
-original version by:  Nikos Drakos, CBLU, University of Leeds
-* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
-* with significant contributions from:
-  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<!--Converted with LaTeX2HTML 2018.2 (Released May 16, 2018) -->
 <HTML>
 <HEAD>
 <TITLE>Entry Points</TITLE>
@@ -14,7 +10,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <META NAME="distribution" CONTENT="global">
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018.2">
 <META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
 
 <LINK REL="STYLESHEET" HREF="mma-plugins.css">
@@ -85,9 +81,7 @@ of Python code we used in the <TT><SPAN  CLASS="textbf">hello</SPAN></TT> exampl
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT> .
 
 <P>
-<DL COMPACT>
-<DT></DT>
-<DD><PRE>
+<table width="90%"><tr><td valign="top">&nbsp;<PRE>
 def run(l):
     print("Hello. This is the run() function in the MMA plugin.")
     print("We are at line %s in the MMA file %s." % (gbl.lineno, gbl.infile))
@@ -96,12 +90,10 @@ def run(l):
         print("Args passed are:")
         for i in l:
             print(i)
-</PRE>
-</DD>
-</DL>
+</PRE></td></tr></table>
 
 <P>
-In the first line we pass the parameter ``l''. This is set by the
+In the first line we pass the parameter &ldquo;l&rdquo;. This is set by the
 main 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  parser and contains a list of any parameters passed to the
 @H<SMALL>ELLO</SMALL> function. 
@@ -131,19 +123,15 @@ context. For example:
 
 <P>
 The difference between the simple and track versions is that
-trackRun() is also passed the ``name'' of the track. For example,
+trackRun() is also passed the &ldquo;name&rdquo; of the track. For example,
 the above example will have the first parameter set to the string
-``PLECTRUM-MAIN''. Using the following code you can set a variable
-(in this case ``self'') to point to the Plectrum-Main class.
+&ldquo;PLECTRUM-MAIN&rdquo;. Using the following code you can set a variable
+(in this case &ldquo;self&rdquo;) to point to the Plectrum-Main class.
 
 <P>
-<DL COMPACT>
-<DT></DT>
-<DD><PRE>
+<table width="90%"><tr><td valign="top">&nbsp;<PRE>
     self = gbl.tnames[name]
-</PRE>
-</DD>
-</DL>
+</PRE></td></tr></table>
 
 <P>
 For this to work, you will need to import 
@@ -152,30 +140,22 @@ the namespace. We suggest you do that at the top of your plugin.py
 module:
 
 <P>
-<DL COMPACT>
-<DT></DT>
-<DD><PRE>
+<table width="90%"><tr><td valign="top">&nbsp;<PRE>
     import MMA.gbl as gbl
-</PRE>
-</DD>
-</DL>
+</PRE></td></tr></table>
 
 <P>
-Using the ``self'' variable you now have access to all of the
+Using the &ldquo;self&rdquo; variable you now have access to all of the
 variables associated with the track. You'll have to dig though the
 code a bit, but a few examples (most of the settings are in the form
 of a list with a value for every sequence point in your song):
 
 <P>
-<DL COMPACT>
-<DT></DT>
-<DD><PRE>
+<table width="90%"><tr><td valign="top">&nbsp;<PRE>
   self.volume  -- track specific volume 
   self.articulate -- track specifc articulations
   self.sticky -- a True/False setting
-</PRE>
-</DD>
-</DL>
+</PRE></td></tr></table>
 
 <P>
 For more variables we suggest you examine the pat.py module.
@@ -183,7 +163,7 @@ For more variables we suggest you examine the pat.py module.
 <P>
 Yes, you can change these values from your plugin. Is that a good
 idea? Probably not! For an alternate method to change settings read
-the ``returning values'' chapter, below.
+the &ldquo;returning values&rdquo; chapter, below.
 
 <P>
 
@@ -222,9 +202,6 @@ and the program ends.
 <B> Previous:</B> <A NAME="tex2html29"
   HREF="node1.html">Easy Guide</A></DIV>
 <!--End of Navigation Panel-->
-<ADDRESS>
-Bob van der Poel
-2016-06-11
-</ADDRESS>
+
 </BODY>
 </HTML>

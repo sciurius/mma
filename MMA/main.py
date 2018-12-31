@@ -48,6 +48,13 @@ cmdSMF = None
 # This is the program mainline. It is called/executed
 # exactly once from a call in the stub program mma.py.
 
+try:   # for some reason, someone might want a different encoding
+    t = os.environ.get('MMA_ENCODING')
+    if t:
+        gbl.encoding = t
+except:
+    pass
+
 MMA.paths.init()   # initialize the lib/include paths
 
 
@@ -122,7 +129,8 @@ if MMA.options.cmdSMF is not None:
 ######################################
 # Create the output filename
 
-MMA.paths.createOutfileName(".mid")
+if not MMA.debug.noOutput:
+    MMA.paths.createOutfileName(".mid")
 
 
 ################################################
@@ -271,7 +279,8 @@ for n in sorted(gbl.mtrks.keys())[1:]:     # check all but 0 (meta)
         trackCount += 1
 
 if gbl.printProcessed:
-    print( "Bars processed: %s" % ' '.join(gbl.barLabels))
+    import MMA.rangeify
+    print ("Bars processed: %s" % MMA.rangeify.rangeify(gbl.barLabels))
 
 if trackCount == 1:  # only meta track
     if fileExist:
@@ -292,12 +301,10 @@ print("%s midi file (%s bars, %.2f min / %.0d:%02d m:s): '%s'" %
     (msg, gbl.barNum, gbl.totTime, gbl.totTime, (gbl.totTime%1)*60, outfile))
 
 # Insert the estimated play time in seconds into a comment line.
-# A player program can search for this and display it. MMA uses
-# struct.pack() to create events placed into MIDI files, and these
-# seem to pack strings with a null termination. But, don't count on
-# it ... use a well known terminator "\n" at the end  of the event!
+# A player program can search for this and display it. The value
+# will be terminated by a null which should be easy enuf to search for.
 
-gbl.mtrks[0].addText(0, "DURATION: %.0d\n" % (gbl.totTime*60) )
+gbl.mtrks[0].addText(0, "DURATION: %.0d" % (gbl.totTime*60) )
 
 try:
     out = open(outfile, 'wb')

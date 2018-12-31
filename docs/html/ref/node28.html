@@ -1,10 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
-<!--Converted with LaTeX2HTML 2008 (1.71)
-original version by:  Nikos Drakos, CBLU, University of Leeds
-* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
-* with significant contributions from:
-  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<!--Converted with LaTeX2HTML 2018.2 (Released May 16, 2018) -->
 <HTML>
 <HEAD>
 <TITLE>Fine Tuning (Translations)</TITLE>
@@ -14,7 +10,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <META NAME="distribution" CONTENT="global">
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018.2">
 <META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
 
 <LINK REL="STYLESHEET" HREF="mma.css">
@@ -28,21 +24,21 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY  bgcolor="#ffffff">
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html928"
+<A NAME="tex2html930"
   HREF="node29.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html926"
+<A NAME="tex2html928"
   HREF="mma.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html920"
+<A NAME="tex2html922"
   HREF="node27.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
 <BR>
-<B> Next:</B> <A NAME="tex2html929"
+<B> Next:</B> <A NAME="tex2html931"
   HREF="node29.html">Other Commands and Directives</A>
-<B> Up:</B> <A NAME="tex2html927"
+<B> Up:</B> <A NAME="tex2html929"
   HREF="mma.html">Reference Manual</A>
-<B> Previous:</B> <A NAME="tex2html921"
+<B> Previous:</B> <A NAME="tex2html923"
   HREF="node27.html">After</A>
 <BR>
 <BR></DIV>
@@ -51,16 +47,18 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
 <UL CLASS="ChildLinks">
-<LI><A NAME="tex2html930"
-  HREF="node28.html#SECTION002810000000000000000">VoiceTr</A>
-<LI><A NAME="tex2html931"
-  HREF="node28.html#SECTION002820000000000000000">ToneTr</A>
 <LI><A NAME="tex2html932"
-  HREF="node28.html#SECTION002830000000000000000">VoiceVolTr</A>
+  HREF="node28.html#SECTION002810000000000000000">VoiceTr</A>
 <LI><A NAME="tex2html933"
-  HREF="node28.html#SECTION002840000000000000000">DrumVolTr</A>
+  HREF="node28.html#SECTION002820000000000000000">ToneTr</A>
 <LI><A NAME="tex2html934"
+  HREF="node28.html#SECTION002830000000000000000">VoiceVolTr</A>
+<LI><A NAME="tex2html935"
+  HREF="node28.html#SECTION002840000000000000000">DrumVolTr</A>
+<LI><A NAME="tex2html936"
   HREF="node28.html#SECTION002850000000000000000">Tweaks</A>
+<LI><A NAME="tex2html937"
+  HREF="node28.html#SECTION002860000000000000000">Enviroment Variables</A>
 </UL>
 <!--End of Table of Child-Links-->
 <HR>
@@ -151,7 +149,7 @@ will be done.
 
 <P>
 All of the following translation settings follow a similar logic as to
-``when'' they take effect, and that is at the time the V<SMALL>OICE</SMALL>,
+&ldquo;when&rdquo; they take effect, and that is at the time the V<SMALL>OICE</SMALL>,
 V<SMALL>OLUME</SMALL>, etc. command is issued. This may confuse the unwary if
 G<SMALL>ROOVES</SMALL> are being used. But, the following sequence:
 
@@ -209,7 +207,7 @@ translation table that can be used in two different situations:
 
 <P>
 V<SMALL>OICE</SMALL>T<SMALL>R</SMALL> works by setting up a simple translation table of
-``name'' and ``alias'' pairs. Whenever 
+&ldquo;name&rdquo; and &ldquo;alias&rdquo; pairs. Whenever 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  encounters a voice name
 in a track command it first attempts to translate this name though the
 alias table.
@@ -253,8 +251,8 @@ Assuming the first command, the following will occur:
       </Table>
 
 <P>
-The V<SMALL>OICE</SMALL> for the <SPAN  CLASS="textit">Chord-Main</SPAN> track will be set to ``18''
-or ``Organ3''.
+The V<SMALL>OICE</SMALL> for the <SPAN  CLASS="textit">Chord-Main</SPAN> track will be set to &ldquo;18&rdquo;
+or &ldquo;Organ3&rdquo;.
 
 <P>
 
@@ -267,7 +265,7 @@ or ``Organ3''.
 
 <P>
 The V<SMALL>OICE</SMALL> for the <SPAN  CLASS="textit">Chord-2</SPAN> track will be set to
-``Clavinet''.
+&ldquo;Clavinet&rdquo;.
 
 <P>
 If your synth does not follow standard GM-MIDI voice naming
@@ -304,11 +302,11 @@ done when the table is created. The table contains one-to-one
 substitutions, much like macros.
 
 <P>
-For translating drum tone values, see <A HREF="#set-drumtr">D<SMALL>RUM</SMALL>TR</A>.
+For translating drum tone values, see <A HREF="#set-tonetr">T<SMALL>ONE</SMALL>TR</A>.
 
 <P>
 
-<H1><A NAME="SECTION002820000000000000000"></A> <A NAME="set-drumtr"></A>
+<H1><A NAME="SECTION002820000000000000000"></A> <A NAME="set-tonetr"></A>
 <BR>
 ToneTr
 </H1> 
@@ -322,7 +320,7 @@ but consider:
 
 <UL>
 <LI>Your synth lacks certain drum tones--in this case you may want
-  to set certain D<SMALL>RUM</SMALL>TR commands in a <SMALL>MMA</SMALL>RC file.
+  to set certain T<SMALL>ONE</SMALL>TR commands in a <SMALL>MMA</SMALL>RC file.
 
 <P>
 </LI>
@@ -348,8 +346,8 @@ space. For example:
       </Table>
 
 <P>
-will use a ``SnareDrum1'' instead of a ``SnareDrum2'' and the value
-``44'' (actually a ``PedalHiHat'') instead of a ``HandClap''.
+will use a &ldquo;SnareDrum1&rdquo; instead of a &ldquo;SnareDrum2&rdquo; and the value
+&ldquo;44&rdquo; (actually a &ldquo;PedalHiHat&rdquo;) instead of a &ldquo;HandClap&rdquo;.
 
 <P>
 You can turn off all drum tone translations with an empty line:
@@ -364,7 +362,7 @@ You can turn off all drum tone translations with an empty line:
       </Table>
 
 <P>
-The syntax and usage of D<SMALL>RUM</SMALL>TR is quite similar to
+The syntax and usage of T<SMALL>ONE</SMALL>TR is quite similar to
 <A HREF="#set-voicetr">V<SMALL>OICE</SMALL>TR</A>.
 
 <P>
@@ -376,7 +374,7 @@ VoiceVolTr
 
 <P>
 If you find that a particular voice, i.e., Piano2, is too loud or soft
-you can create an entry in the ``Voice Volume Translation Table''. The
+you can create an entry in the &ldquo;Voice Volume Translation Table&rdquo;. The
 concept is quite simple: 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  checks the table whenever a
 track-specific V<SMALL>OLUME</SMALL> command is processed. The table is
@@ -393,7 +391,7 @@ created in a similar manner to the V<SMALL>OICE</SMALL>T<SMALL>R</SMALL> command
 
 <P>
 Each voice pair must contain a valid MIDI voice (or numeric value), an
-``='' and a volume adjustment factor. The factor is a percentage value
+&ldquo;=&rdquo; and a volume adjustment factor. The factor is a percentage value
 which is applied to the normal volume. In the above example two
 adjustments are created:
 
@@ -434,7 +432,7 @@ the following adjustments are made:
 <P>
 
 <OL>
-<LI>A look up is done in the global volume table. The volume ``mf''
+<LI>A look up is done in the global volume table. The volume &ldquo;mf&rdquo;
   is determined to be 85% for the set MIDI velocity,
 
 <P>
@@ -520,8 +518,8 @@ V<SMALL>OICE</SMALL>V<SMALL>OL</SMALL>T<SMALL>R</SMALL> command described above.
 instead of instrument voices.
 
 <P>
-For example, if you wish to make the drum tones ``SnareDrum1'' and
-``HandClap'' a bit louder:
+For example, if you wish to make the drum tones &ldquo;SnareDrum1&rdquo; and
+&ldquo;HandClap&rdquo; a bit louder:
 
 <P>
 
@@ -571,7 +569,7 @@ valid:
 
 <P>
 <DL>
-<DT><STRONG>DefaultDrum</STRONG></DT>
+<DT><STRONG>DefaultDrum or DefaultTone</STRONG></DT>
 <DD>Sets the default (initial) voice to use in
   D<SMALL>RUM</SMALL>, S<SMALL>OLO</SMALL> and M<SMALL>ELODY</SMALL> tracks. You can use a
   numeric value, a mnemonic name, or even an extended voice name (see
@@ -639,8 +637,8 @@ and, assuming you have set up a P<SMALL>ATCH </SMALL>S<SMALL>ET</SMALL> (see
 <P>
 <A NAME="tweak-dim"></A></DD>
 <DT><STRONG>Dim</STRONG></DT>
-<DD>Set the type of chord produced with the ``dim'' chordtype.
-  By default a diminished chord is a ``dim7''. However you can toggle
+<DD>Set the type of chord produced with the &ldquo;dim&rdquo; chordtype.
+  By default a diminished chord is a &ldquo;dim7&rdquo;. However you can toggle
   this behaviour with:
 
 <P>
@@ -673,28 +671,49 @@ your <TT><SPAN  CLASS="textbf">mmarc</SPAN></TT> file.
 
 <P>
 
+<H1><A NAME="SECTION002860000000000000000"></A> <A NAME="sec-envvar"></A>
+<BR>
+Enviroment Variables
+</H1> 
+
+<P>
+
+<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  checks for enviroment variables when starting to it can change seldom
+changed settings. The list is short (actually, a singleton):
+
+<P>
+<DL>
+<DT><STRONG>MMA_ENCODING</STRONG></DT>
+<DD>By default 
+<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  uses cp1252 to encode input
+    and output files. You can change this via this variable. If it
+    doesn't work, you are on your own.
+
+<P>
+</DD>
+</DL>
+
+<P>
+
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html928"
+<A NAME="tex2html930"
   HREF="node29.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html926"
+<A NAME="tex2html928"
   HREF="mma.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html920"
+<A NAME="tex2html922"
   HREF="node27.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
 <BR>
-<B> Next:</B> <A NAME="tex2html929"
+<B> Next:</B> <A NAME="tex2html931"
   HREF="node29.html">Other Commands and Directives</A>
-<B> Up:</B> <A NAME="tex2html927"
+<B> Up:</B> <A NAME="tex2html929"
   HREF="mma.html">Reference Manual</A>
-<B> Previous:</B> <A NAME="tex2html921"
+<B> Previous:</B> <A NAME="tex2html923"
   HREF="node27.html">After</A></DIV>
 <!--End of Navigation Panel-->
-<ADDRESS>
-Bob
-2018-03-09
-</ADDRESS>
+
 </BODY>
 </HTML>

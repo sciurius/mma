@@ -113,7 +113,7 @@ class ReadFile:
         else:
             try:
                 if PY3:
-                    inpath = open(fname, 'r', encoding='cp1252')
+                    inpath = open(fname, 'r', encoding=gbl.encoding)
                 else:
                     inpath = open(fname, 'r')
             except IOError:

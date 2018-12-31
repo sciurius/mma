@@ -22,7 +22,7 @@ Bob van der Poel <bob@mellowood.ca>
 
 """
 
-version = "16.06.b"        # Version -- Sept/2016
+version = "16.06.c"        # Version -- Dec/2018
 
 """ A few globals are actually set in the calling stub, mma.py. This is
     done to make future ports and platform specific settings a bit easier.
@@ -114,9 +114,6 @@ barNum      =  0      # Current line number
 
 barPtrs     = {}      # for each bar, pointers to event start/end
 
-synctick    =  0      # flag, set if we want a tick on all tracks at offset 0
-endsync     =  0      # flag, set if we want a eof sync
-
 outPath    =   ''      # Directory for MIDI file
 inpath     =   None    # input file
 
@@ -124,6 +121,8 @@ midiFileType   = 1     # type 1 file, "MidiFile SMF" command can change to 0/1
 runningStatus  = 1     # running status enabled "MidiFile Running" changes to 0/1
 
 inAllGrooves = False   # set if running an ALLGROOVES command
+
+encoding = 'cp1252'
 
 #############  Options. #############
 

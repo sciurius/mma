@@ -72,7 +72,7 @@ def packBytes(*args):
         # but we'll leave it just in case :)
         elif ty == str:
             if PY3:
-                ret.append(pack('%ss' % len(a), a.encode(encoding="cp1252")))
+                ret.append(pack('%ss' % len(a), a.encode(encoding=gbl.encoding)))
             else:
                 ret.append(a)
 

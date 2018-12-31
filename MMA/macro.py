@@ -27,6 +27,7 @@ something like:     macros=MMMmacros.Macros().
 """
 
 import random
+import datetime
 
 import MMA.midiC
 import MMA.translate
@@ -222,6 +223,18 @@ class Macros:
         elif s == 'LYRIC':
             return lyric.setting()
 
+        # Some time/date macros. Useful for generating copyright strings
+
+        elif s == 'DATEYEAR':
+            return str(datetime.datetime.now().year)
+
+        elif s == 'DATEDATE':
+            return datetime.datetime.now().strftime("%Y-%m-%d")
+
+        elif s == 'DATETIME':
+            return datetime.datetime.now().strftime("%H:%M:%S")
+
+        
         # Track vars ... these are in format TRACKNAME_VAR
 
         a = s.rfind('_')

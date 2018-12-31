@@ -24,51 +24,18 @@ Bob van der Poel <bob@mellowood.ca>
 
 from   MMA.midiM import intToWord, intTo3Byte, intToLong, intToVarNumber, intTo14, packBytes
 import MMA.midiC
-import MMA.debug 
+import MMA.debug
+import MMA.sync
 from . import gbl
 from   MMA.common import *
 from   MMA.miditables import NONETONE
 
 splitChannels = []
 
-syncTone = [80, 90]  # tone/velocity for -0 option. Changable from setSyncTone
-
 # some constants we use to catorgize event types
 MIDI_NOTE = 1
 MIDI_PRG = 2
 
-
-def setSyncTone(ln):
-    """ Parser routine, sets tone/velocity for the -0 sync tone. """
-
-    global syncTone
-    emsg = "SetSyncTone: Expecting option pairs: Tone=xx Velocity=xx | Volume=xx."
-
-    notopts, ln = opt2pair(ln)
-
-    if notopts or not ln:
-        error(emsg)
-
-    for cmd, opt in ln:
-        cmd = cmd.upper()
-
-        if cmd == "TONE":
-            t = stoi(opt)
-            if t < 0 or t > 127:
-                error("SetSyncTone: Tone must be 0..127, not %s." % t)
-            syncTone[0] = t
-
-        elif cmd == "VELOCITY" or cmd == "VOLUME":
-            t = stoi(opt)
-            if t < 1 or t > 127:
-                error("SetSyncTone: Velocity must be 1..127, not %s." % v)
-            syncTone[1] = t
-
-        else:
-            error(emsg)
-
-    if MMA.debug.debug:
-        print("SetSyncTone: Tone=%s, Velocity=%s" % tuple(syncTone))
 
 def setSplitChannels(ln):
     """ Parser routine, sets up list of track to split. Overwrites existing. """
@@ -453,7 +420,7 @@ class Mtrk:
             an all-notes-off at that position.
         """
 
-        if gbl.endsync and self.channel >= 0:
+        if MMA.sync.endsync and self.channel >= 0:
             eof = gbl.tickOffset
             for offset in tr.keys():
                 if offset > eof:
@@ -465,8 +432,8 @@ class Mtrk:
             easier sync in multi-tracks.
         """
 
-        if gbl.synctick and self.channel >= 0:
-            t, v = syncTone
+        if MMA.sync.synctick and self.channel >= 0:
+            t, v = MMA.sync.syncTone
             self.addToTrack(0, packBytes((0x90 | self.channel, t, v)))
             self.addToTrack(1, packBytes((0x90 | self.channel, t, 0)))
 

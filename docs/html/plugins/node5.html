@@ -1,10 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
-<!--Converted with LaTeX2HTML 2008 (1.71)
-original version by:  Nikos Drakos, CBLU, University of Leeds
-* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
-* with significant contributions from:
-  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<!--Converted with LaTeX2HTML 2018.2 (Released May 16, 2018) -->
 <HTML>
 <HEAD>
 <TITLE>Standard Interface</TITLE>
@@ -14,7 +10,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <META NAME="distribution" CONTENT="global">
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018.2">
 <META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
 
 <LINK REL="STYLESHEET" HREF="mma-plugins.css">
@@ -93,9 +89,7 @@ To explain how to use pluginUtils, we have commented the source of the
 StrumPattern plugin.
 
 <P>
-<DL COMPACT>
-<DT></DT>
-<DD><PRE>
+<table width="90%"><tr><td valign="top">&nbsp;<PRE>
     # We import the plugin utilities
     from MMA import pluginUtils as pu
 
@@ -136,7 +130,7 @@ StrumPattern plugin.
     pu.setPluginDoc("""
     The pattern is specified as a string of comma-separed values, that are equally spaced into the bar.
     
-   ...... Use the command ``mma -i strumpattern'' to see the complete documentation!
+   ...... Use the command &ldquo;mma -i strumpattern&rdquo; to see the complete documentation!
         
     Each time it's used, %NAME% creates a clone track of the provided one using the voice MutedGuitar for chucks and muted strums.
     Its name is the name of the main track with an appended "-Muted", if you need to change it you must do so every time after using %NAME%.
@@ -157,7 +151,7 @@ StrumPattern plugin.
     def printUsage():
         pu.printUsage()
 
-    # This is a track plugin, so we define track_run(trackname, line).
+    # This is a track plugin, so we define trackRun(trackname, line).
     # For non-track plugins we use run(line).
     # When using this library, only one of the two can be used.
     def trackRun(trackname, line):
@@ -191,9 +185,7 @@ StrumPattern plugin.
         pu.addCommand("{}-Muted Voice MutedGuitar".format(trackname))
         pu.addCommand("{}-Muted Sequence {}".format(trackname, all_muted))
         pu.sendCommands()
-</PRE>
-</DD>
-</DL>
+</PRE></td></tr></table>
 
 <P>
 
@@ -335,9 +327,6 @@ Following are the available functions in the pluginUtil.py module.
 <B> Previous:</B> <A NAME="tex2html62"
   HREF="node4.html">Returning Values</A></DIV>
 <!--End of Navigation Panel-->
-<ADDRESS>
-Bob van der Poel
-2016-06-11
-</ADDRESS>
+
 </BODY>
 </HTML>

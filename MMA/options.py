@@ -34,6 +34,7 @@ import MMA.volume
 import MMA.exits
 import MMA.regplug
 import MMA.debug
+import MMA.sync
 
 from . import gbl
 from MMA.common import *
@@ -76,7 +77,7 @@ def opts(l=None):
             setBarRange(a)
             gbl.barRange.append("ABS")
 
-        elif o in ('-d', '-o', '-p', '-s', '-r', '-e', '-c'):
+        elif o in ('-d', '-o', '-p', '-s', '-r', '-w', '-n', '-e', '-c'):
             MMA.debug.cmdLineDebug(o[-1])
         
         elif o == '-S':
@@ -163,10 +164,10 @@ def opts(l=None):
                 usage()
 
         elif o == '-0':
-            gbl.synctick = 1
+            MMA.sync.synchronize(['START'])
 
         elif o == '-1':
-            gbl.endsync = 1
+            MMA.sync.synchronize(['END'])
 
         elif o == '-P':
             gbl.playFile = 1
@@ -259,7 +260,7 @@ def opts(l=None):
     if gbl.infile == '-':
         gbl.infile = 1
 
-        if not gbl.outfile:
+        if not gbl.outfile and not(MMA.debug.noOutput):
             error("Input from STDIN specified. Use -f to set an output filename.")
 
 

@@ -28,8 +28,8 @@ TD.eqno			{ }	/* equation-number cells */
 
 
 /* document-specific styles come next */
-PRE.preform		{   }
 DIV.center		{   }
 DIV.navigation		{   }
-SPAN.textbf		{ font-weight: bold  }
+PRE.preform		{   }
 SPAN.arabic		{   }
+SPAN.textbf		{ font-weight: bold  }
