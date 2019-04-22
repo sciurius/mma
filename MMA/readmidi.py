@@ -62,6 +62,7 @@ You might look at beatDivision and adjust the offsets using
 """
 
 import sys
+from . import gbl
 
 class MidiData:
     def __init__(self):

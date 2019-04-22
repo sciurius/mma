@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
-<!--Converted with LaTeX2HTML 2018.2 (Released May 16, 2018) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2019 (Released January 1, 2019) -->
+<HTML lang="EN">
 <HEAD>
 <TITLE>Sequences</TITLE>
 <META NAME="description" CONTENT="Sequences">
@@ -10,58 +10,57 @@
 <META NAME="distribution" CONTENT="global">
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2018.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2019">
 
 <LINK REL="STYLESHEET" HREF="mma.css">
 
 <LINK REL="next" HREF="node6.html">
 <LINK REL="previous" HREF="node4.html">
-<LINK REL="up" HREF="mma.html">
 <LINK REL="next" HREF="node6.html">
 </HEAD>
 
 <BODY  bgcolor="#ffffff">
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html545"
-  HREF="node6.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html543"
-  HREF="mma.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html537"
-  HREF="node4.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<A
+ HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="mma.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A>   
 <BR>
-<B> Next:</B> <A NAME="tex2html546"
-  HREF="node6.html">Grooves</A>
-<B> Up:</B> <A NAME="tex2html544"
-  HREF="mma.html">Reference Manual</A>
-<B> Previous:</B> <A NAME="tex2html538"
-  HREF="node4.html">Patterns</A>
+<B> Next:</B> <A
+ HREF="node6.html">Grooves</A>
+<B> Up:</B> <A
+ HREF="mma.html">Reference Manual</A>
+<B> Previous:</B> <A
+ HREF="node4.html">Patterns</A>
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 <!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
 <UL CLASS="ChildLinks">
-<LI><A NAME="tex2html547"
+<LI><A ID="tex2html497"
   HREF="node5.html#SECTION00510000000000000000">Defining Sequences</A>
-<LI><A NAME="tex2html548"
+<LI><A ID="tex2html498"
   HREF="node5.html#SECTION00520000000000000000">SeqClear</A>
-<LI><A NAME="tex2html549"
+<LI><A ID="tex2html499"
   HREF="node5.html#SECTION00530000000000000000">SeqRnd</A>
-<LI><A NAME="tex2html550"
+<LI><A ID="tex2html500"
   HREF="node5.html#SECTION00540000000000000000">SeqRndWeight</A>
-<LI><A NAME="tex2html551"
+<LI><A ID="tex2html501"
   HREF="node5.html#SECTION00550000000000000000">SeqSize</A>
 </UL>
 <!--End of Table of Child-Links-->
 <HR>
 
-<H1><A NAME="SECTION00500000000000000000"></A> <A NAME="sec-seqs"></A>
+<H1><A ID="SECTION00500000000000000000"></A> <A ID="sec-seqs"></A>
 <BR>
 Sequences
 </H1>
@@ -73,7 +72,7 @@ sequences to be of any use to you or to
 
 <P>
 
-<H1><A NAME="SECTION00510000000000000000">
+<H1><A ID="SECTION00510000000000000000">
 Defining Sequences</A>
 </H1>
 
@@ -104,7 +103,7 @@ definition in a set of curly brackets &ldquo;{ }&rdquo;.
 
 		<Table Hspace="40%" CellSpacing=0 CellPadding=10 BGColor="#efefef" Border=3>
 		   <tr><td Align="CENTER" BGColor="White">
-	      <SPAN  CLASS="textbf"><BIG CLASS="XLARGE">Simple Sequence</BIG></SPAN>  <A NAME="eg:seq1"></A>	
+	      <SPAN  CLASS="textbf"><BIG CLASS="XLARGE">Simple Sequence</BIG></SPAN>  <A ID="eg:seq1"></A>	
 	 	   </tr> </td>
            <tr> <td >
 		     
@@ -146,8 +145,8 @@ Arpeggio Sequence { 1 1 100 * 8 } { 1 1 80 * 4 }   </B>
 <A HREF="#eg:seq1">This example</A> creates a 2 bar
 pattern. The Drum, Chord and Bass patterns repeat on every bar; the
 Drum-1 sequence repeats after 2 bars. Note how the Arpeggio pattern is
-defined at run-time.<A NAME="tex2html32"
-  HREF="#foot2594"><SUP><SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>
+defined at run-time.<A ID="tex2html32"
+  HREF="#foot2595"><SUP><SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>
 <P>
 If there are fewer patterns than S<SMALL>EQ</SMALL>S<SMALL>IZE</SMALL>, the sequence will be
 filled out to correct size. If the number of patterns used is greater
@@ -172,7 +171,7 @@ Bass Sequence Bass1 / Bass2 /   </B>
       </Table>
 
 <P>
-<A NAME="sequence-clear"></A>
+<A ID="sequence-clear"></A>
 <P>
 The special pattern name &ldquo;-&rdquo; (no quotes, just a single hyphen), or a
 single &ldquo;z&rdquo; can be used to turn a track off. For example, if you have
@@ -206,8 +205,8 @@ Walk Sequence z / / Walk4-4   </B>
       </Table>
 
 <P>
-If you already have a sequence defined<A NAME="tex2html33"
-  HREF="#foot2496"><SUP><SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A> you can repeat or copy the existing pattern by
+If you already have a sequence defined<A ID="tex2html33"
+  HREF="#foot2497"><SUP><SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A> you can repeat or copy the existing pattern by
 using a single &ldquo;*&rdquo; as the pattern name. This is useful when you are
 modifying an existing sequence.
 
@@ -290,7 +289,7 @@ The following commands help manipulate sequences in your creations:
 
 <P>
 
-<H1><A NAME="SECTION00520000000000000000"></A>  <A NAME="sec-seqclear"></A>
+<H1><A ID="SECTION00520000000000000000"></A>  <A ID="sec-seqclear"></A>
 <BR>
 SeqClear
 </H1>
@@ -342,8 +341,8 @@ If you use a sub-track:
       </Table>
 
 <P>
-only the sequence for that track is cleared.<A NAME="tex2html34"
-  HREF="#foot2595"><SUP><SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A>
+only the sequence for that track is cleared.<A ID="tex2html34"
+  HREF="#foot2596"><SUP><SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A>
 <P>
 In addition to clearing the sequence pattern, the following other
 settings are restored to a default condition:
@@ -424,9 +423,9 @@ the C<SMALL>HORD</SMALL> track use the &ldquo;-&rdquo; option.
 
 <P>
 
-<H1><A NAME="SECTION00530000000000000000"></A>
+<H1><A ID="SECTION00530000000000000000"></A>
   
-   <A NAME="seqrnd"></A>
+   <A ID="seqrnd"></A>
 <BR>
 SeqRnd
 </H1>
@@ -787,9 +786,9 @@ tracks) randomization.
 
 <P>
 
-<H1><A NAME="SECTION00540000000000000000"></A>
+<H1><A ID="SECTION00540000000000000000"></A>
  
- <A NAME="seqrndweight"></A>
+ <A ID="seqrndweight"></A>
 <BR>
 SeqRndWeight
 </H1>
@@ -837,7 +836,7 @@ S<SMALL>EQ</SMALL>C<SMALL>LEAR</SMALL> will reset both global and track contexts
 
 <P>
 
-<H1><A NAME="SECTION00550000000000000000">
+<H1><A ID="SECTION00550000000000000000">
 SeqSize</A>
 </H1>
 
@@ -871,7 +870,7 @@ until it is long enough.
 <P>
 <BR><HR><H4>Footnotes</H4>
 <DL>
-<DT><A NAME="foot2594">... run-time.</A><A
+<DT><A ID="foot2595">... run-time.</A><A
  HREF="node5.html#tex2html32"><SUP><SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A></DT>
 <DD>If you run 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  with the &ldquo;-s&rdquo; option
@@ -880,14 +879,14 @@ until it is long enough.
   sequence.
 
 </DD>
-<DT><A NAME="foot2496">... defined</A><A
+<DT><A ID="foot2497">... defined</A><A
  HREF="node5.html#tex2html33"><SUP><SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A></DT>
 <DD>In reality there is
   always a sequence defined for every track, but it might be a series
   of &ldquo;rest&rdquo; bars.
 
 </DD>
-<DT><A NAME="foot2595">... cleared.</A><A
+<DT><A ID="foot2596">... cleared.</A><A
  HREF="node5.html#tex2html34"><SUP><SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A></DT>
 <DD>It is probably
   easier to use the command: 
@@ -905,22 +904,22 @@ until it is long enough.
 </DL>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html545"
-  HREF="node6.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html543"
-  HREF="mma.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html537"
-  HREF="node4.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<A
+ HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="mma.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A>   
 <BR>
-<B> Next:</B> <A NAME="tex2html546"
-  HREF="node6.html">Grooves</A>
-<B> Up:</B> <A NAME="tex2html544"
-  HREF="mma.html">Reference Manual</A>
-<B> Previous:</B> <A NAME="tex2html538"
-  HREF="node4.html">Patterns</A></DIV>
+<B> Next:</B> <A
+ HREF="node6.html">Grooves</A>
+<B> Up:</B> <A
+ HREF="mma.html">Reference Manual</A>
+<B> Previous:</B> <A
+ HREF="node4.html">Patterns</A></DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

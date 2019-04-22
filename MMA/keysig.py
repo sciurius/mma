@@ -59,7 +59,7 @@ class KeySig:
         self.setAccList()
         self.keyNoteValue = notevalues['C']
 
-    def set(self, ln):
+    def create(self, ln):
         """ Set the keysignature. Used by solo & aria tracks. Formats are:
               1. A,D,E, Eb,  etc followed by optional minor/major
                    flat can be b or &, sharp is #

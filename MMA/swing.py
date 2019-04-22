@@ -203,9 +203,9 @@ def swingSolo(notes):
         and the offset for the 2nd is adjusted to comp. for the 'long'.
 
         If there is a spurious offset between an on/off beat that pair
-        will NOT be adjusted. Nor sure if that is right or not?
+        will NOT be adjusted. Not sure if that is right or not?
 
-        Only called from getLine(), separate for sanity.
+        Only called from getLine(), this is a separate function for sanity.
     """
 
     len8, len81, len82, onBeats, offBeats = getBeats()

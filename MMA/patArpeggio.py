@@ -102,7 +102,7 @@ class Arpeggio(PC):
                 tb.chord.compress()
 
             if self.invert[sc]:
-                tb.chord.invert(self.invert[sc])
+                tb.chord.invert(random.randrange(self.invert[sc][0], self.invert[sc][1]+1))
 
             # This should be optimized, it recreates the chord for every pattern.
             # Problem is that one would need to check all the LIMIT, COMPRESS, etc

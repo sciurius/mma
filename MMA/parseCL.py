@@ -82,7 +82,7 @@ def parseChordLine(l):
     for ll in l:
         if "@" in ll:  # we have something like "Cm@3.2"
             ch, beat = ll.split("@", 1)
-            beat = stof(beat, "Expecting an value after the @ in '%s'" % ll)
+            beat = stof(beat, "Expecting a value after the @ in '%s'" % ll)
             
             if beat < 1:
                 error("Beat after @ must be 1 or greater, not '%s'." % beat)

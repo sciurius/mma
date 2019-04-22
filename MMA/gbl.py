@@ -22,7 +22,7 @@ Bob van der Poel <bob@mellowood.ca>
 
 """
 
-version = "16.06.c"        # Version -- Dec/2018
+version = "16.06.final"        # Version -- April/2019
 
 """ A few globals are actually set in the calling stub, mma.py. This is
     done to make future ports and platform specific settings a bit easier.
@@ -96,8 +96,8 @@ EXT = ".mma"        # extension for song/lib files (STATC).
 
 BperQ       =  192    # midi ticks per quarter note (STATIC)
 Bper128     =  BperQ/16  # a 1/128 note. Used for small timings (STATIC)
-QperBar     =  4      # Beats/bar, set with TIME
-barLen      =  BperQ * QperBar  # convenience (updated by TIME)
+QperBar     =  4      # Beats/bar, set with TIME (this is a fp value!)
+barLen      =  int(BperQ * QperBar)  # convenience (updated by TIME)
 tickOffset  =  0      # offset of current bar in ticks
 tempo       =  120    # current tempo
 seqSize     =  1      # variation sequence table size

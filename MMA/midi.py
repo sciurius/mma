@@ -219,8 +219,8 @@ class Mtrk:
             cc - midi clocks/tick
             bb - # of 32nd notes in quarter (normally 8)
 
-            This is only called by timeSig.set(). Don't
-            call this directly since the timeSig.set() checks for
+            This is only called by timeSig.create(). Don't
+            call this directly since the timeSig.create() checks for
             duplicate settings.
         """
 

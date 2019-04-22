@@ -737,7 +737,7 @@ def trackMidiExt(ln):
         pn = "_%s" % ids
         ids += 1
 
-        MMA.mdefine.mdef.set(pn, s[0])
+        MMA.mdefine.mdef.create(pn, s[0])
         ln = ln[:sp] + ' ' + pn + ' ' + ln[sp:]
 
     return ln.split()

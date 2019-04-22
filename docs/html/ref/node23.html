@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
-<!--Converted with LaTeX2HTML 2018.2 (Released May 16, 2018) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2019 (Released January 1, 2019) -->
+<HTML lang="EN">
 <HEAD>
 <TITLE>Plugins</TITLE>
 <META NAME="description" CONTENT="Plugins">
@@ -10,60 +10,59 @@
 <META NAME="distribution" CONTENT="global">
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2018.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2019">
 
 <LINK REL="STYLESHEET" HREF="mma.css">
 
 <LINK REL="next" HREF="node24.html">
 <LINK REL="previous" HREF="node22.html">
-<LINK REL="up" HREF="mma.html">
 <LINK REL="next" HREF="node24.html">
 </HEAD>
 
 <BODY  bgcolor="#ffffff">
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html838"
-  HREF="node24.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html836"
-  HREF="mma.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html830"
-  HREF="node22.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<A
+ HREF="node24.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="mma.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node22.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A>   
 <BR>
-<B> Next:</B> <A NAME="tex2html839"
-  HREF="node24.html">Low Level MIDI Commands</A>
-<B> Up:</B> <A NAME="tex2html837"
-  HREF="mma.html">Reference Manual</A>
-<B> Previous:</B> <A NAME="tex2html831"
-  HREF="node22.html">Subroutines</A>
+<B> Next:</B> <A
+ HREF="node24.html">Low Level MIDI Commands</A>
+<B> Up:</B> <A
+ HREF="mma.html">Reference Manual</A>
+<B> Previous:</B> <A
+ HREF="node22.html">Subroutines</A>
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 <!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
 <UL CLASS="ChildLinks">
 <LI><UL>
-<LI><A NAME="tex2html840"
+<LI><A ID="tex2html611"
   HREF="node23.html#SECTION002301000000000000000">Naming and Locating</A>
-<LI><A NAME="tex2html841"
+<LI><A ID="tex2html612"
   HREF="node23.html#SECTION002302000000000000000">Distribution</A>
-<LI><A NAME="tex2html842"
+<LI><A ID="tex2html613"
   HREF="node23.html#SECTION002303000000000000000">Enabling</A>
-<LI><A NAME="tex2html843"
+<LI><A ID="tex2html614"
   HREF="node23.html#SECTION002304000000000000000">Disabling</A>
-<LI><A NAME="tex2html844"
+<LI><A ID="tex2html615"
   HREF="node23.html#SECTION002305000000000000000">Security</A>
 </UL></UL>
 <!--End of Table of Child-Links-->
 <HR>
 
-<H1><A NAME="SECTION002300000000000000000"></A>
-<A NAME="sec-plugs"></A>
+<H1><A ID="SECTION002300000000000000000"></A>
+<A ID="sec-plugs"></A>
 <BR>
 Plugins
 </H1>
@@ -92,7 +91,7 @@ with
     you include in your 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  directories are safe to run. </SPAN>
   
-<BR>  <DIV ALIGN="CENTER">
+<BR>  <DIV class="CENTER">
 <BIG CLASS="LARGE"><B>Only use plugins from a trusted
     source! 
 </B></BIG></DIV>
@@ -123,7 +122,7 @@ two purposes:
 
 <P>
 
-<H2><A NAME="SECTION002301000000000000000">
+<H2><A ID="SECTION002301000000000000000">
 Naming and Locating</A>
 </H2>
 
@@ -133,17 +132,17 @@ added to
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT> 's internal command table. These modules are free to
 call existing 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  functions, and even add their own plugins, and call other
-programs.<A NAME="tex2html89"
-  HREF="#foot13111"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>
+programs.<A ID="tex2html91"
+  HREF="#foot13269"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>
 <P>
 Each plugin must have a containing directory with the same name as the
-plugin. So, the plugin &ldquo;hello&rdquo; would live in the <TT><SPAN  CLASS="textbf">hello</SPAN></TT>
+plugin. So, the plugin &ldquo;hello&rdquo; would live in the <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">hello</SPAN></SPAN>
 directory. Once found and loaded the command @H<SMALL>ELLO</SMALL> will be
 available to your script.
 
 <P>
 This directory must contain a Python module with the name
-&ldquo;plugin.py&rdquo;. The <TT><SPAN  CLASS="textbf">plugin.py</SPAN></TT> module should have the following
+&ldquo;plugin.py&rdquo;. The <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">plugin.py</SPAN></SPAN> module should have the following
 methods defined:
 
 <P>
@@ -172,15 +171,15 @@ as described above.
 
 <P>
 In addition, each plugin directory <SPAN  CLASS="textit">must</SPAN> contain an <SPAN  CLASS="textbf">empty</SPAN> file
-called __<TT><SPAN  CLASS="textbf">init</SPAN></TT>__<TT><SPAN  CLASS="textbf">.py</SPAN></TT>. This file is necessary for Python's import
+called __<SPAN  CLASS="texttt"><SPAN  CLASS="textbf">init</SPAN></SPAN>__<SPAN  CLASS="texttt"><SPAN  CLASS="textbf">.py</SPAN></SPAN>. This file is necessary for Python's import
 facility to operate. 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  checks for this file and will generate an
-error if not found or not empty.<A NAME="tex2html90"
-  HREF="#foot13126"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A>
+error if not found or not empty.<A ID="tex2html92"
+  HREF="#foot13284"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A>
 <P>
 Hoping that a few lines of example code will compensate for the lack
 of pages of reference, we suggest that you look at the module
-<TT><SPAN  CLASS="textbf">plugins/hello/plugin.py</SPAN></TT>.
+<SPAN  CLASS="texttt"><SPAN  CLASS="textbf">plugins/hello/plugin.py</SPAN></SPAN>.
 
 <P>
 When locating modules 
@@ -192,18 +191,18 @@ really recommend you simplify your life and use the all lowercase
 version! If you have both a &ldquo;hello&rdquo; and &ldquo;HELLO&rdquo; directories a
 warning message will be printed; one of the two modules will be
 loaded, but which is indeterminate (the first found will be
-used).<A NAME="tex2html91"
-  HREF="#foot13129"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A>
+used).<A ID="tex2html93"
+  HREF="#foot13287"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A>
 <P>
 
-<H2><A NAME="SECTION002302000000000000000">
+<H2><A ID="SECTION002302000000000000000">
 Distribution</A>
 </H2>
 
 <P>
 The directory for a plugin <SPAN  CLASS="textit">should</SPAN> also contain a sample file
 which shows how the plugin can be used and some documentation. At its
-simplest this could be a <TT><SPAN  CLASS="textbf">README</SPAN></TT> text file; more complex plugins
+simplest this could be a <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">README</SPAN></SPAN> text file; more complex plugins
 can have more extensive examples and other reference material.
 
 <P>
@@ -219,7 +218,7 @@ load a plugin
 
 <P>
 </LI>
-<LI>A directory named <TT><SPAN  CLASS="textbf">plugins</SPAN></TT> in the user's current
+<LI>A directory named <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">plugins</SPAN></SPAN> in the user's current
   directory. This permits a collection of plugins for each user.
 
 <P>
@@ -231,12 +230,12 @@ load a plugin
 
 <P>
 </LI>
-<LI>The <TT><SPAN  CLASS="textbf">plugins</SPAN></TT> directory. We recommend that all plugins use
+<LI>The <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">plugins</SPAN></SPAN> directory. We recommend that all plugins use
   this location! It makes it easy to track where your plugins live.
   You cannot change the the location or name of this directory: it
-  must be a directory called <TT><SPAN  CLASS="textbf">plugins</SPAN></TT> and be located in the main
+  must be a directory called <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">plugins</SPAN></SPAN> and be located in the main
   
-<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  directory tree (the same location as the <TT><SPAN  CLASS="textbf">MMA</SPAN></TT> modules
+<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  directory tree (the same location as the <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">MMA</SPAN></SPAN> modules
   directory). Unfortunately, if you are using a standard 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>    distribution this directory may not be modifiable by you since it is
   in a &ldquo;root access&rdquo; location ... which is why the above locations
@@ -252,7 +251,7 @@ below.
 
 <P>
 
-<H2><A NAME="SECTION002303000000000000000">
+<H2><A ID="SECTION002303000000000000000">
 Enabling</A>
 </H2>
 
@@ -339,7 +338,7 @@ If you have both a track and non-track function, you could:
 
 <P>
 
-<H2><A NAME="SECTION002304000000000000000">
+<H2><A ID="SECTION002304000000000000000">
 Disabling</A>
 </H2>
 
@@ -380,11 +379,11 @@ will force the search to only the plugin directory.
 
 <P>
 For security, there is no &ldquo;enable&rdquo; command. So, feel safe in putting
-this in your <TT><SPAN  CLASS="textbf">mmarc</SPAN></TT> file.
+this in your <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">mmarc</SPAN></SPAN> file.
 
 <P>
 
-<H2><A NAME="SECTION002305000000000000000">
+<H2><A ID="SECTION002305000000000000000">
 Security</A>
 </H2>
 
@@ -404,13 +403,13 @@ you wish to give permission for the plugin to load. If you don't
 recognize the name, just say &ldquo;no&rdquo;.
 
 <P>
-The prompt will permit the entry of a single character &ldquo;<TT>y</TT>&rdquo; (followed
-by the <TT>Enter</TT> key). Accepting a plugin will create an entry
-in the <TT><SPAN  CLASS="textbf">plugin.list</SPAN></TT> file and the plugin will silently load in
+The prompt will permit the entry of a single character &ldquo;<SPAN  CLASS="texttt">y</SPAN>&rdquo; (followed
+by the <SPAN  CLASS="texttt">Enter</SPAN> key). Accepting a plugin will create an entry
+in the <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">plugin.list</SPAN></SPAN> file and the plugin will silently load in
 the future.
 
 <P>
-If you enter an &ldquo;<TT>o</TT>&rdquo; the plugin will be loaded only this
+If you enter an &ldquo;<SPAN  CLASS="texttt">o</SPAN>&rdquo; the plugin will be loaded only this
 run. This may or may not be a wise thing to do ... if you're not
 sure you probably should not enable it. 
 
@@ -418,10 +417,10 @@ sure you probably should not enable it.
 If any changes are made to the plugin code, you'll be asked again.
 
 <P>
-Permissions are stored in a file <TT><SPAN  CLASS="textbf">plugins.list</SPAN></TT>. Depending on
+Permissions are stored in a file <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">plugins.list</SPAN></SPAN>. Depending on
 your system this will be located in a &ldquo;standard&rdquo;
-location.<A NAME="tex2html92"
-  HREF="#foot13172"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A>
+location.<A ID="tex2html94"
+  HREF="#foot13330"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A>
 <P>
 If you are confident that no harm will come to your system by loading
 plugins (which is probably true most of the time) you can skip all this
@@ -431,57 +430,57 @@ security by starting
 <P>
 <BR><HR><H4>Footnotes</H4>
 <DL>
-<DT><A NAME="foot13111">...
+<DT><A ID="foot13269">...
 programs.</A><A
- HREF="node23.html#tex2html89"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A></DT>
+ HREF="node23.html#tex2html91"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A></DT>
 <DD>The reason we're so free with this stuff is that
   it's impossible to restrict what a good or malicious Python (or any
   other language) program can do. Again, <B>Be Careful.</B>
 
 </DD>
-<DT><A NAME="foot13126">... empty.</A><A
- HREF="node23.html#tex2html90"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A></DT>
+<DT><A ID="foot13284">... empty.</A><A
+ HREF="node23.html#tex2html92"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A></DT>
 <DD>Python doesn't restrict the
   __init__.py module to be empty. It can actually contain code. For
   security reasons we force it to be empty.
 
 </DD>
-<DT><A NAME="foot13129">...
+<DT><A ID="foot13287">...
 used).</A><A
- HREF="node23.html#tex2html91"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A></DT>
+ HREF="node23.html#tex2html93"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A></DT>
 <DD>This would only be possible on computers with a
   case-sensitive filename structure, like Linux.
 
 </DD>
-<DT><A NAME="foot13172">...
+<DT><A ID="foot13330">...
 location.</A><A
- HREF="node23.html#tex2html92"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A></DT>
+ HREF="node23.html#tex2html94"><SUP><SPAN CLASS="arabic">23</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A></DT>
 <DD>
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  uses the Python module appdirs.py (included in
   this distribution) to determine the &ldquo;best&rdquo; location to store
-  configuration files. For more information see <TT><A NAME="tex2html93"
-  HREF="http://github.com/ActiveState/appdirs">http://github.com/ActiveState/appdirs</A></TT>.
+  configuration files. For more information see <kbd><A ID="tex2html95"
+  HREF="http://github.com/ActiveState/appdirs">http://github.com/ActiveState/appdirs</A></kbd>.
 
 </DD>
 </DL>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html838"
-  HREF="node24.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html836"
-  HREF="mma.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html830"
-  HREF="node22.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<A
+ HREF="node24.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="mma.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node22.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A>   
 <BR>
-<B> Next:</B> <A NAME="tex2html839"
-  HREF="node24.html">Low Level MIDI Commands</A>
-<B> Up:</B> <A NAME="tex2html837"
-  HREF="mma.html">Reference Manual</A>
-<B> Previous:</B> <A NAME="tex2html831"
-  HREF="node22.html">Subroutines</A></DIV>
+<B> Next:</B> <A
+ HREF="node24.html">Low Level MIDI Commands</A>
+<B> Up:</B> <A
+ HREF="mma.html">Reference Manual</A>
+<B> Previous:</B> <A
+ HREF="node22.html">Subroutines</A></DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

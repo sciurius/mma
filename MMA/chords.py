@@ -276,8 +276,8 @@ class ChordNotes:
         if ':' in name:
             name, barre = name.split(':', 1)
             barre = stoi(barre, "Expecting integer after ':'")
-            if barre < -20 or barre > 20:
-                error("Chord barres limited to -20 to 20 (more is silly)")
+            if barre < -127 or barre > 127:
+                error("Chord barres limited to -127 to 127 (more than about +/-20 is silly)")
         else:
             barre = 0
 
@@ -460,7 +460,7 @@ class ChordNotes:
         """ Apply an inversion to a chord.
 
         This does not reorder any notes, which means that the root note of
-        the chord reminds in postion 0. We just find that highest/lowest
+        the chord reminds in position 0. We just find that highest/lowest
         notes in the chord and adjust their octave.
 
         NOTE: Done on the existing list of notes. Returns None.
@@ -468,7 +468,6 @@ class ChordNotes:
 
         if n:
             c = self.noteList[:]
-
             while n > 0:        # Rotate up by adding 12 to lowest note
                 n -= 1
                 c[c.index(min(c))] += 12

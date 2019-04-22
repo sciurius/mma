@@ -142,7 +142,7 @@ def trackRun(tr, line):
     pu.addCommand( ''.join(out3) )
 
 
-    if MMA.gbl.debug:
+    if MMA.debug.debug:
         print(''.join(out1));
         print(''.join(out2));
         print(''.join(out3));

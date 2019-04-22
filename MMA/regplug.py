@@ -57,6 +57,7 @@ prefix = "@"
 plugList = []      # all loaded plugins
 simplePlugs = []   # simple funcs registered
 trackPlugs = []    # track funcs registered
+dataPlugs = []     # data plugs registered
 
 # A list of entry points for the command line help
 # function. Each plugin should have a function printUsage().
@@ -309,21 +310,33 @@ def registerPlugin(p):
                     'path': plugPath,
                     'cmd':  cmdName   }
 
-    if hasattr(e, 'run'):
+    try:
         MMA.parse.simpleFuncs[cmdName] = e.run
         simplePlugs.append(cmdName)
         if MMA.debug.debug:
             print("Plugin: %s simple plugin RUN registered." % cmdName.title())
-
-    if hasattr(e, 'trackRun'):
+    except:
+        pass
+    
+    try:
         MMA.parse.trackFuncs[cmdName] = e.trackRun
         trackPlugs.append(cmdName)
         if MMA.debug.debug:
             print("Plugin: %s track plugin TrackRun registered." % cmdName.title())
-
-    if hasattr(e, 'printUsage'):
+    except:
+        pass
+    
+    try:
+        MMA.parse.dataFuncs[cmdName] = e.dataRun
+        dataPlugs.append(cmdName)
+        if MMA.debug.debug:
+            print("Plugin: %s data plugin DataRun registered." % cmdName.title())
+    except:
+        pass
+    
+    try:
         plugHelp[cmdName] = e.printUsage
-    else:
+    except:
         plugHelp[cmdName] = None
 
     return cmdName

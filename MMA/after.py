@@ -39,7 +39,7 @@ class AfterData:
 
 afterData = []
 
-def set(ln):
+def create(ln):
     """ Set an After event. """
 
     global afterData

@@ -350,7 +350,7 @@ class Lyric:
 
                 ly.append(v)
 
-            i = gbl.QperBar - len(ly)
+            i = int(gbl.QperBar - len(ly))
             if i > 0:
                 ly.extend(['/'] * i)
             lyrics.insert(0, ' '.join(ly) + '\\r')

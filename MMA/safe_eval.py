@@ -24,6 +24,7 @@ Bob van der Poel <bob@mellowood.ca>
 
 import re
 from math import *
+from random import randint
 from os import environ
 
 from MMA.common import error
@@ -31,7 +32,7 @@ from MMA.common import error
 safeCmds = ['ceil', 'fabs', 'floor', 'exp', 'log', 'log10', 'pow',
             'sqrt', 'acos', 'asin', 'atan', 'atan2', 'cos', 'hypot',
             'sin', 'tan', 'degrees', 'radians', 'cosh', 'sinh',
-            'int', 'in', '.join', 'str', '.split', 'for']
+            'int', 'in', '.join', 'str', '.split', 'for', 'randint' ]
 
 
 def safe_eval(expr):

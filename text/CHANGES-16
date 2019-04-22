@@ -6,10 +6,12 @@ This reflects changes to MMA since the release of version 16.06.
 Minor change to pluginUtils.py so that 16.06 is recognized. 
 
 June 12, 2016: Reposted 16.06 packages. Silent fix.
+---------------------------------------------------
 
 There was an import error in regpluy.py which showed only when using python 3.x. Fixed
 
 June 14, 2016: Reposted 16.06 packages. Silent fix (but posted message).
+------------------------------------------------------------------------
 
 Fixed AFTER option parser. You can now have option pairs in the command to execute.
 
@@ -25,6 +27,7 @@ DefaultDrum now also works with Solo/Melody tracks when the drumtype option is
  "Tweaks DefaultDrum" option.
 
 September 10, 2016: Released 11.06.a
+------------------------------------
 
 Added Min:Sec to report string (in addition to Min.ddd). Hope it's useful to someone.
 
@@ -71,3 +74,17 @@ The plugin registry has been modified so that you can have a plugin directory in
 Added the option to change the encoding used from cp1262 via an env varible MMA_ENCODING.
 
 December 30, 2018 -- Released Version 16.06c  (last of the 16.06!!!!)
+---------------------------------------------------------------------
+
+Revisited the parsing of the VOICING line. Added error traps.
+
+Added new code to permit random setting in INVERT.
+
+Fixed bug in lyric CHORDS=On which crashed if the TIME value had been changed.
+
+Added environment variable MMA_ENCODING for global encoding value. By default
+ it remains as cp1252.
+
+The plectrum tracks have been treated to some enhancements, especially the
+ addition of the SHAPE command. Thanks to Johan <jvromans@squirrel.nl>.
+ 

@@ -266,7 +266,7 @@ def grooveDo(slot):
     gbl.QperBar = g['QPERBAR']
     gbl.barLen  = g['BARLEN']
     MMA.seqrnd.seqRnd = g['SEQRND']
-    timeSig.set(*g['TIMESIG'])  # passing tuple as 2 args.
+    timeSig.create(*g['TIMESIG'])  # passing tuple as 2 args.
     MMA.swing.grestore(g['SWINGMODE'])
     MMA.volume.vTRatio, MMA.volume.vMRatio = g['VRATIO']
     MMA.parseCL.chordTabs = g['CTABS']

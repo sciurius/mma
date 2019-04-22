@@ -101,15 +101,15 @@ def parse(inpath):
     """ Process a mma input file. """
 
     global beginData, lastChord
-
+    
     gbl.inpath = inpath
-
     curline = None
 
     while 1:
         MMA.after.check()
         
         curline = inpath.read()
+
         if curline is None:   # eof, exit parser
             break
 
@@ -160,7 +160,7 @@ def parse(inpath):
 
         if action in simpleFuncs:
             simpleFuncs[action](l[1:])
-            continue
+            continue            
 
         """ We have several possibilities ...
             1. The command is a valid assigned track name,
@@ -205,16 +205,22 @@ def parse(inpath):
         else:
             gbl.barLabel = ''
 
-        """ A bar can have an optional repeat count. This must
-            be at the end of bar in the form '* xx'.
-        """
-
+        ##  A bar can have an optional repeat count. This must
+        ##  be at the end of bar in the form '* xx'.
         if len(l) > 1 and l[-2] == '*':
             rptcount = stoi(l[-1], "Expecting integer after '*'")
             l = l[:-2]
 
         else:
             rptcount = 1
+
+        # Dataplugins all start with '@'. Code is in the plugin code.
+        # A data plugin modifies the existing data line and returns it.
+        if l[0].startswith('@'):
+            p = l[0].upper()
+            if p not in dataFuncs:
+                error("Unknown data plugin '%s' called." % p)
+            l = dataFuncs[p](l[1:])
 
         """ Extract solo(s) from line ... this is anything in {}s.
             The solo data is pushed into RIFFs and discarded from
@@ -988,9 +994,9 @@ def trackPlectrumTuning(name, ln):
 
     g = gbl.tnames[name]
 
-    if hasattr(g, "setPlectrumTuning"):
+    try:
         g.setPlectrumTuning(ln)
-    else:
+    except AttributeError:
         warning("TUNING: not permitted in %s tracks. Arg '%s' ignored." %
                 (g.vtype, ' '.join(ln)))
 
@@ -1005,9 +1011,9 @@ def trackPlectrumCapo(name, ln):
         error("Use: %s Capo N" % name)
 
     g = gbl.tnames[name]
-    if hasattr(g, "setPlectrumCapo"):
+    try:
         g.setPlectrumCapo(ln[0])
-    else:
+    except AttributeError:
         warning("CAPO: not permitted in %s tracks. Arg '%s' ignored." %
                 (g.vtype, ' '.join(ln)))
 
@@ -1018,11 +1024,23 @@ def trackPlectrumFretNoise(name, ln):
 
     g = gbl.tnames[name]
 
-    if hasattr(g, "setPlectrumFretNoise"):
+    try:
         g.setPlectrumFretNoise(ln)
-    else:
+    except AttributeError:
         warning("FRETNOISE: not permitted in %s tracks. Arg '%s' ignored." %
                 (g.vtype, ' '.join(ln)))
+
+def trackPlectrumShape(name, ln):
+    """ Define chord shape for stringed instrument. """
+
+    g = gbl.tnames[name]
+    
+    try:
+        g.setPlectrumShape(ln)
+    except AttributeError:
+        warning("SHAPE: not permitted in %s tracks. Arg '%s' ignored." %
+                (g.vtype, ' '.join(ln)))
+
 
 #######################################
 # MIDI setting
@@ -1104,9 +1122,9 @@ def trackArpeggiate(name, ln):
         error("Use: %s Arpeggiate N" % name)
 
     g = gbl.tnames[name]
-    if hasattr(g, "setArp"):
+    try:
         g.setArp(ln)
-    else:
+    except AttributeError:
         warning("Arpeggiate: not permitted in %s tracks. Arg '%s' ignored." %
                 (g.vtype, ' '.join(ln)))
 
@@ -1118,9 +1136,9 @@ def trackStretch(name, ln):
         error("Use: %s Stretch N" % name)
 
     g = gbl.tnames[name]
-    if hasattr(g, "setStretch"):
+    try:
         g.setStretch(ln)
-    else:
+    except AttributeError:
         warning("Stretch: not permitted in %s tracks. Arg '%s' ignored." %
                 (g.vtype, ' '.join(ln)))
 
@@ -1188,7 +1206,7 @@ def trackUnify(name, ln):
 """
 
 simpleFuncs = {'ADJUSTVOLUME': MMA.volume.adjvolume,
-               'AFTER': MMA.after.set,
+               'AFTER': MMA.after.create,
                'ALLGROOVES': MMA.grooves.allgrooves,
                'ALLTRACKS': allTracks,
                'AUTHOR': MMA.docs.docAuthor,
@@ -1225,7 +1243,7 @@ simpleFuncs = {'ADJUSTVOLUME': MMA.volume.adjvolume,
                'IFEND': ifend,
                'INC': macros.varinc,
                'INCLUDE': include,
-               'KEYSIG': keySig.set,
+               'KEYSIG': keySig.create,
                'LABEL': comment,
                'LYRIC': lyric.option,
                'MIDIDEF': MMA.mdefine.mdefine,
@@ -1285,7 +1303,7 @@ simpleFuncs = {'ADJUSTVOLUME': MMA.volume.adjvolume,
                'VARCLEAR': macros.clear,
                'VEXPAND': macros.vexpand,
                'VOICEVOLTR': MMA.translate.voiceVolTable.set,
-               'VOICETR': MMA.translate.vtable.set,
+               'VOICETR': MMA.translate.vtable.create,
                'VOLUME': MMA.volume.setVolume,
                'TRANSPOSE': MMA.keysig.transpose}
 
@@ -1335,6 +1353,7 @@ trackFuncs = {
     "ORNAMENT": trackOrnament,
     'TUNING': trackPlectrumTuning,
     'CAPO': trackPlectrumCapo,
+    'SHAPE': trackPlectrumShape,
     'RANGE': trackRange,
     'RDURATION': trackRduration,
     'RESTART': MMA.sequence.trackRestart,
@@ -1362,3 +1381,5 @@ trackFuncs = {
     'VOICING': trackVoicing,
     'VOLUME': trackVolume,
     'DEFINE': trackDefPattern}
+
+dataFuncs = {}

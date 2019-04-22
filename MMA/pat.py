@@ -97,9 +97,8 @@ def getRndPair(l, trk, min, max):
         except:
             error("%s: Expecting integers, not '%s' or '%s'." % (trk, n1, n2))
     else:
-        n1 = l.strip()
         try:
-            n1 = int(n1)
+            n1 = int(l)
         except:
             error("%s: Expecting integer, not '%s'." % (trk, n1))
         n2 = n1 * -1
@@ -726,26 +725,32 @@ class PC:
             by one rotation for each value.
         """
 
-        ln = lnExpand(ln, "%s Invert" % self.name)
+        msg = "%s Invert" % self.name
+        ln = lnExpand(ln, msg)
 
-        vwarn = 0
         tmp = []
 
         for n in ln:
-            n = stoi(n, "Argument for %s Invert must be an integer" % self.name)
+            if not ',' in n:
+                try:
+                    n1 = n2 = int(n)
+                except:
+                    error("Invert %s doesn't recognize '%s'." % (self.name, n))
+            else:
+                n1, n2 = getRndPair(n, msg, -10, 10)
+            if n1 == 0 and n2 == 0:
+                tmp.append([])
+            else:
+                tmp.append([n1, n2])
 
-            if n and self.vtype == 'CHORD' and self.voicing.mode:
-                vwarn = 1
-
-            tmp.append(n)
-
-        self.invert = seqBump(tmp)
+        if self.vtype == 'CHORD' and self.voicing.mode and any(tmp):
+            warning("%s: Setting both Voicing Mode and Invert is not a good idea" % 
+                    self.name)
 
         if self.vtype not in ("CHORD", "ARPEGGIO"):
             warning("Invert is ignored in %s tracks" % self.vtype)
 
-        if vwarn:
-            warning("Setting both Voicing Mode and Invert is not a good idea")
+        self.invert = seqBump(tmp)
 
         if MMA.debug.debug:
             MMA.debug.trackSet(self.name, "Invert")
@@ -1262,7 +1267,7 @@ class PC:
             'DIR': self.direction[:],
             'DUPROOT': copy.deepcopy(self.dupRoot),
             'HARMONY': (self.harmony[:], self.harmonyOnly[:], self.harmonyVolume[:]),
-            'INVERT': self.invert[:],
+            'INVERT': copy.deepcopy(self.invert),
             'LIMIT': self.chordLimit,
             'RANGE': self.chordRange[:],
             'OCTAVE': self.octave[:],
@@ -1385,7 +1390,7 @@ class PC:
             self.compress = [0]
             self.dupRoot = [[]]
             self.chordLimit = 0
-            self.invert = [0]
+            self.invert = [[]]
             self.lastChord = []
             self.accent = [[]]
             self.unify = [0]

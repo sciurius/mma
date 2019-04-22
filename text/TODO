@@ -1,5 +1,9 @@
 Can we permit a "* count" in a line with lyrics []?
 
+Chord name meta-data might do with some additional settings: merge it
+   an existing sequence (Lyric Chords=On SequencePoints=Chord_Foo??).
+   Problematic when switching grooves?
+   
 Do we need to specify a chord with zXX? Now we need EmzB to turn off
    the bass ... why not zB to do the same if the Em is already set?
 

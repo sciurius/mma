@@ -50,7 +50,7 @@ class Vtable:
 
         return ' '.join(l)
 
-    def set(self, ln):
+    def create(self, ln):
         """ Set a name/alias for voice translation, called from parser. """
 
         if not ln:

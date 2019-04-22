@@ -140,6 +140,10 @@ class Macros:
             from MMA.regplug import simplePlugs  # to avoid circular import error
             return ' '.join(simplePlugs)
 
+        elif s == 'DATAPLUGS':
+            from MMA.regplug import dataPlugs  # to avoid circular import error
+            return ' '.join(dataPlugs)
+        
         elif s == 'SEQ':
             return str(gbl.seqCount)
 
