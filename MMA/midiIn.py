@@ -32,6 +32,8 @@ from   MMA.readmidi import MidiData
 
 from   MMA.midiM import packBytes
 
+### FIXME ... some truly ugly code follows!!!
+
 ######################################################
 ## Main function, called from parser.
 
@@ -39,18 +41,18 @@ def midiinc(ln):
     """ Include a MIDI file into MMA generated files. """
 
     filename = ''
-    doLyric = 0
-    doText = 0
+    doLyric = False
+    doText = False
     channels = []
     transpose = None
-    stripSilence = -1
-    report = 0
+    stripSilence = -1   # Important! Don't use True or 1 since positive # are option
+    report = False
     istart = 0          # istart/end are in ticks
     iend = 0xffffff     # but are set in options in Beats
-    verbose = 0
+    verbose = False
     octAdjust = 0
     velAdjust = 100
-    ignorePC = 1
+    ignorePC = True
     stretch = None
 
     notopt, ln = opt2pair(ln)
@@ -102,46 +104,46 @@ def midiinc(ln):
 
         elif cmd == 'TEXT':
             opt = opt.upper()
-            if opt in ("ON", '1'):
-                doText = 1
-            elif opt in ("OFF", '0'):
-                doText = 0
+            if opt in ("ON", 'TRUE', '1'):
+                doText = True
+            elif opt in ("OFF", 'FALSE', '0'):
+                doText = False
             else:
                 error("MidiInc: 'Text' expecting 'ON' or 'OFF'")
 
         elif cmd == 'LYRIC':
             opt = opt.upper()
-            if opt in ("ON", '1'):
-                doLyric = 1
-            elif opt in ("OFF", '0'):
-                doLyric = 0
+            if opt in ("ON", 'TRUE', '1'):
+                doLyric = True
+            elif opt in ("OFF", 'FALSE', '0'):
+                doLyric = False
             else:
                 error("MidiInc: 'Lyric' expecting 'ON' or 'OFF'")
 
         elif cmd == "REPORT":
             opt = opt.upper()
-            if opt in ("ON", '1'):
-                report = 1
-            elif opt in ("OFF", '0'):
-                report = 0
+            if opt in ("ON", 'TRUE', '1'):
+                report = True
+            elif opt in ("OFF", 'FALSE', '0'):
+                report = False
             else:
                 error("MidiInc: 'Report' expecting 'ON' or 'OFF'")
 
         elif cmd == "VERBOSE":
             opt = opt.upper()
-            if opt in ("ON", '1'):
-                verbose = 1
-            elif opt in ("OFF", '0'):
-                verbose = 0
+            if opt in ("ON", 'TRUE','1'):
+                verbose = True
+            elif opt in ("OFF", 'FALSE', '0'):
+                verbose = False
             else:
                 error("MidiInc: 'Verbose' expecting 'ON' or 'OFF'")
 
         elif cmd == "STRIPSILENCE":
             opt = opt.upper()
-            if opt in ("OFF", '0'):
-                stripSilence = 0
-            elif opt == "ON":  # this is the default
-                stripSilence = -1
+            if opt in ("OFF", 'FALSE', '0'):
+                stripSilence = False
+            elif opt in ("TRUE", "ON"):  # this is the default
+                stripSilence = -1  # Don't use TRUE, positive values are important
             else:
                 stripSilence = stoi(opt, "MIdiInc StripSilence= expecting "
                                     "'value', 'On' or 'Off', not %s" % opt)
@@ -149,9 +151,9 @@ def midiinc(ln):
         elif cmd == "IGNOREPC":
             opt = opt.upper()
             if opt in ("TRUE", "ON", "1"):   # default
-                ignorePC = 1
+                ignorePC = True
             elif opt in ("FALSE", "OFF", "0"):  # use program change in imported
-                ignorePC = 0
+                ignorePC = False
             else:
                 error("MIdiInc: 'IncludePC' expecting 'True' or 'False', not %s" % opt)
 
@@ -274,7 +276,7 @@ def midiinc(ln):
         error("MidiInc: Range invalid, start=%s, end=%s" % (istart, iend))
 
     if MMA.debug.debug:
-        print("MidiInc: file=%s, Volume=%s, Octave=%s, Transpose=%s, Lyric=%s, " 
+        dPrint("MidiInc: file=%s, Volume=%s, Octave=%s, Transpose=%s, Lyric=%s, " 
             "Text=%s, Range=%s..%s StripSilence=%s Verbose=%s" 
             % (filename, velAdjust, octAdjust, transpose, doLyric, doText,
                istart, iend, stripSilence, verbose))
@@ -288,7 +290,7 @@ def midiinc(ln):
             elif printriff:
                 o += ',print'
             msg.append("MidiInc: Channel %s-->%s%s" % (ch+1, t, o))
-        print(' '.join(msg))
+        dPrint(' '.join(msg))
 
     if stretch:
         if verbose:
@@ -306,7 +308,7 @@ def midiinc(ln):
 
     # Midi file parsed, add selected events to mma data
 
-    if stripSilence == 0:
+    if stripSilence == False:
         if verbose:
             print("Firstnote offset was %s. Being reset to start of file by StripSilence=Off." 
                 % mf.firstNote)
@@ -329,7 +331,7 @@ def midiinc(ln):
                 disc += 1
 
         if MMA.debug.debug:
-            print("MidiInc text events: %s inserted, %s out of range." % (inst, disc))
+            dPrint("MidiInc text events: %s inserted, %s out of range." % (inst, disc))
 
     if doLyric:
         inst = 0
@@ -344,7 +346,7 @@ def midiinc(ln):
             else:
                 disc += 1
         if MMA.debug.debug:
-            print("MidiInc lyric events: %s inserted, %s out of range." % (inst, disc))
+            dPrint("MidiInc lyric events: %s inserted, %s out of range." % (inst, disc))
 
     for n, c, riffmode, printriff in channels:
         if not len(mf.events[c]):
@@ -459,7 +461,7 @@ def midiinc(ln):
                     MMA.sequence.trackSequence(tr, txt)
 
     if MMA.debug.debug:
-            print("MidiInc events: %s inserted, %s out of range." % (inst, disc))
+            dPrint("MidiInc events: %s inserted, %s out of range." % (inst, disc))
 
 
 def createRiff(riff, tname, riffTranspose):

@@ -46,32 +46,32 @@
 <A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
 <UL CLASS="ChildLinks">
-<LI><A ID="tex2html553"
+<LI><A ID="tex2html555"
   HREF="node14.html#SECTION001410000000000000000">Voicing</A>
 <UL>
-<LI><A ID="tex2html554"
+<LI><A ID="tex2html556"
   HREF="node14.html#SECTION001411000000000000000">Voicing Mode</A>
 </UL>
 <BR>
-<LI><A ID="tex2html555"
-  HREF="node14.html#SECTION001420000000000000000">ChordAdjust</A>
-<LI><A ID="tex2html556"
-  HREF="node14.html#SECTION001430000000000000000">Compress</A>
 <LI><A ID="tex2html557"
-  HREF="node14.html#SECTION001440000000000000000">DupRoot</A>
+  HREF="node14.html#SECTION001420000000000000000">ChordAdjust</A>
 <LI><A ID="tex2html558"
-  HREF="node14.html#SECTION001450000000000000000">Invert</A>
+  HREF="node14.html#SECTION001430000000000000000">Compress</A>
 <LI><A ID="tex2html559"
-  HREF="node14.html#SECTION001460000000000000000">Limit</A>
+  HREF="node14.html#SECTION001440000000000000000">DupRoot</A>
 <LI><A ID="tex2html560"
-  HREF="node14.html#SECTION001470000000000000000">NoteSpan</A>
+  HREF="node14.html#SECTION001450000000000000000">Invert</A>
 <LI><A ID="tex2html561"
-  HREF="node14.html#SECTION001480000000000000000">Range</A>
+  HREF="node14.html#SECTION001460000000000000000">Limit</A>
 <LI><A ID="tex2html562"
-  HREF="node14.html#SECTION001490000000000000000">DefChord</A>
+  HREF="node14.html#SECTION001470000000000000000">NoteSpan</A>
 <LI><A ID="tex2html563"
-  HREF="node14.html#SECTION0014100000000000000000">PrintChord</A>
+  HREF="node14.html#SECTION001480000000000000000">Range</A>
 <LI><A ID="tex2html564"
+  HREF="node14.html#SECTION001490000000000000000">DefChord</A>
+<LI><A ID="tex2html565"
+  HREF="node14.html#SECTION0014100000000000000000">PrintChord</A>
+<LI><A ID="tex2html566"
   HREF="node14.html#SECTION0014110000000000000000">Notes</A>
 </UL>
 <!--End of Table of Child-Links-->
@@ -85,11 +85,13 @@ Chord Voicing
 
 <P>
 In music, a chord is simply defined as two more notes played
-simultaneously. Now, this doesn't mean that you can play just any two
-or three notes and get a chord which sounds nice--but whatever you do
-get will be a chord of some type. And, to further confuse the unwary,
-different arrangements of the same notes sound better (or worse) in
-different musical situations.
+simultaneously<A ID="tex2html61"
+  HREF="#foot7650"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>. Now,
+this doesn't mean that you can play just any two or three notes and
+get a chord which sounds nice--but whatever you do get will be a
+chord of some type. And, to further confuse the unwary, different
+arrangements of the same notes sound better (or worse) in different
+musical situations.
 
 <P>
 As a simple example, consider a C major chord. Built on the first,
@@ -190,8 +192,8 @@ other chord tracks (e.g., sustained strings).
 <P>
 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  has a variety of sophisticated, intelligent
-algorithms<A ID="tex2html61"
-  HREF="#foot7869"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A> to deal with voicing.
+algorithms<A ID="tex2html62"
+  HREF="#foot7911"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A> to deal with voicing.
 
 <P>
 As a general rule you should not use the I<SMALL>NVERT</SMALL> and
@@ -216,7 +218,8 @@ The main command to enable voicings is:
 As mentioned above, this command can only be applied to C<SMALL>HORD</SMALL>
 tracks. Also note that this effects all bars in the sequence ...
 you cannot have different voicings for different bars in the sequence
-(attempting to do this would make no sense).
+(attempting to do this would make no sense, but you could do it by
+creating duplicate tracks with alternate bars sounding).
 
 <P>
 The following MODE types are available:
@@ -375,7 +378,7 @@ would cause a movement (randomly up or down) in 20% of the bars.
 </DD>
 <DT><STRONG>Key</STRONG></DT>
 <DD>This mode attempts to cluster the notes of a chord around
-  the root note of the key signature (<A HREF="node29.html#keysignature">see here</A>). For example, a C major chord has the
+  the root note of the key signature (<A HREF="node30.html#keysignature">see here</A>). For example, a C major chord has the
   notes &ldquo;C&rdquo;, &ldquo;E&rdquo; and &ldquo;G&rdquo;. If K<SMALL>EY</SMALL>S<SMALL>IG</SMALL> is set to &ldquo;C&rdquo; the
   &ldquo;G&rdquo; will be lowered by an octave. However, if the the key
   signature were to be set to &ldquo;E&rdquo; no changes would be made. The
@@ -395,8 +398,8 @@ would cause a movement (randomly up or down) in 20% of the bars.
 <DD>Compress the notes in the chord into a single octave
   and force all notes to be above the root of the key signature.
   Assuming a key of &ldquo;C&rdquo; a F major chord would be transformed from
-  'f', 'a', 'c' to 'c', 'f', 'a'. However, if the key is set to &ldquo;F&rdquo;
-  the chord would be unaffected.
+  'f', 'a', 'c' <SPAN  CLASS="textit">to</SPAN> 'c', 'f', 'a'. However, if the key is set to
+  &ldquo;F&rdquo; the chord would be unaffected.
 
 <P>
 </DD>
@@ -420,8 +423,8 @@ would cause a movement (randomly up or down) in 20% of the bars.
   also compressed. Certainly not an ideal algorithm, but it can be
   used to add variety in a piece. The chord setting I<SMALL>NVERT</SMALL>
   (<A HREF="#chord-invert">here</A>) is a different
-  setting ... don't confuse the two and don't try to use them at the
-  same time.
+  setting ... don't confuse the two and don't try to use them at
+  the same time.
 
 <P>
 </DD>
@@ -438,9 +441,9 @@ would cause a movement (randomly up or down) in 20% of the bars.
 Notes:
 
 <UL>
-<LI>If you have duplicate M<SMALL>ODE</SMALL> or option values on the same line the last
-found will be used. You cannot have different modes/options for
-different sequence points.
+<LI>If you have duplicate M<SMALL>ODE</SMALL> or option values on the same
+  line the last found will be used. You cannot have different
+  modes/options for different sequence points.
 
 <P>
 </LI>
@@ -468,39 +471,29 @@ value according to the following table:
     </DIV><TABLE   STYLE="width:30%;">
 <TR><TD>
       <TABLE CELLPADDING=3>
-<TR><TD ALIGN="LEFT">G<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img1.png"
+<TR><TD ALIGN="LEFT">G<SPAN CLASS="MATH"><IMG STYLE="height: 1.81ex; vertical-align: -0.10ex; " SRC="img1.png"
  ALT="$\flat$"></SPAN></TD>
 <TD ALIGN="RIGHT">-6</TD>
 </TR>
 <TR><TD ALIGN="LEFT">G</TD>
 <TD ALIGN="RIGHT">-5</TD>
 </TR>
-<TR><TD ALIGN="LEFT">G<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img3.png"
+<TR><TD ALIGN="LEFT">G<SPAN CLASS="MATH"><IMG STYLE="height: 2.21ex; vertical-align: -0.55ex; " SRC="img2.png"
  ALT="$\sharp$"></SPAN></TD>
 <TD ALIGN="RIGHT">-4</TD>
 </TR>
-<TR><TD ALIGN="LEFT">A<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img1.png"
+<TR><TD ALIGN="LEFT">A<SPAN CLASS="MATH"><IMG STYLE="height: 1.81ex; vertical-align: -0.10ex; " SRC="img1.png"
  ALT="$\flat$"></SPAN></TD>
 <TD ALIGN="RIGHT">-4</TD>
 </TR>
 <TR><TD ALIGN="LEFT">A</TD>
 <TD ALIGN="RIGHT">-3</TD>
 </TR>
-<TR><TD ALIGN="LEFT">A<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img3.png"
+<TR><TD ALIGN="LEFT">A<SPAN CLASS="MATH"><IMG STYLE="height: 2.21ex; vertical-align: -0.55ex; " SRC="img2.png"
  ALT="$\sharp$"></SPAN></TD>
 <TD ALIGN="RIGHT">-2</TD>
 </TR>
-<TR><TD ALIGN="LEFT">B<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img1.png"
+<TR><TD ALIGN="LEFT">B<SPAN CLASS="MATH"><IMG STYLE="height: 1.81ex; vertical-align: -0.10ex; " SRC="img1.png"
  ALT="$\flat$"></SPAN></TD>
 <TD ALIGN="RIGHT">-2</TD>
 </TR>
@@ -511,30 +504,22 @@ value according to the following table:
 <TR><TD ALIGN="LEFT">B</TD>
 <TD ALIGN="RIGHT">-1</TD>
 </TR>
-<TR><TD ALIGN="LEFT">C<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img1.png"
+<TR><TD ALIGN="LEFT">C<SPAN CLASS="MATH"><IMG STYLE="height: 1.81ex; vertical-align: -0.10ex; " SRC="img1.png"
  ALT="$\flat$"></SPAN></TD>
 <TD ALIGN="RIGHT">-1</TD>
 </TR>
-<TR><TD ALIGN="LEFT">B<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img3.png"
+<TR><TD ALIGN="LEFT">B<SPAN CLASS="MATH"><IMG STYLE="height: 2.21ex; vertical-align: -0.55ex; " SRC="img2.png"
  ALT="$\sharp$"></SPAN></TD>
 <TD ALIGN="RIGHT">0</TD>
 </TR>
 <TR><TD ALIGN="LEFT">C</TD>
 <TD ALIGN="RIGHT">0</TD>
 </TR>
-<TR><TD ALIGN="LEFT">C<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img3.png"
+<TR><TD ALIGN="LEFT">C<SPAN CLASS="MATH"><IMG STYLE="height: 2.21ex; vertical-align: -0.55ex; " SRC="img2.png"
  ALT="$\sharp$"></SPAN></TD>
 <TD ALIGN="RIGHT">1</TD>
 </TR>
-<TR><TD ALIGN="LEFT">D<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img1.png"
+<TR><TD ALIGN="LEFT">D<SPAN CLASS="MATH"><IMG STYLE="height: 1.81ex; vertical-align: -0.10ex; " SRC="img1.png"
  ALT="$\flat$"></SPAN></TD>
 <TD ALIGN="RIGHT">1</TD>
 </TR>
@@ -545,39 +530,29 @@ value according to the following table:
 </TABLE>
 <DIV class="CENTER"> </DIV><TABLE   STYLE="width:30%;">
 <TR><TD> <TABLE CELLPADDING=3>
-<TR><TD ALIGN="LEFT">D<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img3.png"
+<TR><TD ALIGN="LEFT">D<SPAN CLASS="MATH"><IMG STYLE="height: 2.21ex; vertical-align: -0.55ex; " SRC="img2.png"
  ALT="$\sharp$"></SPAN></TD>
 <TD ALIGN="RIGHT">3</TD>
 </TR>
-<TR><TD ALIGN="LEFT">E<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img1.png"
+<TR><TD ALIGN="LEFT">E<SPAN CLASS="MATH"><IMG STYLE="height: 1.81ex; vertical-align: -0.10ex; " SRC="img1.png"
  ALT="$\flat$"></SPAN></TD>
 <TD ALIGN="RIGHT">3</TD>
 </TR>
 <TR><TD ALIGN="LEFT">E</TD>
 <TD ALIGN="RIGHT">4</TD>
 </TR>
-<TR><TD ALIGN="LEFT">F<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img1.png"
+<TR><TD ALIGN="LEFT">F<SPAN CLASS="MATH"><IMG STYLE="height: 1.81ex; vertical-align: -0.10ex; " SRC="img1.png"
  ALT="$\flat$"></SPAN></TD>
 <TD ALIGN="RIGHT">4</TD>
 </TR>
-<TR><TD ALIGN="LEFT">E<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img3.png"
+<TR><TD ALIGN="LEFT">E<SPAN CLASS="MATH"><IMG STYLE="height: 2.21ex; vertical-align: -0.55ex; " SRC="img2.png"
  ALT="$\sharp$"></SPAN></TD>
 <TD ALIGN="RIGHT">5</TD>
 </TR>
 <TR><TD ALIGN="LEFT">F</TD>
 <TD ALIGN="RIGHT">5</TD>
 </TR>
-<TR><TD ALIGN="LEFT">F<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img3.png"
+<TR><TD ALIGN="LEFT">F<SPAN CLASS="MATH"><IMG STYLE="height: 2.21ex; vertical-align: -0.55ex; " SRC="img2.png"
  ALT="$\sharp$"></SPAN></TD>
 <TD ALIGN="RIGHT">6</TD>
 </TR>
@@ -594,7 +569,7 @@ value according to the following table:
 <P>
 This means that when 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  encounters an &ldquo;Am&rdquo; chord it adjusts the
-notes in the chord table down by 3 MIDI values; an &ldquo;F&rdquo; chord is
+notes in the chord table down by 3 MIDI values; a &ldquo;F&rdquo; chord is
 adjusted 5 MIDI values up. This also means that &ldquo;A&rdquo; chords will
 sound lower than &ldquo;F&rdquo; chords.
 
@@ -602,7 +577,7 @@ sound lower than &ldquo;F&rdquo; chords.
 In most cases this works just fine; but, there are times when the
 &ldquo;F&rdquo; chord might sound better <SPAN  CLASS="textit">lower</SPAN> than the &ldquo;A&rdquo;. You can
 force a single chord by prefacing it with a single &ldquo;-&rdquo; or &ldquo;+&rdquo;
-(<A HREF="node35.html#octaveadjust">details here</A>). But, if
+(<A HREF="node36.html#octaveadjust">details here</A>). But, if
 the entire song needs adjustment you can use C<SMALL>HORD</SMALL>A<SMALL>DJUST</SMALL>
 command to raise or lower selected chord pitches:
 
@@ -616,19 +591,14 @@ command to raise or lower selected chord pitches:
       </Table>
 
 <P>
-Each item in the command consists of a pitch (&ldquo;B<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img1.png"
+Each item in the command consists of a pitch (&ldquo;B<SPAN CLASS="MATH"><IMG STYLE="height: 1.81ex; vertical-align: -0.10ex; " SRC="img1.png"
  ALT="$\flat$"></SPAN>&rdquo;, &ldquo;C&rdquo;,
 etc.) an &ldquo;=&rdquo; and an octave specifier (-1, 0 or 1). The pitch values
-are case sensitive and must be in upper case. With  enharmonic notes
-(E<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
- SRC="img3.png"
- ALT="$\sharp$"></SPAN> and F, C<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img1.png"
- ALT="$\flat$"></SPAN> and B, etc.) you will need to set both pitches.
+are case sensitive and must be in upper case. With enharmonic notes
+(E<SPAN CLASS="MATH"><IMG STYLE="height: 2.21ex; vertical-align: -0.55ex; " SRC="img2.png"
+ ALT="$\sharp$"></SPAN> and F, C<SPAN CLASS="MATH"><IMG STYLE="height: 1.81ex; vertical-align: -0.10ex; " SRC="img1.png"
+ ALT="$\flat$"></SPAN> and B, etc.) you will need to set both
+pitches.
 
 <P>
 To set multiple values you can use a comma separated list like:
@@ -709,8 +679,8 @@ Instead of the values 0 and 1 you can use &ldquo;On&rdquo;, &ldquo;True&rdquo;, 
 and &ldquo;False&rdquo; to make your code a bit more readable.
 
 <P>
-You can specify a different C<SMALL>OMPRESS</SMALL> for each bar in a sequence.
-Repeated values can be represented with a &ldquo;/&rdquo;:
+You can specify a different C<SMALL>OMPRESS</SMALL> for each bar in a
+sequence. Repeated values can be represented with a &ldquo;/&rdquo;:
 
 <P>
 
@@ -722,7 +692,8 @@ Repeated values can be represented with a &ldquo;/&rdquo;:
       </Table>
 
 <P>
-To restore to its default (off) setting, use a &ldquo;0&rdquo; or &ldquo;False&rdquo; as the argument.
+To restore to its default (off) setting, use a &ldquo;0&rdquo; or &ldquo;False&rdquo; as
+the argument.
 
 <P>
 For a similar command, with different results, see the L<SMALL>IMIT</SMALL>
@@ -751,10 +722,10 @@ octave. This is accomplished in
       </Table>
 
 <P>
-In the above example, the value
-of -1 adds a note one octave lower than the root note, -2 adds
-the tone 2 octaves lower, etc. Similarly, the value of 1 will add a
-note one octave higher than the root tone, etc.
+In the above example, the value of -1 adds a note one octave lower
+than the root note, -2 adds the tone 2 octaves lower, etc. Similarly,
+the value of 1 will add a note one octave higher than the root tone,
+etc.
 
 <P>
 Only the values -9 to 9 are permitted.
@@ -785,16 +756,16 @@ will add notes 1 and 2 octaves below the root of the chord and
       </Table>
 
 <P>
-will add notes 1 below, and 1 and 2 above.<A ID="tex2html62"
-  HREF="#foot7742"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A> <SPAN  CLASS="textit">Note:</SPAN> no
-spaces are in the comma separated list (spaces indicate the next bar
-in the sequence).
+will add notes 1 below, and 1 and 2 above.<A ID="tex2html63"
+  HREF="#foot7784"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A> <SPAN  CLASS="textit">Note:</SPAN> no spaces are
+in the comma separated list (spaces indicate the next bar in the
+sequence).
 
 <P>
-The volume used for the generated note(s) is the average of the non-zero 
-notes in the chord adjusted by the H<SMALL>ARMONY</SMALL>V<SMALL>OLUME</SMALL> setting for
-the current track.<A ID="tex2html63"
-  HREF="#foot7871"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A>
+The volume used for the generated note(s) is the average of the
+non-zero notes in the chord adjusted by the H<SMALL>ARMONY</SMALL>V<SMALL>OLUME</SMALL>
+setting for the current track.<A ID="tex2html64"
+  HREF="#foot7913"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A>
 <P>
 Different values can be used in each bar of the sequence.
 
@@ -816,9 +787,9 @@ The D<SMALL>UP</SMALL>R<SMALL>OOT</SMALL> command is only valid in C<SMALL>HORD<
 
 <P>
 D<SMALL>UP</SMALL>R<SMALL>OOT</SMALL> can only duplicate only the root tone of a chord. If
-you want to duplicate other pitches in the chord, create a B<SMALL>ASS</SMALL> track
-with the appropriate pattern. For example, if you want to duplicate
-the fifths in your chord, try this:
+you want to duplicate other pitches in the chord, create a B<SMALL>ASS</SMALL>
+track with the appropriate pattern. For example, if you want to
+duplicate the fifths in your chord, try this:
 
 <P>
 
@@ -843,8 +814,8 @@ End   </B>
       </Table>
 
 <P>
-The above, very simple, example will play the third and fifth notes of the chord an
-octave lower using the same pattern as the basic chords.
+The above, very simple, example will play the third and fifth notes of
+the chord an octave lower using the same pattern as the basic chords.
 
 <P>
 
@@ -866,10 +837,11 @@ chord becomes E, G and C. The second inversion is G, C and E.
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  extends the concept of inversion a bit by permitting the shift
 to be to the left or right, and the number of shifts is not limited.
 So, you could shift a chord up several octaves by using large invert
-values.<A ID="tex2html64"
-  HREF="#foot7873"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A>
+values.<A ID="tex2html65"
+  HREF="#foot7915"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">5</SPAN></SUP></A>
 <P>
-Inversions can be different in each bar of a sequence. For example example:
+Inversions can be different in each bar of a sequence. For example
+example:
 
 <P>
 
@@ -957,11 +929,11 @@ Limit
 </H1> 
 
 <P>
-If you use &ldquo;jazz&rdquo; chords in your piece, some people might not like
-the results. To some folks, chords like 11th, 13th, and variations
-have a dissonant sound. And, sometimes they are in a chart, but don't
-really make sense. The L<SMALL>IMIT</SMALL> command can be used to set the
-number of notes of a chord used.
+If you use so-called &ldquo;jazz&rdquo; chords in your piece, some people might
+not like the results. To some folks, chords like 11th, 13th, and
+variations have a dissonant sound. And, sometimes they are in a chart,
+but don't really make sense. The L<SMALL>IMIT</SMALL> command can be used to
+set the number of notes of a chord used.
 
 <P>
 For example:
@@ -978,13 +950,9 @@ For example:
 <P>
 will limit any chords used in the C<SMALL>HORD</SMALL> track to the first 4
 notes of a chord. So, if you have a C11 chord which is C, E, G,
-B<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img1.png"
+B<SPAN CLASS="MATH"><IMG STYLE="height: 1.81ex; vertical-align: -0.10ex; " SRC="img1.png"
  ALT="$\flat$"></SPAN>, D, and F, the chord will be truncated to C, E, G and
-B<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img1.png"
+B<SPAN CLASS="MATH"><IMG STYLE="height: 1.81ex; vertical-align: -0.10ex; " SRC="img1.png"
  ALT="$\flat$"></SPAN>.
 
 <P>
@@ -1013,8 +981,8 @@ NoteSpan
 
 <P>
 Many instruments have a limited range. For example, the bass section
-of an accordion is limited to a single octave.<A ID="tex2html65"
-  HREF="#foot7793"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">5</SPAN></SUP></A>  To emulate these sounds it is a simple matter of
+of an accordion is limited to a single octave.<A ID="tex2html66"
+  HREF="#foot7835"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">6</SPAN></SUP></A> To emulate these sounds it is a simple matter of
 limiting 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT> 's output to match the instrument. For example, in the
 &ldquo;frenchwaltz&rdquo; file you will find the directive:
@@ -1089,8 +1057,8 @@ example:
       </Table>
 
 <P>
-will create a scale of 2 notes.<A ID="tex2html66"
-  HREF="#foot7814"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">6</SPAN></SUP></A> And,
+will create a scale of 2 notes.<A ID="tex2html67"
+  HREF="#foot7856"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">7</SPAN></SUP></A> And,
 
 <P>
 
@@ -1111,10 +1079,10 @@ case a R<SMALL>ANGE 1</SMALL> would generate 12 notes, and R<SMALL>ANGE 1.5</SMA
 Partial scales are useful in generating special effects.
 
 <P>
-A<SMALL>RPEGGIO</SMALL>: Normally, arpeggios use a single octave.<A ID="tex2html67"
-  HREF="#foot7821"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">7</SPAN></SUP></A>  The R<SMALL>ANGE</SMALL> command specifies the
-number of octaves<A ID="tex2html68"
-  HREF="#foot7874"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">8</SPAN></SUP></A> to use. A fractional value can be used; the
+A<SMALL>RPEGGIO</SMALL>: Normally, arpeggios use a single octave.<A ID="tex2html68"
+  HREF="#foot7863"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">8</SPAN></SUP></A> The R<SMALL>ANGE</SMALL> command specifies the
+number of octaves<A ID="tex2html69"
+  HREF="#foot7916"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">9</SPAN></SUP></A> to use. A fractional value can be used; the
 exact result depends on the number of notes in the current chord.
 
 <P>
@@ -1134,7 +1102,7 @@ DefChord
 <P>
 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  comes with a large number of chord types already defined. In
-most cases, the supplied set (<A HREF="node35.html#sec-chordname">see this list</A>) is sufficient for all the &ldquo;modern&rdquo; or
+most cases, the supplied set (<A HREF="node36.html#sec-chordname">see this list</A>) is sufficient for all the &ldquo;modern&rdquo; or
 &ldquo;pop&rdquo; charts normally encountered. However, there are those times
 when you want to do something else, or something different.
 
@@ -1173,9 +1141,7 @@ where:
   &ldquo;()&rdquo;s. There must be at least 2 note offsets and no more than 8
   and all values must be in the range 0 to 24. Using an existing chord
   type, a &ldquo;7&rdquo; chord would be defined with (0, 4, 7, 10). In the case
-  of a C7 chord, this translates to the notes (c, e, g, b<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img1.png"
+  of a C7 chord, this translates to the notes (c, e, g, b<SPAN CLASS="MATH"><IMG STYLE="height: 1.81ex; vertical-align: -0.10ex; " SRC="img1.png"
  ALT="$\flat$"></SPAN>).
 
 <P>
@@ -1184,9 +1150,7 @@ where:
   values), all of which are enclosed in a set of &ldquo;()&rdquo;s. There must
   be exactly 7 values in the list and all values must be in the range
   0 to 24. Following on the C7 example above, the scale list would be
-  (0, 2, 4, 5, 7, 9, 10) or the notes (c, d, e, f, g, a, b<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img1.png"
+  (0, 2, 4, 5, 7, 9, 10) or the notes (c, d, e, f, g, a, b<SPAN CLASS="MATH"><IMG STYLE="height: 1.81ex; vertical-align: -0.10ex; " SRC="img1.png"
  ALT="$\flat$"></SPAN>).
 
 <P>
@@ -1226,7 +1190,7 @@ could write the author and ask him to add this new type, but if it is
 something quite odd or rare, it might be easier to define it in your
 song. Let's pretend that you've encountered a &ldquo;Cmaj12&rdquo; A reasonable
 guess is that this is a major 7 with an added 12th (just the 5th up an
-octave).  You could change the &ldquo;maj12&rdquo; part of the chord to a &ldquo;M7&rdquo;
+octave). You could change the &ldquo;maj12&rdquo; part of the chord to a &ldquo;M7&rdquo;
 or &ldquo;maj7&rdquo; and it should sound fine. But:
 
 <P>
@@ -1245,9 +1209,7 @@ is much more fun. Note a few details:
 
 <UL>
 <LI>The name &ldquo;maj12&rdquo; can be used with any chord. You can have
-  &ldquo;Cmaj12&rdquo; or G<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img1.png"
+  &ldquo;Cmaj12&rdquo; or G<SPAN CLASS="MATH"><IMG STYLE="height: 1.81ex; vertical-align: -0.10ex; " SRC="img1.png"
  ALT="$\flat$"></SPAN>maj12&rdquo;.
 
 <P>
@@ -1267,9 +1229,7 @@ is much more fun. Note a few details:
 
 <P>
 </LI>
-<LI><SPAN  CLASS="textit">Do Not</SPAN> include a chord name (i.e. C or B<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img1.png"
+<LI><SPAN  CLASS="textit">Do Not</SPAN> include a chord name (i.e. C or B<SPAN CLASS="MATH"><IMG STYLE="height: 1.81ex; vertical-align: -0.10ex; " SRC="img1.png"
  ALT="$\flat$"></SPAN>) in the
   definition. Just the <SPAN  CLASS="textit">type</SPAN>.
 
@@ -1303,26 +1263,19 @@ In this example the scale notes use the same notes as those in a
 &ldquo;dim7&rdquo;. You might want to change the B<!-- MATH
  $\flat{}\flat$
  -->
-<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img1.png"
- ALT="$\flat$"><IMG
- WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img1.png"
- ALT="$\flat$"></SPAN> (9) to B<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img1.png"
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.81ex; vertical-align: -0.10ex; " SRC="img1.png"
+ ALT="$\flat$"><IMG STYLE="height: 1.81ex; vertical-align: -0.10ex; " SRC="img1.png"
+ ALT="$\flat$"></SPAN> (9) to B<SPAN CLASS="MATH"><IMG STYLE="height: 1.81ex; vertical-align: -0.10ex; " SRC="img1.png"
  ALT="$\flat$"></SPAN>
 (10) or B (11). If you really disagree with the choice to make a dim7
 the default you could even put this in a <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">mmarc</SPAN></SPAN> file.
 
 <P>
 It is even easier to use the non-standard notation &ldquo;dim3&rdquo; to specify
-a diminished triad. Better yet: use the unambigious &ldquo;m<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img1.png"
- ALT="$\flat$"></SPAN>5&rdquo;
-for a triad and &ldquo;dim7&rdquo; for a four note chord.
+a diminished triad. Better yet: use the author's preferred and
+unambiguous &ldquo;m<SPAN CLASS="MATH"><IMG STYLE="height: 1.81ex; vertical-align: -0.10ex; " SRC="img1.png"
+ ALT="$\flat$"></SPAN>5&rdquo; for a triad and &ldquo;dim7&rdquo; for a four note
+chord.
 
 <P>
 
@@ -1331,7 +1284,7 @@ PrintChord</A>
 </H1>
 
 <P>
-This command can be used to make the create of custom chords a bit
+This command can be used to make the creation of custom chords a bit
 simpler. Simply pass one or more chord types after the command and
 they will be displayed on your terminal. Example:
 
@@ -1356,8 +1309,8 @@ in a file should display:
 M7 : (0, 4, 7, 11) (0, 2, 4, 5, 7, 9, 11) Major 7th. 
 <BR>
 dim : (0, 3, 6, 9) (0, 2, 3, 5, 6, 8, 9) Diminished. 
-<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  assumes a
-  diminished 7th.  </B> 
+<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  assumes
+  a diminished 7th.  </B> 
    
 	    </td></tr>
       </Table>
@@ -1388,70 +1341,78 @@ made &ldquo;behind your back&rdquo;.
   separated by a half-step (or 1 MIDI value) or an octave plus
   half-step, the volume of the first note is halved. This happens in
   chords such as a Major-7th or Flat-9th. If the adjustment is not
-  done the dissonance between the two tones overwhelms the ear.
+  done the dissonance between the two tones may overwhelm the ear.
 
 <P>
 </LI>
 </UL>
 <BR><HR><H4>Footnotes</H4>
 <DL>
-<DT><A ID="foot7869">...
-algorithms</A><A
+<DT><A ID="foot7650">...
+simultaneously</A><A
  HREF="node14.html#tex2html61"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A></DT>
+<DD>Some will argue that two notes do not make a
+  chord and three or more are needed. Okay. That's what the internet
+  is for: mindless, needless arguments about trivial details.
+
+</DD>
+<DT><A ID="foot7911">...
+algorithms</A><A
+ HREF="node14.html#tex2html62"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A></DT>
 <DD>Great thanks are due to Alain Brenzikofer who not
   only pressured me into including the V<SMALL>OICING</SMALL> options, but
   wrote a great deal of the actual code.
 
 </DD>
-<DT><A ID="foot7742">... above.</A><A
- HREF="node14.html#tex2html62"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A></DT>
-<DD>Adding too
-  many root tones in varying octaves can create harmonic overtone
-  problems (in other words, it can sound crappy).
-
-</DD>
-<DT><A ID="foot7871">... track.</A><A
+<DT><A ID="foot7784">... above.</A><A
  HREF="node14.html#tex2html63"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A></DT>
-<DD>By default the H<SMALL>ARMONY</SMALL>V<SMALL>OLUME</SMALL> is
-  80%. You probably do not want the added note(s) to be louder, but
-  experiment!
+<DD>Adding too many
+  root tones in varying octaves can create harmonic overtone problems
+  (in other words, it can sound crappy).
 
 </DD>
-<DT><A ID="foot7873">...
-values.</A><A
+<DT><A ID="foot7913">... track.</A><A
  HREF="node14.html#tex2html64"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A></DT>
+<DD>By default the
+  H<SMALL>ARMONY</SMALL>V<SMALL>OLUME</SMALL> is 80%. You probably do not want the added
+  note(s) to be louder, but experiment!
+
+</DD>
+<DT><A ID="foot7915">...
+values.</A><A
+ HREF="node14.html#tex2html65"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">5</SPAN></SUP></A></DT>
 <DD>The term &ldquo;shift&rdquo; is used here, but that's not quite
   what 
-<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  does. The order of the notes in the internal buffer stays
-  the same, just the octave for the notes is changed. So, if the chord
-  notes are &ldquo;C E G&rdquo; with the MIDI values &ldquo;0, 4, 7&rdquo; an invert of 1
-  would change the notes to &ldquo;C<SPAN CLASS="MATH"><SUP>2</SUP></SPAN> E G&rdquo; and the MIDI values to
-  &ldquo;12, 4, 7&rdquo;.
+<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  does. The order of the notes in the internal buffer
+  stays the same, just the octave for the notes is changed. So, if the
+  chord notes are &ldquo;C E G&rdquo; with the MIDI values &ldquo;0, 4, 7&rdquo; an invert
+  of 1 would change the notes to &ldquo;C<SPAN CLASS="MATH"><SUP>2</SUP></SPAN> E G&rdquo; and the MIDI values
+  to &ldquo;12, 4, 7&rdquo;.
 
 </DD>
-<DT><A ID="foot7793">... octave.</A><A
- HREF="node14.html#tex2html65"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">5</SPAN></SUP></A></DT>
+<DT><A ID="foot7835">... octave.</A><A
+ HREF="node14.html#tex2html66"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">6</SPAN></SUP></A></DT>
 <DD>Some
   accordions have &ldquo;freebass&rdquo; switches which overcomes this, but that
   is the exception.
 
 </DD>
-<DT><A ID="foot7814">... notes.</A><A
- HREF="node14.html#tex2html66"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">6</SPAN></SUP></A></DT>
+<DT><A ID="foot7856">... notes.</A><A
+ HREF="node14.html#tex2html67"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">7</SPAN></SUP></A></DT>
 <DD>Simple math here: take the
   number of notes in a scale (7) and multiply by .3. Take the integer
   result as the number of notes.
 
 </DD>
-<DT><A ID="foot7821">... octave.</A><A
- HREF="node14.html#tex2html67"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">7</SPAN></SUP></A></DT>
+<DT><A ID="foot7863">... octave.</A><A
+ HREF="node14.html#tex2html68"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">8</SPAN></SUP></A></DT>
 <DD>Not
   quite true: they use whatever notes are in the chord, which might
   exceed an octave span.
 
 </DD>
-<DT><A ID="foot7874">... octaves</A><A
- HREF="node14.html#tex2html68"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">8</SPAN></SUP></A></DT>
+<DT><A ID="foot7916">... octaves</A><A
+ HREF="node14.html#tex2html69"><SUP><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">9</SPAN></SUP></A></DT>
 <DD>Again, not quite true: the command just
   duplicates the arpeggio notes the number of times specified in the
   R<SMALL>ANGE</SMALL> setting.

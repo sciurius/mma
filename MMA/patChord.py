@@ -160,7 +160,7 @@ class Chord(PC):
                 
         if MMA.debug.debug:
             v = self.voicing
-            print("Set %s Voicing MODE=%s RANGE=%s CENTER=%s RMOVE=%s MOVE=%s DIR=%s " %
+            dPrint("Set %s Voicing MODE=%s RANGE=%s CENTER=%s RMOVE=%s MOVE=%s DIR=%s " %
                   (self.name, v.mode, v.range, v.center, v.random, v.bcount, v.dir))
 
     def setDupRoot(self, ln):
@@ -186,7 +186,7 @@ class Chord(PC):
         self.dupRoot = seqBump(tmp)
 
         if MMA.debug.debug:
-            print("%s DupRoot set to: %s" % (self.name, self.getDupRootSetting()))
+            dPrint("%s DupRoot set to: %s" % (self.name, self.getDupRootSetting()))
 
     def getDupRootSetting(self):
         """ Need to convert nested list ints to string. """

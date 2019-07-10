@@ -53,11 +53,11 @@ def init():
     
     setLibPath([os.path.join(gbl.MMAdir, 'lib')], user=0)
     if not libPath or not os.path.isdir(libPath[0]):
-        print("Warning: Library directory not found (check mma.py).")
+        dPrint("Warning: Library directory not found (check mma.py).")
 
     setIncPath([os.path.join(gbl.MMAdir, 'includes')])
     if not incPath or not os.path.isdir(incPath[0]):
-        print("Warning: Include directory not found.")
+        dPrint("Warning: Include directory not found.")
 
 
 ##################################
@@ -73,7 +73,7 @@ def mmastart(ln):
         gbl.mmaStart.append(MMA.file.fixfname(a))
 
     if MMA.debug.debug:
-        print("MMAstart set to: %s" % gbl.mmaStart)
+        dPrint("MMAstart set to: %s" % gbl.mmaStart)
 
 def mmaend(ln):
     """ Set/append to the mmaend list. """
@@ -85,7 +85,7 @@ def mmaend(ln):
         gbl.mmaEnd.append(MMA.file.fixfname(a))
 
     if MMA.debug.debug:
-        print("MMAend set to: %s" % gbl.mmaEnd)
+        dPrint("MMAend set to: %s" % gbl.mmaEnd)
 
 def setRC(f):
     """ Set a rc file from the command line."""
@@ -113,7 +113,7 @@ def readRC():
         f = MMA.file.locFile(i, None)
         if f:
             if MMA.debug.showrun:
-                print("Reading RC file '%s'" % f)
+                dPrint("Reading RC file '%s'" % f)
             MMA.parse.parseFile(f)
             readDone = 1
             break
@@ -202,7 +202,7 @@ def setLibPath(ln, user=1):
     expandLib(user)
 
     if MMA.debug.debug:
-        print("LibPath set: %s" % ' '.join(libPath))
+        dPrint("LibPath set: %s" % ' '.join(libPath))
 
 
 def expandLib(user=0):
@@ -235,7 +235,7 @@ def expandLib(user=0):
     MMA.auto.grooveDB = []
 
     if MMA.debug.debug:
-        print("LibPath expansion set to:", ' '.join(libDirs))
+        dPrint("LibPath expansion set to:", ' '.join(libDirs))
 
 
 def setIncPath(ln):
@@ -249,7 +249,7 @@ def setIncPath(ln):
         incPath.append(f)
 
     if MMA.debug.debug:
-        print("IncPath set: %s" % ' '.join(incPath))
+        dPrint("IncPath set: %s" % ' '.join(incPath))
 
 ###########################################
 # Output pathname
@@ -268,7 +268,7 @@ def setOutPath(ln):
         gbl.outPath = MMA.file.fixfname(ln[0])
 
     if MMA.debug.debug:
-        print("OutPath set to '%s'" % gbl.outPath)
+        dPrint("OutPath set to '%s'" % gbl.outPath)
 
 
 def createOutfileName(extension):

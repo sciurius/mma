@@ -1,7 +1,0 @@
-If we ever get a 2019 version out the door there are some changes which should
- be made.
-
-- A method to expand macros BEFORE passing them to the $() process.
-
-- A method to expand a string (1 2 3 4) to a python list [1,2,3,4].
-

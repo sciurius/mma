@@ -111,7 +111,7 @@ def create(ln):
         afterData.append(dat)
 
     if MMA.debug.debug:
-        print("After: Added event '%s' at bar %s." % (' '.join(dat.cmd), dat.bar))
+        dPrint("After: Added event '%s' at bar %s." % (' '.join(dat.cmd), dat.bar))
 
 def check():
     """ Before reading any input, we check to see if any AFTER events have been

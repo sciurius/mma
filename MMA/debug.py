@@ -81,7 +81,8 @@ def setDebug(ln):
 
     # This needs to be here to avoid circular import problem
     from MMA.common import opt2pair
-
+    from MMA.common import dPrint
+    
     global Ldebug, debug, LshowFilenames, showFilenames, \
         Lpshow, pshow, Lseqshow, seqshow, Lshowrun, showrun, \
         LnoWarn, noWarn, LnoOutput, noOutput, LshowExpand, showExpand, \
@@ -125,52 +126,52 @@ def setDebug(ln):
         if cmd == 'DEBUG':
             debug = val
             if debug:
-                print("Debug=%s." % val)
+                dPrint("Debug=%s." % val)
 
         elif cmd == 'FILENAMES':
             showFilenames = val
             if debug:
-                print("ShowFilenames=%s." % val)
+                dPrint("ShowFilenames=%s." % val)
 
         elif cmd == 'PATTERNS':
             pshow = val
             if debug:
-                print("Pattern display=%s." % val)
+                dPrint("Pattern display=%s." % val)
 
         elif cmd == 'SEQUENCE':
             seqshow = val
             if debug:
-                print("Sequence display=%s." % val)
+                dPrint("Sequence display=%s." % val)
 
         elif cmd == 'RUNTIME':
             showrun = val
             if debug:
-                print("Runtime display=%s." % val)
+                dPrint("Runtime display=%s." % val)
 
         elif cmd == 'WARNINGS':
             noWarn = not(val)
             if debug:
-                print("Warning display=%s" % val)
+                dPrint("Warning display=%s" % val)
 
         elif cmd == 'EXPAND':
             showExpand = val
             if debug:
-                print("Expand display=%s." % val)
+                dPrint("Expand display=%s." % val)
 
         elif cmd == 'ROMAN':
             rmShow = val
             if debug:
-                print("Roman numeral chords/slash display=%s" % val)
+                dPrint("Roman numeral chords/slash display=%s" % val)
 
         elif cmd == 'GROOVE':
             gvShow = val
             if debug:
-                print("Groove re-define display=%s" % val)
+                dPrint("Groove re-define display=%s" % val)
 
         elif cmd == 'PLECTRUM':
             plecShow = val
             if debug:
-                print("Plectrum display=%s" % val)
+                dPrint("Plectrum display=%s" % val)
 
         else:
             error(msg)
@@ -210,8 +211,9 @@ def trackSet(track, func):
 
     # Need to do this way to avoid circular import problem
     from MMA.macro import macros
-
-    print("Set %s %s: %s" % (track, func,
+    from MMA.common import dPrint
+    
+    dPrint("Set %s %s: %s" % (track, func,
             macros.sysvar("%s_%s" % (track, func.upper()))))
 
 

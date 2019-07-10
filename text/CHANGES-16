@@ -87,4 +87,8 @@ Added environment variable MMA_ENCODING for global encoding value. By default
 
 The plectrum tracks have been treated to some enhancements, especially the
  addition of the SHAPE command. Thanks to Johan <jvromans@squirrel.nl>.
- 
+
+Added environment variable MMA_LOGFILE. If enabled this forces a logfile.
+
+July 10, 2019 -- Released Version 19.07
+----------------------------------------

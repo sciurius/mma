@@ -110,7 +110,6 @@ def defCall(l):
             try:
                 i = params.index(a)
             except:
-                #print params
                 error("DefCall Default: param '%s' does not exist in '%s'." % (a, fname))
             if defaults[i]:
                 warning("DefCall Default: param '%s' default value '%s' was set in param list."
@@ -119,18 +118,12 @@ def defCall(l):
             continue
             
         body.append(ln)
-
-    #print "=" * 80
-    #print "Def", fname
-    #print zip(params, defaults)
-    #print body
-    #print "=" * 80
     
     funcList[fname] = Funcs(params, body, defaults, gbl.inpath.fname, lineN)
     
     if MMA.debug.debug: 
         t = [ a[1:] for a in params]
-        print("DefCall: Created function '%s': %s" % (fname, ', '.join(t)))
+        dPrint("DefCall: Created function '%s': %s" % (fname, ', '.join(t)))
 
 
 def callFunction(l):
@@ -222,6 +215,6 @@ def callFunction(l):
     #print "=" * 80
 
     if MMA.debug.debug:
-        print ("Call: function '%s' expanded." % fname)
+        dPrint ("Call: function '%s' expanded." % fname)
 
 

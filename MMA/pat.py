@@ -372,7 +372,7 @@ class PC:
                         break
 
             if c < 0:
-                error("No MIDI channel is available for %s,\n"
+                error("No MIDI channel is available for %s, "
                       "Try CHShare or Delete unused tracks" % self.name)
 
         else:
@@ -425,7 +425,7 @@ class PC:
         if not c in gbl.mtrks:
             gbl.mtrks[c] = MMA.midi.Mtrk(c)
             if MMA.debug.debug:
-                print("MIDI channel %s buffer created" % c)
+                dPrint("MIDI channel %s buffer created" % c)
 
         # If a track name has not be set via MidiTName (this will be
         # queued since the track just got a midi assignment here) we
@@ -440,7 +440,7 @@ class PC:
                 self.midiPending.append(('TNAME', 0, self.name.title()))
 
         if MMA.debug.debug:
-            print("MIDI Channel %s assigned to %s" % (self.channel, self.name))
+            dPrint("MIDI Channel %s assigned to %s" % (self.channel, self.name))
 
     def setChShare(self, ln):
         """ Share midi-channel setting. """
@@ -585,7 +585,7 @@ class PC:
             self.ssvoice = -1
 
         if MMA.debug.debug:
-            print("%s Enabled" % self.name)
+            dPrint("%s Enabled" % self.name)
 
     def setOff(self):
         """ Turn OFF track. """
@@ -593,7 +593,7 @@ class PC:
         self.disable = 1
 
         if MMA.debug.debug:
-            print("%s Disabled" % self.name)
+            dPrint("%s Disabled" % self.name)
 
     def setRVolume(self, ln):
         """ Set the volume randomizer for a track. """
@@ -775,7 +775,7 @@ class PC:
         self.octave = seqBump(tmp)
 
         if MMA.debug.debug:
-            print("Set %s Octave to: %s" % 
+            dPrint("Set %s Octave to: %s" % 
                   (self.name, ' '.join([str(i // 12) for i in self.octave])))
 
 
@@ -794,7 +794,7 @@ class PC:
         self.octave = seqBump(tmp)
 
         if MMA.debug.debug:
-            print("Set %s MOctave to: %s" % 
+            dPrint("Set %s MOctave to: %s" % 
                   (self.name, ' '.join([str((i // 12) - 1) for i in self.octave])))
 
 
@@ -812,7 +812,7 @@ class PC:
         self.spanEnd = end
 
         if MMA.debug.debug:
-            print("Set %s Span to %s...%s" % (self.name, self.spanStart, self.spanEnd))
+            dPrint("Set %s Span to %s...%s" % (self.name, self.spanStart, self.spanEnd))
 
     def setSeqSize(self):
         """ Expand existing pattern list.
@@ -886,7 +886,7 @@ class PC:
                     % (t1, ', '.join(a), v1, self.name))
 
         if MMA.debug.debug:
-            print("Set %s Voice to: %s" % 
+            dPrint("Set %s Voice to: %s" % 
                   (self.name, ' '.join([MMA.midiC.valueToInst(i) for i in self.voice])))
 
 
@@ -899,7 +899,7 @@ class PC:
             self.midiClear = MMA.mdefine.mdef.get(ln[0])
 
         if MMA.debug.debug:
-            print("%s MIDIClear: %s" % (self.name, self.midiSeqFmt(self.midiClear)))
+            dPrint("%s MIDIClear: %s" % (self.name, self.midiSeqFmt(self.midiClear)))
 
     def doMidiClear(self):
         """ Reset MIDI settings. """
@@ -953,7 +953,7 @@ class PC:
             self.midiSeq = seqBump(seq)
 
         if MMA.debug.debug:
-            print("%s MIDISeq: %s" % 
+            dPrint("%s MIDISeq: %s" % 
                   (self.name, ' '.join(['{ %s }' % self.midiSeqFmt(l) for l in seq])))
 
 
@@ -983,7 +983,7 @@ class PC:
             self.midiVoice = seqBump(seq)  # set voice for all bars in seq
  
         if MMA.debug.debug:
-            print("%s MIDIVoice: %s" %
+            dPrint("%s MIDIVoice: %s" %
                   (self.name, ' '.join(['{ %s }' % self.midiSeqFmt(l) for l in seq])))
 
 
@@ -1023,7 +1023,7 @@ class PC:
         self.volume = seqBump(tmp)
 
         if MMA.debug.debug:
-            print("Set %s Volume to: %s" %
+            dPrint("Set %s Volume to: %s" %
                   (self.name, ' '.join([str(int(a * 100))  for a in self.volume])))
 
     def setCresc(self, dir, ln):
@@ -1044,7 +1044,7 @@ class PC:
         self.futureVols = MMA.volume.fvolume(dir, vol, ln)
 
         if MMA.debug.debug:
-            print("Set %s Cresc to: %s" % 
+            dPrint("Set %s Cresc to: %s" % 
                   (self.name, ' '.join([str(int(a * 100)) for a in self.futureVols])))
 
 
@@ -1082,7 +1082,7 @@ class PC:
              [str(int(self.volume[0] * 100)), c])[offset:])
 
         if MMA.debug.debug:
-            print("Set %s Swell to: %s" % 
+            dPrint("Set %s Swell to: %s" % 
                   (self.name, ' '.join([str( int(a * 100)) for a in self.futureVols])))
 
     def setMallet(self, ln):
@@ -1116,7 +1116,7 @@ class PC:
                 error("%s Mallet: %s is not a option." % (self.name, mode))
 
         if MMA.debug.debug:
-            print("%s Mallet Rate:%s Decay:%s" %
+            dPrint("%s Mallet Rate:%s Decay:%s" %
                 (self.name, self.mallet, self.malletDecay))
 
     def setAccent(self, ln):
@@ -1185,7 +1185,7 @@ class PC:
                 for b, v, in s:
                     accList.append("%s %s" % (1 + (b / float(gbl.BperQ)), int(v * 100)))
                 accList.append('}')
-            print("%s Accent: %s" % (self.name, ' '.join(accList)))
+            dPrint("%s Accent: %s" % (self.name, ' '.join(accList)))
 
     def setArtic(self, ln):
         """ Set the note articuation value. """
@@ -1218,7 +1218,7 @@ class PC:
         self.artic = seqBump(tmp)
 
         if MMA.debug.debug:
-            print("Set %s Articulate to: %s" % 
+            dPrint("Set %s Articulate to: %s" % 
                   (self.name, ' '.join([str(a) for a in self.artic])))
 
 
@@ -1240,7 +1240,7 @@ class PC:
         self.unify = seqBump(tmp)
 
         if MMA.debug.debug:
-            print("Set %s Unify to: %s" %
+            dPrint("Set %s Unify to: %s" %
               (self.name, ' '.join([str(a) for a in self.unify])))
 
     ##################################################
@@ -1458,7 +1458,7 @@ class PC:
         pats[slot] = self.defPatRiff(ln)
 
         if MMA.debug.pshow:
-            print("%s pattern %s: %s" % (self.name.title(), redef,
+            dPrint("%s pattern %s: %s" % (self.name.title(), redef,
                   self.formatPattern(pats[slot])))
 
     def dupRiff(self, ln):
@@ -1491,7 +1491,7 @@ class PC:
             self.riff = copy.deepcopy(tr.riff)
 
             if MMA.debug.debug:
-                print("%s DupRiff copied from %s." % (self.name, t))
+                dPrint("%s DupRiff copied from %s." % (self.name, t))
 
         else:
             if ln and ln[0].upper() == 'TO':  # Optional keyword
@@ -1523,7 +1523,7 @@ class PC:
                 tr.riff = copy.deepcopy(self.riff)
 
                 if MMA.debug.debug:
-                    print("%s DupRiff copied to %s." % (self.name, tr.name))
+                    dPrint("%s DupRiff copied to %s." % (self.name, tr.name))
 
     def setRiff(self, ln):
         """ Define and set a Riff. """
@@ -1545,7 +1545,7 @@ class PC:
                 msg.append(self.riff[-1])
             else:
                 msg.append(self.formatPattern(self.riff[-1]))
-            print(' '.join(msg))
+            dPrint(' '.join(msg))
 
 
     def defPatRiff(self, ln):
@@ -1736,7 +1736,7 @@ class PC:
                     pass
 
             if MMA.debug.debug:
-                print("%s Voice '%s' inserted at %s" % 
+                dPrint("%s Voice '%s' inserted at %s" % 
                     (self.name, MMA.midiC.valueToInst(v), gbl.tickOffset))
 
         """ Our 2nd stab at MIDIVOICE. This time any sequences
@@ -1870,41 +1870,41 @@ class PC:
             if c == 'TNAME':
                 gbl.mtrks[self.channel].addTrkName(off, v)
                 if MMA.debug.debug:
-                    print("%s Track name inserted at offset %s" % 
+                    dPrint("%s Track name inserted at offset %s" % 
                           (self.name, off))
 
             elif c == 'GLIS':
                 gbl.mtrks[self.channel].addGlis(off, v)
                 if MMA.debug.debug:
-                    print("%s Glis at offset %s set to %s" % 
+                    dPrint("%s Glis at offset %s set to %s" % 
                           (self.name, off, ord(chr(v))))
 
             elif c == 'PAN':
                 gbl.mtrks[self.channel].addPan(off, v)
                 if MMA.debug.debug:
-                    print("%s Pan at offset %s set to %s" % 
+                    dPrint("%s Pan at offset %s set to %s" % 
                           (self.name, off, v))
 
             elif c == 'CVOLUME':
                 gbl.mtrks[self.channel].addChannelVol(off, v)
                 if MMA.debug.debug:
-                    print("%s ChannelVolume at offset %s set to %s" % 
+                    dPrint("%s ChannelVolume at offset %s set to %s" % 
                           (self.name, off, v))
 
             elif c == 'MIDITEXT':
                 gbl.mtrks[self.channel].addText(off, v)
                 if MMA.debug.debug:
-                    print("%s MidiText inserted at %s." % (self.name, off))
+                    dPrint("%s MidiText inserted at %s." % (self.name, off))
 
             elif c == 'MIDICUE':
                 gbl.mtrks[self.channel].addCuePoint(off, v)
                 if MMA.debug.debug:
-                    print("%s MidiCue inserted at %s." % (self.name, off))
+                    dPrint("%s MidiCue inserted at %s." % (self.name, off))
 
             elif c == 'WHEEL':
                 gbl.mtrks[self.channel].addWheel(off, v)
                 if MMA.debug.debug:
-                    print("%s Wheel inserted at %s." % (self.name, off))
+                    dPrint("%s Wheel inserted at %s." % (self.name, off))
 
             else:
                 error("Unknown midi command pending. Call Bob")

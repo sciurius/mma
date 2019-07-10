@@ -22,7 +22,7 @@ Bob van der Poel <bob@mellowood.ca>
 
 """
 
-version = "16.06.final"        # Version -- April/2019
+version = "19.07"        # Version -- July/2019
 
 """ A few globals are actually set in the calling stub, mma.py. This is
     done to make future ports and platform specific settings a bit easier.
@@ -123,6 +123,7 @@ runningStatus  = 1     # running status enabled "MidiFile Running" changes to 0/
 inAllGrooves = False   # set if running an ALLGROOVES command
 
 encoding = 'cp1252'
+logFile = ''    # this is set if user wants logging to be buffered.
 
 #############  Options. #############
 

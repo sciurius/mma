@@ -84,7 +84,7 @@ def setMidiPlayer(ln):
     midiPlayer = n
 
     if MMA.debug.debug:
-        print("MidiPlayer set to '%s' Background=%s Delay=%s." %
+        dPrint("MidiPlayer set to '%s' Background=%s Delay=%s." %
             (' '.join(midiPlayer), inBackGround, waitTime))
 
 
@@ -120,7 +120,7 @@ def playMidi(file):
     try:
         pid = subprocess.Popen(cmd, shell=sh)
     except OSError as e:
-        print(e)
+        dPrint(e)
         msg = "MidiPlayer fork error."
         if re.search("[\'\"]", ''.join(cmd)):
             msg += " Using quotes in the MidiPlayer name/opts might be your problem."

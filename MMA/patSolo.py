@@ -225,7 +225,7 @@ class Melody(PC):
                 self.arpDirection = opt
 
         if MMA.debug.debug:
-            print("%s Arpeggiate: Rate=%s Decay=%s Direction=%s" % 
+            dPrint("%s Arpeggiate: Rate=%s Decay=%s Direction=%s" % 
                   (self.name, self.arpRate, self.arpDecay, self.arpDirection))
 
     def getNoteLen(self, n):
@@ -885,7 +885,7 @@ def setAutoSolo(ln):
         autoSoloTracks.append(n)
 
     if MMA.debug.debug:
-        print("AutoSolo track names: %s" % ' '.join([a for a in autoSoloTracks]))
+        dPrint("AutoSolo track names: %s" % ' '.join([a for a in autoSoloTracks]))
 
 
 ###############
@@ -941,6 +941,6 @@ def extractSolo(ln, rptcount):
                 gbl.tnames[t].setRiff(firstSolo[:])
 
                 if MMA.debug.debug:
-                    print("%s duplicated to %s for HarmonyOnly." % (trk, t))
+                    dPrint("%s duplicated to %s for HarmonyOnly." % (trk, t))
 
     return ln

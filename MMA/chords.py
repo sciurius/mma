@@ -85,7 +85,7 @@ def defChord(ln):
     chordlist[name] = (notes, scale, "User Defined")
 
     if MMA.debug.debug:
-        print("ChordType '%s', %s" % (name, chordlist[name]))
+        dPrint("ChordType '%s', %s" % (name, chordlist[name]))
 
 
 def printChord(ln):
@@ -447,7 +447,7 @@ class ChordNotes:
                 a = ''
             if wmessage:
                 a += '   ' + wmessage
-            print(" %03s] %-09s -> %s%s" % (gbl.lineno, startingName, name, a))
+            dPrint(" %03s] %-09s -> %s%s" % (gbl.lineno, startingName, name, a))
         
     def reset(self):
         """ Restores notes array to original, undoes mangling. """

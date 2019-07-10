@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
-<!--Converted with LaTeX2HTML 2018.2 (Released May 16, 2018) -->
-<HTML>
+<!--Converted with LaTeX2HTML 2019 (Released January 1, 2019) -->
+<HTML lang="EN">
 <HEAD>
 <TITLE>Easy Guide</TITLE>
 <META NAME="description" CONTENT="Easy Guide">
@@ -9,52 +9,51 @@
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
 
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2018.2">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-2">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2019">
 
 <LINK REL="STYLESHEET" HREF="mma-plugins.css">
 
 <LINK REL="next" HREF="node2.html">
 <LINK REL="previous" HREF="mma-plugins.html">
-<LINK REL="up" HREF="mma-plugins.html">
 <LINK REL="next" HREF="node2.html">
 </HEAD>
 
 <BODY  bgcolor="#ffffff">
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html26"
-  HREF="node2.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html24"
-  HREF="mma-plugins.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18"
-  HREF="mma-plugins.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<A
+ HREF="node2.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="mma-plugins.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="mma-plugins.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A>   
 <BR>
-<B> Next:</B> <A NAME="tex2html27"
-  HREF="node2.html">Entry Points</A>
-<B> Up:</B> <A NAME="tex2html25"
-  HREF="mma-plugins.html">Plugins</A>
-<B> Previous:</B> <A NAME="tex2html19"
-  HREF="mma-plugins.html">Plugins</A>
+<B> Next:</B> <A
+ HREF="node2.html">Entry Points</A>
+<B> Up:</B> <A
+ HREF="mma-plugins.html">Plugins</A>
+<B> Previous:</B> <A
+ HREF="mma-plugins.html">Plugins</A>
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00100000000000000000">
+<H1><A ID="SECTION00100000000000000000">
 Easy Guide</A>
 </H1>
 
 <P>
-<DIV ALIGN="CENTER">
+<DIV class="CENTER">
 
 		<Table CellSpacing=0 Width="80%" Align="Center" CellPadding=10 BGColor="#dddddd" Border=3>
            <tr> <td>
 	       
-<DIV ALIGN="CENTER">
+<DIV class="CENTER">
 
 </DIV><BIG CLASS="XLARGE">This is a DRAFT document. 
 	
@@ -74,7 +73,7 @@ As mentioned in the
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  Reference Guide, a plugin must have its own
 directory. The name of this directory must be the same as the name you
 with to assign to the plugin (without the &ldquo;@&rdquo; prefix). So, the
-plugin @H<SMALL>ELLO</SMALL> will have a directory <TT><SPAN  CLASS="textbf">hello</SPAN></TT>.
+plugin @H<SMALL>ELLO</SMALL> will have a directory <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">hello</SPAN></SPAN>.
 
 <P>
 In this directory you must have the following files:
@@ -82,10 +81,10 @@ In this directory you must have the following files:
 <P>
 
 <OL>
-<LI><TT><SPAN  CLASS="textbf">__init__.py</SPAN></TT> -- this must be an empty file. Note that the name
+<LI><SPAN  CLASS="texttt"><SPAN  CLASS="textbf">__init__.py</SPAN></SPAN> -- this must be an empty file. Note that the name
   &ldquo;init&rdquo; has two leading and trailing underscores,
 </LI>
-<LI><TT><SPAN  CLASS="textbf">plugin.py</SPAN></TT> -- this contains your plugin code.
+<LI><SPAN  CLASS="texttt"><SPAN  CLASS="textbf">plugin.py</SPAN></SPAN> -- this contains your plugin code.
 </LI>
 </OL>
 
@@ -96,10 +95,10 @@ sensitive. However, we recommend that you use lower case characters
 for all file and directory names.
 
 <P>
-When the P<SMALL>LUGIN</SMALL> command finds the file <TT><SPAN  CLASS="textbf">plugin.py</SPAN></TT> it is
+When the P<SMALL>LUGIN</SMALL> command finds the file <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">plugin.py</SPAN></SPAN> it is
 loaded into the running 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  program. The plugin loader will 
-attempt to register three functions or methods from <TT><SPAN  CLASS="textbf">plugin.py</SPAN></TT>:
+attempt to register three functions or methods from <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">plugin.py</SPAN></SPAN>:
 
 <P>
 
@@ -115,6 +114,11 @@ attempt to register three functions or methods from <TT><SPAN  CLASS="textbf">pl
 
 <P>
 </LI>
+<LI><code>dataRun(param-list)</code> -- this is code which will be
+  inserted into a data line when called.
+
+<P>
+</LI>
 <LI><code>printUsage()</code> -- this code is used when you request a
   usage message from the command line using the &ldquo;-I&rdquo; option.
 
@@ -126,22 +130,22 @@ attempt to register three functions or methods from <TT><SPAN  CLASS="textbf">pl
 
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html26"
-  HREF="node2.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html24"
-  HREF="mma-plugins.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18"
-  HREF="mma-plugins.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A>   
+<A
+ HREF="node2.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="mma-plugins.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="mma-plugins.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A>   
 <BR>
-<B> Next:</B> <A NAME="tex2html27"
-  HREF="node2.html">Entry Points</A>
-<B> Up:</B> <A NAME="tex2html25"
-  HREF="mma-plugins.html">Plugins</A>
-<B> Previous:</B> <A NAME="tex2html19"
-  HREF="mma-plugins.html">Plugins</A></DIV>
+<B> Next:</B> <A
+ HREF="node2.html">Entry Points</A>
+<B> Up:</B> <A
+ HREF="mma-plugins.html">Plugins</A>
+<B> Previous:</B> <A
+ HREF="mma-plugins.html">Plugins</A></DIV>
 <!--End of Navigation Panel-->
 
 </BODY>

@@ -80,7 +80,7 @@ def setOrnament(self, ln):
             or (not notopt and not optpair):
         o['type'] = None
         if MMA.debug.debug:
-            print("%s Ornament: Off" % self.name)
+            dPrint("%s Ornament: Off" % self.name)
         return
 
     if notopt or not optpair:
@@ -186,7 +186,7 @@ def setOrnament(self, ln):
             error("%s Ornament: '%s' is an unknown option." % (self.name, cmd))
 
     if MMA.debug.debug:
-        print("%s Ornament: %s" % (self.name, getOrnOpts(self)))
+        dPrint("%s Ornament: %s" % (self.name, getOrnOpts(self)))
 
 
 def getNote(o, orig, scale, off):

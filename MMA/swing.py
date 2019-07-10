@@ -120,7 +120,7 @@ def swingMode(ln):
             error(emsg)
 
     if MMA.debug.debug:
-        print("SwingMode: Status=%s; Accent=%s,%s; Delay=%s,%s; Skew Note lengths: " 
+        dPrint("SwingMode: Status=%s; Accent=%s,%s; Delay=%s,%s; Skew Note lengths: " 
             "%s and %s ticks. Notes=%s" % 
             (mode, int(accent1 * 100), int(accent2 * 100), delay1, delay2,
              noteLenTable['81'], noteLenTable['82'], noteValue))

@@ -29,22 +29,47 @@ parts of MMA. It is safe to load the whole works with:
 without side effects (yeah, right).
 
 """
-
 from random import randrange
 import sys
+import fcntl
+import time
 from . import gbl
 from textwrap import wrap
 import MMA.debug
 
+# A buffer for various debug/warning/error messages
+# this is only used if MMA_LOGFILE has been set. The
+# buffer is dumped at exit.
+outBuffer = []
+
 # having the term width is nice for pretty print error/warning
 from MMA.termsize import getTerminalSize
 termwidth = getTerminalSize()[0]-1
- 
+
+def bufferPrint(a):
+    if gbl.logFile:
+        outBuffer.append(a)
+    else:
+        print(a)
+
+def cleanPrintBuffer():
+    """ Write an existing stored buffer (debug/error/warning). """
+    
+    if outBuffer and gbl.logFile:
+        outBuffer.insert(0, "\n**** Run log: '%s' %s" % ( gbl.infile, time.asctime()))
+        
+        opath = open(gbl.logFile, 'a')    # Open output for append
+        fcntl.flock(opath, fcntl.LOCK_EX)   # make sure we print in one batch
+        opath.write('\n'.join(outBuffer))   # dump entire buffer
+        opath.close()                       # this will release lock as well
+
 def prettyPrint(msg):
     """ Simple formatter for error/warning messages."""
 
+    if isinstance(msg, list):
+        msg = ' '.join(msg)
     for a in wrap(msg, termwidth, initial_indent='', subsequent_indent='    '):
-        print(a)
+        bufferPrint(a)
 
 def error(msg):
     """ Print an error message and exit.
@@ -71,7 +96,7 @@ def error(msg):
     for a in msg:
         a = ord(a)
         if a < 0x20 or a >= 0x80:
-            print("Corrupt input file? Illegal character 'x%02x' found." % a)
+            bufferPrint("Corrupt input file? Illegal character 'x%02x' found." % a)
             break
 
     sys.exit(1)
@@ -92,7 +117,14 @@ def warning(msg):
 
         prettyPrint("Warning: %s %s %s" % (linno, file, msg))
 
-   
+
+def dPrint(msg):
+    """ Print/buffer a debugging message. Keep separate since we might
+        want to install line numbering, etc. later???
+    """
+
+    prettyPrint(msg)
+    
 def getOffset(ticks, ranLow=None, ranHigh=None):
     """ Calculate a midi offset into a song.
 

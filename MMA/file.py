@@ -120,7 +120,7 @@ class ReadFile:
                 error("Unable to open '%s' for input" % fname)
  
         if MMA.debug.debug or MMA.debug.showFilenames:
-            print("Opening file '%s'." % fname)
+            dPrint("Opening file '%s'." % fname)
 
         self.fname = fname
 

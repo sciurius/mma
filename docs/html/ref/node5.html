@@ -46,15 +46,15 @@
 <A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
 <UL CLASS="ChildLinks">
-<LI><A ID="tex2html497"
-  HREF="node5.html#SECTION00510000000000000000">Defining Sequences</A>
-<LI><A ID="tex2html498"
-  HREF="node5.html#SECTION00520000000000000000">SeqClear</A>
 <LI><A ID="tex2html499"
-  HREF="node5.html#SECTION00530000000000000000">SeqRnd</A>
+  HREF="node5.html#SECTION00510000000000000000">Defining Sequences</A>
 <LI><A ID="tex2html500"
-  HREF="node5.html#SECTION00540000000000000000">SeqRndWeight</A>
+  HREF="node5.html#SECTION00520000000000000000">SeqClear</A>
 <LI><A ID="tex2html501"
+  HREF="node5.html#SECTION00530000000000000000">SeqRnd</A>
+<LI><A ID="tex2html502"
+  HREF="node5.html#SECTION00540000000000000000">SeqRndWeight</A>
+<LI><A ID="tex2html503"
   HREF="node5.html#SECTION00550000000000000000">SeqSize</A>
 </UL>
 <!--End of Table of Child-Links-->
@@ -95,9 +95,9 @@ each track in your song:
 
 <P>
 All pattern names used when setting a sequence need to be defined when
-this command is issued; or you can use what appears to be a pattern
-definition right in the sequence command by enclosing the pattern
-definition in a set of curly brackets &ldquo;{ }&rdquo;.
+this command is issued; or you can use a pattern which has not been
+previously defined using &ldquo;def&rdquo; right in the sequence command by
+enclosing the pattern definition in a set of curly brackets &ldquo;{ }&rdquo;.
 
 <P>
 
@@ -146,12 +146,12 @@ Arpeggio Sequence { 1 1 100 * 8 } { 1 1 80 * 4 }   </B>
 pattern. The Drum, Chord and Bass patterns repeat on every bar; the
 Drum-1 sequence repeats after 2 bars. Note how the Arpeggio pattern is
 defined at run-time.<A ID="tex2html32"
-  HREF="#foot2595"><SUP><SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>
+  HREF="#foot2597"><SUP><SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>
 <P>
 If there are fewer patterns than S<SMALL>EQ</SMALL>S<SMALL>IZE</SMALL>, the sequence will be
 filled out to correct size. If the number of patterns used is greater
 than S<SMALL>EQ</SMALL>S<SMALL>IZE</SMALL> (see
-<A HREF="node29.html#sec-directives">directives</A>) a warning
+<A HREF="node30.html#sec-directives">directives</A>) a warning
 message will be printed and the pattern list will be truncated.
 
 <P>
@@ -206,7 +206,7 @@ Walk Sequence z / / Walk4-4   </B>
 
 <P>
 If you already have a sequence defined<A ID="tex2html33"
-  HREF="#foot2497"><SUP><SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A> you can repeat or copy the existing pattern by
+  HREF="#foot2499"><SUP><SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A> you can repeat or copy the existing pattern by
 using a single &ldquo;*&rdquo; as the pattern name. This is useful when you are
 modifying an existing sequence.
 
@@ -269,10 +269,9 @@ This will <SPAN  CLASS="textit">not work</SPAN>:
 
       <Table Hspace="40%" CellSpacing=0 CellPadding=10 BGColor="OldLace" Border=3>
         <tr><td>
-    <B>Chord Sequence {1 4 90 }&nbsp; <IMG
- WIDTH="21" HEIGHT="21" ALIGN="BOTTOM" BORDER="0"
- SRC="img2.png"
- ALT="\includegraphics[height=2.5ex]{/home/bob/src/bv/mma/docs/images/stop.eps}">
+    <B>Chord Sequence {1 4 90 }  <em><Font color=Red>
+	¡¡Wrong!!
+    <Font color=Black > </em> 
 <BR>      {1 1 90}   </B> 
    
 	    </td></tr>
@@ -342,7 +341,7 @@ If you use a sub-track:
 
 <P>
 only the sequence for that track is cleared.<A ID="tex2html34"
-  HREF="#foot2596"><SUP><SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A>
+  HREF="#foot2598"><SUP><SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A>
 <P>
 In addition to clearing the sequence pattern, the following other
 settings are restored to a default condition:
@@ -870,7 +869,7 @@ until it is long enough.
 <P>
 <BR><HR><H4>Footnotes</H4>
 <DL>
-<DT><A ID="foot2595">... run-time.</A><A
+<DT><A ID="foot2597">... run-time.</A><A
  HREF="node5.html#tex2html32"><SUP><SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A></DT>
 <DD>If you run 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  with the &ldquo;-s&rdquo; option
@@ -879,14 +878,14 @@ until it is long enough.
   sequence.
 
 </DD>
-<DT><A ID="foot2497">... defined</A><A
+<DT><A ID="foot2499">... defined</A><A
  HREF="node5.html#tex2html33"><SUP><SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A></DT>
 <DD>In reality there is
   always a sequence defined for every track, but it might be a series
   of &ldquo;rest&rdquo; bars.
 
 </DD>
-<DT><A ID="foot2596">... cleared.</A><A
+<DT><A ID="foot2598">... cleared.</A><A
  HREF="node5.html#tex2html34"><SUP><SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A></DT>
 <DD>It is probably
   easier to use the command: 

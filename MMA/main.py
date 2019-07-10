@@ -55,6 +55,12 @@ try:   # for some reason, someone might want a different encoding
 except:
     pass
 
+try:    # MMA prints errors/warning/debug to stdout
+        # this will redirect to a file
+    gbl.logFile = os.environ.get('MMA_LOGFILE')
+except:
+    pass
+    
 MMA.paths.init()   # initialize the lib/include paths
 
 
@@ -65,8 +71,8 @@ MMA.options.opts()
 #  LibPath and IncPath are set before option parsing, but
 #  debug setting wasn't. So we need to do the debug for this now
 if MMA.debug.debug:
-    print("Initialization has set LibPath set to %s" % MMA.paths.libPath)
-    print("Initialization has set IncPath set to %s" % MMA.paths.incPath)
+    dPrint("Initialization has set LibPath set to %s" % MMA.paths.libPath)
+    dPrint("Initialization has set IncPath set to %s" % MMA.paths.incPath)
 
 #######################################
 # Set up initial meta track stuff. Track 0 == meta
@@ -319,5 +325,5 @@ if gbl.playFile:
     MMA.player.playMidi(outfile)
 
 if MMA.debug.debug:
-    print("Completed processing file '%s'." % outfile)
+    dPrint("Completed processing file '%s'." % outfile)
 

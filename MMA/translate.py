@@ -56,7 +56,7 @@ class Vtable:
         if not ln:
             self.table = {}
             if MMA.debug.debug:
-                print("Voice Translation table reset.")
+                dPrint("Voice Translation table reset.")
             return
 
         ln, opts = opt2pair(ln, toupper=True)
@@ -68,7 +68,7 @@ class Vtable:
             self.table[v] = a
 
         if MMA.debug.debug:
-            print("Voice Translations: %s" % ' '.join(["%s=%s" % (v, a) for v, a in opts]))
+            dPrint("Voice Translations: %s" % ' '.join(["%s=%s" % (v, a) for v, a in opts]))
 
     def get(self, name):
         """ Return a translation or original. """
@@ -108,7 +108,7 @@ class Dtable:
         if not ln:
             self.table = {}
             if MMA.debug.debug:
-                print("DrumTone Translation table reset.")
+                dPrint("DrumTone Translation table reset.")
 
             return
 
@@ -129,7 +129,7 @@ class Dtable:
             self.table[v1] = a1
 
         if MMA.debug.debug:
-            print("TONETR Translations: %s" % 
+            dPrint("TONETR Translations: %s" % 
                   ' '.join(["%s(%s)=%s" % (v, MMA.midiC.drumToValue(v), 
                                            MMA.midiC.drumToValue(a)) for v, a in opts]))
 
@@ -177,7 +177,7 @@ class VoiceVolTable:
         if not ln:
             self.table = {}
             if MMA.debug.debug:
-                print("Voice Volume Adjustment table reset.")
+                dPrint("Voice Volume Adjustment table reset.")
 
             return
 
@@ -199,7 +199,7 @@ class VoiceVolTable:
             self.table[val] = a / 100.
 
         if MMA.debug.debug:
-            print("VOICEVOLTR: %s" % ' '.join(["%s=%s" % (v.upper(), a) for v, a in opts]))
+            dPrint("VOICEVOLTR: %s" % ' '.join(["%s=%s" % (v.upper(), a) for v, a in opts]))
 
     def get(self, v, vol):
         """ Return an adjusted value or original. """
@@ -231,7 +231,7 @@ class DrumVolTable:
         if not ln:
             self.table = {}
             if MMA.debug.debug:
-                print("DRUMVOLTR: Adjustment table reset.")
+                dPrint("DRUMVOLTR: Adjustment table reset.")
 
             return
 
@@ -253,7 +253,7 @@ class DrumVolTable:
             self.table[val] = a / 100.
 
         if MMA.debug.debug:
-            print("DRUMVOLTR: %s" %
+            dPrint("DRUMVOLTR: %s" %
                   ' '.join(["%s=%s" % (MMA.midiC.valueToDrum(val), a) for v, a in opt]))
 
 

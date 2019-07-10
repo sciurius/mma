@@ -83,7 +83,7 @@ class Macros:
             error("VarClear does not take an argument.")
         self.vars = {}
         if MMA.debug.debug:
-            print("All variable definitions cleared.")
+            dPrint("All variable definitions cleared.")
 
     def stackValue(self, s):
         self.pushstack.append(' '.join(s))
@@ -128,7 +128,7 @@ class Macros:
             return MMA.grooves.currentGroove
 
         elif s == 'GROOVELIST':
-            return ' '.join(sorted([x for x in MMA.grooves.glist.keys() if type(x) == type('')]))
+            return ' '.join(sorted([x for x in MMA.grooves.glist.keys() if isinstance(x, str)]))
 
         elif s == 'TRACKLIST':
             return ' '.join(sorted(gbl.tnames.keys()))
@@ -639,7 +639,7 @@ class Macros:
         self.vars[v] = random.choice(ln[1:])
 
         if MMA.debug.debug:
-            print("Variable $%s randomly set to '%s'" % (v, self.vars[v]))
+            dPrint("Variable $%s randomly set to '%s'" % (v, self.vars[v]))
 
     def newsetvar(self, ln):
         """ Set a new variable. Ignore if already set. """
@@ -683,7 +683,7 @@ class Macros:
         self.vars[v] = t
 
         if MMA.debug.debug:
-            print("Variable $%s == '%s'" % (v, self.vars[v]))
+            dPrint("Variable $%s == '%s'" % (v, self.vars[v]))
 
     def msetvar(self, ln):
         """ Set a variable to a number of lines. """
@@ -722,7 +722,7 @@ class Macros:
             del(macros.vars[v])
 
             if MMA.debug.debug:
-                print("Variable '%s' UNSET" % v)
+                dPrint("Variable '%s' UNSET" % v)
         else:
             warning("Attempt to UNSET nonexistent variable '%s'" % v)
 
@@ -736,12 +736,12 @@ class Macros:
         if cmd == 'ON':
             self.expandMode = 1
             if MMA.debug.debug:
-                print("Variable expansion ON")
+                dPrint("Variable expansion ON")
 
         elif cmd == 'OFF':
             self.expandMode = 0
             if MMA.debug.debug:
-                print("Variable expansion OFF")
+                dPrint("Variable expansion OFF")
 
         else:
             error("Use: Vexpand ON/Off")
@@ -776,7 +776,7 @@ class Macros:
         self.vars[v] = str(vl)
 
         if MMA.debug.debug:
-            print("Variable '%s' INC to %s" % (v, self.vars[v]))
+            dPrint("Variable '%s' INC to %s" % (v, self.vars[v]))
 
     def vardec(self, ln):
         """ Decrement a varaiable. """
@@ -807,7 +807,7 @@ class Macros:
         self.vars[v] = str(vl)
 
         if MMA.debug.debug:
-            print("Variable '%s' DEC to %s" % (v, self.vars[v]))
+            dPrint("Variable '%s' DEC to %s" % (v, self.vars[v]))
 
     def varIF(self, ln):
         """ Conditional variable if/then. """

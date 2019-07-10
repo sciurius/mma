@@ -124,7 +124,7 @@ class Plectrum(PC):
         if not l or len(l)==1 and ( l[0].upper()=='OFF' or l[0].upper()=='NONE'):
             self.fretNoise = None
             if MMA.debug.debug:
-                print("%s FretNoise Off" % self.name)
+                dPrint("%s FretNoise Off" % self.name)
             return
 
         self.fretNoise = Fnoise()  # new fret noise object
@@ -210,7 +210,7 @@ class Plectrum(PC):
             error("%s Fretnoise: No track was set. Use 'Track=some-bass-track' option." % self.name)
 
         if MMA.debug.debug:
-            print(self.getFretNoiseOptions())
+            dPrint(self.getFretNoiseOptions())
         
 
     def setStrum(self, l):
@@ -695,12 +695,12 @@ class Plectrum(PC):
 
                     if notes[stringNo].duplicate:
                         if MMA.debug.debug:
-                            print("%s: Ignoring duplicate note %d." % (self.name, note))
+                            dPrint("%s: Ignoring duplicate note %d." % (self.name, note))
                         continue
 
                     if notes[stringNo].fretNo == None:
                         if MMA.debug.debug:
-                            print("%s: Ignoring muted note %d." % (self.name, note))
+                            dPrint("%s: Ignoring muted note %d." % (self.name, note))
                         continue
 
                     outputVolume = self.adjustVolume(vol, p.offset)
@@ -729,7 +729,7 @@ class Plectrum(PC):
                 self.lastChord = ct.name
 
             if MMA.debug.debug:
-                print("%s: channel=%s offset=%s chordList=%s NoteOn=%s." % 
+                dPrint("%s: channel=%s offset=%s chordList=%s NoteOn=%s." % 
                     (self.name, self.channel, p.offset + gbl.tickOffset,
                         chordList, plectrumNoteOnList))
 
@@ -765,7 +765,7 @@ class Plectrum(PC):
         if startFretNo < 0:
             printStart = startFretNo
 
-        print("%s %s chord %s" % (self.name, chordTable.name,  chordList))
+        dPrint("%s %s chord %s" % (self.name, chordTable.name,  chordList))
         for stringNo, openNote in enumerate(reversed(self._tuning)):
             openNote = self.adjustNote(openNote)  # puts into middle octave 60==5*12
             note = notes[stringNo].pitch
@@ -799,8 +799,8 @@ class Plectrum(PC):
             if notes[stringNo].duplicate:
                 msg.append("  duplicate")
 
-            print(' '.join(msg))
-        print('\n')
+            dPrint(' '.join(msg))
+        dPrint('\n')
 
 def noteNameToMidiPitch(s):
     """ Convert a name ('e', 'g#') to a MIDI pitch. """

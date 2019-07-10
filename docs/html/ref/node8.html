@@ -46,19 +46,19 @@
 <A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
 <UL CLASS="ChildLinks">
-<LI><A ID="tex2html512"
-  HREF="node8.html#SECTION00810000000000000000">Bar Numbers</A>
-<LI><A ID="tex2html513"
-  HREF="node8.html#SECTION00820000000000000000">Bar Repeat</A>
 <LI><A ID="tex2html514"
-  HREF="node8.html#SECTION00830000000000000000">Chords</A>
+  HREF="node8.html#SECTION00810000000000000000">Bar Numbers</A>
 <LI><A ID="tex2html515"
-  HREF="node8.html#SECTION00840000000000000000">Rests</A>
+  HREF="node8.html#SECTION00820000000000000000">Bar Repeat</A>
 <LI><A ID="tex2html516"
-  HREF="node8.html#SECTION00850000000000000000">Positioning</A>
+  HREF="node8.html#SECTION00830000000000000000">Chords</A>
 <LI><A ID="tex2html517"
-  HREF="node8.html#SECTION00860000000000000000">Case Sensitivity</A>
+  HREF="node8.html#SECTION00840000000000000000">Rests</A>
 <LI><A ID="tex2html518"
+  HREF="node8.html#SECTION00850000000000000000">Positioning</A>
+<LI><A ID="tex2html519"
+  HREF="node8.html#SECTION00860000000000000000">Case Sensitivity</A>
+<LI><A ID="tex2html520"
   HREF="node8.html#SECTION00870000000000000000">Track Chords</A>
 </UL>
 <!--End of Table of Child-Links-->
@@ -149,7 +149,7 @@ complete format and use is detailed in the <A HREF="node10.html#chap-solo">Solo 
   Melody Tracks</A>.
 
 <P>
-Lyrics are enclosed in &rdquo;[ ]&rdquo; brackets. See the <A HREF="node9.html#sec-lyrics">Lyrics section</A>.
+Optional lyrics are enclosed in &rdquo;[ ]&rdquo; brackets. See the <A HREF="node9.html#sec-lyrics">Lyrics section</A>.
 
 <P>
 
@@ -170,7 +170,7 @@ Get in the habit of using bar numbers. You'll thank yourself when a
 song seems to be missing a bar, or appears to have an extra one.
 Without the leading bar numbers it can be quite frustrating to match
 your input file to a piece of sheet music.<A ID="tex2html38"
-  HREF="#foot4216"><SUP><SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>
+  HREF="#foot4230"><SUP><SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>
 <P>
 One important use of the leading bar number is for the -b command line
 option <A HREF="node2.html#b-option">detailed here</A>.
@@ -239,7 +239,7 @@ Chords</A>
 </H1>
 
 <P>
-The most important part of a musical data line is, of course, the
+The most important part of a musical data line are, of course, the
 chords. You can specify a different chord for each beat in your music.
 For example:
 
@@ -328,7 +328,7 @@ does no harm.
 numeral notation. In addition, you can specify slash chords,
 inversions, barre offsets, and shift the octave up or down. Refer to
 the complete table in the appendix for
-<A HREF="node35.html#sec-chordname">details</A>.
+<A HREF="node36.html#sec-chordname">details</A>.
 
 <P>
 
@@ -566,7 +566,9 @@ equivalent.
       </Table>
 
 <P>
-would generate an error.
+would generate an error (the Cm is on beat 1, Dm on beat 2 and the
+attempted beat 1.5 for the E is not permitted). Just reorder things
+and all will be fine.
 
 <P>
 </LI>
@@ -589,7 +591,8 @@ Case Sensitivity</A>
 </H1>
 
 <P>
-In direct conflict with the rest of the rules for input files, all
+In direct conflict with the rest of the rules for 
+<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  input files, all
 chord names (and modifiers) <SPAN  CLASS="textit">are</SPAN> case sensitive. This means that you <SPAN  CLASS="textit">can
   not</SPAN> use notations like &ldquo;cm&rdquo;--use &ldquo;Cm&rdquo; instead.
 
@@ -711,6 +714,10 @@ or
       </Table>
 
 <P>
+In the above example we tried to trick you a little by using
+R<SMALL>OMAN </SMALL>N<SMALL>UMERALS</SMALL> ... keep reading!
+
+<P>
 You can disable a track completely using the special rest notation
 &ldquo;z&rdquo;. If you have a empty setting for some bars in the sequence,
 using an empty set of curly brackets &ldquo;{ }', that bar will use the
@@ -731,7 +738,7 @@ can be used to write interesting styles.
 
 <P>
 In most cases, you will be better off using R<SMALL>OMAN </SMALL>N<SMALL>UMERAL</SMALL>
-chords, <A HREF="node35.html#romanchords">details</A>.
+chords, <A HREF="node36.html#romanchords">details</A>.
 Since the chord data is stored as unmodified text, key changes will
 modify the chord (which is probably what you want).
 
@@ -765,7 +772,7 @@ Don't forget to turn off the track specific chords!
 <P>
 <BR><HR><H4>Footnotes</H4>
 <DL>
-<DT><A ID="foot4216">... music.</A><A
+<DT><A ID="foot4230">... music.</A><A
  HREF="node8.html#tex2html38"><SUP><SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A></DT>
 <DD>If your line
   numbers get out of order you can use the supplied utility

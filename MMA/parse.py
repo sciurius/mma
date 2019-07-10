@@ -92,7 +92,7 @@ def parseFile(n):
     gbl.inpath = fp
 
     if MMA.debug.debug:
-        print("File '%s' closed." % n)
+        dPrint("File '%s' closed." % n)
 
 
     
@@ -115,7 +115,6 @@ def parse(inpath):
 
         l = macros.expand(curline)
         if not l:
-            
             continue
 
         """ Handle BEGIN and END here. This is outside of the Repeat/End
@@ -156,7 +155,7 @@ def parse(inpath):
             action = l[0].upper()
 
         if MMA.debug.showExpand and action != 'REPEAT':
-            print(l)
+            dPrint(l)
 
         if action in simpleFuncs:
             simpleFuncs[action](l[1:])
@@ -222,41 +221,35 @@ def parse(inpath):
                 error("Unknown data plugin '%s' called." % p)
             l = dataFuncs[p](l[1:])
 
-        """ Extract solo(s) from line ... this is anything in {}s.
-            The solo data is pushed into RIFFs and discarded from
-            the current line.
-        """
-
+        # Extract solo(s) from line ... this is anything in {}s.
+        # The solo data is pushed into RIFFs and discarded from
+        # the current line.
         l = ' '.join(l)
         l = MMA.patSolo.extractSolo(l, rptcount)
 
-        """ Set lyrics from [stuff] in the current line.
-            NOTE: lyric.extract() inserts previously created
-                  data from LYRICS SET and inserts the chord names
-                  if that flag is active.
-        """
-
+        # set lyrics from [stuff] in the current line.
+        # NOTE: lyric.extract() inserts previously created
+        #       data from LYRICS SET and inserts the chord names
+        #       if that flag is active.
         l, lyrics = lyric.extract(l, rptcount)
-
         l = l.split()
 
-        """ At this point we have only chord info. A number
-            of sanity checks are made:
-              1. Make sure there is some chord data,
-              2. Ensure the correct number of chords.
-        """
-
+        # At this point we have only chord info. A number
+        # of sanity checks are made:
+        #   1. Make sure there is some chord data,
+        #   2. Ensure the correct number of chords.
         if not l:
-            error("Expecting music (chord) data. Even lines with\n"
-                  "  lyrics or solos still need a chord")
+            error("Expecting music (chord) data. Even lines with "
+                  "lyrics or solos still need a chord. If you "
+                  "don't want a chord use 'z'.")
 
-        """ We now have a chord line. It'll look something like:
-
-              ['Cm', '/', 'z', 'F#@4.5'] or ['/' 'C@3' ]
-
-            For each bar we create a list of CTables, one for each
-            chord in the line. Each entry has the start/end (in beats), chordname, etc.
-        """
+        # We now have a chord line. It'll look something like:
+        #
+        #      ['Cm', '/', 'z', 'F#@4.5'] or ['/' 'C@3' ]
+        #
+        #    For each bar we create a list of CTables, one for each
+        #    chord in the line. Each entry has the start/end (in beats), chordname, etc.
+        #
 
         ctable = parseChordLine(l)   # parse the chord line
 
@@ -338,7 +331,7 @@ def parse(inpath):
                     ly = lyrics  # with the []s
                 else:
                     ly = ''      # no lyric
-                print("%3d: %s %s" % (gbl.barNum, ' '.join(l), ly))
+                dPrint("%3d: %s %s" % (gbl.barNum, ' '.join(l), ly))
 
 
 ##################################################################
@@ -729,7 +722,7 @@ def deleteTrks(ln):
             gbl.deletedTracks.append(name)
 
         if MMA.debug.debug:
-            print("Track '%s' deleted" % name)
+            dPrint("Track '%s' deleted" % name)
 
 #######################################
 # Volume

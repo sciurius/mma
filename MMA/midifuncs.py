@@ -82,7 +82,7 @@ def rawMidi(ln):
     gbl.mtrks[0].addToTrack(gbl.tickOffset, mb)
 
     if MMA.debug.debug:
-        print("MIDI: Inserted raw midi in metatrack: %s" %
+        dPrint("MIDI: Inserted raw midi in metatrack: %s" %
               ' '.join([str(a) for a in struct.unpack("%sB" % len(mb), mb)]))
 
 
@@ -123,7 +123,7 @@ def setMidiFileType(ln):
             a = 'ON'
         else:
             a = 'OFF'
-        print("MIDIFile: SMF=%s RUNNING=%s" % (gbl.midiFileType, a))
+        dPrint("MIDIFile: SMF=%s RUNNING=%s" % (gbl.midiFileType, a))
 
 
 def setChPref(ln):
@@ -146,7 +146,7 @@ def setChPref(ln):
         gbl.midiChPrefs[n.upper()] = c
 
     if MMA.debug.debug:
-        print("ChannelPref: %s" % 
+        dPrint("ChannelPref: %s" % 
               ' '.join(["%s=%s" % (n, c) for n, c in gbl.midiChPrefs.items()]))
 
 
@@ -256,7 +256,7 @@ def doMidiTrackCresc(ln, dir, func):
     gbl.mtrks[0].addMasterVolume(end, v2)
 
     if MMA.debug.debug:
-        print("MIDI(de)Cresc: Added %s changes" % t)
+        dPrint("MIDI(de)Cresc: Added %s changes" % t)
 
 
 def setMidiVolume(ln):
@@ -276,7 +276,7 @@ def setMidiVolume(ln):
     masterMidiVolume = v
 
     if MMA.debug.debug:
-        print("MidiVolume: Master volume set to %s." % v)
+        dPrint("MidiVolume: Master volume set to %s." % v)
 
 
 def setChannelInit(ln):
@@ -324,7 +324,7 @@ def setChannelInit(ln):
         channelInit[c].append(ln)
 
     if MMA.debug.debug:
-        print("ChannelInit: '%s' queued to channels %s" % 
+        dPrint("ChannelInit: '%s' queued to channels %s" % 
             (' '.join(ln), ','.join([str(c) for c in channels])))
 
 
@@ -429,7 +429,7 @@ def doMidiCresc(name, ln, dir, func):
         p += step
 
     if MMA.debug.debug:
-        print("%s MidiVolume: Added %s changes" % (name, t))
+        dPrint("%s MidiVolume: Added %s changes" % (name, t))
 
 def trackGlis(name, ln):
     """ Enable/disable portamento. """
@@ -445,7 +445,7 @@ def trackGlis(name, ln):
     gbl.tnames[name].midiPending.append(("GLIS", gbl.tickOffset, v))
 
     if MMA.debug.debug:
-        print("Set %s MIDIGlis to %s" % (name, v))
+        dPrint("Set %s MIDIGlis to %s" % (name, v))
 
 
 def trackWheel(name, ln):
@@ -546,7 +546,7 @@ def trackWheel(name, ln):
         tdata.midiPending.append(("WHEEL", startOffset, setOnly))
 
         if MMA.debug.debug:
-            print("MidiWheel %s: detuned to %s at %s ticks." %
+            dPrint("MidiWheel %s: detuned to %s at %s ticks." %
                 (name, setOnly, startOffset))
         return
 
@@ -613,7 +613,7 @@ def trackWheel(name, ln):
             rset = "No RESET." 
         else:
             rset = ''
-        print("MidiWheel %s: detuned %s to %s from %s to %s. %s" % 
+        dPrint("MidiWheel %s: detuned %s to %s from %s to %s. %s" % 
             (name, startValue, endValue, startOffset, endOffset, rset))
 
 
@@ -688,10 +688,10 @@ def trackPan(name, ln):
 
     if MMA.debug.debug:
         if beats:
-            print("Set %s MIDIPan from %s to %s over %s beats." % 
+            dPrint("Set %s MIDIPan from %s to %s over %s beats." % 
                 (name, initPan, newPan, beats))
         else:
-            print("Set %s MIDIPan to %s" % (name, newPan))
+            dPrint("Set %s MIDIPan to %s" % (name, newPan))
 
 
 def trackMidiText(name, ln):
@@ -704,7 +704,7 @@ def trackMidiText(name, ln):
     gbl.tnames[name].midiPending.append(("MIDITEXT", gbl.tickOffset, ln))
 
     if MMA.debug.debug:
-        print("Set %s MIDIText '%s'." % (name, ln))
+        dPrint("Set %s MIDIText '%s'." % (name, ln))
 
 
 def trackMidiCue(name, ln):
@@ -717,7 +717,7 @@ def trackMidiCue(name, ln):
     gbl.tnames[name].midiPending.append(("MIDICUE", gbl.tickOffset, ln))
 
     if MMA.debug.debug:
-        print("Set %s MIDICue '%s'." % (name, ln))
+        dPrint("Set %s MIDICue '%s'." % (name, ln))
 
 
 def trackMidiExt(ln):
@@ -799,4 +799,4 @@ def trackMidiName(name, ln):
     gbl.tnames[name].midiPending.append(('TNAME', 0, ln[0]))
 
     if MMA.debug.debug:
-        print("Set %s MIDI Track Name to %s" % (name, ln[0]))
+        dPrint("Set %s MIDI Track Name to %s" % (name, ln[0]))

@@ -62,3 +62,19 @@ Add Nashville chord notation in addition to roman.
 There is a bug in the Optimal Voicing code which makes the Centering
    option useless.
 
+Would be nice to skip chords completely for a melody only section. Something
+   like:
+        4a;b;c;d;
+        4e;f;g;a;
+
+    instead of:
+
+        z  {4a;b;c;d;}
+        z  {4e;f;g;a;}
+
+     Which skips the {}s and the 'z' placeholder.
+ 
+Need a method to expand macros BEFORE passing them to the $() process.
+
+Need a method to expand a string (1 2 3 4) to a python list [1,2,3,4].
+

@@ -120,7 +120,7 @@ def setSeqRnd(ln):
             msg.append("On")
         else:
             msg.append("Off")
-        print(' '.join(msg))
+        dPrint(' '.join(msg))
 
 
 def getweights(ln, msg):
@@ -140,7 +140,7 @@ def getweights(ln, msg):
     tmp = seqBump(tmp)
 
     if MMA.debug.debug:
-        print("%s: %s" % (msg, ' '.join([str(x) for x in tmp])))
+        dPrint("%s: %s" % (msg, ' '.join([str(x) for x in tmp])))
 
     return tmp
 

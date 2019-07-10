@@ -2,7 +2,7 @@
 
 # This plugin is a sortof reverse truncate. It parses its arguments
 # and splits the data out into 2 lines: an original line short enough for the
-# current time, a truncate line and shorten line.
+# current time, a truncate line and shortened line.
 # The goal is to take:
 #   Time 3
 #   @extend side=right len=4 22 Am Bm C7 E9

@@ -314,7 +314,7 @@ def registerPlugin(p):
         MMA.parse.simpleFuncs[cmdName] = e.run
         simplePlugs.append(cmdName)
         if MMA.debug.debug:
-            print("Plugin: %s simple plugin RUN registered." % cmdName.title())
+            dPrint("Plugin: %s simple plugin RUN registered." % cmdName.title())
     except:
         pass
     
@@ -322,7 +322,7 @@ def registerPlugin(p):
         MMA.parse.trackFuncs[cmdName] = e.trackRun
         trackPlugs.append(cmdName)
         if MMA.debug.debug:
-            print("Plugin: %s track plugin TrackRun registered." % cmdName.title())
+            dPrint("Plugin: %s track plugin TrackRun registered." % cmdName.title())
     except:
         pass
     
@@ -330,7 +330,7 @@ def registerPlugin(p):
         MMA.parse.dataFuncs[cmdName] = e.dataRun
         dataPlugs.append(cmdName)
         if MMA.debug.debug:
-            print("Plugin: %s data plugin DataRun registered." % cmdName.title())
+            dPrint("Plugin: %s data plugin DataRun registered." % cmdName.title())
     except:
         pass
     
@@ -385,14 +385,14 @@ def plugin(ln):
 
             if MMA.debug.debug:
                 if plugsOff:
-                    print("Plugin: loading disabled.")
+                    dPrint("Plugin: loading disabled.")
                 else:
                     if not tryLocal:
-                        print("Plugin: no local plug loading.")
+                        dPrint("Plugin: no local plug loading.")
                     if not tryDot:
-                        print("Plugin: no current directory plug loading.")
+                        dPrint("Plugin: no current directory plug loading.")
                     if not tryPlugDir:
-                        print("Plugin: no plugin directory plug loading.")
+                        dPrint("Plugin: no plugin directory plug loading.")
         else:
             error("Plugin: '%s' is an unknown command." % cmd)
 

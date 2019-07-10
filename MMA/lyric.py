@@ -110,7 +110,7 @@ class Lyric:
                 elif v == 'LYRIC':
                     self.textev = None
                     if MMA.debug.debug:
-                        print("Lyric: lyrics set as LYRIC events.")
+                        dPrint("Lyric: lyrics set as LYRIC events.")
 
                 else:
                     error("Lyric: Valid options for EVENT are TEXT or LYRIC.")
@@ -119,12 +119,12 @@ class Lyric:
                 if v == 'BAR':
                     self.barsplit = 1
                     if MMA.debug.debug:
-                        print("Lyric: lyrics distributed thoughout bar.")
+                        dPrint("Lyric: lyrics distributed thoughout bar.")
 
                 elif v == 'NORMAL':
                     self.barsplit = None
                     if MMA.debug.debug:
-                        print("Lyric: lyrics appear as one per bar.")
+                        dPrint("Lyric: lyrics appear as one per bar.")
 
                 else:
                     error("Lyric: Valid options for SPLIT are BAR or NORMAL.")
@@ -146,18 +146,18 @@ class Lyric:
                     error("Lyric: Attempt to set Verse to %s. Values must be > 0" % self.versenum)
 
                 if MMA.debug.debug:
-                    print("Lyric: Verse number set to %s" % self.versenum)
+                    dPrint("Lyric: Verse number set to %s" % self.versenum)
 
             elif o == 'CHORDS':
                 if v in ('1', 'ON'):
                     self.dupchords = 1
                     if MMA.debug.debug:
-                        print("Lyric: Chords are duplicated as lyrics.")
+                        dPrint("Lyric: Chords are duplicated as lyrics.")
 
                 elif v in ('0', 'OFF'):
                     self.dupchords = 0
                     if MMA.debug.debug:
-                        print("Lyric: Chords are NOT duplicated as lyrics.")
+                        dPrint("Lyric: Chords are NOT duplicated as lyrics.")
 
                 else:
                     error("Lyric: CHORDS expecting 'ON' or 'OFF', not %s'" % v)
@@ -176,13 +176,13 @@ class Lyric:
                     self.transpose = v
 
                 if MMA.debug.debug:
-                    print("Lyric: Chord names transposed %s steps." % self.transpose)
+                    dPrint("Lyric: Chord names transposed %s steps." % self.transpose)
 
             elif o == 'ADDTRANSPOSE':
                 self.transpose += MMA.keysig.getTranspose([v], "Lyric AddTranspose")
 
                 if MMA.debug.debug:
-                    print("Lyric: Chord names transposed %s steps." % self.transpose)
+                    dPrint("Lyric: Chord names transposed %s steps." % self.transpose)
 
             elif o == 'CNAMES':
                 if v in ('#', 'SHARP'):
@@ -200,7 +200,7 @@ class Lyric:
                         msg += "#."
                     else:
                         msg += "b."
-                    print(msg)
+                    dPrint(msg)
 
             elif o == 'KARMODE':
                 if v in ('ON', '1'):
@@ -238,7 +238,7 @@ class Lyric:
                         msg += "enabled."
                     else:
                         msg += "disabled."
-                    print(msg)
+                    dPrint(msg)
 
             else:
                 error("Usage: Lyric expecting EVENT, SPLIT, VERSE, CHORDS, TRANSPOSE,"

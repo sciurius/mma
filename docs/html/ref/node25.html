@@ -46,18 +46,18 @@
 <A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
 <UL CLASS="ChildLinks">
-<LI><A ID="tex2html647"
+<LI><A ID="tex2html649"
   HREF="node25.html#SECTION002510000000000000000">Voice</A>
-<LI><A ID="tex2html648"
+<LI><A ID="tex2html650"
   HREF="node25.html#SECTION002520000000000000000">Patch</A>
 <UL>
-<LI><A ID="tex2html649"
-  HREF="node25.html#SECTION002521000000000000000">Patch Set</A>
-<LI><A ID="tex2html650"
-  HREF="node25.html#SECTION002522000000000000000">Patch Rename</A>
 <LI><A ID="tex2html651"
-  HREF="node25.html#SECTION002523000000000000000">Patch List</A>
+  HREF="node25.html#SECTION002521000000000000000">Patch Set</A>
 <LI><A ID="tex2html652"
+  HREF="node25.html#SECTION002522000000000000000">Patch Rename</A>
+<LI><A ID="tex2html653"
+  HREF="node25.html#SECTION002523000000000000000">Patch List</A>
+<LI><A ID="tex2html654"
   HREF="node25.html#SECTION002524000000000000000">Ensuring It All Works</A>
 </UL></UL>
 <!--End of Table of Child-Links-->
@@ -74,12 +74,12 @@ Modern music keyboards and synthesizers are capable of producing a
 bewildering variety of sounds. Many consumer units priced well under
 $1000.00 contain several hundred or more unique voices. But, &ldquo;out of
 the box&rdquo; 
-<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  supports the 128 &ldquo;General MIDI&rdquo;<A ID="tex2html111"
-  HREF="#foot15938"><SUP><SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A> preset voices as well as &ldquo;extended&rdquo; voices (see
+<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  supports the 128 &ldquo;General MIDI&rdquo;<A ID="tex2html112"
+  HREF="#foot15998"><SUP><SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A> preset voices as well as &ldquo;extended&rdquo; voices (see
 below). These voices are assigned the values 0 to 127. We refer to the
 various voices as &ldquo;tones&rdquo;, &ldquo;instruments&rdquo;, or
-&ldquo;patches&rdquo;.<A ID="tex2html112"
-  HREF="#foot15939"><SUP><SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A>
+&ldquo;patches&rdquo;.<A ID="tex2html113"
+  HREF="#foot15999"><SUP><SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A>
 <P>
 
 <H1><A ID="SECTION002510000000000000000"></A>  <A ID="set-voice"></A>
@@ -103,7 +103,7 @@ The MIDI instrument or voice used for a track is set with:
 Voices apply only to the specified track. The actual instrument can be
 specified via the MIDI instrument number, an &ldquo;extended&rdquo; value, or
 with the symbolic name.  See the tables in the MIDI
-<A HREF="node35.html#sec-voicenames">voicing section</A> for lists of the standard, recognized
+<A HREF="node36.html#sec-voicenames">voicing section</A> for lists of the standard, recognized
 names.
 
 <P>
@@ -162,6 +162,10 @@ End
       </Table>
 
 <P>
+In this case the voice or tone used will be that already set by an
+external synth.
+
+<P>
 
 <H1><A ID="SECTION002520000000000000000"></A> 
 <A ID="extended-patch"></A>
@@ -180,8 +184,7 @@ banks.
 
 		<Table CellSpacing=0 Width="80%" Align="Center" CellPadding=10 BGColor="#dddddd" Border=3>
            <tr> <td>
-	       <BR>
-<BR><SPAN  CLASS="textit">The rest of this
+	       <SPAN  CLASS="textit">The rest of this
         chapter presents features which are highly dependent your hardware.
         It is quite possible to create midi files which sound very
         different (or even awful, or perhaps not at all) on other
@@ -314,15 +317,11 @@ with a large number of settings. Here's a snippet:
       <Table Hspace="40%" CellSpacing=0 CellPadding=10 BGColor="OldLace" Border=3>
         <tr><td>
     <B>Begin Patch Set 
-<BR>
-0.48=GrandPiano 
-<BR>
-1.48=BrightPiano 
-<BR>
-2.48=ElecGrandPiano 
-<BR>
-3.48=Honky-Tonk1 
-<BR>  ...
+<BR>&nbsp;&nbsp;    0.48=GrandPiano 
+<BR>&nbsp;&nbsp;    1.48=BrightPiano 
+<BR>&nbsp;&nbsp;    2.48=ElecGrandPiano 
+<BR>&nbsp;&nbsp;    3.48=Honky-Tonk1 
+<BR>&nbsp;&nbsp; ...
 <BR>
 End  </B> 
    
@@ -337,8 +336,8 @@ command:
 
       <Table Hspace="40%" CellSpacing=0 CellPadding=10 BGColor="OldLace" Border=3>
         <tr><td>
-    <B>include casio-wk3000<A ID="tex2html113"
-  HREF="#foot16100"><SUP><SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A></B> 
+    <B>include casio-wk3000<A ID="tex2html114"
+  HREF="#foot16158"><SUP><SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A></B> 
    
 	    </td></tr>
       </Table>
@@ -346,16 +345,16 @@ command:
 <P>
 A file like this can be created by hand or you can convert existing an
 existing file to a format  understands. A number of &ldquo;patch&rdquo;
-files exist for the popular &ldquo;Band in a Box&rdquo; program from
-PGMusic. There files may be subject to copyright, so use them with
-respect. No patch files are included in this distribution, but many
+files exist for the popular &ldquo;Band in a Box&rdquo; program from PGMusic.
+There files may be subject to copyright, so use them with respect.
+None of these patch files are included in this distribution, but many
 are freely available on the internet. For a start you might want to
-look at <kbd><A ID="tex2html114"
+look at <kbd><A ID="tex2html115"
   HREF="http://www.pgmusic.com/support_miscellaneous.htm">http://www.pgmusic.com/support_miscellaneous.htm</A></kbd>. These
-files cannot be read my 
-<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT> , so we have included a
-little conversion utility <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">util/pg2mma.py</SPAN></SPAN>. There is a short
-file with instructions <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">util/README.pg2mma</SPAN></SPAN>. 
+files cannot be read by 
+<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT> , so we have included a little
+conversion utility <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">util/pg2mma.py</SPAN></SPAN>. There is a short file with
+instructions <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">util/README.pg2mma</SPAN></SPAN>.
 
 <P>
 The S<SMALL>ET</SMALL> option will issue warning messages if you redefine
@@ -486,7 +485,7 @@ To use a file like <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">includes/init.mma
 
 <P>
 in your mmarc file. See the Path section of this manual for details
-<A HREF="node32.html#sec-paths">(here)</A>.
+<A HREF="node33.html#sec-paths">(here)</A>.
 
 <P>
 To help keep things sane, 
@@ -513,7 +512,7 @@ placing a line like:
 
 <P>
 at the end of your song file. Or, use the MMAE<SMALL>ND</SMALL> command
-detailed <A HREF="node32.html#sec-mmaend">here</A>.
+detailed <A HREF="node33.html#sec-mmaend">here</A>.
 
 <P>
 You can get about as complicated as you want with all this. One scheme
@@ -525,10 +524,8 @@ code. For example:
       <Table Hspace="40%" CellSpacing=0 CellPadding=10 BGColor="OldLace" Border=3>
         <tr><td>
     <B>if def Casio 
-<BR>
-include casio-wk3000 
-<BR>
-include init.file.for.casio.mma 
+<BR>&nbsp;&nbsp;  include casio-wk3000 
+<BR>&nbsp;&nbsp;  include init.file.for.casio.mma 
 <BR>
 endif 
 <BR>   
@@ -537,8 +534,7 @@ Groove somegroove
 <BR>   
 <BR>
 if def Casio 
-<BR>
-Chord Voice RotaryGuitar 
+<BR>&nbsp;&nbsp;    Chord Voice RotaryGuitar 
 <BR>
 Endif 
 <BR>   
@@ -546,11 +542,10 @@ Endif
 1  Cm 
 <BR>
 2  Dm 
-<BR>   ...more chords 
+<BR>&nbsp; ...more chords 
 <BR>
 if def Casio 
-<BR>
-include restore-file-for-casio.mma 
+<BR>&nbsp;&nbsp;  include restore-file-for-casio.mma 
 <BR>
 endif   </B> 
    
@@ -583,26 +578,22 @@ file like:
       <Table Hspace="40%" CellSpacing=0 CellPadding=10 BGColor="OldLace" Border=3>
         <tr><td>
     <B>if def Casio 
-<BR>
-include casio-wk3000 
-<BR>
-include init.file.for.casio.mma 
-<BR>
-VoiceTR Piano1=RotaryGuitar ChoralAhhs=VoxHumana 
+<BR>&nbsp;&nbsp; include casio-wk3000 
+<BR>&nbsp;&nbsp; include init.file.for.casio.mma 
+<BR>&nbsp;&nbsp; VoiceTR Piano1=RotaryGuitar ChoralAhhs=VoxHumana 
 <BR>
 endif 
+<BR>  
 <BR>
 Groove somegroove 
-<BR>   
 <BR>
 1  Cm 
 <BR>
 2  Dm 
-<BR>   ...more chords 
+<BR>&nbsp;  ...more chords 
 <BR>
 if def Casio 
-<BR>
-include restore-file-for-casio.mma 
+<BR>&nbsp;&nbsp;  include restore-file-for-casio.mma 
 <BR>
 endif   </B> 
    
@@ -620,24 +611,24 @@ the various voices will be changed.
 <P>
 <BR><HR><H4>Footnotes</H4>
 <DL>
-<DT><A ID="foot15938">... MIDI&rdquo;</A><A
- HREF="node25.html#tex2html111"><SUP><SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A></DT>
+<DT><A ID="foot15998">... MIDI&rdquo;</A><A
+ HREF="node25.html#tex2html112"><SUP><SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A></DT>
 <DD>The General
   MIDI or GM standard was developed by the MIDI Manufactures
   Association.
 
 </DD>
-<DT><A ID="foot15939">...
+<DT><A ID="foot15999">...
 &ldquo;patches&rdquo;.</A><A
- HREF="node25.html#tex2html112"><SUP><SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A></DT>
+ HREF="node25.html#tex2html113"><SUP><SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A></DT>
 <DD>&ldquo;Patch&rdquo; a bit of a historical term dating back
   to the times when synthesizers cost a lot of money and used bits of
   wire and cable to &ldquo;patch&rdquo; different oscillators, filters, etc.   together.
 
 </DD>
-<DT><A ID="foot16100">... casio-wk3000</A><A
- HREF="node25.html#tex2html113"><SUP><SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A></DT>
-<DD>Refer to I<SMALL>NCLUDE</SMALL> <A HREF="node32.html#sec-include">(here)</A> for details on file placement.
+<DT><A ID="foot16158">... casio-wk3000</A><A
+ HREF="node25.html#tex2html114"><SUP><SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A></DT>
+<DD>Refer to I<SMALL>NCLUDE</SMALL> <A HREF="node33.html#sec-include">(here)</A> for details on file placement.
 
 </DD>
 </DL>

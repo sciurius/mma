@@ -269,7 +269,7 @@ def usage(msg=''):
 
     txt = [
         "MMA - Musical Midi Accompaniment",
-        "  Copyright 2003-14, Bob van der Poel. Version %s" % gbl.version,
+        "  Copyright 2003-19, Bob van der Poel. Version %s" % gbl.version,
         "  Distributed under the terms of the GNU Public License.",
         "  Usage: mma [opts ...] INFILE [opts ...]",
         "",

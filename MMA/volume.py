@@ -80,8 +80,8 @@ def adjvolume(ln):
             error("ADJUSTVOLUME DYNAMIC: '%s' for AdjustVolume is unknown" % v)
 
     if MMA.debug.debug:
-        print("Volume Ratio: %s%% Track / %s%% Master" % (vTRatio * 100, vMRatio * 100))
-        print("Volume table: %s" % 
+        dPrint("Volume Ratio: %s%% Track / %s%% Master" % (vTRatio * 100, vMRatio * 100))
+        dPrint("Volume table: %s" % 
               ' '.join([ "%s=%s" % (a, int(vols[a] * 100)) for a in sorted(vols)]))
 
 
@@ -133,7 +133,7 @@ def setVolume(ln):
 
     futureVol = []
     if MMA.debug.debug:
-        print("Volume: %s%%" % volume)
+        dPrint("Volume: %s%%" % volume)
 
 
 # The next 3 are called from the parser.
@@ -181,7 +181,7 @@ def setSwell(ln):
                              [str(int(volume * 100)), c])[offset:])
 
     if MMA.debug.debug:
-        print("Set Swell to: %s" % ' '.join([str(int(a * 100)) for a in futureVol]))
+        dPrint("Set Swell to: %s" % ' '.join([str(int(a * 100)) for a in futureVol]))
 
 
 def setCrescendo(dir, ln):
@@ -201,7 +201,7 @@ def setCrescendo(dir, ln):
     futureVol = fvolume(dir, volume, ln)
 
     if MMA.debug.debug:
-        print("Set (De)Cresc to: %s" % ' '.join([str(int(a * 100)) for a in futureVol]))
+        dPrint("Set (De)Cresc to: %s" % ' '.join([str(int(a * 100)) for a in futureVol]))
 
 # Used by both the 2 funcs above and from TRACK.setCresc()
 

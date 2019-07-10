@@ -112,12 +112,12 @@ def grooveDefine(ln):
                   % (slot, aliaslist[slot]))
 
     if MMA.debug.gvShow and slot in glist:
-        print("Redefining groove %s, line %s." % (slot, gbl.lineno))
+        dPrint("Redefining groove %s, line %s." % (slot, gbl.lineno))
 
     grooveDefineDo(slot)
 
     if MMA.debug.debug:
-        print("Groove settings saved to '%s'." % slot)
+        dPrint("Groove settings saved to '%s'." % slot)
 
     if gbl.makeGrvDefs:   # doing a database update ...
         MMA.auto.updateGrooveList(slot)
@@ -193,24 +193,25 @@ def groove(ln):
         # convert alias to real groove name
         if not slot in glist and slot in aliaslist:
                 slot = aliaslist[slot]
-
+        
         if not slot in glist:
             if MMA.debug.debug:
-                print("Groove '%s' not defined. Trying auto-load from libraries" 
+                dPrint("Groove '%s' not defined. Trying auto-load from libraries" 
                       % slot)
 
             l, slot = MMA.auto.findGroove(slotOrig)    # name of the lib file with groove
             
             if l:
                 if MMA.debug.debug:
-                    print("Attempting to load groove '%s' from '%s'." % (slot, l))
+                    dPrint("Attempting to load groove '%s' from '%s'." % (slot, l))
 
                 reportFutureVols()
                 MMA.parse.usefile([l])
 
                 if not slot in glist:
-                    error("Groove '%s' not found. Have libraries changed "
-                          "since last 'mma -g' run?" % slot)
+                    error("Groove '%s' not found. Is the groove in the file '%s'? "
+                          "Have libraries changed "
+                          "since last 'mma -g' run?" % (slot, l))
 
             else:
                 error("Groove '%s' could not be found in memory or library files" % slot )
@@ -246,7 +247,7 @@ def groove(ln):
         lastGroove = slot
 
     if MMA.debug.debug:
-        print("Groove settings restored from '%s'." % slot)
+        dPrint("Groove settings restored from '%s'." % slot)
 
 
 def grooveDo(slot):
@@ -348,7 +349,7 @@ def grooveClear(ln):
     currentGroove = ''
 
     if MMA.debug.debug:
-        print("All grooves deleted.")
+        dPrint("All grooves deleted.")
 
 
 def nextGroove():
@@ -375,7 +376,7 @@ def nextGroove():
             currentGroove = slot
 
             if MMA.debug.debug:
-                print("Groove (list) setting restored from '%s'." % slot)
+                dPrint("Groove (list) setting restored from '%s'." % slot)
 
 
 def trackGroove(name, ln):
@@ -401,7 +402,7 @@ def trackGroove(name, ln):
         warning("'%s' Track Groove has no sequence. Track name error?" % name)
 
     if MMA.debug.debug:
-        print("%s Groove settings restored from '%s'." % (name, slot))
+        dPrint("%s Groove settings restored from '%s'." % (name, slot))
 
 
 def getAlias(al):
@@ -498,7 +499,7 @@ def allgrooves(ln):
 
     else:
         if MMA.debug.debug:
-            print("AllGrooves: %s tracks modified." % counter)
+            dPrint("AllGrooves: %s tracks modified." % counter)
 
 
 ###################################################################
@@ -585,4 +586,4 @@ def trackCopyDo(name, ln):
         self.restoreGroove(COPYGROOVE)
 
     if MMA.debug.debug:
-        print("Copy: Settings duplicated from %s to %s" % (cp.name, self.name))
+        dPrint("Copy: Settings duplicated from %s to %s" % (cp.name, self.name))

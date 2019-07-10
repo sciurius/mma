@@ -83,4 +83,4 @@ def setSyncTone(ln):
                   % cmd)
 
     if MMA.debug.debug:
-        print("SetSyncTone: Tone=%s, Velocity=%s" % tuple(syncTone))
+        dPrint("SetSyncTone: Tone=%s, Velocity=%s" % tuple(syncTone))

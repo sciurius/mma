@@ -143,7 +143,7 @@ def setTime(ln):
             sig =  "TimeSig %s " % timeSig.getAscii()
         else:
             sig = ''
-        print ("Time: Time %s %sTabs=%s." % 
+        dPrint ("Time: Time %s %sTabs=%s." % 
                (gbl.QperBar, sig,  ','.join([str(x) for x in tabList])))
             
 def tempo(ln):
@@ -181,7 +181,7 @@ def tempo(ln):
         gbl.mtrks[0].addTempo(gbl.tickOffset, gbl.tempo)
 
         if MMA.debug.debug:
-            print("Tempo: Set to %s" % gbl.tempo)
+            dPrint("Tempo: Set to %s" % gbl.tempo)
 
     else:              # Do a tempo change over bar count
         bars = ln[1]
@@ -211,7 +211,7 @@ def tempo(ln):
         gbl.tempo = int(v)
 
         if MMA.debug.debug:
-            print("Tempo: Set future value to %s over %s beats" % 
+            dPrint("Tempo: Set future value to %s over %s beats" % 
                 (int(tempo), numbeats))
 
     if gbl.tempo <= 0:
@@ -235,7 +235,7 @@ def beatAdjust(ln):
     gbl.totTime += adj / gbl.tempo   # adjust total time
 
     if MMA.debug.debug:
-        print("BeatAdjust: inserted %s at bar %s." % (adj, gbl.barNum + 1))
+        dPrint("BeatAdjust: inserted %s at bar %s." % (adj, gbl.barNum + 1))
 
 
 def cut(ln):
@@ -291,7 +291,7 @@ def trackCut(name, ln):
         gbl.mtrks[m].addNoteOff(moff)
 
         if MMA.debug.debug:
-            print("Cut %s: Beat %s, Bar %s" % (name, offset, gbl.barNum + 1))
+            dPrint("Cut %s: Beat %s, Bar %s" % (name, offset, gbl.barNum + 1))
 
 
 def fermata(ln):
@@ -420,8 +420,8 @@ def fermata(ln):
                     trk[mend] = endEvents
 
     if MMA.debug.debug:
-        print("Fermata: Beat %s, Duration %s, Change %s, Bar %s" % 
+        dPrint("Fermata: Beat %s, Duration %s, Change %s, Bar %s" % 
               (offset, dur, adj, gbl.barNum + 1))
         if offset < 0:
-            print("         NoteOn Events moved in tick range %s to %s" 
+            dPrint("         NoteOn Events moved in tick range %s to %s" 
                   % (moff + 1, mend - 1))

@@ -46,32 +46,32 @@
 <A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
 <UL CLASS="ChildLinks">
-<LI><A ID="tex2html485"
+<LI><A ID="tex2html487"
   HREF="node4.html#SECTION00410000000000000000">Defining a Pattern</A>
 <UL>
-<LI><A ID="tex2html486"
-  HREF="node4.html#SECTION00411000000000000000">Bass</A>
-<LI><A ID="tex2html487"
-  HREF="node4.html#SECTION00412000000000000000">Chord</A>
 <LI><A ID="tex2html488"
-  HREF="node4.html#SECTION00413000000000000000">Arpeggio</A>
+  HREF="node4.html#SECTION00411000000000000000">Bass</A>
 <LI><A ID="tex2html489"
-  HREF="node4.html#SECTION00414000000000000000">Walk</A>
+  HREF="node4.html#SECTION00412000000000000000">Chord</A>
 <LI><A ID="tex2html490"
-  HREF="node4.html#SECTION00415000000000000000">Scale</A>
+  HREF="node4.html#SECTION00413000000000000000">Arpeggio</A>
 <LI><A ID="tex2html491"
-  HREF="node4.html#SECTION00416000000000000000">Aria</A>
+  HREF="node4.html#SECTION00414000000000000000">Walk</A>
 <LI><A ID="tex2html492"
-  HREF="node4.html#SECTION00417000000000000000">Plectrum</A>
+  HREF="node4.html#SECTION00415000000000000000">Scale</A>
 <LI><A ID="tex2html493"
-  HREF="node4.html#SECTION00418000000000000000">Drum</A>
+  HREF="node4.html#SECTION00416000000000000000">Aria</A>
 <LI><A ID="tex2html494"
+  HREF="node4.html#SECTION00417000000000000000">Plectrum</A>
+<LI><A ID="tex2html495"
+  HREF="node4.html#SECTION00418000000000000000">Drum</A>
+<LI><A ID="tex2html496"
   HREF="node4.html#SECTION00419000000000000000">Drum Tone</A>
 </UL>
 <BR>
-<LI><A ID="tex2html495"
+<LI><A ID="tex2html497"
   HREF="node4.html#SECTION00420000000000000000">Including Existing Patterns in New Definitions</A>
-<LI><A ID="tex2html496"
+<LI><A ID="tex2html498"
   HREF="node4.html#SECTION00430000000000000000">Multiplying and Shifting Patterns</A>
 </UL>
 <!--End of Table of Child-Links-->
@@ -88,7 +88,7 @@ Patterns
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  builds its output based on P<SMALL>ATTERN</SMALL>s and S<SMALL>EQUENCE</SMALL>s
 supplied by you. These can be defined in the same file as the rest of
 the song data, or can be included (see
-<A HREF="node32.html#sec-paths">here</A>) from a library file.
+<A HREF="node33.html#sec-paths">here</A>) from a library file.
 
 <P>
 A pattern is a definition for a voice or track which describes what
@@ -305,7 +305,7 @@ A number of special tuplet values (ie, 3, 6, 5) have been hard-coded
 
 <P>
 The actual duration given to a note will be adjusted by the
-  A<SMALL>RTICULATE</SMALL> value <A HREF="node29.html#articulate">here</A>).
+  A<SMALL>RTICULATE</SMALL> value <A HREF="node30.html#articulate">here</A>).
 
 <P>
 In special cases you might want to forget all standard duration
@@ -323,20 +323,27 @@ When using MIDI tick values you <SPAN  CLASS="textit">cannot</SPAN> use &ldquo;+
 </DD>
 <DT><STRONG>Volume</STRONG></DT>
 <DD>The MIDI velocity<A ID="tex2html25"
-  HREF="#foot1575"><SUP><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A> to use for the specified note.
-  For a detailed explanation of how 
+  HREF="#foot1570"><SUP><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A> to use for the specified note.
+
+<P>
+For a detailed explanation of how 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  calculates the volume of a
-  note, see <A HREF="node19.html#sec-volume">read this</A>.
+  note, see <A HREF="node19.html#sec-volume">here</A>. Without
+  going into a lot of detail, we recommend a moderate velocity so that
+  
+<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  has some room to make the note louder or softer. If you
+  create a pattern with all your velocities set to 127 it will be
+  impossible for 
+<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  to increase them when it encounters a
+  D<SMALL>YNAMIC</SMALL> command. Most of the files in the standard library use
+  velocities in the range 50 to 100.
 
 <P>
 MIDI velocities are limited to the range 0 to 127. However, 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT> 
   does not check the volumes specified in a pattern for
   validity.<A ID="tex2html26"
-  HREF="#foot1582"><SUP><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">5</SPAN></SUP></A>
-<P>
-In most cases velocities in the range 50 to 100 are useful.
-
+  HREF="#foot1580"><SUP><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">5</SPAN></SUP></A>
 <P>
 </DD>
 </DL>
@@ -373,7 +380,7 @@ and
 
 <P>
 Will generate identical outcomes.<A ID="tex2html27"
-  HREF="#foot1595"><SUP><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">6</SPAN></SUP></A>
+  HREF="#foot1593"><SUP><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">6</SPAN></SUP></A>
 <P>
 
 <H2><A ID="SECTION00411000000000000000"></A> <A ID="sec-bass"></A>
@@ -467,13 +474,9 @@ of 90 for beats 1 and 3 and 80 for beats 2 and 4.
 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  refers to note tables to determine the &ldquo;scale&rdquo; to use in a
 bass pattern. Each recognized chord type has an associated scale. For
-example, the chord &ldquo;Cm&rdquo; consists of the notes &ldquo;c&rdquo;, &ldquo;e<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img1.png"
- ALT="$\flat$"></SPAN>&rdquo;
-and &ldquo;g&rdquo;; the scale for this chord is &ldquo;c, d, e<SPAN CLASS="MATH"><IMG
- WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
- SRC="img1.png"
+example, the chord &ldquo;Cm&rdquo; consists of the notes &ldquo;c&rdquo;, &ldquo;e<SPAN CLASS="MATH"><IMG STYLE="height: 1.81ex; vertical-align: -0.10ex; " SRC="img1.png"
+ ALT="$\flat$"></SPAN>
+and &ldquo;g&rdquo;; the scale for this chord is &ldquo;c, d, e<SPAN CLASS="MATH"><IMG STYLE="height: 1.81ex; vertical-align: -0.10ex; " SRC="img1.png"
  ALT="$\flat$"></SPAN>, f, g, a, b&rdquo;.
 
 <P>
@@ -585,7 +588,7 @@ An A<SMALL>RPEGGIO</SMALL> pattern is defined with:
 The arpeggio tracks play notes from a chord one at a time. This is
 quite different from chords where the notes are played all at
 once--refer to the S<SMALL>TRUM</SMALL> directive
-(<A HREF="node29.html#strum">here</A>).
+(<A HREF="node30.html#strum">here</A>).
 
 <P>
 Each group consists of an beat offset, the note duration, and the note
@@ -629,7 +632,7 @@ The volume is applied to the specified note in the pattern.
 <P>
 
 <P>
-<A HREF="#eg:arp4s">This example</A> plays quarter note
+<A HREF="#eg:arp4s">This example</A> plays quarter notes
 on beats 1, 2, 3 and 4 of a bar in <SPAN  CLASS="textbf">4/4</SPAN> time.
 
 <P>
@@ -753,8 +756,8 @@ are set to a MIDI velocity of 90.
 <P>
 Scale patterns are quite useful in endings. More options for scales
 detailed in the S<SMALL>CALE</SMALL>D<SMALL>IRECTION</SMALL>
-(<A HREF="node29.html#scale-direction">here</A>) and S<SMALL>CALE</SMALL>T<SMALL>YPE</SMALL>
-(<A HREF="node29.html#scale-type">here</A>) sections.
+(<A HREF="node30.html#scale-direction">here</A>) and S<SMALL>CALE</SMALL>T<SMALL>YPE</SMALL>
+(<A HREF="node30.html#scale-type">here</A>) sections.
 
 <P>
 
@@ -924,7 +927,7 @@ To repeat the same &ldquo;tone&rdquo; in a sequence list, use a single &ldquo;/&
 <P>
 The &ldquo;tone&rdquo; can be specified with a MIDI note value or with a
 symbolic name. For example, a snare drum could be specified as &ldquo;38&rdquo;
-or &ldquo;SnareDrum1&rdquo;.  <A HREF="node35.html#sec-drumnames">The Drumnames
+or &ldquo;SnareDrum1&rdquo;.  <A HREF="node36.html#sec-drumnames">The Drumnames
   appendix</A> lists all the defined symbolic
 names.
 
@@ -1278,14 +1281,14 @@ which would create the same pattern as the longer:
     G<SMALL>ROOVE</SMALL> &ldquo;Bluegrass&rdquo; for an example.
 
 </DD>
-<DT><A ID="foot1575">... velocity</A><A
+<DT><A ID="foot1570">... velocity</A><A
  HREF="node4.html#tex2html25"><SUP><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A></DT>
 <DD>MIDI &ldquo;note on&rdquo; events are
     declared with a &ldquo;velocity&rdquo; value. Think of this as the
     &ldquo;striking pressure&rdquo; on a piano.
 
 </DD>
-<DT><A ID="foot1582">... validity.</A><A
+<DT><A ID="foot1580">... validity.</A><A
  HREF="node4.html#tex2html26"><SUP><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">5</SPAN></SUP></A></DT>
 <DD>This is a feature that you probably don't want to
     use, but if you want to ensure that a note is always sounded use a
@@ -1294,7 +1297,7 @@ which would create the same pattern as the longer:
     be clipped to the maximum permitted MIDI velocity.
 
 </DD>
-<DT><A ID="foot1595">... outcomes.</A><A
+<DT><A ID="foot1593">... outcomes.</A><A
  HREF="node4.html#tex2html27"><SUP><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">6</SPAN></SUP></A></DT>
 <DD>What really happens is that
   this definition is stored in a slot named &ldquo;DRUM&rdquo;.
@@ -1311,7 +1314,7 @@ semitone.</A><A
 order.</A><A
  HREF="node4.html#tex2html29"><SUP><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">8</SPAN></SUP></A></DT>
 <DD>See the D<SMALL>IRECTION</SMALL> command
-  (<A HREF="node29.html#scale-direction">here</A>).
+  (<A HREF="node30.html#scale-direction">here</A>).
 
 </DD>
 <DT><A ID="foot1827">... &ldquo;color&rdquo;</A><A

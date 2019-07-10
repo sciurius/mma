@@ -99,7 +99,7 @@ class Scale(PC):
         self.scaleType = seqBump(tmp)
 
         if MMA.debug.debug:
-            print("Set %s ScaleType to: %s" %
+            dPrint("Set %s ScaleType to: %s" %
                   (self.name, ' '.join(self.scaleType)))
         
     def restart(self):

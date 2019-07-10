@@ -46,32 +46,32 @@
 <A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
 <UL CLASS="ChildLinks">
-<LI><A ID="tex2html528"
+<LI><A ID="tex2html530"
   HREF="node10.html#SECTION001010000000000000000">Note Data Format</A>
 <UL>
-<LI><A ID="tex2html529"
-  HREF="node10.html#SECTION001011000000000000000">Chord Extensions</A>
-<LI><A ID="tex2html530"
-  HREF="node10.html#SECTION001012000000000000000">Accents</A>
 <LI><A ID="tex2html531"
-  HREF="node10.html#SECTION001013000000000000000">Long Notes</A>
+  HREF="node10.html#SECTION001011000000000000000">Chord Extensions</A>
 <LI><A ID="tex2html532"
-  HREF="node10.html#SECTION001014000000000000000">Using Defaults</A>
+  HREF="node10.html#SECTION001012000000000000000">Accents</A>
 <LI><A ID="tex2html533"
-  HREF="node10.html#SECTION001015000000000000000">Stretch</A>
+  HREF="node10.html#SECTION001013000000000000000">Long Notes</A>
 <LI><A ID="tex2html534"
+  HREF="node10.html#SECTION001014000000000000000">Using Defaults</A>
+<LI><A ID="tex2html535"
+  HREF="node10.html#SECTION001015000000000000000">Stretch</A>
+<LI><A ID="tex2html536"
   HREF="node10.html#SECTION001016000000000000000">Other Commands</A>
 </UL>
 <BR>
-<LI><A ID="tex2html535"
-  HREF="node10.html#SECTION001020000000000000000">AutoSoloTracks</A>
-<LI><A ID="tex2html536"
-  HREF="node10.html#SECTION001030000000000000000">Drum Solo Tracks</A>
 <LI><A ID="tex2html537"
-  HREF="node10.html#SECTION001040000000000000000">Arpeggiation</A>
+  HREF="node10.html#SECTION001020000000000000000">AutoSoloTracks</A>
 <LI><A ID="tex2html538"
-  HREF="node10.html#SECTION001050000000000000000">Sequence</A>
+  HREF="node10.html#SECTION001030000000000000000">Drum Solo Tracks</A>
 <LI><A ID="tex2html539"
+  HREF="node10.html#SECTION001040000000000000000">Arpeggiation</A>
+<LI><A ID="tex2html540"
+  HREF="node10.html#SECTION001050000000000000000">Sequence</A>
+<LI><A ID="tex2html541"
   HREF="node10.html#SECTION001060000000000000000">Voicing</A>
 </UL>
 <!--End of Table of Child-Links-->
@@ -154,8 +154,8 @@ Groove Blues
       </Table>
 
 <P>
-no one will be surprised to find that the M<SMALL>ELODY</SMALL> track playing
-with the default voice (Piano).
+you should not be surprised to find that the M<SMALL>ELODY</SMALL> track is playing
+with the default voice (Piano) which has been pulled out of the Blues G<SMALL>ROOVE</SMALL>.
 
 <P>
 As a general rule, M<SMALL>ELODY</SMALL> tracks have been designed as a
@@ -172,7 +172,7 @@ tracks are identical.
 <P>
 Before you create any S<SMALL>OLO</SMALL> or M<SMALL>ELODY</SMALL> tracks you should
 set the key signature. See
-<A HREF="node29.html#keysignature">here</A> for details on this
+<A HREF="node30.html#keysignature">here</A> for details on this
 important setting.
 
 <P>
@@ -251,6 +251,32 @@ If you look at the sample songs from our website
 in many songs to create short introductions.
 
 <P>
+Warning: The following example will not work:
+
+<P>
+
+      <Table Hspace="40%" CellSpacing=0 CellPadding=10 BGColor="OldLace" Border=3>
+        <tr><td>
+    <B>Begin Solo Riff&nbsp;&nbsp;&nbsp;&nbsp;   <em><Font color=Red>
+	¡¡Wrong!!
+    <Font color=Black > </em>  
+<BR>&nbsp;&nbsp;&nbsp;4c;2d;4f; 
+<BR>&nbsp;&nbsp;&nbsp;4.a;8g#;4a;4c+ 
+<BR>
+End 
+<BR></B> 
+   
+	    </td></tr>
+      </Table>
+
+<P>
+There are no chord lines defined to go along with the solo. If you
+compile this short segment 
+<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  will alert you with a &ldquo;no data
+generated&rdquo; message. If all you want is the melody, create &ldquo;empty&rdquo;
+lines with the <SMALL>Z</SMALL> rest special chord.
+
+<P>
 
 <H1><A ID="SECTION001010000000000000000">
 Note Data Format</A>
@@ -261,7 +287,7 @@ The notes in a S<SMALL>OLO</SMALL> or M<SMALL>ELODY</SMALL> track are specified 
 series of &ldquo;chords&rdquo;. Each chord can be a single note, or several
 notes (all with the same duration). Each chord in the bar is delimited
 with a single semicolon.<A ID="tex2html47"
-  HREF="#foot5430"><SUP><SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A> Please note
+  HREF="#foot5455"><SUP><SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A> Please note
 the terminology used here! When we refer to a &ldquo;chord&rdquo; we are
 referring to the data a one point in the bar. It might be a single
 note, a number of notes, or a rest.
@@ -301,7 +327,10 @@ Firstly, you can use standard musical notation: the
 
 <P>
 Secondly, you can specify a note via its MIDI value. A MIDI value of
-  60 is the same as a &ldquo;middle c&rdquo;. Important: if you specify a note
+  60 is the same as a &ldquo;middle c&rdquo;.
+
+<P>
+<SPAN  CLASS="textit">Important</SPAN>: if you specify a note
   using a MIDI value that note will <SPAN  CLASS="textit">not</SPAN> be adjusted for the
   O<SMALL>CTAVE</SMALL> setting in the track or the key signature; however,
   T<SMALL>RANSPOSE</SMALL> will be applied.
@@ -369,7 +398,7 @@ Double sharps and flats are not supported.
 <DT><STRONG>Tilde</STRONG></DT>
 <DD>The tilde character, ~, can appear as the
   first or last item in a note sequence. As the last character it
-  signals that the final note duration extend past the end of the bar
+  signals that the final note duration extends past the end of the bar
   (note, when we say &ldquo;last&rdquo; we mean just that ... if you have a
   &lt; &gt; modifier in the last chord of a bar
   place the tilde after that). As the first character it signals to
@@ -496,7 +525,7 @@ The G<SMALL>RACE</SMALL> extension can, optionally, have a &ldquo;offset
   grace note; the duration of the note is divided by the modifier. So,
   a 16th grace note would be played 24 MIDI ticks
   early.<A ID="tex2html49"
-  HREF="#foot5436"><SUP><SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A> If
+  HREF="#foot5461"><SUP><SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A> If
   you have multiple grace notes you can use increasing offset
   modifiers to stretch out the grace notes. For example, to sound
   three grace notes you could do:
@@ -706,7 +735,7 @@ their effect:
 <P>
 You can use any number of these accents in a set (however, more than 5
 becomes useless). Their effects are cummulative.<A ID="tex2html50"
-  HREF="#foot5258"><SUP><SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A>
+  HREF="#foot5281"><SUP><SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A>
 <P>
 And example of the usage might be:
 
@@ -753,7 +782,7 @@ It can be handled in three different ways in your score:
 <LI>
       <Table Hspace="40%" CellSpacing=0 CellPadding=10 BGColor="OldLace" Border=3>
         <tr><td>
-    <B>F {4c;d;e;4+1+2f;}
+    <B>F {4c;d;e;4+2f;}
 <BR>
 F {2r;2c;}  </B> 
    
@@ -874,10 +903,9 @@ values. This will <SPAN  CLASS="textit">not</SPAN> work:
 
       <Table Hspace="40%" CellSpacing=0 CellPadding=10 BGColor="OldLace" Border=3>
         <tr><td>
-    <B>Solo Riff 4 100; 110&nbsp; <IMG
- WIDTH="21" HEIGHT="21" ALIGN="BOTTOM" BORDER="0"
- SRC="img2.png"
- ALT="\includegraphics[height=2.5ex]{/home/bob/src/bv/mma/docs/images/stop.eps}">  </B> 
+    <B>Solo Riff 4 100; 110  <em><Font color=Red>
+	¡¡Wrong!!
+    <Font color=Black > </em>   </B> 
    
 	    </td></tr>
       </Table>
@@ -885,7 +913,7 @@ values. This will <SPAN  CLASS="textit">not</SPAN> work:
 <P>
 The problem is that for the second chord 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  assumes the value 110
-to be a duration. Simple fix is to insert a comma before the second
+to be a duration. Simple fix is to insert either a &ldquo;4&rdquo; or a  comma before the second
 pitch:
 
 <P>
@@ -1265,7 +1293,7 @@ Sequences work just like they do in other tracks. There are some
 advantages to this: you can use the mnemonic notation outlined above;
 and you can easily import existing MIDI tracks to use as sequences
 (see <A HREF="node24.html#midi-inc">here</A>). Some examples are
-included in the directory <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">egs/midi-inc/mid2seq</SPAN></SPAN> in the
+included in the directories <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">egs/solo</SPAN></SPAN> and  <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">egs/midi-inc/mid2seq</SPAN></SPAN> in the
 distribution.
 
 <P>
@@ -1317,7 +1345,7 @@ Voicing</A>
 <P>
 These V<SMALL>OICING</SMALL> commands only apply to M<SMALL>ELODY</SMALL> and
 S<SMALL>OLO</SMALL> tracks.<A ID="tex2html51"
-  HREF="#foot5444"><SUP><SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A> Each option is set
+  HREF="#foot5469"><SUP><SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A> Each option is set
 as an OPTION=VALUE pair.
 
 <P>
@@ -1349,10 +1377,11 @@ In most, if not all, cases you should set this to OFF when using
 
 <P>
 Regardless of the setting, explicit accidentals in the pattern are
-  honoured as detailed above. You should specify explicit accidentals
-  in a pattern used as a sequence in a S<SMALL>OLO</SMALL> or M<SMALL>ELODY</SMALL>
-  track. Again, as mentioned above, pitches specified as MIDI values
-  are unaffected by the key signature.
+  honoured as detailed earlier in this section. You should specify
+  explicit accidentals in a pattern used as a sequence in a
+  S<SMALL>OLO</SMALL> or M<SMALL>ELODY</SMALL> track. Again, as mentioned above,
+  pitches specified as MIDI values are unaffected by the key
+  signature.
 
 <P>
 </DD>
@@ -1385,7 +1414,7 @@ generate a warning.
 <P>
 <BR><HR><H4>Footnotes</H4>
 <DL>
-<DT><A ID="foot5430">... semicolon.</A><A
+<DT><A ID="foot5455">... semicolon.</A><A
  HREF="node10.html#tex2html47"><SUP><SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A></DT>
 <DD>I have borrowed heavily from the
   notation program MUP for the syntax used here. For notation I highly
@@ -1395,20 +1424,20 @@ generate a warning.
   HREF="http://www.Arkkra.com/">http://www.Arkkra.com/</A></kbd>.
 
 </DD>
-<DT><A ID="foot5436">... early.</A><A
+<DT><A ID="foot5461">... early.</A><A
  HREF="node10.html#tex2html49"><SUP><SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A></DT>
 <DD>Using 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT> 's 192 ticks for a quarter note, a 16th
     note gets 48 ticks. Divide that by the modifier (default is 2.
 
 </DD>
-<DT><A ID="foot5258">... cummulative.</A><A
+<DT><A ID="foot5281">... cummulative.</A><A
  HREF="node10.html#tex2html50"><SUP><SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A></DT>
 <DD>Each accent
   character changes the note articulation or volume by 20%.
 
 </DD>
-<DT><A ID="foot5444">... tracks.</A><A
+<DT><A ID="foot5469">... tracks.</A><A
  HREF="node10.html#tex2html51"><SUP><SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A></DT>
 <DD>For other voicing options, please see
   <A HREF="node14.html#chord-voicing">here</A>.

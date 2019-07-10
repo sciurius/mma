@@ -97,6 +97,6 @@ def trackAlloc(name, err):
         newtk.saveGroove(slot)
 
     if MMA.debug.debug:
-        print("Creating new track %s" % name)
+        dPrint("Creating new track %s" % name)
 
     return

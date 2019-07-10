@@ -34,7 +34,7 @@
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A>   
 <BR>
 <B> Next:</B> <A
- HREF="node29.html">Other Commands and Directives</A>
+ HREF="node29.html">Enviroment Variables</A>
 <B> Up:</B> <A
  HREF="mma.html">Reference Manual</A>
 <B> Previous:</B> <A
@@ -46,18 +46,16 @@
 <A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
 <UL CLASS="ChildLinks">
-<LI><A ID="tex2html653"
-  HREF="node28.html#SECTION002810000000000000000">VoiceTr</A>
-<LI><A ID="tex2html654"
-  HREF="node28.html#SECTION002820000000000000000">ToneTr</A>
 <LI><A ID="tex2html655"
-  HREF="node28.html#SECTION002830000000000000000">VoiceVolTr</A>
+  HREF="node28.html#SECTION002810000000000000000">VoiceTr</A>
 <LI><A ID="tex2html656"
-  HREF="node28.html#SECTION002840000000000000000">DrumVolTr</A>
+  HREF="node28.html#SECTION002820000000000000000">ToneTr</A>
 <LI><A ID="tex2html657"
-  HREF="node28.html#SECTION002850000000000000000">Tweaks</A>
+  HREF="node28.html#SECTION002830000000000000000">VoiceVolTr</A>
 <LI><A ID="tex2html658"
-  HREF="node28.html#SECTION002860000000000000000">Enviroment Variables</A>
+  HREF="node28.html#SECTION002840000000000000000">DrumVolTr</A>
+<LI><A ID="tex2html659"
+  HREF="node28.html#SECTION002850000000000000000">Tweaks</A>
 </UL>
 <!--End of Table of Child-Links-->
 <HR>
@@ -70,7 +68,7 @@ Fine Tuning (Translations)
 
 <P>
 A program such as 
-<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  which is intended to be run of various
+<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  which is intended to be run on various
 computers and synthesizers (both hardware keyboards and software
 versions) suffers from a minor deficiency of the MIDI standards:
 mainly that the standard says nothing about what a certain instrument
@@ -81,7 +79,7 @@ means that all GM synths will play a "Piano" if instrument 000 is
 selected.
 
 <P>
-But, if one plays a GM file on a Casio keyboard, then on PC
+But, if one plays a GM file on a Casio keyboard, then on a PC
 soft-synth, and then on a Yahama keyboard you will get three quite
 different sounds. The files supplied in this distribution have been
 created to sound good on the author's setup: A Casio WK-3000 keyboard.
@@ -153,8 +151,6 @@ V<SMALL>OLUME</SMALL>, etc. command is issued. This may confuse the unwary if
 G<SMALL>ROOVES</SMALL> are being used. But, the following sequence:
 
 <P>
-<TABLE   STYLE="width:60%;">
-<TR><TD>
 
 <OL>
 <LI>You set a voice with the V<SMALL>OICE</SMALL> command,
@@ -165,17 +161,15 @@ G<SMALL>ROOVES</SMALL> are being used. But, the following sequence:
 </LI>
 <LI>You activate the previously defined G<SMALL>ROOVE</SMALL>.
 </LI>
-</OL></TD></TR>
-</TABLE> 
-<TABLE   STYLE="width:30%;">
-<TR><TD><BIG CLASS="XHUGE">Wrong!</BIG></TD></TR>
-</TABLE>
+</OL>
 
 <P>
-<SPAN  CLASS="textit">does not have the desired effect</SPAN>. In the above sequence the
-V<SMALL>OICE</SMALL>TR will have <SPAN  CLASS="textit">no</SPAN> effect. For the desired
-translations to work the V<SMALL>OICE</SMALL> (or whatever) command must come
-<SPAN  CLASS="textit">after</SPAN> the translation command.
+<SPAN  CLASS="textit"><BIG CLASS="XLARGE">&nbsp;&nbsp; Wrong! This does not have the desired effect.</BIG></SPAN>
+
+<P>
+In the above sequence the V<SMALL>OICE</SMALL>TR will have <SPAN  CLASS="textit">no</SPAN> effect.
+For the desired translations to work the V<SMALL>OICE</SMALL> (or whatever)
+command must come <SPAN  CLASS="textit">after</SPAN> the translation command.
 
 <P>
 
@@ -224,7 +218,7 @@ To set a translation (or series of translations):
       </Table>
 
 <P>
-Note that you additional V<SMALL>OICE</SMALL>T<SMALL>R</SMALL> commands will add entries to
+Note that you can additional V<SMALL>OICE</SMALL>T<SMALL>R</SMALL> commands will add entries to
 the existing table. To clear the table use the command with no
 arguments:
 
@@ -670,30 +664,6 @@ your <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">mmarc</SPAN></SPAN> file.
 
 <P>
 
-<H1><A ID="SECTION002860000000000000000"></A> <A ID="sec-envvar"></A>
-<BR>
-Enviroment Variables
-</H1> 
-
-<P>
-
-<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  checks for enviroment variables when starting so it can modify
-seldom changed settings. The list is short (actually, a singleton):
-
-<P>
-<DL>
-<DT><STRONG>MMA_ENCODING</STRONG></DT>
-<DD>By default 
-<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  uses cp1252 to encode input and
-  output files. You can change this via the MMA_ENCODING environment
-  variable. If it doesn't work, you are on your own. Please note, this
-  variable must be all uppercase with a single underscore in between
-  MMA and ENCODING.
-
-<P>
-</DD>
-</DL>
-
 <P>
 
 <DIV CLASS="navigation"><HR>
@@ -709,7 +679,7 @@ seldom changed settings. The list is short (actually, a singleton):
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A>   
 <BR>
 <B> Next:</B> <A
- HREF="node29.html">Other Commands and Directives</A>
+ HREF="node29.html">Enviroment Variables</A>
 <B> Up:</B> <A
  HREF="mma.html">Reference Manual</A>
 <B> Previous:</B> <A

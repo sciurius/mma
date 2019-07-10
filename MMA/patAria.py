@@ -106,7 +106,7 @@ class Aria(PC):
             msg = ["Set %s ScaleType:" % self.name]
             for a in self.scaleType:
                 msg.append(a)
-            print(' '.join(msg))
+            dPrint(' '.join(msg))
 
     def setDirection(self, ln):
         """ Set direction for melody creation.
@@ -139,7 +139,7 @@ class Aria(PC):
             msg = ["Set %s Direction:" % self.name]
             for a in self.selectDir:
                 msg.append(str(a))
-            print(' '.join(msg))
+            dPrint(' '.join(msg))
 
     def restart(self):
         self.ssvoice = -1

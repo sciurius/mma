@@ -293,7 +293,8 @@ def findGroove(targ):
 
             fpath = MMA.paths.findLibFile(dirfile)
             if not fpath:
-                error("Can't locate library file: %s, Groove: %s." % (dirfile, targ))
+                error("Can't locate library file: %s! Groove: %s can't be found either."
+                      % (dirfile, targ))
 
             if fpath.endswith(gbl.EXT) and not dirfile.endswith(gbl.EXT):
                 dirfile += gbl.EXT

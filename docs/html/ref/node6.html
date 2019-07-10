@@ -46,26 +46,26 @@
 <A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
 <UL CLASS="ChildLinks">
-<LI><A ID="tex2html502"
+<LI><A ID="tex2html504"
   HREF="node6.html#SECTION00610000000000000000">Creating A Groove</A>
-<LI><A ID="tex2html503"
+<LI><A ID="tex2html505"
   HREF="node6.html#SECTION00620000000000000000">Using A Groove</A>
 <UL>
-<LI><A ID="tex2html504"
+<LI><A ID="tex2html506"
   HREF="node6.html#SECTION00621000000000000000">Extended Groove Notation</A>
-<LI><A ID="tex2html505"
+<LI><A ID="tex2html507"
   HREF="node6.html#SECTION00622000000000000000">Overlay Grooves</A>
 </UL>
 <BR>
-<LI><A ID="tex2html506"
-  HREF="node6.html#SECTION00630000000000000000">Groove Aliases</A>
-<LI><A ID="tex2html507"
-  HREF="node6.html#SECTION00640000000000000000">AllGrooves</A>
 <LI><A ID="tex2html508"
-  HREF="node6.html#SECTION00650000000000000000">Deleting Grooves</A>
+  HREF="node6.html#SECTION00630000000000000000">Groove Aliases</A>
 <LI><A ID="tex2html509"
-  HREF="node6.html#SECTION00660000000000000000">Sticky</A>
+  HREF="node6.html#SECTION00640000000000000000">AllGrooves</A>
 <LI><A ID="tex2html510"
+  HREF="node6.html#SECTION00650000000000000000">Deleting Grooves</A>
+<LI><A ID="tex2html511"
+  HREF="node6.html#SECTION00660000000000000000">Sticky</A>
+<LI><A ID="tex2html512"
   HREF="node6.html#SECTION00670000000000000000">Library Issues</A>
 </UL>
 <!--End of Table of Child-Links-->
@@ -123,7 +123,7 @@ command:
 A groove name can include any character, including digits and
 punctuation. However, it cannot include a space character (used as a
 delimiter), a colon &ldquo;:&rdquo; or a '/'.<A ID="tex2html35"
-  HREF="#foot2944"><SUP><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>
+  HREF="#foot2945"><SUP><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>
 <P>
 In normal operation the documentation strings are ignored. However,
 when 
@@ -265,7 +265,7 @@ A few cautions:
 
 <P>
 and use the pattern &ldquo;MyPat&rdquo; in a chord sequence <SPAN  CLASS="textit">and</SPAN> save that
-pattern into a groove you should be careful <SPAN  CLASS="textit">not to</SPAN> refine
+pattern into a groove you should be careful <SPAN  CLASS="textit">not to</SPAN> redefine
 &ldquo;MyPat&rdquo;. 
 
 <P>
@@ -325,6 +325,8 @@ would create the following bars:
 </LI>
 <LI>Tango
 </LI>
+<LI>...
+</LI>
 </OL>
 
 <P>
@@ -377,12 +379,12 @@ When you use the &ldquo;list&rdquo; feature of G<SMALL>ROOVE</SMALL>s you should
 aware of what happens with the bar sequence number. Normally the
 sequence number is incremented after each bar is processed; and, when
 a new groove is selected the sequence number is reset (see S<SMALL>EQ</SMALL>,
-<A HREF="node29.html#seqnumber">discussed here)</A>. When you use a
+<A HREF="node30.html#seqnumber">discussed here)</A>. When you use a
 list which changes the G<SMALL>ROOVE</SMALL> after each bar the sequence
 number is reset after each bar ... with one exception: if the same
 G<SMALL>ROOVE</SMALL> is being used for two or more bars the sequence will not
 be reset.<A ID="tex2html36"
-  HREF="#foot3158"><SUP><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A>
+  HREF="#foot3161"><SUP><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A>
 <P>
 Another way to select G<SMALL>ROOVE</SMALL>s is to use a list of grooves with
 a leading value. In its simplest form the leading value will just
@@ -472,7 +474,7 @@ available with simple G<SMALL>ROOVE</SMALL> commands.
 <P>
 Extended groove names, in just about all cases, eliminate the need for
 the U<SMALL>SE</SMALL> command. For a complete understanding you should also
-read the PATHS section, <A HREF="node32.html#lib-files">here</A>,
+read the PATHS section, <A HREF="node33.html#lib-files">here</A>,
 of this manual.
 
 <P>
@@ -483,7 +485,8 @@ for the filename/path on your system. If, for example, you have a file
 <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">casio/poprock1.mma</SPAN></SPAN> and attempt to access it with G<SMALL>ROOVE</SMALL>
 <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">Casio/Poprock1:PopRock1End</SPAN></SPAN> it will not work. You must use the
 form G<SMALL>ROOVE</SMALL> <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">casio/poprock1:PopRock1End</SPAN></SPAN>. The case of the
-data to the right of the &ldquo;:&rdquo; is not important.
+data to the right of the &ldquo;:&rdquo; is not important. <SPAN  CLASS="textit">Do not use
+  quotation marks</SPAN> when specifying a filename. 
 
 <P>
 When using an extended name, you (probably) only need to use the full
@@ -582,7 +585,7 @@ wrong groove in memory.
 
 <P>
 To help find problems you may encounter managing multiple libraries,
-you can enable the special warning flag (see <A HREF="node29.html#debugging">here</A>):
+you can enable the special warning flag (see <A HREF="node30.html#debugging">here</A>):
 
 <P>
 
@@ -711,7 +714,7 @@ you will get a warning.
 
 <P>
 In most cases you will find the C<SMALL>OPY</SMALL> command detailed
-<A HREF="node29.html#copy">here</A> to be more robust.
+<A HREF="node30.html#copy">here</A> to be more robust.
 
 <P>
 
@@ -778,7 +781,7 @@ Defgroove Good2   </B>
 
 <P>
 You now have both &ldquo;good&rdquo; and &ldquo;good2&rdquo; assigned to the same set of
-sequences, etc. Now, lets change something:
+sequences, etc. Now, let's change something:
 
 <P>
 
@@ -851,14 +854,10 @@ file. For example:
     <B>Use Rhumba 
 <BR>
 Begin AllGrooves 
-<BR>
-Bass Articulate 50 
-<BR>
-Bass Volume +20 
-<BR>
-Walk Articulate 50 
-<BR>
-Walk Volume +10 
+<BR>&nbsp; Bass Articulate 50 
+<BR>&nbsp; Bass Volume +20 
+<BR>&nbsp; Walk Articulate 50 
+<BR>&nbsp; Walk Volume +10 
 <BR>
 End 
 <BR>   ...</B> 
@@ -980,7 +979,9 @@ will insert 2 additional beats for each G<SMALL>ROOVE</SMALL> you have. So,
 <LI>You can disable <SPAN  CLASS="textit">all</SPAN> warning messages with might be
   displayed when applying this command by using the command modifier
   N<SMALL>O</SMALL>W<SMALL>ARN</SMALL> as the first argument. For example:
-  
+
+<P>
+
       <Table Hspace="40%" CellSpacing=0 CellPadding=10 BGColor="OldLace" Border=3>
         <tr><td>
     <B>AllGrooves Bass Sequence B11  </B> 
@@ -988,9 +989,12 @@ will insert 2 additional beats for each G<SMALL>ROOVE</SMALL> you have. So,
 	    </td></tr>
       </Table>
 
-  will display a warning message (it's not recommended to change all
+<P>
+will display a warning message (it's not recommended to change all
   sequence definitions like this), but:
-  
+
+<P>
+
       <Table Hspace="40%" CellSpacing=0 CellPadding=10 BGColor="OldLace" Border=3>
         <tr><td>
     <B>AllGrooves NoWarn Bass Sequence B11  </B> 
@@ -998,7 +1002,8 @@ will insert 2 additional beats for each G<SMALL>ROOVE</SMALL> you have. So,
 	    </td></tr>
       </Table>
 
-  will complile cleanly. We recommend you get your file working
+<P>
+will complile cleanly. We recommend you get your file working
   properly <SPAN  CLASS="textit">before</SPAN> adding this modifier.
 
 <P>
@@ -1135,10 +1140,10 @@ at the appropriate position in your input file.
 <P>
 One minor problem which <SPAN  CLASS="textit">may</SPAN> arise is that more than one library
 file has defined the same groove name. This might happen if you have a
-third-party library file. For the proposes of this example, lets
+third-party library file. For the proposes of this example, let's
 assume that the standard library file &ldquo;rhumba.mma&rdquo; and a second file
 &ldquo;xyz-rhumba.mma&rdquo; both define the groove &ldquo;Rhumba2&rdquo;. The
-<A HREF="node32.html#lib-use">auto-load</A> routines
+<A HREF="node33.html#lib-use">auto-load</A> routines
 which search the library database will load the first &ldquo;Rhumba2&rdquo; it
 finds, and the search order cannot be determined. To overcome this
 possible problem, do a explicit loading of the correct file. In this
@@ -1171,18 +1176,18 @@ just before the groove call. The U<SMALL>SE</SMALL> will read the specified
 file and overwrite the old definition of &ldquo;Rhumba2&rdquo; with its own.
 
 <P>
-This issue in covered in more detail <A HREF="node32.html#library-maint">here in</A> this manual.
+This issue in covered in more detail <A HREF="node33.html#library-maint">here in</A> this manual.
 
 <P>
 <BR><HR><H4>Footnotes</H4>
 <DL>
-<DT><A ID="foot2944">... '/'.</A><A
+<DT><A ID="foot2945">... '/'.</A><A
  HREF="node6.html#tex2html35"><SUP><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A></DT>
 <DD>The '/' and ':' are used
   in extended names.
 
 </DD>
-<DT><A ID="foot3158">... reset.</A><A
+<DT><A ID="foot3161">... reset.</A><A
  HREF="node6.html#tex2html36"><SUP><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A></DT>
 <DD>Actually, 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  checks to see the next

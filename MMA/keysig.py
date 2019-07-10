@@ -155,7 +155,7 @@ class KeySig:
                 gbl.tnames[t].restart()
 
         if MMA.debug.debug:
-            print("KeySig:", self.getKeysig())
+            dPrint("KeySig: %s" % self.getKeysig())
 
     def getKeysig(self):
         """ Create a key sig string. """
@@ -305,4 +305,4 @@ def transpose(ln):
         gbl.transpose = getTranspose(ln, "Transpose")
 
     if MMA.debug.debug:
-        print("Set Transpose to %s" % gbl.transpose)
+        dPrint("Set Transpose to %s" % gbl.transpose)

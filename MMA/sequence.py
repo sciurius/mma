@@ -172,7 +172,7 @@ def trackSequence(name, ln):
                 msg.append("-")
             else:
                 msg.append(a)
-        print(' '.join(msg))
+        dPrint(' '.join(msg))
 
 
 def seqsize(ln):
@@ -203,7 +203,7 @@ def seqsize(ln):
         MMA.seqrnd.seqRndWeight = seqBump(MMA.seqrnd.seqRndWeight)
 
     if MMA.debug.debug:
-        print("Set SeqSize to %s" % n)
+        dPrint("Set SeqSize to %s" % n)
 
 
 def seq(ln):
@@ -274,7 +274,7 @@ def trackSeqClear(name, ln):
     for n in gbl.tnames:
         if n.find(name) == 0:
             if MMA.debug.debug:
-                print("SeqClear: Track %s cleared." % n)
+                dPrint("SeqClear: Track %s cleared." % n)
             gbl.tnames[n].clearSequence()
 
 
@@ -301,7 +301,7 @@ def trackSeqRnd(name, ln):
             a = "On"
         else:
             a = "Off"
-        print("%s SeqRnd: %s" % (self.name, a))
+        dPrint("%s SeqRnd: %s" % (self.name, a))
 
 
 def trackSeqRndWeight(name, ln):
@@ -325,7 +325,7 @@ def trackSeqRndWeight(name, ln):
     self.seqRndWeight = seqBump(tmp)
 
     if MMA.debug.debug:
-        print("Set %s SeqRndWeight: %s" % 
+        dPrint("Set %s SeqRndWeight: %s" % 
               (self.name, ' '.join([str(a) for a in self.seqRndWeight])))
 
 

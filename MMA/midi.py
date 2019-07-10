@@ -68,7 +68,7 @@ def setSplitChannels(ln):
         msg = ["SplitChannels: "]
         for a in splitChannels:
             msg.append(str(a))
-        print(' '.join(msg))
+        dPrint(' '.join(msg))
 
 
 ####################
@@ -156,7 +156,7 @@ def writeSplitTrack(channel, out):
                 notes[n].miditrk[offset] = [ev]
 
     if MMA.debug.debug:
-        print(" Data has been split into %s tracks." % len(notes))
+        dPrint(" Data has been split into %s tracks." % len(notes))
 
     # Insert a channel name in all the new tracks.
 
@@ -449,7 +449,7 @@ class Mtrk:
                 nm = "META"
             else:
                 nm = self.trackname
-            print( "<%s> Unique ts: %s; Ttl events %s; Average ev/ts %.2f" %
+            dPrint( "<%s> Unique ts: %s; Ttl events %s; Average ev/ts %.2f" %
                 (nm, len(tr), ttl, float(ttl)/len(tr)))
 
         last = 0
@@ -655,7 +655,7 @@ def stripRange():
                 validRange.append([bp[b][1], bp[b][2]])
 
     if not validRange:
-        print("   Range directive -b/B would result in empty file.\n"
+        dPrint("   Range directive -b/B would result in empty file.\n"
               "   Entire file is being created. Check the range.")
         return
 
@@ -766,4 +766,4 @@ def stripRange():
             lastev = z[-1]
     gbl.tickOffset = lastev
 
-    print("  File has been truncated for -b/-B option. Bar count/time incorrect.")
+    dPrint("  File has been truncated for -b/-B option. Bar count/time incorrect.")
