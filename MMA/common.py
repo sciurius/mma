@@ -31,7 +31,6 @@ without side effects (yeah, right).
 """
 from random import randrange
 import sys
-import fcntl
 import time
 from . import gbl
 from textwrap import wrap
@@ -59,7 +58,11 @@ def cleanPrintBuffer():
         outBuffer.insert(0, "\n**** Run log: '%s' %s" % ( gbl.infile, time.asctime()))
         
         opath = open(gbl.logFile, 'a')    # Open output for append
-        fcntl.flock(opath, fcntl.LOCK_EX)   # make sure we print in one batch
+        try:
+            import fcntl
+            fcntl.flock(opath, fcntl.LOCK_EX)   # make sure we print in one batch
+        except:
+            pass
         opath.write('\n'.join(outBuffer))   # dump entire buffer
         opath.close()                       # this will release lock as well
 

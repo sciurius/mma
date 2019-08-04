@@ -96,7 +96,7 @@ Meta-event:
 <SPAN  CLASS="textbf">FF 05 len text <SPAN  CLASS="textit">Lyric</SPAN>.</SPAN>  A
   lyric to be sung. Generally, each syllable will will be a separate
   lyric event which begins at the event's time.<A ID="tex2html39"
-  HREF="#foot4718"><SUP><SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A></BLOCKQUOTE>
+  HREF="#foot4724"><SUP><SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A></BLOCKQUOTE>
 <P>
 
 <P>
@@ -235,7 +235,7 @@ When this mode is entered the following changes are made:
 <P>
 </LI>
 <LI>Some meta track information is changed to make it compatible
-  with the kar useage.
+  with the kar usage.
 
 <P>
 </LI>
@@ -621,7 +621,7 @@ a lyric just include a dummy to keep
 
 <P>
 <A HREF="#eg:twk">This example</A><A ID="tex2html45"
-  HREF="#foot4724"><SUP><SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A> shows a complete
+  HREF="#foot4730"><SUP><SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A> shows a complete
 song with lyrics. You should also examine the file
 <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">egs/lyrics.mma</SPAN></SPAN> for an alternate example.
 
@@ -691,8 +691,10 @@ A few combinations are not permitted:
 <P>
 
 <UL>
-<LI>You cannot specify lyrics in bars that are being repeated with
-  the &ldquo;*&rdquo; option.
+<LI>You can specify lyrics in bars that are being repeated with
+  the &ldquo;*&rdquo; option; however, the lyric will only appear in the first
+  repeated bar. Using the C<SMALL>HORDS=</SMALL>O<SMALL>N</SMALL> option will generate
+  expected chord symbols for each bar. 
 
 <P>
 </LI>
@@ -701,10 +703,28 @@ A few combinations are not permitted:
 
 <P>
 </LI>
+<LI>If the C<SMALL>HORDS</SMALL> option is enabled, lyrics set in a measure
+using <SPAN  CLASS="textbf">[]</SPAN>s or a L<SMALL>YRIC </SMALL>S<SMALL>ET</SMALL> command (see below) will be
+silently discarded.
+
+<P>
+</LI>
+<LI>The positioning of chords marked with the optional &ldquo;@&rdquo; marker
+  will not be accurately positioned in the text or lyric positions in
+  the MIDI file (they will play just fine, however).
+
+<P>
+</LI>
+<LI>If you set multiple bars of lyrics using SET and then do
+  a repeat measure (using &ldquo;*&rdquo;), the second (and subsequent) lyrics
+  will be set <SPAN  CLASS="textit">after</SPAN> the repeated bar.
+
+<P>
+</LI>
 </UL>
 <BR><HR><H4>Footnotes</H4>
 <DL>
-<DT><A ID="foot4718">... time.</A><A
+<DT><A ID="foot4724">... time.</A><A
  HREF="node9.html#tex2html39"><SUP><SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A></DT>
 <DD>I am quoting
     from &ldquo;MIDI Documentation&rdquo; distributed with the TSE Library. Pete
@@ -727,7 +747,7 @@ A few combinations are not permitted:
   at the end of the bar. All the examples follow this style.
 
 </DD>
-<DT><A ID="foot4724">...eg:twk</A><A
+<DT><A ID="foot4730">...eg:twk</A><A
  HREF="node9.html#tex2html45"><SUP><SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A></DT>
 <DD>Included in
   this distribution as <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">songs/twinkle.mma</SPAN></SPAN>.

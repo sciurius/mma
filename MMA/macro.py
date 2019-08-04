@@ -28,6 +28,10 @@ something like:     macros=MMMmacros.Macros().
 
 import random
 import datetime
+import re
+import types
+from os import environ
+from os import path
 
 import MMA.midiC
 import MMA.translate
@@ -43,7 +47,7 @@ import MMA.ornament
 import MMA.rpitch
 import MMA.chords
 import MMA.debug
-
+from MMA.safe_eval import safeEnv, safeEval
 from . import gbl
 
 from   MMA.notelen import getNoteLen
@@ -51,17 +55,20 @@ from   MMA.keysig import keySig
 from   MMA.timesig import timeSig
 from   MMA.lyric import lyric
 from   MMA.common import *
-from   MMA.safe_eval import safe_eval
+
 
 def sliceVariable(p, sl):
     """ Slice a variable. Used by macro expand. """
 
     try:
+        # Important: We are using the non-safe version of eval()
+        #            changing to safe_eval() will stop slice
+        #            args from working!!! So, don't change it.
         new = eval('p' + "[" + sl + "]")
     except IndexError:
         error("Index '%s' out of range." % sl)
     except:
-        error("Index error in '%s'." % sl)
+        error("Index error '%s' in '%s' Check the array being sliced." % (sl,p) )
 
     if ":" not in sl:
         new = [new]
@@ -91,12 +98,39 @@ class Macros:
     def sysvar(self, s):
         """ Create an internal macro. """
         
+        # Check for system functions.
+        
+        m = re.match( r'([^\(]+)\((.*)\)$', s )
+        if m:
+            return self.sysfun( m.group(1), m.group(2) )
+            
         # Simple/global     system values
 
         if s == 'CHORDADJUST':
             return ' '.join([ "%s=%s" % (a, MMA.chords.cdAdjust[a]) 
                               for a in sorted(MMA.chords.cdAdjust)])
 
+        elif s == 'FILENAME':
+            a = gbl.inpath.fname
+            if isinstance(a, int):
+                return ''
+            else:
+                return str(gbl.inpath.fname)
+
+        elif s == 'FILEPATH':
+            a = gbl.inpath.fname
+            if isinstance(a, int):
+                return ''
+            else:
+                return path.abspath(gbl.inpath.fname)
+
+        elif s == 'SONGPATH':
+            a = gbl.infile
+            if isinstance(a, int):
+                return ''
+            else:
+                return path.abspath(gbl.infile)
+        
         elif s == 'KEYSIG':
             return keySig.getKeysig()
 
@@ -114,6 +148,9 @@ class Macros:
 
         elif s == 'OFFSET':
             return str(gbl.tickOffset)
+        
+        elif s == 'SONGFILENAME':
+            return str(gbl.infile)
 
         elif s == 'VOLUME':
             return str(int(MMA.volume.volume * 100))  # INT() is important
@@ -140,7 +177,11 @@ class Macros:
             from MMA.regplug import simplePlugs  # to avoid circular import error
             return ' '.join(simplePlugs)
 
-        elif s == 'DATAPLUGS':
+        elif s == 'TRACKPLUGINS':
+            from MMA.regplug import trackPlugs  # to avoid circular import error
+            return ' '.join(trackPlugs)
+         
+        elif s == 'DATAPLUGINS':
             from MMA.regplug import dataPlugs  # to avoid circular import error
             return ' '.join(dataPlugs)
         
@@ -162,7 +203,7 @@ class Macros:
 
         elif s == 'TICKPOS':
             return str(gbl.tickOffset)
-
+        
         elif s == 'TRANSPOSE':
             return str(gbl.transpose)
 
@@ -191,9 +232,6 @@ class Macros:
         elif s == "MIDISPLIT":
             return ' '.join([str(x) for x in MMA.midi.splitChannels])
 
-        elif s.startswith("NOTELEN(") and s.endswith(")"):
-            return "%sT" % getNoteLen(s[8:-1])
-            
         elif s == 'SEQRNDWEIGHT':
             return ' '.join([str(x) for x in MMA.seqrnd.seqRndWeight])
 
@@ -329,11 +367,11 @@ class Macros:
 
         elif func == 'ORNAMENT':
             return MMA.ornament.getOrnOpts(t)
-
+        
         elif func == 'PLUGINS':
             from MMA.regplug import trackPlugs  # avoids circular import
             return ' '.join(trackPlugs)
-
+        
         elif func == 'RANGE':
             return ' '.join([str(x) for x in t.chordRange])
 
@@ -454,6 +492,16 @@ class Macros:
 
         else:
             error("Unknown system track variable %s" % s)
+
+    def sysfun(self, func, arg):
+        if func == 'NOTELEN':
+            return "%sT" % getNoteLen(arg)
+        
+        elif func == 'ENV':
+            return safeEnv(arg)
+        
+        else:
+            error("Unknown system function %s" % func)
 
     def expand(self, l):
         """ Loop though input line and make variable subsitutions.
@@ -584,7 +632,7 @@ class Macros:
                     if s2 >= max:
                         error("Unmatched delimiter in '%s'." % l)
 
-                l = l[:s1] + str(safe_eval(l[s1+2:s2].strip())) + l[s2+1:]
+                l = l[:s1] + str( safeEval(l[s1+2:s2].strip())) + l[s2+1:]
 
             l = l.split()
 
@@ -653,7 +701,7 @@ class Macros:
         self.setvar(ln)
 
     def setvar(self, ln):
-        """ Set a variable. Not the difference between the next 2 lines:
+        """ Set a variable. Note the difference between the next 2 lines:
                 Set Bar BAR
                 Set Foo AAA BBB $bar
                    $Foo == "AAA BBB BAR"

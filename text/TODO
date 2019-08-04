@@ -1,4 +1,4 @@
-Can we permit a "* count" in a line with lyrics []?
+Add repeat line to solo option (just line we do for lyrics).
 
 Chord name meta-data might do with some additional settings: merge it
    an existing sequence (Lyric Chords=On SequencePoints=Chord_Foo??).
@@ -30,8 +30,8 @@ Would be nice to have a keyword thing which would let the user switch
    3. Set key to "2 to the bar feel".
    4. Create more gooves ... no idea how naming conflicts work here
 
- Now, in the song, we set our groove to FooSus. Toggling the "feel
-   key" will toggle between the gooves FooSus4, FooSus2, etc.
+  Now, in the song, we set our groove to FooSus. Toggling the "feel
+    key" will toggle between the gooves FooSus4, FooSus2, etc.
 
  Biggest problem with all this is coming up with a naming scheme which
    doesn't bugger existing stuff.
@@ -49,7 +49,7 @@ The -b/-B options do NOT work if the section includes any BEATADJUST
    commands.
 
 Add a midi channel volume tracker and setter. This would permit
-   midi-(de)cresc from a known (by mma) value. It's be nice, as well,
+   midi-(de)cresc from a known (by mma) value. It'd be nice, as well,
    to have an option to switch between MMA volumes and MIDI volumes.
 
 To add to the MIDI volume, we would need a "do at the start of a

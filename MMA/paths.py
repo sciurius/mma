@@ -235,7 +235,7 @@ def expandLib(user=0):
     MMA.auto.grooveDB = []
 
     if MMA.debug.debug:
-        dPrint("LibPath expansion set to:", ' '.join(libDirs))
+        dPrint("LibPath expansion set to: %s" % ' '.join(libDirs))
 
 
 def setIncPath(ln):

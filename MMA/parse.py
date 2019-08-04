@@ -197,7 +197,7 @@ def parse(inpath):
         """
 
         if action.isdigit():   # isdigit() matches '1', '1234' but not '1a'!
-            gbl.barLabel = l[0]
+            gbl.barLabel = l[0].lstrip('0')
             l = l[1:]
             if not l:        # ignore empty lines
                 continue
@@ -209,7 +209,6 @@ def parse(inpath):
         if len(l) > 1 and l[-2] == '*':
             rptcount = stoi(l[-1], "Expecting integer after '*'")
             l = l[:-2]
-
         else:
             rptcount = 1
 
@@ -266,9 +265,8 @@ def parse(inpath):
             else:
                 MMA.volume.nextVolume = None
 
-            """ Set up for rnd seq. This may set the current seq point. If return
-                is >=0 then we're doing track rnd.
-            """
+            # Set up for rnd seq. This may set the current seq point.
+            # If return is >=0 then we're doing track rnd.
 
             rsq, seqlist = MMA.seqrnd.setseq()
 
@@ -333,7 +331,15 @@ def parse(inpath):
                     ly = ''      # no lyric
                 dPrint("%3d: %s %s" % (gbl.barNum, ' '.join(l), ly))
 
+            # if repeat count is set with dupchord we push
+            # the chord back and get lyric.extract to add the
+            # chord to the midi file again. A real lyric is
+            # just ignored ... 2 reasons: the lyric is mangled and
+            # and it makes sense to only have it once!
+            if rpt and lyric.dupchords:
+                _,lyrics = lyric.extract(' '.join(l), 0)
 
+            
 ##################################################################
 
 def allTracks(ln):

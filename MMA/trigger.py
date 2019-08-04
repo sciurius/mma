@@ -239,7 +239,11 @@ def setTrigger(name, ln):
 
         elif cmd == 'MEASURES':
             for a in opt.split(','):
-                trigger.measures.append(a)
+                if not a.isdigit():
+                    warning("%s Trigger: Measures should be bar labels, not '%s'."
+                            "This trigger will be ignored." % (self.name, a))
+                    continue
+                trigger.measures.append(a.lstrip('0'))
 
         elif cmd == 'OVERRIDE':
             if opt.upper() in ('ON', 1, 'TRUE'):

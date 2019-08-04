@@ -242,7 +242,7 @@ class Lyric:
 
             else:
                 error("Usage: Lyric expecting EVENT, SPLIT, VERSE, CHORDS, TRANSPOSE,"
-                      "CNAMES, KAR, ENABLE or SET, not '%s'" % o)
+                      "CNAMES, KARMODE, ENABLE or SET, not '%s'" % o)
 
         # All the opt=value options have been taken care of. ln can now only
         # contain "On", "OFF" or "Set ..." Anything else is an error.
@@ -299,18 +299,11 @@ class Lyric:
             ln = ln + self.pushedLyrics.pop(0)
             a = b = 1   # flag that we have lyrics, count really doesn't matter
 
-        if rpt > 1:
-            if self.dupchords:
-                error("Chord to lyrics not supported with bar repeat")
-            elif a or b:
-                error("Bars with both repeat count and lyrics are not permitted")
-
         ln, lyrics = pextract(ln, '[', ']')
 
-        """ If the CHORDS=ON option is set, make a copy of the chords and
-            insert as lyric. This permits illegal chord lines, but they will
-            be caught by the parser.
-        """
+        # If the CHORDS=ON option is set, make a copy of the chords and
+        # insert as lyric. This permits illegal chord lines, but they will
+        # be caught by the parser. NOTE: Also discards [] or SET lyrics.
 
         if self.dupchords:
             ly = []
@@ -384,9 +377,12 @@ class Lyric:
         beat = 0
         bstep = gbl.QperBar / float(len(lyrics))
 
-        for t, a in enumerate(lyrics):
+        for t, a in enumerate(lyrics):  # do by syllable
             a, b = pextract(a, '<', '>', onlyone=True)
 
+            if self.dupchords:
+                a=a.split("@")[0]  # ignore chord position marker
+            
             if b and b[0]:
                 beat = stof(b[0], "Expecting value in <%s> in lyric" % b)
                 if beat < 1 or beat > gbl.QperBar+1:
@@ -404,6 +400,7 @@ class Lyric:
                 elif not a.endswith('-') and not a.endswith('\n') and not a.endswith('\r'):
                     a += ' '
 
+                # Call midi module to add lyric syllable to the MIDI track
                 p = getOffset(beat * gbl.BperQ)
                 if self.enabled:
                     if self.textev or self.karmode:
@@ -412,9 +409,7 @@ class Lyric:
                         gbl.mtrks[0].addLyric(p, a)
 
             beat += bstep
-
         return (ln, lyrics)
-
 
 # Create a single instance of the Lyric Class.
 

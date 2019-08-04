@@ -1,5 +1,5 @@
 
-A stable release, version 19.07, of MMA--Musical MIDI Accompaniment
+A stable release, version 19.08, of MMA--Musical MIDI Accompaniment
 is available for downloading. In addition to a number of bug fixes,
 documentation reviews and optimizations, MMA now features:
 
@@ -11,7 +11,9 @@ documentation reviews and optimizations, MMA now features:
  - PLUGINS
  - AFTER command
  - Other minor enhancements
-
+ - 19.08 is a minor update from 19.07, but fixed some run-time crash
+   bugs and adds some minor features. Please upgrade!
+   
 Please read the file text/CHANGES-16 for a complete list of changes.
   
 MMA is a accompaniment generator -- it creates midi tracks

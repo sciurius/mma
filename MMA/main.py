@@ -33,6 +33,7 @@ import MMA.auto
 import MMA.docs
 import MMA.tempo
 import MMA.debug
+from  MMA.safe_eval import safeEnv
 
 from . import gbl
 from   MMA.common import *
@@ -48,19 +49,16 @@ cmdSMF = None
 # This is the program mainline. It is called/executed
 # exactly once from a call in the stub program mma.py.
 
-try:   # for some reason, someone might want a different encoding
-    t = os.environ.get('MMA_ENCODING')
-    if t:
-        gbl.encoding = t
-except:
-    pass
+# for some reason, someone might want a different encoding
+# real easy to set it from env at startup
+m = safeEnv( "env('MMA_ENCODING')" )
+if m:    # don't set to empty ... will crash
+    gbl.encoding = m
 
-try:    # MMA prints errors/warning/debug to stdout
-        # this will redirect to a file
-    gbl.logFile = os.environ.get('MMA_LOGFILE')
-except:
-    pass
-    
+# MMA prints errors/warning/debug to stdout
+# this will redirect to a file
+gbl.logFile = safeEnv("env('MMA_LOGFILE')")
+
 MMA.paths.init()   # initialize the lib/include paths
 
 

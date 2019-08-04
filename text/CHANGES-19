@@ -1,0 +1,37 @@
+
+Changes file for the 2019 series
+
+This reflects changes to MMA since the release of version 19.07.
+
+BUG: When running on windows a crash occurred since there is a not a fcntl
+ module. This was used only when writing a buffer to a log file in *nix/mac.
+ MMA now discards the option on Windows.
+ 
+LYRICS are now permitted in repeat lines. If it is a "real" lyric, the
+ text is ignored for repeated lines; if the CHORD option is enabled
+ each line will contain correct chord info. Note: repeat lines are
+ those set with the " * count" option.
+
+The MIDI voice "DistortionGuitar" has been improperly spelled
+ "DistoronGuitar" since very early versions of MMA (note the
+ missing "i"). This is fixed, and the wrong spelling still works.
+
+With the -d switch on LibPath caused an error. Fixed.
+
+Leading zeros ('0') are now permitted and ignored in label line
+ numbers. Permits line numbers like '001', '002', etc. to work with
+ the -b option.
+
+Added $_FilePath and $_SongPath variables. These, plus $_FileName will
+ return '' (an empty string) if input is coming from STDIN.
+
+Source lines terminated with LF/CR combinations have been converted to
+ "unix" style (LF only). In the future, please submit ONLY files to
+ the author in this format. MMA doesn't care, but 'patch' and other
+ git programs do.
+ 
+Minor documentation fixes and internal source comment clearifications/fixes.
+
+August 4, 2019 - released version 19.08
+========================================
+

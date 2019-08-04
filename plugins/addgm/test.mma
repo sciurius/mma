@@ -10,7 +10,7 @@ Plugin addgm     // load the plugin
 // This tells use what plugins are loaded. It should
 // just display "@ADDGM"
 
-print Registered Plugins: $_Plugins
+print Registered Plugins: $_DataPlugins
 
 // In order to see what is created use the command "mma -r test"
 

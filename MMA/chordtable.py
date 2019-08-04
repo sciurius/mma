@@ -61,7 +61,7 @@ chordlist = {
 
     '(b5)':  ((C,    E,      Gb ),
              (C, D, E, F, Gb, A, B),
-             "Major triad with flat 5th."),
+             "Major triad with flat 5th. MMA notatation requires the () around the name."),
 
     'add9': ((C,    E,    G,    D+12),
              (C, D, E, F, G, A, D+12),

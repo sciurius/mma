@@ -729,7 +729,7 @@ Predefined Variables
 For your convenience 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  tracks a number of internal settings and
 you can access these values with special macros.<A ID="tex2html85"
-  HREF="#foot11880"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>  All of these &ldquo;system&rdquo; variables are
+  HREF="#foot11900"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>  All of these &ldquo;system&rdquo; variables are
 prefaced with a single underscore. For example, the current tempo can be
 retrieved using the $_TEMPO variable.
 
@@ -780,6 +780,40 @@ values for global settings:
 </DD>
 <DT><STRONG>&nbsp;&nbsp;$_Debug</STRONG></DT>
 <DD>Current debug settings.
+
+<P>
+</DD>
+<DT><STRONG>&nbsp;&nbsp;$_FileName</STRONG></DT>
+<DD>The name of the file being processed as entered
+  on the command line (returns an empty string if input is from STDIN).
+
+<P>
+</DD>
+<DT><STRONG>&nbsp;&nbsp;$_FilePath</STRONG></DT>
+<DD>Absolute (expanded) name of the file currently
+  being processed. This is not necessarily the same as the
+  $_FileName macro since the current file might be a library file.
+  An empty string is returned if input is from STDIN. If 
+<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  added a
+  &ldquo;.mma&rdquo; suffix to the filename that will be included. 
+
+<P>
+</DD>
+<DT><STRONG>&nbsp;&nbsp;$_Env(n)</STRONG></DT>
+<DD>Returns the value of an environment variable. For
+  example:
+  
+      <Table Hspace="40%" CellSpacing=0 CellPadding=10 BGColor="OldLace" Border=3>
+        <tr><td>
+    <B>$_Env(PATH)  </B> 
+   
+	    </td></tr>
+      </Table>
+
+  will return the current setting of the shell PATH variable. If the
+  variable is not defined or if it has no value an empty string will
+  be returned. The case of the argument must match that of the
+  variable in the shell.
 
 <P>
 </DD>
@@ -901,6 +935,17 @@ Debug $_LastDebug   </B>
 
 <P>
 </DD>
+<DT><STRONG>&nbsp;&nbsp;$_DataPlugins</STRONG></DT>
+<DD>A list of registered data plugins.
+
+<P>
+</DD>
+<DT><STRONG>&nbsp;&nbsp;$_TrackPlugins</STRONG></DT>
+<DD>A list of registered track plugins (same as
+  $_T<SMALL>RACKNAME</SMALL>_P<SMALL>LUGINS</SMALL>, below).
+
+<P>
+</DD>
 <DT><STRONG>&nbsp;&nbsp;$_Seq</STRONG></DT>
 <DD>Current S<SMALL>EQ</SMALL> point (0 to
   S<SMALL>EQ</SMALL>S<SMALL>IZE</SMALL>). Useful in debugging.
@@ -932,6 +977,16 @@ Debug $_LastDebug   </B>
 <DT><STRONG>&nbsp;&nbsp;$_StackValue</STRONG></DT>
 <DD>The last value stored on the S<SMALL>TACK</SMALL>V<SMALL>ALUE</SMALL>
   stack.
+
+<P>
+</DD>
+<DT><STRONG>&nbsp;&nbsp;$_SongPath</STRONG></DT>
+<DD>Absolute (expanded) filename of the file being
+  processed as entered on the command line. This is the expanded
+  version of $_FileName. It is set to an empty string if input is
+  from STDIN. The filename suffix, &ldquo;.mma&rdquo; will be added if it was
+  supplied by 
+<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT> .
 
 <P>
 </DD>
@@ -1324,7 +1379,7 @@ evaluated by Python.
 <P>
 You can even use this feature to modify values stored in
 lists.<A ID="tex2html86"
-  HREF="#foot12069"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A> A bit complex, but well worthwhile! In the following
+  HREF="#foot12092"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A> A bit complex, but well worthwhile! In the following
 example we add &ldquo;10&rdquo; to the current A<SMALL>RTICULATE</SMALL> setting. It's
 split into three lines to make it clearer:
 
@@ -1454,7 +1509,7 @@ the functions:
 
 <P>
 the miscellaneous functions:<A ID="tex2html87"
-  HREF="#foot11976"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A>
+  HREF="#foot11999"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A>
 <P>
 <PRE>
     for, in, str(), .join(), .split()
@@ -1506,7 +1561,7 @@ them in conditionals. In
 starting with an I<SMALL>F</SMALL> directive, a test, a series of lines to
 process (depending upon the result of the test), and a closing
 E<SMALL>ND</SMALL>I<SMALL>F</SMALL> or I<SMALL>F</SMALL>E<SMALL>ND</SMALL><A ID="tex2html88"
-  HREF="#foot12070"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A>  directive. An optional E<SMALL>LSE</SMALL> statement may be included.
+  HREF="#foot12093"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A>  directive. An optional E<SMALL>LSE</SMALL> statement may be included.
 
 <P>
 The first set of tests are unary (they take no arguments):
@@ -1683,7 +1738,7 @@ values then 3 is less than 22. The rule in
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  is quite simple: If
 both strings can be converted to a value, a numeric comparison is done;
 otherwise they are compared as strings.<A ID="tex2html89"
-  HREF="#foot12039"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">5</SPAN></SUP></A>
+  HREF="#foot12062"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">5</SPAN></SUP></A>
 <P>
 This lets you do consistent comparisons in situations like:
 
@@ -1898,7 +1953,7 @@ directory.
 <P>
 <BR><HR><H4>Footnotes</H4>
 <DL>
-<DT><A ID="foot11880">... macros.</A><A
+<DT><A ID="foot11900">... macros.</A><A
  HREF="node21.html#tex2html85"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A></DT>
 <DD>The values
   are dynamically created and reflect the current settings, and may
@@ -1906,7 +1961,7 @@ directory.
   internal roundings, etc.
 
 </DD>
-<DT><A ID="foot12069">...
+<DT><A ID="foot12092">...
 lists.</A><A
  HREF="node21.html#tex2html86"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A></DT>
 <DD>this was written before the introduction of slices,
@@ -1915,7 +1970,7 @@ lists.</A><A
   be done.
 
 </DD>
-<DT><A ID="foot11976">... functions:</A><A
+<DT><A ID="foot11999">... functions:</A><A
  HREF="node21.html#tex2html87"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A></DT>
 <DD>It is possible that the
     following functions could be used to do &ldquo;bad&rdquo; things. If you see
@@ -1923,7 +1978,7 @@ lists.</A><A
     careful.
 
 </DD>
-<DT><A ID="foot12070">...I<SMALL>F</SMALL>E<SMALL>ND</SMALL></A><A
+<DT><A ID="foot12093">...I<SMALL>F</SMALL>E<SMALL>ND</SMALL></A><A
  HREF="node21.html#tex2html88"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A></DT>
 <DD>
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT> 's author probably suffers
@@ -1932,7 +1987,7 @@ lists.</A><A
   you.
 
 </DD>
-<DT><A ID="foot12039">... strings.</A><A
+<DT><A ID="foot12062">... strings.</A><A
  HREF="node21.html#tex2html89"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">5</SPAN></SUP></A></DT>
 <DD>For this comparison
   float values are used. Rounding errors can cause equality
