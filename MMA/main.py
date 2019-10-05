@@ -51,13 +51,13 @@ cmdSMF = None
 
 # for some reason, someone might want a different encoding
 # real easy to set it from env at startup
-m = safeEnv( "env('MMA_ENCODING')" )
+m = safeEnv( 'MMA_ENCODING' )
 if m:    # don't set to empty ... will crash
     gbl.encoding = m
 
 # MMA prints errors/warning/debug to stdout
 # this will redirect to a file
-gbl.logFile = safeEnv("env('MMA_LOGFILE')")
+gbl.logFile = safeEnv('MMA_LOGFILE')
 
 MMA.paths.init()   # initialize the lib/include paths
 
@@ -80,7 +80,7 @@ m = gbl.mtrks[0] = MMA.midi.Mtrk(0)
 if gbl.infile:
     if gbl.infile != 1:
         fileName = MMA.file.locFile(gbl.infile, None)
-        if fileName:
+        if fileName and not gbl.noCredit:
             m.addTrkName(0, "%s" % fileName.rstrip(".mma"))
             m.addText(0, "Created by MMA. Input filename: %s" % fileName)
 
@@ -301,14 +301,14 @@ if fileExist:
 else:
     msg = "Creating new"
 
-print("%s midi file (%s bars, %.2f min / %.0d:%02d m:s): '%s'" %
+print("%s midi file (%s bars, %.2f min / %d:%2d m:s): '%s'" %
     (msg, gbl.barNum, gbl.totTime, gbl.totTime, (gbl.totTime%1)*60, outfile))
 
 # Insert the estimated play time in seconds into a comment line.
 # A player program can search for this and display it. The value
 # will be terminated by a null which should be easy enuf to search for.
 
-gbl.mtrks[0].addText(0, "DURATION: %.0d" % (gbl.totTime*60) )
+gbl.mtrks[0].addText(0, "DURATION: %d" % (gbl.totTime*60) )
 
 try:
     out = open(outfile, 'wb')

@@ -46,26 +46,28 @@
 <A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
 <UL CLASS="ChildLinks">
-<LI><A ID="tex2html504"
-  HREF="node6.html#SECTION00610000000000000000">Creating A Groove</A>
 <LI><A ID="tex2html505"
+  HREF="node6.html#SECTION00610000000000000000">Creating A Groove</A>
+<LI><A ID="tex2html506"
   HREF="node6.html#SECTION00620000000000000000">Using A Groove</A>
 <UL>
-<LI><A ID="tex2html506"
-  HREF="node6.html#SECTION00621000000000000000">Extended Groove Notation</A>
 <LI><A ID="tex2html507"
-  HREF="node6.html#SECTION00622000000000000000">Overlay Grooves</A>
+  HREF="node6.html#SECTION00621000000000000000">Extended Groove Notation</A>
+<LI><A ID="tex2html508"
+  HREF="node6.html#SECTION00622000000000000000">Groove Search Summary</A>
+<LI><A ID="tex2html509"
+  HREF="node6.html#SECTION00623000000000000000">Overlay Grooves</A>
 </UL>
 <BR>
-<LI><A ID="tex2html508"
-  HREF="node6.html#SECTION00630000000000000000">Groove Aliases</A>
-<LI><A ID="tex2html509"
-  HREF="node6.html#SECTION00640000000000000000">AllGrooves</A>
 <LI><A ID="tex2html510"
-  HREF="node6.html#SECTION00650000000000000000">Deleting Grooves</A>
+  HREF="node6.html#SECTION00630000000000000000">Groove Aliases</A>
 <LI><A ID="tex2html511"
-  HREF="node6.html#SECTION00660000000000000000">Sticky</A>
+  HREF="node6.html#SECTION00640000000000000000">AllGrooves</A>
 <LI><A ID="tex2html512"
+  HREF="node6.html#SECTION00650000000000000000">Deleting Grooves</A>
+<LI><A ID="tex2html513"
+  HREF="node6.html#SECTION00660000000000000000">Sticky</A>
+<LI><A ID="tex2html514"
   HREF="node6.html#SECTION00670000000000000000">Library Issues</A>
 </UL>
 <!--End of Table of Child-Links-->
@@ -123,7 +125,7 @@ command:
 A groove name can include any character, including digits and
 punctuation. However, it cannot include a space character (used as a
 delimiter), a colon &ldquo;:&rdquo; or a '/'.<A ID="tex2html35"
-  HREF="#foot2945"><SUP><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>
+  HREF="#foot2967"><SUP><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>
 <P>
 In normal operation the documentation strings are ignored. However,
 when 
@@ -242,6 +244,18 @@ with:
 
 <P>
 At this point all of the previously saved information is restored.
+
+<P>
+If the specified groove is not in memory 
+<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  will search the
+library files on disk for a file containing it. The search is done in
+the files in the L<SMALL>IB</SMALL>P<SMALL>ATH</SMALL> directory
+<A HREF="node33.html#libpath">here</A>. Please note, the search
+ends with the <SPAN  CLASS="textit">first</SPAN> matching groove name found. The search
+begins with <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">stdlib</SPAN></SPAN> and continues though the other directories
+in your library (in alphabetical order). If you have two
+grooves with the same name in different directories or files, please
+read the section below on extended groove notation.
 
 <P>
 A few cautions:
@@ -384,7 +398,7 @@ list which changes the G<SMALL>ROOVE</SMALL> after each bar the sequence
 number is reset after each bar ... with one exception: if the same
 G<SMALL>ROOVE</SMALL> is being used for two or more bars the sequence will not
 be reset.<A ID="tex2html36"
-  HREF="#foot3161"><SUP><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A>
+  HREF="#foot3209"><SUP><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A>
 <P>
 Another way to select G<SMALL>ROOVE</SMALL>s is to use a list of grooves with
 a leading value. In its simplest form the leading value will just
@@ -602,8 +616,104 @@ redefined. You must enable this option from within a file; it is not
 available on the command line.
 
 <P>
+A further, and most useful, method of dealing with multiple libraries
+is to specify the groove name relative to the library name. In this
+case we will assume you have a library directory &ldquo;casio&rdquo; and wish to
+load the groove &ldquo;80sPopIntro&rdquo;. That particular groove is in the file
+<SPAN  CLASS="texttt"><SPAN  CLASS="textbf">casio/80spop</SPAN></SPAN> and you could load it using:
 
-<H2><A ID="SECTION00622000000000000000"></A>
+<P>
+
+      <Table Hspace="40%" CellSpacing=0 CellPadding=10 BGColor="OldLace" Border=3>
+        <tr><td>
+    <B>Groove casio/80spop:80sPopIntro  </B> 
+   
+	    </td></tr>
+      </Table>
+
+<P>
+however, you'll find it easier to use the shorter notation:
+
+<P>
+
+      <Table Hspace="40%" CellSpacing=0 CellPadding=10 BGColor="OldLace" Border=3>
+        <tr><td>
+    <B>Groove casio:80sPopIntro  </B> 
+   
+	    </td></tr>
+      </Table>
+
+<P>
+In this case the name on the left side of the &ldquo;:&rdquo; is taken to be the
+name of the library and the various files in that, and only that,
+library are searched. The only caution is that if you have more than
+one file containing a groove named &ldquo;80sPopIntro&rdquo; in the casio
+library, the first one found will be loaded ... and you will
+not be informed of other matches.
+
+<P>
+Again, note that the name to the left of the &ldquo;:&rdquo; is a system
+directory name and must be in the appropriate case for your
+filesystem. <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">Casio</SPAN></SPAN> and <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">casio</SPAN></SPAN> are <SPAN  CLASS="textit">not</SPAN> the same.
+
+<P>
+
+<H2><A ID="SECTION00622000000000000000">
+Groove Search Summary</A>
+</H2>
+
+<P>
+Whenever a G<SMALL>ROOVE</SMALL> command is issued a search for the named
+groove is done. To help the unweary, here's a brief summary of the
+logic (or, perhaps, lack thereof) of the method used:
+
+<P>
+
+<OL>
+<LI>When a simple groove name, i.e. &ldquo;swing&rdquo;, is used 
+<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  first
+  looks in memory for that groove name. If found, it is activated.
+  If not found, 
+<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  will look for
+  a library file containing that groove. The library files are
+  examined in alphabetical order, except for <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">stdlib</SPAN></SPAN> which is
+  always searched first.
+
+<P>
+</LI>
+<LI>If an extended name with a filename is used, i.e.
+  &ldquo;casio/80spop:80sPopIntro&rdquo;, is used the library file <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">80spop</SPAN></SPAN>
+  will be loaded and the groove will be enabled.
+
+<P>
+</LI>
+<LI>If the extended name is a directory name, i.e.
+  &ldquo;casio:80sPopIntro&rdquo;, the files in the library directory
+  <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">casio</SPAN></SPAN> will be checked for the groove. The first file found
+  containing the groove will be loaded.
+</LI>
+</OL>
+
+<P>
+For the last two cases, above:
+
+<P>
+
+<UL>
+<LI>The groove will always be replaced (reloaded) by one from the
+  file each time it is requested. All other duplicated groove names in
+  memory will be re-read as well.
+
+<P>
+</LI>
+<LI>You can simply use the non-extended version in subsequent
+  calls.This avoids reloading the file.
+</LI>
+</UL>
+
+<P>
+
+<H2><A ID="SECTION00623000000000000000"></A>
 <A ID="track-groove"></A>
 <BR>
 Overlay Grooves
@@ -1176,18 +1286,19 @@ just before the groove call. The U<SMALL>SE</SMALL> will read the specified
 file and overwrite the old definition of &ldquo;Rhumba2&rdquo; with its own.
 
 <P>
-This issue in covered in more detail <A HREF="node33.html#library-maint">here in</A> this manual.
+This issue in covered in more detail <A HREF="node33.html#library-maint">here in</A> this manual. Most problems of this kind
+are easily avoided by using the extended groove notation, detailed above.
 
 <P>
 <BR><HR><H4>Footnotes</H4>
 <DL>
-<DT><A ID="foot2945">... '/'.</A><A
+<DT><A ID="foot2967">... '/'.</A><A
  HREF="node6.html#tex2html35"><SUP><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A></DT>
 <DD>The '/' and ':' are used
   in extended names.
 
 </DD>
-<DT><A ID="foot3161">... reset.</A><A
+<DT><A ID="foot3209">... reset.</A><A
  HREF="node6.html#tex2html36"><SUP><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A></DT>
 <DD>Actually, 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  checks to see the next

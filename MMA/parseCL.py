@@ -185,7 +185,6 @@ def parseChordLine(l):
                     error("Unknown track '%s' for muting in '%s'" % (v, ch))
 
         ctab.chord = MMA.chords.ChordNotes(ch)  # Derive chord notes (or mute)
-
         ctable.append(ctab)
 
     # Test to see that all chords are in range.

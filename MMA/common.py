@@ -102,6 +102,9 @@ def error(msg):
             bufferPrint("Corrupt input file? Illegal character 'x%02x' found." % a)
             break
 
+    if gbl.ignoreBadChords:  # set with -xCHORD and -xPERMISSIVE options
+        return
+    
     sys.exit(1)
 
 def warning(msg):

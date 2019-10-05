@@ -29,12 +29,8 @@ import os
 import MMA.docs
 import MMA.parse
 import MMA.chords
-import MMA.alloc
 import MMA.volume
 import MMA.exits
-import MMA.regplug
-import MMA.debug
-import MMA.sync
 
 from . import gbl
 from MMA.common import *
@@ -55,7 +51,9 @@ def cmdError(e):
     error("CmdLine: the command line option '%s' is not permitted in a MMA script." % e)
 
 def opts(l=None):
-    """ Option parser. """
+    """ Option parser. 
+         FIXME: this code segment is much too long!
+    """
 
     if not l:
         l = sys.argv[1:]
@@ -64,8 +62,8 @@ def opts(l=None):
         internal = True
 
     try:
-        opts, args = getopt.gnu_getopt(l,
-                                       "b:B:dpsS:ri:wneom:f:M:cLgGvVD:01PT:I:", [])
+        opts, args = getopt.gnu_getopt(
+                         l, "b:B:dpsS:ri:wneom:f:M:cLgGvVD:01PT:I:x:", [])
     except getopt.GetoptError:
         usage()
 
@@ -78,6 +76,7 @@ def opts(l=None):
             gbl.barRange.append("ABS")
 
         elif o in ('-d', '-o', '-p', '-s', '-r', '-w', '-n', '-e', '-c'):
+            import MMA.debug   # circular dep. problem
             MMA.debug.cmdLineDebug(o[-1])
         
         elif o == '-S':
@@ -88,12 +87,14 @@ def opts(l=None):
             gbl.printProcessed = True
 
         elif o == '-f':
+            import MMA.paths
             gbl.outfile = a
             if internal:
                 warning("Output filename overwritten by -f CmdLine option.")
                 MMA.paths.createOutfileName(".mid")
 
         elif o == '-i':
+            import MMA.paths
             if internal:
                 cmdError("-i")
             MMA.paths.setRC(a)
@@ -149,6 +150,7 @@ def opts(l=None):
                 gbl.createDocs = 99
 
             elif a == 'k':
+                import MMA.alloc
                 # important! Needs a space before the trailing LF for mma.el
                 print("Base track names: %s \n" % 
                       ' '.join([a for a in sorted(MMA.alloc.trkClasses)]))
@@ -164,9 +166,11 @@ def opts(l=None):
                 usage()
 
         elif o == '-0':
+            import MMA.sync
             MMA.sync.synchronize(['START'])
 
         elif o == '-1':
+            import MMA.sync
             MMA.sync.synchronize(['END'])
 
         elif o == '-P':
@@ -177,6 +181,7 @@ def opts(l=None):
             # the plugin security. Use -II for security override.
             # It does mean you can't have plugin called "I", but
             # you could use "i" and it'll work.
+            import MMA.regplug
             if a == 'I':
                 MMA.regplug.secOverRide = True
 
@@ -237,6 +242,10 @@ def opts(l=None):
 
             args = [tfile]
 
+        elif o=='-x':  # any one of some xtra, seldom used, options
+            import MMA.xtra
+            MMA.xtra.xoption(a)
+            
         else:
             usage()      # unreachable??
 
@@ -259,9 +268,11 @@ def opts(l=None):
 
     if gbl.infile == '-':
         gbl.infile = 1
-
-        if not gbl.outfile and not(MMA.debug.noOutput):
-            error("Input from STDIN specified. Use -f to set an output filename.")
+        
+        if not gbl.outfile:
+            import MMA.debug   # circular dep. problem
+            if not(MMA.debug.noOutput):
+                error("Input from STDIN specified. Use -f to set an output filename.")
 
 
 def usage(msg=''):
@@ -305,6 +316,9 @@ def usage(msg=''):
         " -v    display Version number",
         " -V <groove [options]> preview play groove",
         " -w    disable Warning messages",
+        " -xCHORDS=<chord list> test listed chords for validity",
+        " -xNOCREDIT disable MMA credits in Midi Meta track",
+        " -xCHECKFILE=<filename> check chords in file",
         " -0    create sync at start of all channel tracks",
         " -1    create sync at end of all channel tracks",
         " -     a single hyphen signals to use STDIN instead of a file"]
@@ -320,7 +334,7 @@ def usage(msg=''):
 
 def setBarRange(v):
     """ Set a range of bars to compile. This is the -B/b option."""
-
+    
     if gbl.barRange:
         error("Only one -b or -B permitted.")
 

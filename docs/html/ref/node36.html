@@ -46,51 +46,51 @@
 <A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
 <UL CLASS="ChildLinks">
-<LI><A ID="tex2html716"
+<LI><A ID="tex2html718"
   HREF="node36.html#SECTION003610000000000000000">Chord Names</A>
 <UL>
-<LI><A ID="tex2html717"
-  HREF="node36.html#SECTION003611000000000000000">Octave Adjustment</A>
-<LI><A ID="tex2html718"
-  HREF="node36.html#SECTION003612000000000000000">Altered Chords</A>
 <LI><A ID="tex2html719"
-  HREF="node36.html#SECTION003613000000000000000">Diminished Chords</A>
+  HREF="node36.html#SECTION003611000000000000000">Octave Adjustment</A>
 <LI><A ID="tex2html720"
-  HREF="node36.html#SECTION003614000000000000000">Slash Chords</A>
+  HREF="node36.html#SECTION003612000000000000000">Altered Chords</A>
 <LI><A ID="tex2html721"
-  HREF="node36.html#SECTION003615000000000000000">Polychords</A>
+  HREF="node36.html#SECTION003613000000000000000">Diminished Chords</A>
 <LI><A ID="tex2html722"
-  HREF="node36.html#SECTION003616000000000000000">Chord Inversions</A>
+  HREF="node36.html#SECTION003614000000000000000">Slash Chords</A>
 <LI><A ID="tex2html723"
-  HREF="node36.html#SECTION003617000000000000000">Barre Settings</A>
+  HREF="node36.html#SECTION003615000000000000000">Polychords</A>
 <LI><A ID="tex2html724"
+  HREF="node36.html#SECTION003616000000000000000">Chord Inversions</A>
+<LI><A ID="tex2html725"
+  HREF="node36.html#SECTION003617000000000000000">Barre Settings</A>
+<LI><A ID="tex2html726"
   HREF="node36.html#SECTION003618000000000000000">Roman Numerals</A>
 </UL>
 <BR>
-<LI><A ID="tex2html725"
+<LI><A ID="tex2html727"
   HREF="node36.html#SECTION003620000000000000000">MIDI Voices</A>
 <UL>
-<LI><A ID="tex2html726"
+<LI><A ID="tex2html728"
   HREF="node36.html#SECTION003621000000000000000">Voices, Alphabetically</A>
-<LI><A ID="tex2html727"
+<LI><A ID="tex2html729"
   HREF="node36.html#SECTION003622000000000000000">Voices, By MIDI Value</A>
 </UL>
 <BR>
-<LI><A ID="tex2html728"
+<LI><A ID="tex2html730"
   HREF="node36.html#SECTION003630000000000000000">Drum Tones</A>
 <UL>
-<LI><A ID="tex2html729"
+<LI><A ID="tex2html731"
   HREF="node36.html#SECTION003631000000000000000">Drum Tones, Alphabetically</A>
-<LI><A ID="tex2html730"
+<LI><A ID="tex2html732"
   HREF="node36.html#SECTION003632000000000000000">Drum Tones, by MIDI Value</A>
 </UL>
 <BR>
-<LI><A ID="tex2html731"
+<LI><A ID="tex2html733"
   HREF="node36.html#SECTION003640000000000000000">MIDI Controllers</A>
 <UL>
-<LI><A ID="tex2html732"
+<LI><A ID="tex2html734"
   HREF="node36.html#SECTION003641000000000000000">Controllers, Alphabetically</A>
-<LI><A ID="tex2html733"
+<LI><A ID="tex2html735"
   HREF="node36.html#SECTION003642000000000000000">Controllers, by Value</A>
 </UL></UL>
 <!--End of Table of Child-Links-->
@@ -184,7 +184,7 @@ and must be in the mixed upper and lowercase shown):
 </TR>
 <TR><TH ALIGN="LEFT"><SPAN  CLASS="textbf">(<SPAN CLASS="MATH"><IMG STYLE="height: 1.81ex; vertical-align: -0.10ex; " SRC="img1.png"
  ALT="$\flat$"></SPAN>5)</SPAN></TH>
-<TD ALIGN="LEFT">Major triad with flat 5th.</TD>
+<TD ALIGN="LEFT">Major triad with flat 5th. MMA notatation requires the () around the name.</TD>
 </TR>
 <TR><TH ALIGN="LEFT"><SPAN  CLASS="textbf">+</SPAN></TH>
 <TD ALIGN="LEFT">Augmented triad.</TD>
@@ -264,10 +264,10 @@ and must be in the mixed upper and lowercase shown):
 <TD ALIGN="LEFT">Major tiad with added 6th.</TD>
 </TR>
 <TR><TH ALIGN="LEFT"><SPAN  CLASS="textbf">6(add9)</SPAN></TH>
-<TD ALIGN="LEFT">6th with added 9th. This is sometimes notated as a slash chord in the form &ldquo;6/9&rdquo;.</TD>
+<TD ALIGN="LEFT">6th with added 9th. This is sometimes notated as a slash chord in the form &ldquo;6/9&rdquo;. MMA voices the 6th an octave higher.</TD>
 </TR>
 <TR><TH ALIGN="LEFT"><SPAN  CLASS="textbf">69</SPAN></TH>
-<TD ALIGN="LEFT">6th with added 9th. This is sometimes notated as a slash chord in the form &ldquo;6/9&rdquo;.</TD>
+<TD ALIGN="LEFT">6th with added 9th. This is sometimes notated as a slash chord in the form &ldquo;6/9&rdquo;. MMA voices the 6th an octave higher.</TD>
 </TR>
 <TR><TH ALIGN="LEFT"><SPAN  CLASS="textbf">7</SPAN></TH>
 <TD ALIGN="LEFT">7th.</TD>
@@ -781,9 +781,10 @@ A chord name without a type is interpreted as a major chord (or
 triad). For example, the chord &ldquo;C&rdquo; is identical to &ldquo;CM&rdquo;.
 
 <P>
-There are also two not-chord items: &ldquo;z&rdquo; and &ldquo;z!&rdquo;. These are
-
-<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT> 's idea of rests. See <A HREF="node8.html#rests">details here</A>.
+There are also a number of not-chord items, ie: &ldquo;z&rdquo;, &ldquo;z!&rdquo; and
+&ldquo;CzDC. These are 
+<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT> 's idea of rests. See
+<A HREF="node8.html#rests">details here</A>.
 
 <P>
 
@@ -873,14 +874,14 @@ always a diminished 7th ... a diminished triad is never played.
 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  continues this, sometimes erroneous,
 assumption.<A ID="tex2html138"
-  HREF="#foot21460"><SUP>A.<SPAN CLASS="arabic">1</SPAN></SUP></A> You can change the
+  HREF="#foot21566"><SUP>A.<SPAN CLASS="arabic">1</SPAN></SUP></A> You can change the
 behavior in several ways: change the chord notes and scale for a
 &ldquo;dim&rdquo; from a dim7 to a triad by following the instructions
 <A HREF="node14.html#defchord">here</A>; use the slightly oddball
 notation of &ldquo;m<SPAN CLASS="MATH"><IMG STYLE="height: 1.81ex; vertical-align: -0.10ex; " SRC="img1.png"
  ALT="$\flat$"></SPAN>5&rdquo; which generates a &ldquo;diminished triad&rdquo;; or
 use the more-oddball notation &ldquo;dim3&rdquo;.<A ID="tex2html139"
-  HREF="#foot21277"><SUP>A.<SPAN CLASS="arabic">2</SPAN></SUP></A> A more generic solution is to use T<SMALL>WEAKS</SMALL> to change
+  HREF="#foot21383"><SUP>A.<SPAN CLASS="arabic">2</SPAN></SUP></A> A more generic solution is to use T<SMALL>WEAKS</SMALL> to change
 between &ldquo;7th&rdquo; and &ldquo;triad&rdquo; (see
 <A HREF="node28.html#tweak-dim">here</A> for details). Our
 recommendation is to use &ldquo;m<SPAN CLASS="MATH"><IMG STYLE="height: 1.81ex; vertical-align: -0.10ex; " SRC="img1.png"
@@ -999,7 +1000,7 @@ To summarize how
 </LI>
 <LI>If the note is not in the scale (in which case it isn't in the
   chord<A ID="tex2html140"
-  HREF="#foot21449"><SUP>A.<SPAN CLASS="arabic">3</SPAN></SUP></A>), a warning message is displayed.
+  HREF="#foot21555"><SUP>A.<SPAN CLASS="arabic">3</SPAN></SUP></A>), a warning message is displayed.
 
 <P>
 </LI>
@@ -1168,7 +1169,7 @@ by adding a &ldquo;:&rdquo; and a value to the chordname. A barre setting must
 be the last item in a chordname and is only used by P<SMALL>LECTRUM</SMALL>
 tracks. Barre values can be negative, meaning your guitar is getting
 bigger.<A ID="tex2html141"
-  HREF="#foot21344"><SUP>A.<SPAN CLASS="arabic">4</SPAN></SUP></A>Examples include &ldquo;Cm:3&rdquo;, &ldquo;E7&gt;2:-2&rdquo; and &ldquo;+F:4&rdquo;.
+  HREF="#foot21450"><SUP>A.<SPAN CLASS="arabic">4</SPAN></SUP></A>Examples include &ldquo;Cm:3&rdquo;, &ldquo;E7&gt;2:-2&rdquo; and &ldquo;+F:4&rdquo;.
 
 <P>
 <SPAN  CLASS="textit">Important: unlike a real instrument, 
@@ -1196,7 +1197,7 @@ So, in the key of <SPAN  CLASS="textbf">C Major</SPAN> a &rdquo;I&rdquo; would b
 When using Roman numeral chords it is very important to set the
 K<SMALL>EY</SMALL>S<SMALL>IG</SMALL>nature! Failing to do this will result in undefined
 behavior.<A ID="tex2html142"
-  HREF="#foot21453"><SUP>A.<SPAN CLASS="arabic">5</SPAN></SUP></A> See
+  HREF="#foot21559"><SUP>A.<SPAN CLASS="arabic">5</SPAN></SUP></A> See
 <A HREF="node30.html#keysignature">here</A> for details on setting
 the key signature.
 
@@ -1270,7 +1271,7 @@ can be combined with roman numerals. So, &ldquo;I:3&rdquo;,
 When specifying chords in Roman numeral notation &ldquo;slash&rdquo; inversions
 should be specified in Arabic or Roman numerals, <A HREF="#slashchords">
   details here.</A><A ID="tex2html143"
-  HREF="#foot21454"><SUP>A.<SPAN CLASS="arabic">6</SPAN></SUP></A>
+  HREF="#foot21560"><SUP>A.<SPAN CLASS="arabic">6</SPAN></SUP></A>
 <P>
 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT> 's implementation differs from the standard in several ways:
@@ -3387,7 +3388,7 @@ Controllers, by Value</A>
 <P>
 <BR><HR><H4>Footnotes</H4>
 <DL>
-<DT><A ID="foot21460">...
+<DT><A ID="foot21566">...
 assumption.</A><A
  HREF="node36.html#tex2html138"><SUP>A.<SPAN CLASS="arabic">1</SPAN></SUP></A></DT>
 <DD>Sometimes a reliable source agrees with us
@@ -3400,14 +3401,14 @@ assumption.</A><A
  ALT="$\scriptstyle \flat$">5)</SUP></SPAN>&rdquo;.
 
 </DD>
-<DT><A ID="foot21277">... &ldquo;dim3&rdquo;.</A><A
+<DT><A ID="foot21383">... &ldquo;dim3&rdquo;.</A><A
  HREF="node36.html#tex2html139"><SUP>A.<SPAN CLASS="arabic">2</SPAN></SUP></A></DT>
 <DD>The author has
   adopted this notation for its clarity. Many jazz charts use it as
   well.
 
 </DD>
-<DT><A ID="foot21449">... chord</A><A
+<DT><A ID="foot21555">... chord</A><A
  HREF="node36.html#tex2html140"><SUP>A.<SPAN CLASS="arabic">3</SPAN></SUP></A></DT>
 <DD>It is possible to create a malformed chord/scale
     using the D<SMALL>EF</SMALL>C<SMALL>HORD</SMALL> command, <A HREF="node14.html#defchord">details
@@ -3416,14 +3417,14 @@ assumption.</A><A
     everything!
 
 </DD>
-<DT><A ID="foot21344">...
+<DT><A ID="foot21450">...
 bigger.</A><A
  HREF="node36.html#tex2html141"><SUP>A.<SPAN CLASS="arabic">4</SPAN></SUP></A></DT>
 <DD>Values must be in the range -127 to 127. Note that
   even &ldquo;small&rdquo; values can push notes outside of the MIDI range.
 
 </DD>
-<DT><A ID="foot21453">...
+<DT><A ID="foot21559">...
 behavior.</A><A
  HREF="node36.html#tex2html142"><SUP>A.<SPAN CLASS="arabic">5</SPAN></SUP></A></DT>
 <DD>Undefined in this case means that 
@@ -3431,7 +3432,7 @@ behavior.</A><A
   you are in the key of C Major.
 
 </DD>
-<DT><A ID="foot21454">...slashchords</A><A
+<DT><A ID="foot21560">...slashchords</A><A
  HREF="node36.html#tex2html143"><SUP>A.<SPAN CLASS="arabic">6</SPAN></SUP></A></DT>
 <DD>It is permissible to use something
   like <SPAN  CLASS="textbf">v/D</SPAN>, but you really shouldn't.

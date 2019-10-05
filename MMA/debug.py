@@ -22,8 +22,8 @@ Bob van der Poel <bob@mellowood.ca>
 
 Some silly functions used by the debug code.
 
-"""
 
+"""
 
 # the Lxxx values are the previous settings, used for LASTDEBUG macro
 
@@ -90,10 +90,11 @@ def setDebug(ln):
         LgvShow, gvShow
     
     msg = ("Debug: Use MODE=On/Off where MODE is one or more of "
-           "DEBUG, FILENAMES, PATTERNS, SEQUENCE, "
+           "DEBUG, FILENAMES, PATTERNS, SEQUENCE, GROOVE, "
            "RUNTIME, WARNINGS, EXPAND, ROMAN or PLECTRUM.")
 
     if not len(ln):
+        from MMA.common import error
         error(msg)
 
     # save current flags
@@ -174,6 +175,7 @@ def setDebug(ln):
                 dPrint("Plectrum display=%s" % val)
 
         else:
+            from MMA.common import error
             error(msg)
 
             

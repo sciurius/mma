@@ -38,8 +38,7 @@ outfile = ''
 libPath = []
 libDirs = []
 incPath = []
-
-plugPath = os.path.join(gbl.MMAdir, "plugins")
+plugPaths = []
 
 mmaStart = []
 mmaEnd   = []
@@ -58,6 +57,8 @@ def init():
     setIncPath([os.path.join(gbl.MMAdir, 'includes')])
     if not incPath or not os.path.isdir(incPath[0]):
         dPrint("Warning: Include directory not found.")
+
+    setPlugPath([os.path.join(gbl.MMAdir, "plugins")] )
 
 
 ##################################
@@ -301,3 +302,19 @@ def createOutfileName(extension):
         outfile += extension
 
     outfile = MMA.file.fixfname(outfile)
+
+
+##############################################
+# Set up the plugin paths
+
+def setPlugPath(ln):
+    """ Set the plugPath variable.  """
+
+    global plugPaths
+    plugPaths = []
+
+    for l in ln:
+        plugPaths.append( MMA.file.fixfname(l) )
+
+    if MMA.debug.debug:
+        dPrint("PlugPath set: %s" % ' '.join(plugPaths))

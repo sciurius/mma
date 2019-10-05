@@ -146,15 +146,15 @@ def grooveDefineDo(slot):
 
 
 def grooveAlias(ln):
-    """ Create an alias name for an existing groove. """
+    """ Create an alias name for an existing groove. Note: not a copy. """
 
     global aliaslist
 
     if len(ln) != 2:
         error("DefAlias needs exactly 2 args: GrooveName AliasName.")
 
-    a = ln[0].upper()
-    g = ln[1].upper()
+    g = ln[0].upper()
+    a = ln[1].upper()
 
     if not g in glist:
         error("DefAlias: Groove %s has not been defined." % ln[0])

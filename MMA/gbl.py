@@ -22,7 +22,7 @@ Bob van der Poel <bob@mellowood.ca>
 
 """
 
-version = "19.08"        # Version -- August/2019
+version = "19.08a"        # Version -- August/2019
 
 """ A few globals are actually set in the calling stub, mma.py. This is
     done to make future ports and platform specific settings a bit easier.
@@ -123,6 +123,7 @@ runningStatus  = 1     # running status enabled "MidiFile Running" changes to 0/
 inAllGrooves = False   # set if running an ALLGROOVES command
 
 encoding = 'cp1252'
+noCredit = False   # set to not have credits in midi file
 logFile = ''    # this is set if user wants logging to be buffered.
 
 #############  Options. #############
@@ -144,5 +145,9 @@ maxBars        =     500
 makeGrvDefs    =     0
 
 playFile       =     0       # set if we want to call a player
+
+# set if an exception is catching unknown chords
+# this is used by -xCHORDS 
+ignoreBadChords = False
 
 

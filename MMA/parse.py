@@ -609,12 +609,12 @@ def rndseed(ln):
     """ Reseed the random number generator. """
 
     if not ln:
-        random.seed()
+        random.seed()   # just resets, not predicable.
 
     elif len(ln) > 1:
         error("RNDSEED: requires 0 or 1 arguments")
     else:
-        random.seed(stof(ln[0]))
+        random.seed(stoi(ln[0]))  # predicable results.
 
 
 def lnPrint(ln):
@@ -1285,6 +1285,7 @@ simpleFuncs = {'ADJUSTVOLUME': MMA.volume.adjvolume,
                'SETLIBPATH': MMA.paths.setLibPath,
                'SETMIDIPLAYER': MMA.player.setMidiPlayer,
                'SETOUTPATH': MMA.paths.setOutPath,
+               'SETPLUGPATH': MMA.paths.setPlugPath,
                'SETSYNCTONE': MMA.sync.setSyncTone,
                'SHOWVARS': macros.showvars,
                'STACKVALUE': macros.stackValue,

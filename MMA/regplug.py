@@ -33,7 +33,7 @@ import hashlib
 import json
 import MMA.debug
 
-from MMA.paths import plugPath 
+from MMA.paths import plugPaths
 from MMA.common import *
 import MMA.parse
 from MMA.alloc import trkClasses
@@ -90,7 +90,7 @@ def findPlugin(targ):
     
            - the users current directory
            - the directory in which the current file being processed lives
-           - the plugin directory.
+           - the plugin directories.
 
            The search is case-insensitive.
 
@@ -140,9 +140,10 @@ def findPlugin(targ):
 
     # 3. The plugin directory (mmapath/plugins)
     if tryPlugDir:
-        mdir, modName = matchName(plugPath)
-        if mdir:
-            return plugPath, mdir, modName
+        for p in MMA.paths.plugPaths:
+            mdir, modName = matchName(p)
+            if mdir:
+                return p, mdir, modName
 
     return None, None, None
 

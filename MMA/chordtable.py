@@ -174,7 +174,7 @@ chordlist = {
     '6(add9)':    ((C,   E, G, D+12, A+12),
              (C, D, E, F, G, A, B),
              "6th with added 9th. This is sometimes notated as a slash chord "
-             "in the form ``6/9''."),
+             "in the form ``6/9''. MMA voices the 6th an octave higher."),
 
     'M7':    ((C,    E,    G,    B),
              (C, D, E, F, G, A, B),

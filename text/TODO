@@ -1,3 +1,6 @@
+Fix docs to put the 'xtra' options (-xNOCREDIT, etc) in their own
+ manual section!
+ 
 Add repeat line to solo option (just line we do for lyrics).
 
 Chord name meta-data might do with some additional settings: merge it

@@ -245,7 +245,22 @@ def loadDB(d):
 
 #################################################################
 
+def searchDB(targ, skip=None):
+    """ Scan the database for the desired groove name. """
+    
+    # Note the way we jump out the doubly nested loop.
+    # Yes, this is pythonic and fast.
+    try:
+        for dir, g in grooveDB:
+            for filename, namelist in g.items():
+                if targ in namelist:
+                    raise StopIteration
 
+    except StopIteration:
+        return os.path.join(dir, filename), targ.upper()
+
+    return ('', targ)
+    
 def findGroove(targ):
     """ Try to auto-load a groove from the library.
 
@@ -278,20 +293,31 @@ def findGroove(targ):
 
     if ':' in targ:
         dirfile, targ = targ.split(':', 1)
+        dirpath = MMA.paths.findLibFile(dirfile)
         targ = targ.upper()
-
+        if dirpath == None:
+            error("The file '%s' does not exist in libraries." % dirfile)
+            
         # user is by-passing the default libs ... just pass the file/groovename back
         if dirfile.startswith('.') or os.path.isabs(dirfile):
             ret = (dirfile, targ)
-
+            
+        # did the user shortcut the extended format by using DIR:groove (without a
+        # filename. That's fine, search the database for the specifed dir.
+        # Only problem is that if you have duplicate grooves defined in the
+        # lib the first one found will be used.
+        elif os.path.isdir(dirpath):
+            ret = searchDB(targ, dirfile)
+                            
         else:
-            # Does the library file exist? Check all the directories
+            # Does the library file exist at all? Check all the directories
             # set up from the expanded libPath. An example search
             # might be for "stdlib/swing:swingsus". The paths will
             # be:   1. stdlib  (no stdlib/swing.mma here)
             #      ..  lib   YES... found stdlib/swing.mma here
 
             fpath = MMA.paths.findLibFile(dirfile)
+
             if not fpath:
                 error("Can't locate library file: %s! Groove: %s can't be found either."
                       % (dirfile, targ))
@@ -305,17 +331,8 @@ def findGroove(targ):
         # Just lookup a normal groove load from a file. We scan
         # the database and search for the groove name (targ).
 
-        # Note the way we jump out the doubly nested loop. Yes, this is
-        # pythonic and fast.
 
         targ = targ.upper()
-        try:
-            for dir, g in grooveDB:
-                for filename, namelist in g.items():
-                    if targ in namelist:
-                        raise StopIteration
-
-        except StopIteration:
-            ret = (os.path.join(dir, filename), targ.upper())
-
+        ret = searchDB(targ)
+   
     return ret

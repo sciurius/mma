@@ -247,6 +247,9 @@ class Macros:
         elif s == 'INCPATH':
             return ' '.join(MMA.paths.incPath)
 
+        elif s == 'PLUGPATH':
+            return ' '.join(MMA.paths.plugPaths)
+    
         elif s == 'VOICETR':
             return MMA.translate.vtable.retlist()
 
