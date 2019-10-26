@@ -301,7 +301,7 @@ if fileExist:
 else:
     msg = "Creating new"
 
-print("%s midi file (%s bars, %.2f min / %d:%2d m:s): '%s'" %
+print("%s midi file (%s bars, %.2f min / %d:%02d m:s): '%s'" %
     (msg, gbl.barNum, gbl.totTime, gbl.totTime, (gbl.totTime%1)*60, outfile))
 
 # Insert the estimated play time in seconds into a comment line.

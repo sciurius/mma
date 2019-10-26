@@ -29,12 +29,11 @@ from . import gbl
 import macro
 from MMA.lyric import lyric
 
-def checkChords(l):
+def checkChords(clist):
     """ Take a list of chords passed on the command line and check them
         for validity.
     """
-    
-    clist=l.split(',')
+
     gbl.ignoreBadChords=True
     okaylist = []
     for b in clist:
@@ -108,20 +107,14 @@ def checkFile(l):
     print("Valid chords: %s" % ', '.join(sorted(validChords)))
     sys.exit(0)
         
-def xoption(a):
+def xoption(opt, args):
     """ Xtra, seldom used, options """
-
-    a = a.split('=', 1)  # could be option pairs
-    opt = a[0].upper()
-    if len(a)>1:
-        args = a[1]
-    else:
-        args = None
+    
+    opt = opt.upper()
 
     if opt == 'NOCREDIT':
         gbl.noCredit = True
-        if args:
-            error("No arguments allowed for -xNOCREDIT option.")
+        return
         
     elif opt == 'CHORDS':
         # check a list of chords on the cmd line for validity
@@ -132,10 +125,10 @@ def xoption(a):
 
     elif opt == 'CHECKFILE':
         # check a input file for valid chords
-        if not args:
-            error("Filename required. Use '-xCheckFile=FILENAME'.")
-        checkFile(args)
+        if len(args) != 1:
+            error("-xCheckFile: Exactly one filename required. Use '-xCheckFile <FILENAME>'.")
+        checkFile(args[0])
         
     else:
-        error("'%s' in an unknown -x option" % a[0])
+        error("'%s' in an unknown -x option" % opt)
              

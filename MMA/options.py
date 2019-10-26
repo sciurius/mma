@@ -194,6 +194,7 @@ def opts(l=None):
                 
 
         elif o == '-V':
+            import MMA.file
             if internal:
                 cmdError("-V")
             gbl.playFile = 2  # signal create and play groove
@@ -244,7 +245,7 @@ def opts(l=None):
 
         elif o=='-x':  # any one of some xtra, seldom used, options
             import MMA.xtra
-            MMA.xtra.xoption(a)
+            MMA.xtra.xoption(a, args)
             
         else:
             usage()      # unreachable??

@@ -67,3 +67,16 @@ Fixed circular import problem when setting debug options from cmd line.
 
 October, 2019 - released version 19.08a
 ========================================
+
+Fixed summary to show midi file duration as mm:ss.
+
+Changed -g message to "Skipped" from "Existing" ... hopefully
+ this is a bit more clear.
+
+The options -xCheckFile and -xChords have been modified. They now
+ take their args separately ... no '=' sign is needed/permitted.
+
+The code for the zOPTIONS has been twiddled. You can now do something
+ like 'zDC' to mute the drum and chord tracks and use the last chord.
+ Hope this works ... it's ugly code!
+ 

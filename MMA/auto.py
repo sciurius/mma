@@ -129,7 +129,7 @@ def libUpdate():
             processedFiles.append(f)     # a list of ALL processed (complete paths)
 
             if gdDate and f in db and os.path.getmtime(f) < gdDate:
-                print("       Existing: %s" % f )
+                print("        Skipped: %s" % f )
                 grooveCount += len(db[f])
                 continue
 

@@ -1,15 +1,10 @@
-Fix docs to put the 'xtra' options (-xNOCREDIT, etc) in their own
- manual section!
- 
-Add repeat line to solo option (just line we do for lyrics).
 
-Chord name meta-data might do with some additional settings: merge it
+Add repeat line to solo option (just like we do for lyrics).
+
+Chord-name meta-data might do with some additional settings: merge in
    an existing sequence (Lyric Chords=On SequencePoints=Chord_Foo??).
    Problematic when switching grooves?
    
-Do we need to specify a chord with zXX? Now we need EmzB to turn off
-   the bass ... why not zB to do the same if the Em is already set?
-
 Add $$ to delay expansion of macros.
 
 Add a "Output On/Off" so that generation can be toggled inside a
