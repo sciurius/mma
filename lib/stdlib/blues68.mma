@@ -39,7 +39,7 @@ Begin Bass
 	Voice AcousticBass
 	Octave 3
 	Articulate 90
-	Volume ff
+	Volume f
 	Sequence  B15   /    /   {B15; 3 4 3 60 }
 End
 

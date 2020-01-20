@@ -241,7 +241,7 @@ class Plectrum(PC):
             For standard guitar tuning use setTuning("e- a- d g b e+")
 
         """
-
+        
         if self.channel != 0:   # if tuning changes while strings are still sounding
             self.grooveFinish(0)
 

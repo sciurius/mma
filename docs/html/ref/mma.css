@@ -5,6 +5,8 @@
 DIV.equation { text-align-last:justify; white-space: nowrap; } /* place eq nos */
 SPAN.MATH { display:inline-block; }	/* don't stretch spaces inside eqn */
 
+DIV.author_info { text-align:center; } /* latex centers author */
+
 .LEFT    { text-align:left; }
 .CENTER  { text-align:center; }
 .CENTER > * { margin:auto; }

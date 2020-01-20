@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
-<!--Converted with LaTeX2HTML 2019 (Released January 1, 2019) -->
+<!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
 <TITLE>Volume and Dynamics</TITLE>
@@ -11,7 +11,7 @@
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2019">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2019.2">
 
 <LINK REL="STYLESHEET" HREF="mma.css">
 
@@ -136,7 +136,7 @@ results.
 In a 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  program there are a number ways to control the velocity of
 each note created.<A ID="tex2html77"
-  HREF="#foot11017"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>
+  HREF="#foot11036"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>
 <P>
 The basic method used by 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  to affect volume is to change the
@@ -158,12 +158,12 @@ though.
 <OL>
 <LI>The initial velocity is set in the pattern definition, see
   <A HREF="node4.html#sec-pats">patterns</A>,<A ID="tex2html78"
-  HREF="#foot10822"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A>
+  HREF="#foot10841"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A>
 <P>
 </LI>
 <LI>the velocity is then adjusted by the master and track volume
   settings<A ID="tex2html79"
-  HREF="#foot11018"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A> (see
+  HREF="#foot11037"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A> (see
   <A HREF="#volume-ratio">here</A> for the discussion
   of A<SMALL>DJUST</SMALL>V<SMALL>OLUME </SMALL>RATIO),
 
@@ -282,7 +282,7 @@ Accent
 
 <P>
 &ldquo;Real musicians&rdquo;,<A ID="tex2html80"
-  HREF="#foot10850"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A> in an almost
+  HREF="#foot10869"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A> in an almost
 automatic manner, emphasize notes on certain beats. In popular Western
 music written in <SPAN  CLASS="textbf">4/4</SPAN> time this is usually beats one and
 three. This emphasis sets the pulse or beat in a piece.
@@ -658,14 +658,14 @@ But, we don't recommend that you use this!
 
 <P>
 A better option is to increment or decrement an existing volume by a
-percentage. A numeric value prefaced by a &ldquo;+&rdquo; or &ldquo;-&rdquo; is
-interpreted as a change. So:
+percentage. A numeric value prefaced by a &ldquo;+&rdquo; or &ldquo;-&rdquo; followed by a
+&ldquo;%&rdquo; is interpreted as a change. So:
 
 <P>
 
       <Table Hspace="40%" CellSpacing=0 CellPadding=10 BGColor="OldLace" Border=3>
         <tr><td>
-    <B>Drum-Snare Volume -20  </B> 
+    <B>Drum-Snare Volume -20%   </B> 
    
 	    </td></tr>
       </Table>
@@ -674,12 +674,6 @@ interpreted as a change. So:
 would decrement the existing volume of the D<SMALL>RUM-</SMALL>S<SMALL>NARE</SMALL> track by
 20%. If an adjustment creates a negative volume, the volume will be
 set to 0 and a warning message will be displayed.
-
-<P>
-And, finally, for fine tuning you can adjust a &ldquo;musical symbol&rdquo;
-volume by a percentage. The volume &ldquo;mf-10&rdquo; will generate a volume
-10% less than the value of &ldquo;mf&rdquo;; &ldquo;f+20&rdquo; will generate a volume
-20% greater than &ldquo;f&rdquo;.
 
 <P>
 
@@ -700,7 +694,7 @@ Cresc and Decresc
 <P>
 If you wish to adjust the volume over one or more bars use the
 C<SMALL>RESC</SMALL> or D<SMALL>ECRESC</SMALL><A ID="tex2html81"
-  HREF="#foot10916"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">5</SPAN></SUP></A> commands. These
+  HREF="#foot10935"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">5</SPAN></SUP></A> commands. These
 commands work in both the master context and individual tracks.
 
 <P>
@@ -788,7 +782,7 @@ As well as increment/decrement:
     <B>Volume ff
 <BR>  ...
 <BR>
-Decresc -10 -40 4  </B> 
+Decresc -10% 40% 4  </B> 
    
 	    </td></tr>
       </Table>
@@ -934,7 +928,7 @@ bars for which the volume is only set once.
 
 <P>
 Sometimes a C<SMALL>RESC</SMALL><A ID="tex2html82"
-  HREF="#foot11021"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">6</SPAN></SUP></A> command will span a groove change. 
+  HREF="#foot11040"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">6</SPAN></SUP></A> command will span a groove change. 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT> 
 handles this in two different ways:
 
@@ -1010,7 +1004,7 @@ Swell</A>
 Often you want a crescendo to be followed by a decrescendo (or, less
 commonly, a decrescendo followed by a crescendo). Technically, this is
 a <SPAN  CLASS="textit">messa di voce</SPAN>.<A ID="tex2html83"
-  HREF="#foot11022"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">7</SPAN></SUP></A> You'll see the notation in sheet music with
+  HREF="#foot11041"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">7</SPAN></SUP></A> You'll see the notation in sheet music with
 opposed &ldquo;hairpins&rdquo;.
 
 <P>
@@ -1063,7 +1057,7 @@ RVolume
 
 <P>
 Not even the best musician can play each note at the same volume. Nor
-would he or she want to--the result would be quite unmusical ...
+would he or she want to&mdash;the result would be quite unmusical ...
 so 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  tries to be a bit human by randomly adjusting note volume
 with the R<SMALL>VOLUME</SMALL> command.
@@ -1092,7 +1086,7 @@ When set, the note velocity (after the track and master volume
 adjustments) is randomized up or down by the value. Again, using the
 above example, let us assume that a note in the current pattern gets a
 MIDI velocity of 88. The random factor of 10 will adjust this by 10%
-up or down--the new value can be from 78 to 98.
+up or down&mdash;the new value can be from 78 to 98.
 
 <P>
 The idea behind this is to give the track a more human sounding
@@ -1165,7 +1159,7 @@ hints.
 For the most part, the supplied groove files will have balanced
 volumes between the different instruments. If you find that some
 instruments or drum tones are consistently too loud or soft, spend
-some time with the chapter on <A HREF="node28.html#finetuning">Fine Tuning</A>.
+some time with the chapter on <A HREF="#finetuning">Fine Tuning</A>.
 
 <P>
 Remember that G<SMALL>ROOVE</SMALL>s save all the current volume settings.
@@ -1236,7 +1230,7 @@ Cresc f 5
 <P>
 <BR><HR><H4>Footnotes</H4>
 <DL>
-<DT><A ID="foot11017">... created.</A><A
+<DT><A ID="foot11036">... created.</A><A
  HREF="node19.html#tex2html77"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A></DT>
 <DD>We'll try to be consistent and refer to a
   MIDI &ldquo;volume&rdquo; as a &ldquo;velocity&rdquo; and internal 
@@ -1244,37 +1238,37 @@ Cresc f 5
   velocity as volumes.
 
 </DD>
-<DT><A ID="foot10822">...sec-pats,</A><A
+<DT><A ID="foot10841">...sec-pats,</A><A
  HREF="node19.html#tex2html78"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A></DT>
 <DD>Solo and
     Melody track notes use an initial velocity of 90.
 
 </DD>
-<DT><A ID="foot11018">... settings</A><A
+<DT><A ID="foot11037">... settings</A><A
  HREF="node19.html#tex2html79"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A></DT>
 <DD>Please don't confuse the concept of 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  master
     and track volumes with MIDI channel volumes.
 
 </DD>
-<DT><A ID="foot10850">... musicians&rdquo;,</A><A
+<DT><A ID="foot10869">... musicians&rdquo;,</A><A
  HREF="node19.html#tex2html80"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A></DT>
 <DD>as opposed to mechanical.
 
 </DD>
-<DT><A ID="foot10916">...D<SMALL>ECRESC</SMALL></A><A
+<DT><A ID="foot10935">...D<SMALL>ECRESC</SMALL></A><A
  HREF="node19.html#tex2html81"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">5</SPAN></SUP></A></DT>
 <DD>We use the term
   &ldquo;decrescendo&rdquo;, others prefer &ldquo;diminuendo&rdquo;.
 
 </DD>
-<DT><A ID="foot11021">...C<SMALL>RESC</SMALL></A><A
+<DT><A ID="foot11040">...C<SMALL>RESC</SMALL></A><A
  HREF="node19.html#tex2html82"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">6</SPAN></SUP></A></DT>
 <DD>This applies to D<SMALL>ECRESC</SMALL> and
   S<SMALL>WELL</SMALL> as well.
 
 </DD>
-<DT><A ID="foot11022">... voce.</A><A
+<DT><A ID="foot11041">... voce.</A><A
  HREF="node19.html#tex2html83"><SUP><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">7</SPAN></SUP></A></DT>
 <DD>Some references indicate that
   <SPAN  CLASS="textit">messa di voce</SPAN> applies to a single tone, and 

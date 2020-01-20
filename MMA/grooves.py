@@ -221,12 +221,11 @@ def groove(ln):
     if not len(tmpList):
         error("Use: Groove [selection] Name [...]")
 
-    """ If the first arg to list was an int() (ie: 3 groove1 groove2 grooveFoo)
-        we select from the list. After the selection, we reset the list to be
-        just the selected entry. This was, if there are multiple groove names
-        without a leading int() we process the list as groove list changing
-        with each bar.
-    """
+    ## If the first arg to list was an int() (ie: 3 groove1 groove2 grooveFoo)
+    ## we select from the list. After the selection, we reset the list to be
+    ## just the selected entry. This was, if there are multiple groove names
+    ## without a leading int() we process the list as groove list changing
+    ## with each bar.
 
     if wh:
         wh = (wh-1) % len(tmpList)
@@ -277,11 +276,10 @@ def grooveDo(slot):
             continue
         n.restoreGroove(slot)
 
-    """ This is important! Tracks NOT overwritten by saved grooves may
-        have the wrong sequence length. I don't see any easy way to hit
-        just the unchanged/unrestored tracks so we do them all.
-        Only done if a change in seqsize ... doesn't take long to be safe.
-    """
+    ## This is important! Tracks NOT overwritten by saved grooves may
+    ## have the wrong sequence length. I don't see any easy way to hit
+    ## just the unchanged/unrestored tracks so we do them all.
+    ## Only done if a change in seqsize ... doesn't take long to be safe.
 
     if oldSeqSize != gbl.seqSize:
         for a in gbl.tnames.values():

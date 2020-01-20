@@ -128,9 +128,9 @@ DefGroove Son  Our basic Son rhythm.
 
 Groove Son
 
-Alltracks Volume -30
+Alltracks Volume -30%
 Begin Bass
-	Volume +40
+	Volume +40%
 	Articulate 70
 End
 

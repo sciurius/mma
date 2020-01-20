@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
-<!--Converted with LaTeX2HTML 2019 (Released January 1, 2019) -->
+<!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
 <TITLE>Other Commands and Directives</TITLE>
@@ -11,7 +11,7 @@
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2019">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2019.2">
 
 <LINK REL="STYLESHEET" HREF="mma.css">
 
@@ -129,7 +129,7 @@ AllTracks
 Sometimes you want to apply the same command to all the currently
 defined tracks; for example, you might want to ensure that <SPAN  CLASS="textit">no</SPAN>
 tracks have S<SMALL>EQ</SMALL>R<SMALL>ND</SMALL> set. Yes, you could go though each track
-(and hope you don't miss any) and explicitly issue the command:
+(and hope you don't miss any) and explicitly issue the commands:
 
 <P>
 
@@ -222,6 +222,7 @@ Or to set the articulation on B<SMALL>ASS</SMALL> and W<SMALL>ALK</SMALL> tracks
 <P>
 If you specify track types you can use any of B<SMALL>ASS</SMALL>,
 C<SMALL>HORD</SMALL>, A<SMALL>RPEGGIO</SMALL>, S<SMALL>CALE</SMALL>, D<SMALL>RUM</SMALL>, W<SMALL>ALK</SMALL>,
+P<SMALL>LECTRUM</SMALL>,
 M<SMALL>ELODY</SMALL>, S<SMALL>OLO</SMALL> and A<SMALL>RIA</SMALL> tracks.
 
 <P>
@@ -252,7 +253,7 @@ For example in:
 bass notes on beats 1, 2, 3 and 4 are defined. All are quarter notes.
 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT> , being quite literal about things, should make each note exactly
-192 MIDI ticks long--which means that the note on beat 2 will start
+192 MIDI ticks long&mdash;which means that the note on beat 2 will start
 at the same time as the note on beat 1 ends.
 
 <P>
@@ -651,14 +652,14 @@ delays to each note:
 <P>
 The D<SMALL>ELAY</SMALL> setting can be negative (in this case the note is
 sounded in advance).<A ID="tex2html120"
-  HREF="#foot17903"><SUP><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A> You can have different
+  HREF="#foot17921"><SUP><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A> You can have different
 delays for each bar in a sequence. The values for the delay are given
 in standard 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  note durations (see <A HREF="node4.html#notelength">here</A> for details). D<SMALL>ELAY</SMALL> is saved in G<SMALL>ROOVES</SMALL>.
 
 <P>
 See <SPAN  CLASS="texttt"><SPAN  CLASS="textbf">egs/delay</SPAN></SPAN> for some sample files.<A ID="tex2html121"
-  HREF="#foot18206"><SUP><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A>
+  HREF="#foot18224"><SUP><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A>
 <P>
 
 <H1><A ID="SECTION003080000000000000000"></A> <A ID="sec-delete"></A>
@@ -815,7 +816,7 @@ The key signature is an underlining concept in all modern music. In
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  it will affect the notes used in S<SMALL>OLO</SMALL> or
 M<SMALL>ELODY</SMALL> tracks, is a basic requirement for R<SMALL>OMAN</SMALL> numeral
 chords, and sets a MIDI Key Signature event.<A ID="tex2html122"
-  HREF="#foot18207"><SUP><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A> In most cases you <SPAN  CLASS="textit">should set the key
+  HREF="#foot18225"><SUP><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A> In most cases you <SPAN  CLASS="textit">should set the key
 signature</SPAN> in all your songs.
 
 <P>
@@ -1090,7 +1091,7 @@ expanded to the sequence size and are applied to the existing settings.
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT> 's octave numbering and schemes used to denote octaves on a
 piano keyboard or staff do not correspond. 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  is capable of
-generating a compete set of MIDI notes in the range 0 to 127--for
+generating a compete set of MIDI notes in the range 0 to 127&mdash;for
 this we need the first octave to be &ldquo;0&rdquo;. If this is a problem, see
 the MO<SMALL>CTAVE</SMALL> command discussed in the next section.
 
@@ -1142,7 +1143,9 @@ To disable the generation of MIDI output on a specific track:
 This can be used anywhere in a file. Use it to override the effect of
 a predefined groove, if you wish. This is simpler than resetting a
 voice in a groove. The only way to reset this command is with a
-O<SMALL>N</SMALL> directive.
+O<SMALL>N</SMALL> directive. Note: this applies to the generation of MIDI only on
+the specified 
+<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT> track.
 
 <P>
 
@@ -1166,7 +1169,9 @@ been disabled with an O<SMALL>FF</SMALL> directive:
 
 <P>
 Attempts to enable tracks disabled with the -T command line option
-generate a warning (the command is ignored).
+generate a warning (the command is ignored).  Note: this applies to the generation of MIDI only on
+the specified 
+<FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT> track.
 
 <P>
 
@@ -1361,7 +1366,7 @@ sections to force the restart of the count.
 If you have enable sequence randomization with the S<SMALL>EQ</SMALL>R<SMALL>ND </SMALL>O<SMALL>N</SMALL>
 command, the randomization will be disabled by a S<SMALL>EQ</SMALL>
 command.<A ID="tex2html123"
-  HREF="#foot18076"><SUP><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A>  However,
+  HREF="#foot18094"><SUP><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A>  However,
 settings of track S<SMALL>EQ</SMALL>R<SMALL>ND</SMALL> will not be effected. One difference
 between S<SMALL>EQ</SMALL>R<SMALL>ND </SMALL>O<SMALL>FF</SMALL> and S<SMALL>EQ</SMALL> is that the current sequence
 point is set with the latter; with S<SMALL>EQ</SMALL>R<SMALL>ND </SMALL>O<SMALL>FF</SMALL> it is left at a
@@ -1414,9 +1419,9 @@ Strum
 <P>
 When 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  generates a chord,<A ID="tex2html124"
-  HREF="#foot18087"><SUP><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">5</SPAN></SUP></A> all the
+  HREF="#foot18105"><SUP><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">5</SPAN></SUP></A> all the
 notes are played at the same time.<A ID="tex2html125"
-  HREF="#foot18208"><SUP><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">6</SPAN></SUP></A>
+  HREF="#foot18226"><SUP><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">6</SPAN></SUP></A>
 <P>
 To make the notes in a chord sound like something a guitar or banjo
 might play, use the S<SMALL>TRUM</SMALL> directive. For example:
@@ -1544,7 +1549,7 @@ The value specified is added to each successive offset. Without the
 S<SMALL>TRUM</SMALL>A<SMALL>DD</SMALL> directive the notes would be generated at offsets
 0, 10, 20, etc. However, with this option, the notes will now be
 placed at 0, 15, 35, 60, 90, etc.<A ID="tex2html126"
-  HREF="#foot18213"><SUP><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">7</SPAN></SUP></A>
+  HREF="#foot18231"><SUP><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">7</SPAN></SUP></A>
 <P>
 The easy way to imagine this is to picture a guitar player strumming a
 chord. Without the S<SMALL>TRUM</SMALL>A<SMALL>DD</SMALL> option his hand moves at a steady
@@ -1583,7 +1588,7 @@ First, when a program is expecting all tracks to start at the same
 location, or is intolerant of &ldquo;emptiness&rdquo; at the start of a track,
 you can add a &ldquo;tick note&rdquo; at the start of each
 track.<A ID="tex2html127"
-  HREF="#foot18149"><SUP><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">8</SPAN></SUP></A>
+  HREF="#foot18167"><SUP><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">8</SPAN></SUP></A>
 <P>
 
       <Table Hspace="40%" CellSpacing=0 CellPadding=10 BGColor="OldLace" Border=3>
@@ -1604,7 +1609,7 @@ S<SMALL>ET</SMALL>S<SMALL>YNC</SMALL>T<SMALL>ONE</SMALL> command (below).
 <P>
 Second, some programs think (wrongly) that all tracks should end at
 the same point.<A ID="tex2html128"
-  HREF="#foot18152"><SUP><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">9</SPAN></SUP></A> Adding the command:
+  HREF="#foot18170"><SUP><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">9</SPAN></SUP></A> Adding the command:
 
 <P>
 
@@ -1975,8 +1980,8 @@ Repeated values can be represented with a &ldquo;/&rdquo;:
 But, you probably don't want to use this particular feature.
 
 <P>
-Valid arguments are &ldquo;On&rdquo; or &ldquo;1&rdquo; to enable; &ldquo;Off&rdquo; or &ldquo;0&rdquo; to
-disable.
+Valid arguments are &ldquo;On&rdquo;, &ldquo;True&rdquo;, or &ldquo;1&rdquo; to enable; &ldquo;Off&rdquo;,
+&ldquo;False&rdquo; or &ldquo;0&rdquo;,  to disable.
 
 <P>
 Note: Notes generated with the U<SMALL>NIFY</SMALL> setting on may be lost if
@@ -1985,20 +1990,20 @@ you use the <SPAN  CLASS="textit">-b</SPAN> or <SPAN  CLASS="textit">-B</SPAN> c
 &ldquo;keep&rdquo; notes which were turned on before the specified range.
 <BR><HR><H4>Footnotes</H4>
 <DL>
-<DT><A ID="foot17903">... advance).</A><A
+<DT><A ID="foot17921">... advance).</A><A
  HREF="node30.html#tex2html120"><SUP><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A></DT>
 <DD>A single leading &ldquo;-&rdquo; and &ldquo;+&rdquo; sign is
   striped from the specified note duration.
 
 </DD>
-<DT><A ID="foot18206">... files.</A><A
+<DT><A ID="foot18224">... files.</A><A
  HREF="node30.html#tex2html121"><SUP><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A></DT>
 <DD>This command was
   conceived to be used in S<SMALL>OLO</SMALL> tracks. If you find a good use
   for it in other tracks, please let the author know.
 
 </DD>
-<DT><A ID="foot18207">... event.</A><A
+<DT><A ID="foot18225">... event.</A><A
  HREF="node30.html#tex2html122"><SUP><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A></DT>
 <DD>For
   the most part, MIDI Key Signature events are ignored by playback
@@ -2006,39 +2011,39 @@ you use the <SPAN  CLASS="textit">-b</SPAN> or <SPAN  CLASS="textit">-B</SPAN> c
   which handle notation.
 
 </DD>
-<DT><A ID="foot18076">...
+<DT><A ID="foot18094">...
 command.</A><A
  HREF="node30.html#tex2html123"><SUP><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A></DT>
 <DD>A warning message will also be displayed.
 
 </DD>
-<DT><A ID="foot18087">... chord,</A><A
+<DT><A ID="foot18105">... chord,</A><A
  HREF="node30.html#tex2html124"><SUP><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">5</SPAN></SUP></A></DT>
 <DD>In this case we define
   &ldquo;chord&rdquo; as two or more notes played at the same time.
 
 </DD>
-<DT><A ID="foot18208">... time.</A><A
+<DT><A ID="foot18226">... time.</A><A
  HREF="node30.html#tex2html125"><SUP><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">6</SPAN></SUP></A></DT>
 <DD>An exception to this are
   notes generated if R<SMALL>TIME</SMALL> <A HREF="node13.html#rtime">13.3</A> and/or  RD<SMALL>URATION</SMALL> <A HREF="node13.html#rduration">13.4</A> are set.
 
 </DD>
-<DT><A ID="foot18213">... etc.</A><A
+<DT><A ID="foot18231">... etc.</A><A
  HREF="node30.html#tex2html126"><SUP><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">7</SPAN></SUP></A></DT>
 <DD>These values are MIDI ticks
   from the current pointer position. Other settings such as
   R<SMALL>TIME</SMALL> will change the exact location.
 
 </DD>
-<DT><A ID="foot18149">...
+<DT><A ID="foot18167">...
 track.</A><A
  HREF="node30.html#tex2html127"><SUP><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">8</SPAN></SUP></A></DT>
 <DD>Timidity truncates the start of tracks up to the first
   MIDI event when playing a file or splitting out single tracks.
 
 </DD>
-<DT><A ID="foot18152">... point.</A><A
+<DT><A ID="foot18170">... point.</A><A
  HREF="node30.html#tex2html128"><SUP><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">9</SPAN></SUP></A></DT>
 <DD>Seq24 does strange looping if all tracks
   don't end identically.

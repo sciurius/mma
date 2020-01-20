@@ -343,7 +343,7 @@ def parse(inpath):
 ##################################################################
 
 def allTracks(ln):
-    """ Apply track to all tracks. """
+    """ Apply command to all specified tracks or track types. """
 
     types1 = ('BASS', 'CHORD', 'ARPEGGIO', 'SCALE', 'DRUM', 'WALK', 'PLECTRUM')
     types2 = ('MELODY', 'SOLO', 'ARIA')
@@ -352,7 +352,7 @@ def allTracks(ln):
     ttypes = []
 
     if len(ln) < 1:
-        error("AllTracks: argument (track?) required")
+        error("AllTracks: Requires arguments: [Track | Track-Name] command.")
 
     i = 0
     while i < len(ln) and ln[i].upper() in allTypes:
@@ -363,7 +363,7 @@ def allTracks(ln):
         ttypes = types1
 
     if i >= len(ln):
-        error("AllTracks: Additional argument (command?) required")
+        error("AllTracks: A command is required after the Track or Track-Name.")
 
     cmd = ln[i].upper()
     args = i + 1

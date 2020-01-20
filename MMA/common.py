@@ -71,8 +71,11 @@ def prettyPrint(msg):
 
     if isinstance(msg, list):
         msg = ' '.join(msg)
-    for a in wrap(msg, termwidth, initial_indent='', subsequent_indent='    '):
-        bufferPrint(a)
+    try:
+        for a in wrap(msg, termwidth, initial_indent='', subsequent_indent='    '):
+            bufferPrint(a)
+    except:
+        bufferPrint(msg)
 
 def error(msg):
     """ Print an error message and exit.

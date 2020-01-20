@@ -78,5 +78,18 @@ The options -xCheckFile and -xChords have been modified. They now
 
 The code for the zOPTIONS has been twiddled. You can now do something
  like 'zDC' to mute the drum and chord tracks and use the last chord.
- Hope this works ... it's ugly code!
- 
+ Hope this works ... it's ugly code! The docs for this section
+ (Rests, section 8.4) have been rewritten,
+
+October 26, 2019 - released version 19.08b
+==========================================
+
+Fixed bug in prettyPrint to handle errors.
+
+Keysig accepts '0' as a synonym to '0b' or '0#'.
+
+Volume, Decresc, etc have been revamped. They now recommend
+  the use of an added '%' sign for increase/decrease to show
+  clearly what is going on. Also, some dumb constructs like 'f + 10%'
+  are now in error land.
+  

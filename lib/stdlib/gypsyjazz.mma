@@ -1,13 +1,11 @@
 // gypsyjazz
 
 Begin Doc
-
       An attempt to sound like Django and the Hot Five. All we use
       is a standard ensemble of: Solo Guitar, Solo Violin, 2 Rhythm guitars
       (la pompe style), and upright bass.
 
        Honestly, this needs some work!
-      
 End
 
 Author Bob van der Poel 
@@ -110,8 +108,8 @@ Begin Arpeggio
     Harmony 2Below  /// really just to add more notes to the mix
 End
 
-Plectrum-1 Volume -15
-Plectrum-2 Volume -15
+Plectrum-1 Volume -15%
+Plectrum-2 Volume -15%
 
 DefGroove GypsyJazzFiddle   A fiddling gypsy.
 

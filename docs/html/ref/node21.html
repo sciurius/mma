@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
-<!--Converted with LaTeX2HTML 2019 (Released January 1, 2019) -->
+<!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
 <TITLE>Variables, Conditionals and Jumps</TITLE>
@@ -11,7 +11,7 @@
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2019">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2019.2">
 
 <LINK REL="STYLESHEET" HREF="mma.css">
 
@@ -148,7 +148,7 @@ Vexpand ON/Off   </B>
 <P>
 All variable names are case-insensitive. Any characters can be used in
 a variable name. The only exceptions are that a variable name cannot
-start with a &ldquo;$&rdquo; or a &ldquo;_&rdquo; (an underscore--this is reserved for
+start with a &ldquo;$&rdquo; or a &ldquo;_&rdquo; (an underscore&mdash;this is reserved for
 internal variables, see below) <SPAN  CLASS="textit">and</SPAN> names cannot contain a
 &ldquo;[&rdquo; or &ldquo;]&rdquo; character (brace characters are reserved for
 indexing, <A HREF="#slicing">details here</A>).
@@ -354,7 +354,7 @@ remainder will be reinserted into the input stream for interpretation.
 
 <P>
 Variables are <SPAN  CLASS="textit">not</SPAN> expanded when creating an M<SMALL>SET</SMALL>
-macro (lines are read verbatim from the input path)--this makes
+macro (lines are read verbatim from the input path)&mdash;this makes
 M<SMALL>SET</SMALL> subtly different from S<SMALL>ET</SMALL>. Variables <SPAN  CLASS="textit">are</SPAN>
 expanded when the macro is executed.
 
@@ -671,7 +671,7 @@ Variable expansion should usually not be a concern. In most normal
 files, 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  will expand variables as they are encountered. However,
 when reading the data in a R<SMALL>EPEAT</SMALL>, I<SMALL>F</SMALL> or M<SMALL>SET</SMALL>
-section the expansion function is skipped--but, when the lines are
+section the expansion function is skipped&mdash;but, when the lines are
 processed, after being stored in an internal queue, variables are
 expanded.
 
@@ -729,7 +729,7 @@ Predefined Variables
 For your convenience 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  tracks a number of internal settings and
 you can access these values with special macros.<A ID="tex2html85"
-  HREF="#foot11969"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>  All of these &ldquo;system&rdquo; variables are
+  HREF="#foot11986"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>  All of these &ldquo;system&rdquo; variables are
 prefaced with a single underscore. For example, the current tempo can be
 retrieved using the $_TEMPO variable.
 
@@ -1089,7 +1089,7 @@ The following are the available &ldquo;TrackName&rdquo; macros:
 <DD>
 </DD>
 <DT><STRONG>&nbsp;&nbsp;$_TRACKNAME_Channel</STRONG></DT>
-<DD>Assigned MIDI channel 1-16, 0 if not
+<DD>Assigned MIDI channel 1&ndash;16, 0 if not
   assigned.
 </DD>
 <DT><STRONG>&nbsp;&nbsp;$_TRACKNAME_Compress</STRONG></DT>
@@ -1379,7 +1379,7 @@ evaluated by Python.
 <P>
 You can even use this feature to modify values stored in
 lists.<A ID="tex2html86"
-  HREF="#foot12162"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A> A bit complex, but well worthwhile! In the following
+  HREF="#foot12179"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A> A bit complex, but well worthwhile! In the following
 example we add &ldquo;10&rdquo; to the current A<SMALL>RTICULATE</SMALL> setting. It's
 split into three lines to make it clearer:
 
@@ -1509,7 +1509,7 @@ the functions:
 
 <P>
 the miscellaneous functions:<A ID="tex2html87"
-  HREF="#foot12069"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A>
+  HREF="#foot12086"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A>
 <P>
 <PRE>
     for, in, str(), .join(), .split()
@@ -1561,7 +1561,7 @@ them in conditionals. In
 starting with an I<SMALL>F</SMALL> directive, a test, a series of lines to
 process (depending upon the result of the test), and a closing
 E<SMALL>ND</SMALL>I<SMALL>F</SMALL> or I<SMALL>F</SMALL>E<SMALL>ND</SMALL><A ID="tex2html88"
-  HREF="#foot12163"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A>  directive. An optional E<SMALL>LSE</SMALL> statement may be included.
+  HREF="#foot12180"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A>  directive. An optional E<SMALL>LSE</SMALL> statement may be included.
 
 <P>
 The first set of tests are unary (they take no arguments):
@@ -1582,7 +1582,7 @@ The first set of tests are unary (they take no arguments):
 </DL>
 
 <P>
-In the above tests you must supply the name of a variable--don't make
+In the above tests you must supply the name of a variable&mdash;don't make
 the mistake of including a &ldquo;$&rdquo; which will invoke expansion and
 result in something you were not expecting.
 
@@ -1738,7 +1738,7 @@ values then 3 is less than 22. The rule in
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  is quite simple: If
 both strings can be converted to a value, a numeric comparison is done;
 otherwise they are compared as strings.<A ID="tex2html89"
-  HREF="#foot12132"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">5</SPAN></SUP></A>
+  HREF="#foot12149"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">5</SPAN></SUP></A>
 <P>
 This lets you do consistent comparisons in situations like:
 
@@ -1913,7 +1913,7 @@ lines in that segment will be ignored.
 <P>
 
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT>  does not check to see if you are jumping into a repeat or
-conditional section of code--but doing so will usually cause an
+conditional section of code&mdash;but doing so will usually cause an
 error. Jumping out of these sections is usually safe.
 
 <P>
@@ -1953,7 +1953,7 @@ directory.
 <P>
 <BR><HR><H4>Footnotes</H4>
 <DL>
-<DT><A ID="foot11969">... macros.</A><A
+<DT><A ID="foot11986">... macros.</A><A
  HREF="node21.html#tex2html85"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A></DT>
 <DD>The values
   are dynamically created and reflect the current settings, and may
@@ -1961,7 +1961,7 @@ directory.
   internal roundings, etc.
 
 </DD>
-<DT><A ID="foot12162">...
+<DT><A ID="foot12179">...
 lists.</A><A
  HREF="node21.html#tex2html86"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A></DT>
 <DD>this was written before the introduction of slices,
@@ -1970,7 +1970,7 @@ lists.</A><A
   be done.
 
 </DD>
-<DT><A ID="foot12069">... functions:</A><A
+<DT><A ID="foot12086">... functions:</A><A
  HREF="node21.html#tex2html87"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">3</SPAN></SUP></A></DT>
 <DD>It is possible that the
     following functions could be used to do &ldquo;bad&rdquo; things. If you see
@@ -1978,7 +1978,7 @@ lists.</A><A
     careful.
 
 </DD>
-<DT><A ID="foot12163">...I<SMALL>F</SMALL>E<SMALL>ND</SMALL></A><A
+<DT><A ID="foot12180">...I<SMALL>F</SMALL>E<SMALL>ND</SMALL></A><A
  HREF="node21.html#tex2html88"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">4</SPAN></SUP></A></DT>
 <DD>
 <FONT Face="Serif"  Color="Navy"><I>MMA</I></FONT> 's author probably suffers
@@ -1987,7 +1987,7 @@ lists.</A><A
   you.
 
 </DD>
-<DT><A ID="foot12132">... strings.</A><A
+<DT><A ID="foot12149">... strings.</A><A
  HREF="node21.html#tex2html89"><SUP><SPAN CLASS="arabic">21</SPAN>.<SPAN CLASS="arabic">5</SPAN></SUP></A></DT>
 <DD>For this comparison
   float values are used. Rounding errors can cause equality

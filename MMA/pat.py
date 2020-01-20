@@ -1230,12 +1230,12 @@ class PC:
 
         for n in ln:
             n = n.upper()
-            if n in ('ON', '1'):
+            if n in ('ON', 'TRUE', '1'):
                 tmp.append(1)
-            elif n in('OFF', '0'):
+            elif n in('OFF', 'FALSE', '0'):
                 tmp.append(0)
             else:
-                error("Unify accepts ON | OFF | 0 | 1")
+                error("Unify accepts On/True/1 or Off/False/0, not %s." % n)
 
         self.unify = seqBump(tmp)
 
@@ -1338,13 +1338,12 @@ class PC:
         self.mallet, self.malletDecay = g['MALLET']
         self.ornaments = g['ORNAMENT']
 
-        """ It's quite possible that the track was created after
-            the groove was saved. This means that the data restored
-            was just the default stuff inserted when the track
-            was created ... which is fine, but the sequence size
-            isn't necs. right. We can probably test any list, and octave[]
-            is as good as any.
-        """
+        # It's quite possible that the track was created after
+        #  the groove was saved. This means that the data restored
+        #  was just the default stuff inserted when the track
+        #  was created ... which is fine, but the sequence size
+        #  isn't necs. right. We can probably test any list, and octave[]
+        #  is as good as any.
 
         if len(self.octave) != gbl.seqSize:
             self.setSeqSize()

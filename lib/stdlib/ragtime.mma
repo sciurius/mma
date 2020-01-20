@@ -94,7 +94,7 @@ DefGroove  RagtimeSus   Our simple ragtime with string section.
 
 Begin Arpeggio
 	Groove  RagTimePlus
-	Volume  -5
+	Volume  -5%
 	Articulate 70
 	Direction Down
 End

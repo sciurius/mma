@@ -75,7 +75,7 @@ DefGroove JazzGuitarWalk     Changes the bass pattern to walking.
 
 Groove JazzGuitar
 
-Plectrum Volume +0 / / -30   /// cut volume for guitar on 4th bar
+Plectrum Volume +0% / / -30%   /// cut volume for guitar on 4th bar
 
 Begin Arpeggio
 	Voice $_Plectrum_Voice
@@ -115,7 +115,7 @@ DefGroove JazzGuitar2Walk  The strum pattern with walking bass
 
 Groove JazzGuitar2
 
-Plectrum Volume +0 / / -30
+Plectrum Volume +0% / / -30%
 Begin Arpeggio
 	Groove JazzGuitar1
 	Octave 5

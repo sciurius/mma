@@ -112,6 +112,9 @@ class KeySig:
         elif kname[0] in "01234567":
             c = int(kname[0])
 
+            if kname == '0':
+                kname = '0#'
+                
             if len(kname) < 2:
                 error("KeySig: numerical keysig needs sharp/flat indicator.")
 

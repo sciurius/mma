@@ -22,7 +22,7 @@ Bob van der Poel <bob@mellowood.ca>
 
 """
 
-version = "19.08b"        # Version -- Oct/2019
+version = "19.08c"        # Version -- Jan/2020
 
 """ A few globals are actually set in the calling stub, mma.py. This is
     done to make future ports and platform specific settings a bit easier.
