@@ -92,4 +92,5 @@ Volume, Decresc, etc have been revamped. They now recommend
   the use of an added '%' sign for increase/decrease to show
   clearly what is going on. Also, some dumb constructs like 'f + 10%'
   are now in error land.
-  
+
+The $( RandInt()) expression was not documented.

@@ -118,7 +118,7 @@ def harmonize(hmode, note, chord):
             a = gethnote(note, chord)
             b = gethnote(a, chord)
             hnotes.extend([a, b])
-
+            
         elif tp == '38BELOW':
             a = gethnote(note, chord)
             b = gethnote(a, chord)
