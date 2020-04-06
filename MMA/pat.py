@@ -161,7 +161,7 @@ class PC:
 
 
     ##########################################
-    ## These are called from process() to set options
+    ## These are called from parse() to set options
 
     def setCompress(self, ln):
         """ set/unset the compress flag. """
@@ -171,15 +171,8 @@ class PC:
         tmp = []
 
         for n in ln:
-
-            if n.upper() in ("ON", "TRUE"):
-                n = "1"
-            if n.upper() in ("OFF", "FALSE"):
-                n = "0"
-            if n not in ("0", "1"):
-                error("%s Compress: Argument 0, 1, True, False, not '%s'." % (self.name, n))
-
-            if n == '1':
+            n = getTF(n, "%s Compress" % (self.name))
+            if n:
                 n = 1
             else:
                 n = 0
@@ -494,14 +487,7 @@ class PC:
             error("%s Sticky needs single argument ('True/False')." % self.name)
          
         arg = ln[0].upper()
-        if arg in ("TRUE", "ON", "1"):
-            self.sticky = True
-
-        elif arg in ("FALSE", "OFF", "0"):
-            self.sticky = False 
-
-        else:
-            error("%s Sticky: '%s' is not a valid option." % (self.name, arg))
+        self.sticky = getTF(arg, "%s Sticky" % (self.name))
 
         if MMA.debug.debug:
             MMA.debug.trackSet(self.name, "Sticky")
@@ -1229,14 +1215,8 @@ class PC:
         tmp = []
 
         for n in ln:
-            n = n.upper()
-            if n in ('ON', 'TRUE', '1'):
-                tmp.append(1)
-            elif n in('OFF', 'FALSE', '0'):
-                tmp.append(0)
-            else:
-                error("Unify accepts On/True/1 or Off/False/0, not %s." % n)
-
+            tmp.append(getTF(n, "Unify"))
+                       
         self.unify = seqBump(tmp)
 
         if MMA.debug.debug:
@@ -1300,8 +1280,9 @@ class PC:
             then call back to this to finish the job.
         """
 
-        self.doMidiClear()
-
+        if self.vtype != 'PLECTRUM' or MMA.patPlectrum.plectrumReset == True:
+            self.doMidiClear()
+            
         g = self.grooves[gname]
 
         self.sequence = g['SEQ']

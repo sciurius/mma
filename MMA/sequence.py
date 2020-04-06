@@ -287,14 +287,7 @@ def trackSeqRnd(name, ln):
     self = gbl.tnames[name]
     arg = ln[0].upper()
 
-    if arg in ("TRUE", "ON", "1"):
-        self.seqRnd = 1
-
-    elif arg in ("FALSE", "OFF", "0"):
-        self.seqRnd = 0
-
-    else:
-        error("SeqRnd: '%s' is not a valid option" % arg)
+    self.seqRnd = getTF(arg, "%s SeqRnd" % (name))
 
     if MMA.debug.debug:
         if self.seqRnd:

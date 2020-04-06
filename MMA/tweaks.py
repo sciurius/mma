@@ -59,5 +59,9 @@ def setTweak(ln):
             else:
                 error("Tweaks: DIM requires '3' or '7' arg, not '%s'." % opt)
 
+        elif cmd == 'PLECTRUMRESET':
+            import MMA.patPlectrum
+            MMA.patPlectrum.plectrumReset = getTF(opt, "Tweaks PlectrumReset")
+            
         else:
             error("Tweaks: '%s' unknown command." % cmd)
