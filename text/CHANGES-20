@@ -14,3 +14,5 @@ Changed the default behaviour of Plectrum tracks: they no longer turn off
 Fixed minor problem with keysigs always being "#" in a MIDI file.
   Thanks to Jason Crane.
 	
+Released 20.20a - April 6/2020
+------------------------------

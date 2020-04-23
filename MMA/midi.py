@@ -422,7 +422,7 @@ class Mtrk:
 
         if MMA.sync.endsync and self.channel >= 0:
             eof = gbl.tickOffset
-            for offset in tr.keys():
+            for offset in list(tr.keys()):
                 if offset > eof:
                     del tr[offset]
             self.addToTrack(eof, packBytes((0xb0 | self.channel, 0x7b, 0)))
