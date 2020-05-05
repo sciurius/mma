@@ -143,8 +143,13 @@ class Macros:
         elif s == 'TIMESIG':
             return timeSig.getAscii()
 
-        elif s == 'TEMPO':
-            return str(gbl.tempo)
+        elif s == 'TEMPO':  # get the current tempo via the record in midi.py
+            tmp = gbl.tempo
+            for o,t in MMA.midi.tempoChanges:
+                if o > gbl.tickOffset:
+                    break
+                tmp = t
+            return str(tmp)
 
         elif s == 'OFFSET':
             return str(gbl.tickOffset)
@@ -232,6 +237,13 @@ class Macros:
         elif s == "MIDISPLIT":
             return ' '.join([str(x) for x in MMA.midi.splitChannels])
 
+        elif s == "MIDIASSIGNS":
+            x = []
+            for c, n in sorted(gbl.midiAssigns.items()):
+                if n:
+                    x.append("%s=%s" % (c, ','.join(n)))
+            return ' '.join(x)
+        
         elif s == 'SEQRNDWEIGHT':
             return ' '.join([str(x) for x in MMA.seqrnd.seqRndWeight])
 

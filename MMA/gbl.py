@@ -22,7 +22,7 @@ Bob van der Poel <bob@mellowood.ca>
 
 """
 
-version = "20.02b"        # Version -- April/2020
+version = "20.02c"        # Version -- May/2020
 
 """ A few globals are actually set in the calling stub, mma.py. This is
     done to make future ports and platform specific settings a bit easier.
@@ -139,7 +139,7 @@ barRange       =     []      # both -B and -b use this
 printProcessed = False  # command line flag -L sets this
 
 outfile        =     None
-infile         =     None
+infile         =     None  # file NAME, probably from CLI
 createDocs     =     0
 maxBars        =     500
 makeGrvDefs    =     0

@@ -23,6 +23,8 @@ Bob van der Poel <bob@mellowood.ca>
 After storage, setting and command insertion.
 
 """
+import tempfile
+import os
 
 from . import gbl
 from MMA.common import *
@@ -113,7 +115,7 @@ def create(ln):
     if MMA.debug.debug:
         dPrint("After: Added event '%s' at bar %s." % (' '.join(dat.cmd), dat.bar))
 
-def check():
+def check(recurse=False):
     """ Before reading any input, we check to see if any AFTER events have been
         created and if we need to process them now. 
     """
@@ -131,9 +133,42 @@ def check():
                 dat.bar = gbl.barNum + dat.repeat
 
     if stuff:
-        # Push our AFTER command to input.
-        gbl.inpath.push(stuff, elns)
+        if recurse:
+            # note: we can't use tempfile.TemporaryFile 'cause
+            # parse.parseFile() needs a filename. Don't think of
+            # using stdin (1) since we might cobber existing reader.
+            _, name = tempfile.mkstemp(prefix="MMA_", suffix=".mma")
+            try:
+                fd = open(name, 'w')
+            except:
+                error("Trigger: Could not open temporary scratch file "
+                      "for recursion in repeat (*) section.")
+            fd.write( ' '.join(stuff[0]))
+            fd.close()
+            afterData = [ x for x in afterData if x.bar != nn]
+            MMA.parse.parseFile(name)
+            try:
+                os.remove(name)
+            except:
+                pass
+        else:
+            # Push our AFTER command to input.
+            gbl.inpath.push(stuff, elns)
 
+         
         # delete any discarded AFTER events
         afterData = [ x for x in afterData if x.bar != nn]
 
+def needed():
+    """ Check to see if it's time to handle an After. There can be
+        several different Afters on the same bar, this returns on
+        the first positive.
+
+        Returns True/False
+    """
+    
+    nn = gbl.barNum
+    for dat in afterData:
+        if dat.bar == nn:
+            return True
+    return False

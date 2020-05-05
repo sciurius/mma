@@ -252,6 +252,8 @@ def setTrigger(name, ln):
             trigger.truncate = getTF(opt, "Trigger 'Turncate'")
 
         elif cmd == 'SEQUENCE':
+            if not sequence and opt:
+                sequence = opt
             if sequence:
                 sequence = sequence.rstrip('; ')
                 trigger.seq = self.defPatRiff(sequence)
@@ -292,7 +294,6 @@ def getTriggerOptions(self):
 
     if trigger.mode in ('AUTO', 'REST'):
         mode = trigger.mode
-
     
     if not trigger.beats:
         beats = '[]'
@@ -324,8 +325,13 @@ def getTriggerOptions(self):
     else:
         seq = "Sequence={}"
 
-    return "%s Beats=%s CNames=%s CTypes=%s CTonics=%s Bars=%s" \
-              "Count=%s Truncate=%s Override=%s %s" % \
+    if trigger.measures:
+        measures = ','.join([i for i in trigger.measures])
+    else:
+        measures = '[]'
+        
+    return "%s Beats=%s CNames=%s CTypes=%s CTonics=%s Bars=%s " \
+              "Count=%s Truncate=%s Override=%s Measures=%s %s" % \
           ( mode, beats, cnames, ctypes, tonics, bars, trigger.count,
-            trigger.truncate, trigger.override, seq)
+            trigger.truncate, trigger.override, measures, seq)
 

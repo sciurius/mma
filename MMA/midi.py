@@ -31,6 +31,7 @@ from   MMA.common import *
 from   MMA.miditables import NONETONE
 
 splitChannels = []
+tempoChanges = []    # A list of tempo changes, use to check from tempo.py
 
 # some constants we use to catorgize event types
 MIDI_NOTE = 1
@@ -392,10 +393,10 @@ class Mtrk:
         
         self.addToTrack(offset, packBytes(cvol, v))
 
-    def addTempo(self, offset, beats):
+    def addTempo(self, offset, bpm):
         """ Create a midi tempo meta event.
 
-             beats - beats per second
+             bpm - beats per minute
 
              Return - packed midi string
         """
@@ -403,8 +404,9 @@ class Mtrk:
         cmd = packBytes((0xff, 0x51, 0x03))
         self.delDup(offset, cmd)
 
-        self.addToTrack(offset, packBytes(cmd, intTo3Byte(60000000 // beats)))
-
+        self.addToTrack(offset, packBytes(cmd, intTo3Byte(60000000 // bpm)))
+        tempoChanges.append([offset, bpm])
+        
     def writeMidiTrack(self, out):
         """ Create/write the MIDI track.
 

@@ -14,5 +14,27 @@ Changed the default behaviour of Plectrum tracks: they no longer turn off
 Fixed minor problem with keysigs always being "#" in a MIDI file.
   Thanks to Jason Crane.
 	
-Released 20.20a - April 6/2020
+Released 20.20b - April 6/2020
 ------------------------------
+
+The recursion levels for include/use files are now checked to stop
+ a possible runaway overload.
+
+Fixed bug that prevented the use of a predefined sequence in Trigger. Also
+ fixed some debug info in Trigger.
+
+Fixed AFTER so that it behaves as expected in * bar sequences.
+
+Enhanced Tempo to accept the Restore=Measures and Offset=Measures options.
+
+Fixed $_Tempo macro to reflect current setting, not future ones.
+
+Added $_MidiAssigns system macro. Reports the current MIDI channel assignments
+ with their channels. Useful in debugging MIDI overflows.
+
+A number of functions creating temporary files have been changed to use the
+ library function tempfile.mkstemp() instead of my open (dumb) version using
+ the pid of mma.
+
+Released 20.20c - May 5/2020
+----------------------------

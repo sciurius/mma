@@ -25,6 +25,7 @@ Bob van der Poel <bob@mellowood.ca>
 import getopt
 import sys
 import os
+import tempfile
 
 import MMA.docs
 import MMA.parse
@@ -201,7 +202,7 @@ def opts(l=None):
             if not args:
                 error("-V: option requires Groove Name.")
 
-            tfile = "MMAtmp%s.mma" % os.getpid()
+            _, tfile = tempfile.mkstemp(prefix="MMA_", suffix=".mid")
             op = open(tfile, "w")
             groove = ''
             cmds = []
@@ -239,9 +240,11 @@ def opts(l=None):
 
             op.close()
 
+            # we can only have one scratch file, so no fear of overload.
+            # otherwise we might need to explicity delete file here.
             MMA.exits.files.append(tfile)
 
-            args = [tfile]
+            args = [tfile]  # fake the CLI so mma thinks the created file is yours
 
         elif o=='-x':  # any one of some xtra, seldom used, options
             import MMA.xtra
