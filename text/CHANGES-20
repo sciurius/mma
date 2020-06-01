@@ -38,3 +38,23 @@ A number of functions creating temporary files have been changed to use the
 
 Released 20.20c - May 5/2020
 ----------------------------
+
+Fixed mispelling in drum tones. OpenSudro should read OpenSurdo. Changed refs in
+ the casio lib files as well.
+
+Fixed a bunch of stuff in the AFTER code. Mainly, it now works in a
+ repeat (*) loop. Thanks for the pushes on this, Johan.
+
+Added: You can now set a default drum kit for use with a drum track.
+ See the manual tweaks section. And, you can also use the drumkit
+ names in the VOICE command.
+
+String slicing: The empty operator ( [] ) now returns the length of argument.
+
+Added: -xGrooves. This will list all grooves in the database. You can use an
+  argument and all grooves matching that name will be listed. The names are
+  all presented in extended groove notation so you can cut/paste these into
+  the -V option.
+
+Released 20.20d - June 1/2020
+-----------------------------

@@ -60,6 +60,10 @@ from   MMA.common import *
 def sliceVariable(p, sl):
     """ Slice a variable. Used by macro expand. """
 
+    # If slice is empty, return length.
+    if sl == '':
+        return [ str(len(p)) ]
+
     try:
         # Important: We are using the non-safe version of eval()
         #            changing to safe_eval() will stop slice
@@ -291,7 +295,6 @@ class Macros:
         elif s == 'DATETIME':
             return datetime.datetime.now().strftime("%H:%M:%S")
 
-        
         # Track vars ... these are in format TRACKNAME_VAR
 
         a = s.rfind('_')
@@ -562,6 +565,9 @@ class Macros:
                         sliceVar = s[x+1:-1]
                         s = s[:x]
 
+                        # If the slice is empty sliceVar will return the length
+                        # of the list, i.e. the number of words.
+                        
                         """ Since we be using an 'eval' to do the actual slicing,
                             we check the slice string to make sure it's looking
                             valid. The easy way out makes as much sense as anything
@@ -590,7 +596,7 @@ class Macros:
                         error("User variable '%s'  has not been defined" % s)
 
                     if isinstance(ex, list):  # MSET variable
-                        if sliceVar:
+                        if sliceVar != None:
                             ex = sliceVariable(ex, sliceVar)
                             sliceVar = None
 
@@ -603,7 +609,7 @@ class Macros:
 
                     else:                       # regular SET variable
                         ex = ex.split()
-                        if sliceVar:
+                        if sliceVar != None:
                             ex = sliceVariable(ex, sliceVar)
                             sliceVar = None
 

@@ -42,7 +42,7 @@ import MMA.debug
 
 from . import gbl
 from MMA.common import *
-from MMA.miditables import NONETONE
+from MMA.miditables import NONETONE, drumKits
 
 pats = {}        # Storage for all pattern defines
 
@@ -365,8 +365,17 @@ class PC:
                         break
 
             if c < 0:
-                error("No MIDI channel is available for %s, "
-                      "Try CHShare or Delete unused tracks" % self.name)
+                # parse all tracks and find lowest allocated offset
+                lowOff = gbl.tickOffset
+                lowCh = -1
+                for ch in range(1, 17):
+                    if ch == 10:
+                        pass
+                    t = gbl.mtrks[ch].getLastOffset()
+                    if t < lowOff:
+                        lowOff = t
+                        lowCh = ch
+                c = lowCh
 
         else:
             c = stoi(ln, "%s Channel assignment expecting Value, not %s" %
@@ -407,7 +416,7 @@ class PC:
                     continue
 
                 if tr.channel == c:
-                    error("Channel %s is assigned to %s" % (c, tr.name))
+                    warning("Channel %s is being reassigned to %s" % (c, tr.name))
 
         self.channel = c
         if not self.name in gbl.midiAssigns[c]:
@@ -847,8 +856,22 @@ class PC:
         """
 
         ln = lnExpand(ln, '%s Voice' % self.name)
-        tmp = []
 
+        # It we have a drum track, permit setting voice with the
+        # the name of a drumkit. Note, kitnames all end with "KIT"
+        # but the actual kits are stored without.
+        if self.vtype == 'DRUM':
+            tmp = [ x.upper() for x  in ln ]
+            newline = []
+            for a in tmp:
+                if a.endswith('KIT'):
+                    a = a[:-3]
+                    if a in drumKits:
+                        a = str(drumKits[a])
+                newline.append(a)
+            ln = newline
+
+        tmp = []
         for n in ln:
             voc = MMA.midiC.decodeVoice(n)
             tmp.append(voc)

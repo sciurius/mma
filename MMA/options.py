@@ -196,13 +196,15 @@ def opts(l=None):
 
         elif o == '-V':
             import MMA.file
-            if internal:
+            
+            if internal:   # can't have a -V in a -V :)
                 cmdError("-V")
+                
             gbl.playFile = 2  # signal create and play groove
             if not args:
                 error("-V: option requires Groove Name.")
 
-            _, tfile = tempfile.mkstemp(prefix="MMA_", suffix=".mid")
+            _, tfile = tempfile.mkstemp(prefix="MMA_", suffix=".mma")
             op = open(tfile, "w")
             groove = ''
             cmds = []
@@ -245,7 +247,7 @@ def opts(l=None):
             MMA.exits.files.append(tfile)
 
             args = [tfile]  # fake the CLI so mma thinks the created file is yours
-
+            
         elif o=='-x':  # any one of some xtra, seldom used, options
             import MMA.xtra
             MMA.xtra.xoption(a, args)

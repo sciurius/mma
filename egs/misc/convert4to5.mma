@@ -1,0 +1,36 @@
+// Simple example to play a 4/4
+// groove in 5/4 time ... silly
+// 'cause it's easy enough to create
+// the 5/4 to start :)
+
+Tempo 100
+Groove NiteJazz
+
+// All we do is create 1/4 bars followed by 4/4
+Truncate 1
+C
+C
+Truncate 1
+G
+G
+Truncate 1
+Dm
+Dm
+Truncate 1
+C
+C
+
+// That works, but it is a bit ugly. How about using a subroutine. This
+// produces the same sequences.
+
+DefCall To54 chord
+  Truncate 1
+  $Chord
+  $Chord
+EndDefCall
+
+Call To54 C
+Call To54 G
+Call To54 Dm
+Call To54 C
+

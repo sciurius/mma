@@ -25,14 +25,16 @@ This module has support for some simple default tweaks.
 """
 
 from MMA.common import *
-import MMA.pat
 import MMA.midiC
 
 import copy
 
-
 def setTweak(ln):
     """ Option tweaks. """
+
+    import MMA.pat   # here to avoid a circular dep problem
+    from miditables import drumKits
+   
 
     notopt, ln = opt2pair(ln)
 
@@ -48,6 +50,19 @@ def setTweak(ln):
         elif cmd == 'DEFAULTVOICE':
             MMA.pat.defaultVoice = MMA.midiC.decodeVoice(opt)
 
+        elif cmd == 'DRUMKIT':
+            opt = opt.upper()
+            if opt.endswith('KIT'):  # optional, end kit name with 'KIT'
+                opt = opt[:-3]
+            if opt in drumKits:
+                opt = drumKits[opt]
+            else:
+                opt = stoi(opt)
+                if opt<0 or opt>127:
+                    error("Tweaks DrumKit: value must be 0..127 not '%s'." % opt)
+                    
+            MMA.pat.defaultDrum = opt
+            
         elif cmd == 'DIM':
             from MMA.chordtable import chordlist
 

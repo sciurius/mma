@@ -22,7 +22,7 @@ Bob van der Poel <bob@mellowood.ca>
 
 """
 
-version = "20.02c"        # Version -- May/2020
+version = "20.02d"        # Version -- June/2020
 
 """ A few globals are actually set in the calling stub, mma.py. This is
     done to make future ports and platform specific settings a bit easier.
@@ -88,7 +88,7 @@ muteTracks = []
 ############# String constants ####################
 
 
-EXT = ".mma"        # extension for song/lib files (STATC).
+EXT = ".mma"        # extension for song/lib files (STATIC).
 
 
 ##############  Tempo, and other midi positioning.  #############

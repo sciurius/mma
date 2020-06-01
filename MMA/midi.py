@@ -501,6 +501,19 @@ class Mtrk:
         out.write(intToLong(totsize))
         out.write(tdata)
 
+    def getLastOffset(self):
+        """ Go though the data and find the last offset. 
+            Used in re-allocating tracks. A completely
+            empty track will return 0, but that's okay
+            and shouldn't happen in any event.
+        """
+
+        offset = 0  
+        for a in self.miditrk:
+            if a > offset:
+                offset = a
+        return offset
+    
     def addPairToTrack(self, boffset, startRnd, endRnd, duration, note, v, unify ):
         """ Add a note on/off pair to a track.
 

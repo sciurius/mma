@@ -200,6 +200,7 @@ def parse(inpath):
             a line number on a line by itself it okay.
         """
 
+        
         if action.isdigit():   # isdigit() matches '1', '1234' but not '1a'!
             gbl.barLabel = l[0].lstrip('0')
             l = l[1:]
@@ -259,7 +260,6 @@ def parse(inpath):
         # Create MIDI data for the bar
 
         for rpt in range(rptcount):   # for each bar in the repeat count ( Cm * 3)
-
             """ Handle global (de)cresc by popping a new volume off stack. """
 
             if MMA.volume.futureVol:
@@ -345,7 +345,7 @@ def parse(inpath):
 
             if rpt and MMA.after.needed():
                 MMA.after.check(recurse=True)
-            
+                
 ##################################################################
 
 def allTracks(ln):
@@ -400,7 +400,7 @@ def repeatending(ln):
 
 
 def endmset(ln):
-    error("EndMset/MSetEnd without If")
+    error("EndMset/MSetEnd without Mset")
 
 
 def ifend(ln):
