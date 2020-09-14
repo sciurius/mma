@@ -54,7 +54,7 @@ drumNames = {
     75: 'Claves', 76: 'HighWoodBlock', 77: 'LowWoodBlock',
     78: 'MuteCuica', 79: 'OpenCuica', 80: 'MuteTriangle',
     81: 'OpenTriangle', 82: 'Shaker', 83: 'JingleBell',
-    84: 'Castanets', 85: 'MuteSudro', 86: 'OpenSurdo'}
+    84: 'Castanets', 85: 'MuteSurdo', 86: 'OpenSurdo'}
 
 drumInx = dict((v.upper(), k) for (k, v) in drumNames.items())
 

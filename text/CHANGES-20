@@ -58,3 +58,15 @@ Added: -xGrooves. This will list all grooves in the database. You can use an
 
 Released 20.20d - June 1/2020
 -----------------------------
+
+Fixed yet another mispelling in drum tones. MuteSudro should read MuteSurdo.
+
+Fixed a number of minor "oversights" in the stdlib: Some grooves did not show in
+  the docs dues to missing documentation strings and JazzGuitar3 definition
+  was clobbered.
+
+Added a -Djs command line option. This gathers all the groove information parsed
+  by MMA and prints it to stdout as a json string.
+
+Harmony: Added TOP, ROOT (and variants); randomized selection of harmonies;
+  cleaned up docs; optimized code.

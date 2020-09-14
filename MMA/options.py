@@ -147,6 +147,9 @@ def opts(l=None):
             elif a == 'gh':
                 gbl.createDocs = 4
 
+            elif a == 'js':
+                gbl.createDocs = 5
+
             elif a == 'bo':
                 gbl.createDocs = 99
 
@@ -299,6 +302,7 @@ def usage(msg=''):
         " -Dxl  eXtract Latex doc blocks from file",
         " -Dxh  eXtract HTML doc blocks from file",
         " -Dgh  extract HTML Groove doc",
+        " -Djs  extract JSON Groove information",
         " -Dbo  extract text for browser app",
         " -Ds   extract sequence lists from file",
         " -e    show parsed/Expanded lines",

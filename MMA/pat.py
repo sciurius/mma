@@ -1210,7 +1210,7 @@ class PC:
             a = stoi(n, "Expecting value in articulation setting")
             a = getIncDecValue(self.artic[i], incr, a)
 
-            if self.vtype is 'PLECTRUM':
+            if self.vtype == 'PLECTRUM':
                 if a < 0 or a > 500:
                     error("%s: Articulation setting must be 0 .. 500 (midi ticks), not %s" %
                           (self.name, a))
