@@ -61,10 +61,19 @@ gbl.logFile = safeEnv('MMA_LOGFILE')
 
 MMA.paths.init()   # initialize the lib/include paths
 
-
 # Get our command line stuff
 
 MMA.options.opts()
+
+# process a few additional env variables.
+
+m = safeEnv('MMA_LIBPATH')
+if m:
+    MMA.paths.addLibPath(m)
+    
+m = safeEnv('MMA_PLUGPATH')
+if m:
+    MMA.paths.addPlugPath(m)
 
 #  LibPath and IncPath are set before option parsing, but
 #  debug setting wasn't. So we need to do the debug for this now
@@ -106,6 +115,9 @@ if gbl.makeGrvDefs:
 # We need an input file for anything after this point.
 
 if not gbl.infile:
+    if gbl.createDocs:
+        gbl.lineno = -1
+        error("-D options require a filename.")
     MMA.options.usage("No input filename specified.")
 
 ################################

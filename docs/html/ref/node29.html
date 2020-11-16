@@ -46,7 +46,7 @@
 <H1><A ID="SECTION002900000000000000000"></A> <A ID="sec-envvar"></A>
 <BR>
 Enviroment Variables
-</H1>
+</H1> 
 
 <P>
 
@@ -67,12 +67,12 @@ in the future to support arcane and unusual requests.
 <P>
 </DD>
 <DT><STRONG>MMA_LOGFILE=filename</STRONG></DT>
-<DD>Rather than printing errors and other runtime
-  information to standard output (the terminal screen) this option
-  sets a filename for saving the output. Note that if the file already
-  exists it will be appended to (useful when you have multiple files
-  to debug). F<SMALL>ILENAME</SMALL> should be a normal
-  file name understood by your operating system.
+<DD>Rather than printing errors and other
+  runtime information to standard output (the terminal screen) this
+  option sets a filename for saving the output. Note that if the file
+  already exists it will be appended to (useful when you have multiple
+  files to debug). F<SMALL>ILENAME</SMALL> should be a normal file name
+  understood by your operating system.
 
 <P>
 The file will only be created if there is output other than 
@@ -94,12 +94,60 @@ The easy way to use this is with a command line like:
 
 <P>
 </DD>
+<DT><STRONG>MMA_LIBPATH=paths</STRONG></DT>
+<DD>A comma separated list of paths or
+  directories to prepend to the start of default library path list.
+  Each item in the list is evaluated to process any
+  &ldquo;~&rdquo; settings. For example:
+
+<P>
+
+      <Table Hspace="40%" CellSpacing=0 CellPadding=10 BGColor="OldLace" Border=3>
+        <tr><td>
+    <B>$ MMA_LIBPATH=~/my/mma/dir,anotherDir mma
+    test.mma  </B> 
+   
+	    </td></tr>
+      </Table>
+
+<P>
+will set the $_P<SMALL>ATH</SMALL>L<SMALL>IB</SMALL> to the list:
+  ['/home/bob/my/mma/dir', 'anotherDir', '/home/bob/src/bv/mma/lib'].
+
+<P>
+</DD>
+<DT><STRONG>MMA_PLUGPATH=paths</STRONG></DT>
+<DD>A comma separated list of paths or
+  directories to prepend to the default plugin path list. See
+  MMA_LIBPATH, above, for details.
+
+<P>
+</DD>
 </DL>
 
 <P>
 
 <P>
-<BR><HR>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node30.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="mma.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node28.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A
+ HREF="node30.html">Other Commands and Directives</A>
+<B> Up:</B> <A
+ HREF="mma.html">Reference Manual</A>
+<B> Previous:</B> <A
+ HREF="node28.html">Fine Tuning and Tweaks</A></DIV>
+<!--End of Navigation Panel-->
 
 </BODY>
 </HTML>

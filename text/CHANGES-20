@@ -70,3 +70,22 @@ Added a -Djs command line option. This gathers all the groove information parsed
 
 Harmony: Added TOP, ROOT (and variants); randomized selection of harmonies;
   cleaned up docs; optimized code.
+
+
+Released 20.20e - June 1/2020
+-----------------------------
+
+The main caller, mma.py, has been modified so that the standard python library
+  locations are checked for the mma modules.
+
+The mmarc search path now includes $HOME/.config/mma/mmarc.
+
+Added env variables MMA_PLUGPATH and MMA_LIBPATH. These are comma separated lists of
+ additional directories. The are inserted into the default paths.
+
+Added: -xPRINT var1 var2 ... Print out the values of various system variables
+  at initialization.
+
+
+Released 20.20f - November 16/2020
+----------------------------------

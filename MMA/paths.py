@@ -26,6 +26,7 @@ This module contains functions for setting various path variables.
 
 import os
 import tempfile
+from os import environ
 
 from . import gbl
 from MMA.common import *
@@ -108,7 +109,9 @@ def readRC():
     if mmaRC:
         rcfiles = [mmaRC]
     else:
-        rcfiles = ('mmarc', 'c:\\mma\\mmarc', '~/.mmarc', '/usr/local/etc/mmarc', '/etc/mmarc')
+        rcfiles = ('mmarc', 'c:\\mma\\mmarc',
+                   '~/.config/mma/mmarc', '~/.mmarc',
+                   '/usr/local/etc/mmarc', '/etc/mmarc')
 
     readDone = 0
     for i in rcfiles:
@@ -206,7 +209,14 @@ def setLibPath(ln, user=1):
     if MMA.debug.debug:
         dPrint("LibPath set: %s" % ' '.join(libPath))
 
+def addLibPath(m):
+    """ Prepend the comma separated paths to the current path list.
+        Called from main() to set env variable MMA_LIBPATH. """
 
+    m = m.split(',')
+    m.extend(libPath)
+    setLibPath(m)
+    
 def expandLib(user=0):
     """ Expand the library paths from the list in libdir. """
 
@@ -319,3 +329,12 @@ def setPlugPath(ln):
 
     if MMA.debug.debug:
         dPrint("PlugPath set: %s" % ' '.join(plugPaths))
+        
+def addPlugPath(m):
+    """ Prepend the comma separated paths to the current plugin path list.
+        Called from main to set env variable MMA_PLUGPATH. """
+
+    m = m.split(',')
+    m.extend(plugPaths)
+    setPlugPath(m)
+
