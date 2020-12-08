@@ -65,15 +65,6 @@ MMA.paths.init()   # initialize the lib/include paths
 
 MMA.options.opts()
 
-# process a few additional env variables.
-
-m = safeEnv('MMA_LIBPATH')
-if m:
-    MMA.paths.addLibPath(m)
-    
-m = safeEnv('MMA_PLUGPATH')
-if m:
-    MMA.paths.addPlugPath(m)
 
 #  LibPath and IncPath are set before option parsing, but
 #  debug setting wasn't. So we need to do the debug for this now

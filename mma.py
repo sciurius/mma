@@ -65,21 +65,41 @@ else:
 
 dirlist.extend(sys.path[1:])
 
+# If a home path is specified via env variable the other
+# MMA known paths from above will not be checked for modules.
+
+envpath = os.environ.get('MMA_HOME')
+if envpath != None:
+    if envpath == '':
+        print("MMA_HOME needs a value, use MMA_HOME=path.")
+        sys.exit(1)
+    dirlist = [os.path.abspath(envpath)]
+
+# Call the mainline code.
+# NOTE: the variables MMAdir and platform are read (imported)
+#       by gbl.py from this module.
+
 MMAdir = None
+
 for d in dirlist:
     moddir = os.path.join(d, 'MMA')
     if os.path.isdir(moddir):
         if not d in sys.path:
             sys.path.insert(0, d)
         MMAdir = d
-        break
+        try:
+            import MMA.main
+            sys.exit(0)
+        except ImportError:
+            print("Found MMA directory in '%s'. Unable to execute MMA.main.py." % MMAdir)
+            sys.exit(1)
 
-if not MMAdir:
-    print("Unable to find the modules needed for MMA. Please check your installation.")
-    sys.exit(-1)
+# we get here failing to find a MMA directory.
 
-# Call the mainline code. Hopefully, byte-compiled.
-# NOTE: the variables MMAdir and platform are read (imported)
-#       by gbl.py.
-import MMA.main
+print("Unable to find the modules needed for MMA. Please check your installation.")
+if envpath:
+    msg = envpath
+else:
+    msg = dirlist
+print("Could not find 'MMA.main.py' in '%s'." % msg)
 

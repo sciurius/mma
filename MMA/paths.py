@@ -34,6 +34,7 @@ import MMA.auto
 import MMA.grooves
 import MMA.exits
 import MMA.debug
+from  MMA.safe_eval import safeEnv
 
 outfile = ''
 
@@ -49,18 +50,50 @@ mmaRC    = None
 def init():
     """ Called from main. In mma.py we checked for known directories and
         inserted the first found 'mma' directory into the sys.path list and
-        set MMAdir. Now, set the lib/inc lists.
+        set MMAdir. Now, set the lib/inc/plug lists. ENV variables are inserted
+        at the beginning of each path.
     """
-    
-    setLibPath([os.path.join(gbl.MMAdir, 'lib')], user=0)
-    if not libPath or not os.path.isdir(libPath[0]):
-        dPrint("Warning: Library directory not found (check mma.py).")
 
-    setIncPath([os.path.join(gbl.MMAdir, 'includes')])
-    if not incPath or not os.path.isdir(incPath[0]):
-        dPrint("Warning: Include directory not found.")
+    def testpaths(paths, msg):
+        """ Test validity of paths. No errors ...
+            hope user notices he/she buggered up
+        """
+        for t in paths:
+            if not os.path.exists(t):
+                warning("%s '%s' does not exist." % (msg, t))
+            elif not os.path.isdir(t):
+                warning("%s '%s' is not a directory." % (msg, t))
 
-    setPlugPath([os.path.join(gbl.MMAdir, "plugins")] )
+    # set libpath
+    t = safeEnv('MMA_LIBPATH')
+    if t:
+        t = t.split(os.pathsep)
+    else:
+        t = []
+    t.append(os.path.join(gbl.MMAdir, 'lib'))
+    setLibPath(t, user=0)
+    testpaths(libPath, "LIBRARY")
+
+    # set incpath
+    t = safeEnv('MMA_INCPATH')
+    if t:
+        t = t.split(os.pathsep)
+    else:
+        t = []
+    t.append(os.path.join(gbl.MMAdir, 'includes'))
+    setIncPath(t)
+    testpaths(incPath, "INCLUDE")
+
+    # set plugpaths
+    t = safeEnv('MMA_PLUGPATH')
+    if t:
+        t = t.split(os.pathsep)
+    else:
+        t = []
+    t.append(os.path.join(gbl.MMAdir, "plugins"))
+    setPlugPath(t)
+    testpaths(plugPaths, "PLUGIN")
+
 
 
 ##################################
@@ -209,13 +242,6 @@ def setLibPath(ln, user=1):
     if MMA.debug.debug:
         dPrint("LibPath set: %s" % ' '.join(libPath))
 
-def addLibPath(m):
-    """ Prepend the comma separated paths to the current path list.
-        Called from main() to set env variable MMA_LIBPATH. """
-
-    m = m.split(',')
-    m.extend(libPath)
-    setLibPath(m)
     
 def expandLib(user=0):
     """ Expand the library paths from the list in libdir. """
@@ -329,12 +355,5 @@ def setPlugPath(ln):
 
     if MMA.debug.debug:
         dPrint("PlugPath set: %s" % ' '.join(plugPaths))
-        
-def addPlugPath(m):
-    """ Prepend the comma separated paths to the current plugin path list.
-        Called from main to set env variable MMA_PLUGPATH. """
-
-    m = m.split(',')
-    m.extend(plugPaths)
-    setPlugPath(m)
+      
 
