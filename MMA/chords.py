@@ -511,6 +511,10 @@ class ChordNotes:
         # Look for a matching note from the scale in the chord
         # By using remove() we only remove the 1st instance (a good thing)
         # Note: on a 3 note chord this could make it into 2 note chord.
+        # Note: If we are forcing a drop of the root on chords like '11' which
+        #       we (wrongly?) include 2 copies of root (actually we change the 3rd
+        #       to a root) to prevent the 3rd being voiced we end up with a bit of
+        #       a problem since we only remove the 1st match. Uuuggghhh!
         if mode and (v < self.noteListLen or force):
             try:
                 self.noteList.remove(self.scaleList[mode-1])
