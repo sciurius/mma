@@ -681,7 +681,7 @@ class ChordNotes:
         return None
 
     def drop3key(self):
-        " Drop3 and key rotate. """
+        """ Drop3 and key rotate. """
 
         self.drop3()
         self.keycenter()
@@ -700,7 +700,9 @@ class ChordNotes:
         self.drop23()
         self.keycenter()
         return None
-    
+
+
+
 ######## End of Chord class #####
 
 

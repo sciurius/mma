@@ -19,3 +19,11 @@ Added a ERROR command. Text after the error is displayed and compilation stops.
 
 Released 21.09.1 - August 29/2022
 ------------------------------
+
+Changed the parser so that when setting the scale offset to use with bass
+ patterns '-' and/or '+' can be placed before the digit(s) as well as after.
+ For some people, I guess, it makes more sense to put the octave modifier first.
+
+The options chord voicing options drop23 and drop23key had been commented out
+ in 21.09 and 21.09.1. No idea why or how ... but they are back.
+
