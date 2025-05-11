@@ -7,7 +7,7 @@
 [![Built by
 musicians](https://img.shields.io/badge/built%20by-musicians%20𝄞-d15d27.svg?&labelColor=e36d25)](https://forthebadge.com)
 ![Language Python](https://img.shields.io/badge/Language-Python-blue)
-[![User Forum](https://img.shields.io/badge/forum-groups.io%2Fg%2FChordPro-8fff00)](https://groups.io/g/mma)
+[![User Forum](https://img.shields.io/badge/forum-groups.io%2Fg%2Fmma-8fff00)](https://groups.io/g/mma)
 
 This is a git shadow of the original MMA development sources.
 
