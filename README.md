@@ -11,4 +11,4 @@ musicians](https://img.shields.io/badge/built%20by-musicians%20𝄞-d15d27.svg?&
 
 This is a git shadow of the original MMA development sources.
 
-See the MMA site for details about MMA.
+See the [MMA site](https://mellowood.ca/mma) for details about MMA.
